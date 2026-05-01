@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-01T05:31:58.664942+00:00",
+  "uretim_zamani": "2026-05-01T09:58:18.117779+00:00",
   "haberler": [
     {
-      "baslik": "Chinese Courts Rule Companies Cannot Fire Workers Simply to Replace Them With AI",
-      "url": "https://www.caixinglobal.com/2026-04-30/chinese-courts-rule-companies-cannot-fire-workers-simply-to-replace-them-with-ai-102439602.html",
-      "kaynak": "Reddit",
-      "skor": 23821,
-      "yas_saat": 12.7,
-      "yorum_sayisi": 932
+      "baslik": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
+      "url": "https://twitter.com/theo/status/2049645973350363168",
+      "kaynak": "HN",
+      "skor": 1163,
+      "yas_saat": 19.4,
+      "yorum_sayisi": 636
     },
     {
-      "baslik": "Meta lost 20 million users last quarter",
-      "url": "https://www.theverge.com/tech/921089/meta-earnings-q1-2026-user-decline-ai-investments",
-      "kaynak": "Reddit",
-      "skor": 21253,
-      "yas_saat": 17.8,
-      "yorum_sayisi": 1676
+      "baslik": "Belgium stops decommissioning nuclear power plants",
+      "url": "https://dpa-international.com/general-news/urn:newsml:dpa.com:20090101:260430-930-14717/",
+      "kaynak": "HN",
+      "skor": 821,
+      "yas_saat": 21.7,
+      "yorum_sayisi": 830
     },
     {
-      "baslik": "The more young people use AI, the more they hate it",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/920401/gen-z-ai",
-      "kaynak": "Reddit",
-      "skor": 18733,
-      "yas_saat": 17.0,
-      "yorum_sayisi": 1458
+      "baslik": "Can I disable all data collection from my vehicle?",
+      "url": "https://rivian.com/support/article/can-i-disable-all-data-collection-from-my-vehicle",
+      "kaynak": "HN",
+      "skor": 633,
+      "yas_saat": 13.5,
+      "yorum_sayisi": 258
     }
   ]
 }
