@@ -9,15 +9,16 @@ on:
       gizlilik:
         description: "Yayın gizliliği (private | unlisted | public)"
         required: false
-        default: "private"
+        default: "public"
         type: choice
         options:
-          - private
-          - unlisted
           - public
+          - unlisted
+          - private
 
 permissions:
-  contents: write   # yuklemeler.json + haberler.json commit edebilmek için
+  contents: write   # yuklemeler.json + haberler.json commit
+  issues: write     # fail durumunda otomatik issue (mail bildirimi tetikler)
 
 jobs:
   shorts-pipeline:
@@ -70,7 +71,7 @@ jobs:
 
       - name: 4) Yükleyici — YouTube Shorts upload
         env:
-          GIZLILIK: ${{ github.event.inputs.gizlilik || 'private' }}
+          GIZLILIK: ${{ github.event.inputs.gizlilik || 'public' }}
         run: python yukleyici.py --gizlilik "$GIZLILIK"
 
       - name: State commit (yuklemeler.json + haberler.json)
@@ -98,3 +99,20 @@ jobs:
             haberler.json
           retention-days: 7
           if-no-files-found: ignore
+
+      - name: Hata bildirimi (fail durumunda issue aç → mail tetiklenir)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "🚨 Pipeline FAIL — run #${{ github.run_number }} ($(date -u +'%Y-%m-%d %H:%MZ'))" \
+            --body "Workflow başarısız oldu. Detaylar için run sayfasını aç:
+
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          - Run number: ${{ github.run_number }}
+          - Tetikleyici: ${{ github.event_name }}
+          - Bittiği zaman: $(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
+          Bu issue otomatik açıldı. Sorunu çözünce close et."
