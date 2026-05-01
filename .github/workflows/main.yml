@@ -1,0 +1,100 @@
+name: M-R Otonom Pipeline
+
+on:
+  schedule:
+    # TR 19:00 ve 22:00 → UTC 16:00 ve 19:00 (TR = UTC+3)
+    - cron: "0 16,19 * * *"
+  workflow_dispatch:
+    inputs:
+      gizlilik:
+        description: "Yayın gizliliği (private | unlisted | public)"
+        required: false
+        default: "private"
+        type: choice
+        options:
+          - private
+          - unlisted
+          - public
+
+permissions:
+  contents: write   # yuklemeler.json + haberler.json commit edebilmek için
+
+jobs:
+  shorts-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Write secrets to runtime files
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
+          TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+        run: |
+          {
+            echo "GEMINI_API_KEY=${GEMINI_API_KEY}"
+            echo "PEXELS_API_KEY=${PEXELS_API_KEY}"
+          } > .env
+          printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
+          printf '%s' "$TOKEN_JSON"         > token.json
+          # Sağlamlık doğrulaması (içerik yok ya da bozuksa burada erken patlasın)
+          python -c "import json; json.load(open('client_secret.json')); json.load(open('token.json')); print('secrets OK')"
+
+      - name: 1) Haberci — son 24h teknoloji haberi top 3
+        run: python haberci.py
+
+      - name: 2) Seslendirici — Gemini senaryo + edge-tts MP3
+        run: python seslendirici.py
+
+      - name: 3) Montajcı — Pexels + ffmpeg → 1080×1920 MP4
+        run: python montajci.py
+
+      - name: 4) Yükleyici — YouTube Shorts upload
+        env:
+          GIZLILIK: ${{ github.event.inputs.gizlilik || 'private' }}
+        run: python yukleyici.py --gizlilik "$GIZLILIK"
+
+      - name: State commit (yuklemeler.json + haberler.json)
+        if: always()
+        run: |
+          git config user.name  "M-R Otonom Bot"
+          git config user.email "actions@github.com"
+          git add yuklemeler.json haberler.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "state: $(date -u +'%Y-%m-%dT%H:%MZ') run #${{ github.run_number }}"
+            git push
+          else
+            echo "State değişmedi, commit yok."
+          fi
+
+      - name: Upload artifacts (debug için)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-output-${{ github.run_number }}
+          path: |
+            ses_ciktilari/
+            shorts_ciktilari/
+            yuklemeler.json
+            haberler.json
+          retention-days: 7
+          if-no-files-found: ignore

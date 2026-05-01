@@ -1,0 +1,11 @@
+.env
+client_secret.json
+token.json
+yedekler/
+gecici_video/
+haberler.json
+yuklemeler.json
+ses_ciktilari/
+shorts_ciktilari/
+__pycache__/
+*.pyc
