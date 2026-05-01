@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-01T09:58:18.117779+00:00",
+  "uretim_zamani": "2026-05-01T11:19:34.348454+00:00",
   "haberler": [
     {
       "baslik": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
       "url": "https://twitter.com/theo/status/2049645973350363168",
       "kaynak": "HN",
-      "skor": 1163,
-      "yas_saat": 19.4,
-      "yorum_sayisi": 636
+      "skor": 1180,
+      "yas_saat": 20.7,
+      "yorum_sayisi": 649
     },
     {
       "baslik": "Belgium stops decommissioning nuclear power plants",
       "url": "https://dpa-international.com/general-news/urn:newsml:dpa.com:20090101:260430-930-14717/",
       "kaynak": "HN",
-      "skor": 821,
-      "yas_saat": 21.7,
-      "yorum_sayisi": 830
+      "skor": 829,
+      "yas_saat": 23.0,
+      "yorum_sayisi": 848
     },
     {
       "baslik": "Can I disable all data collection from my vehicle?",
       "url": "https://rivian.com/support/article/can-i-disable-all-data-collection-from-my-vehicle",
       "kaynak": "HN",
-      "skor": 633,
-      "yas_saat": 13.5,
-      "yorum_sayisi": 258
+      "skor": 639,
+      "yas_saat": 14.9,
+      "yorum_sayisi": 264
     }
   ]
 }
