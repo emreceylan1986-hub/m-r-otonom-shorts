@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-03T16:38:26.558785+00:00",
+  "uretim_zamani": "2026-05-03T19:47:57.360372+00:00",
   "haberler": [
     {
-      "baslik": "This Month in Ladybird – April 2026",
-      "url": "https://ladybird.org/newsletter/2026-04-30/",
+      "baslik": "Mercedes-Benz commits to bringing back physical buttons",
+      "url": "https://www.drive.com.au/news/mercedes-benz-commits-to-bringing-back-phycial-buttons/",
       "kaynak": "HN",
-      "skor": 448,
-      "yas_saat": 19.9,
-      "yorum_sayisi": 128
+      "skor": 450,
+      "yas_saat": 5.1,
+      "yorum_sayisi": 265
     },
     {
-      "baslik": "Do_not_track",
-      "url": "https://donottrack.sh/",
+      "baslik": "A couple million lines of Haskell: Production engineering at Mercury",
+      "url": "https://blog.haskell.org/a-couple-million-lines-of-haskell/",
       "kaynak": "HN",
-      "skor": 443,
-      "yas_saat": 23.0,
-      "yorum_sayisi": 136
+      "skor": 381,
+      "yas_saat": 19.8,
+      "yorum_sayisi": 187
     },
     {
-      "baslik": "Six Years Perfecting Maps on WatchOS",
-      "url": "https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/",
+      "baslik": "Neanderthals ran 'fat factories' 125k years ago (2025)",
+      "url": "https://www.universiteitleiden.nl/en/news/2025/07/neanderthals-ran-fat-factories-125000-years-ago",
       "kaynak": "HN",
-      "skor": 395,
-      "yas_saat": 19.4,
-      "yorum_sayisi": 98
+      "skor": 275,
+      "yas_saat": 23.1,
+      "yorum_sayisi": 149
     }
   ]
 }
