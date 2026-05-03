@@ -21,6 +21,7 @@ SES_KLASORU = PANEL_KOK / "ses_ciktilari"
 CLIENT_SECRET = PANEL_KOK / "client_secret.json"
 TOKEN_DOSYASI = PANEL_KOK / "token.json"
 YUKLEME_LOGU = PANEL_KOK / "yuklemeler.json"
+DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow issue tetikleyici
 
 YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
@@ -43,7 +44,7 @@ Rules:
 """
 
 
-def _adim(n: int, m: str) -> None:
+def _adim(n, m: str) -> None:
     print(f"\n[yukleyici · adım {n}] {m}", flush=True)
 
 
@@ -291,6 +292,25 @@ def main() -> int:
         veri = metadatayi_denetlet(veri, senaryo)
         _alt(f"Final title: {veri['title']}")
 
+        _adim("3b", "Yayın uygunluk denetimi (telif/clickbait/olgusal/politika/marka)...")
+        denetim = bridge.icerik_uygunluk_denetimi(
+            senaryo=senaryo,
+            baslik=veri["title"],
+            aciklama=veri["description"],
+            etiketler=veri["tags"],
+        )
+        _alt(f"Karar: {denetim['karar']} — {denetim['sebep']}")
+        if denetim.get("risk_alanlari"):
+            _alt(f"Risk: {', '.join(denetim['risk_alanlari'])}")
+
+        denetim_notu = None
+        if denetim["karar"] in {"SUPHELI", "REDDED"}:
+            denetim_notu = f"{denetim['karar']}: {denetim['sebep']} (risk: {','.join(denetim.get('risk_alanlari', []))})"
+            if args.gizlilik != "private":
+                _alt(f"⚠️ Şüpheli içerik → gizlilik PRIVATE'a override edildi (orijinal istek: {args.gizlilik})")
+                args.gizlilik = "private"
+            DENETIM_UYARI_FLAG.write_text(denetim_notu, encoding="utf-8")
+
         _adim(4, "OAuth: kimlik doğrulama / token yenileme...")
         youtube = youtube_istemcisi()
         _alt("YouTube istemcisi hazır ✓")
@@ -331,6 +351,8 @@ def main() -> int:
             "boyut_mb": round(boyut_mb, 2),
             "watch_url": watch_url,
             "studio_url": studio_url,
+            "denetim_notu": denetim_notu,
+            "denetim_karari": denetim["karar"],
         })
         _alt(f"Log: {YUKLEME_LOGU.name} güncellendi")
 

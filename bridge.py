@@ -174,6 +174,62 @@ Kararı sıkı tut: ufak da olsa iyileştirme varsa REVIZE ver.
 """
 
 
+UYGUNLUK_DENETIM_SISTEM = """Sen YouTube Shorts yayın editörüsün. Sana bir video
+paketi (senaryo + başlık + açıklama + etiketler) sunulacak. Beş net kritere göre
+uygunluk değerlendir:
+
+1. TELİF: marka adı, lisanslı karakter, şirket logosu, yapıt referansı içeriyor mu?
+2. CLICKBAIT/YANILTICI: başlık ile içerik uyumsuz mu, abartı vaat mi var mı?
+3. OLGUSAL HATA: senaryo gerçekleri çarpıtıyor mu, doğrulanmamış iddia var mı?
+4. TOPLULUK POLİTİKASI: küfür, siyasi tahrik, sağlık iddiası, kumar/finans tavsiyesi,
+   nefret söylemi, kişisel saldırı, şiddet?
+5. MARKA TUTARLILIĞI: TrendCatcher tonuna (haber + bilgilendirme) uygun mu?
+
+KARAR ÜRETME KURALI:
+- Hiçbir risk yok → UYGUN
+- En küçük şüphe bile var → SUPHELI
+- Net ihlal var → REDDED
+
+YALNIZCA bu JSON ile cevap ver:
+{
+  "karar": "UYGUN" | "SUPHELI" | "REDDED",
+  "sebep": "tek cümle gerekçe",
+  "risk_alanlari": ["telif" | "clickbait" | "olgusal" | "politika" | "marka"]
+}
+"""
+
+
+def icerik_uygunluk_denetimi(senaryo: str, baslik: str, aciklama: str, etiketler: list) -> dict:
+    """
+    Yükleme öncesi son denetim. Şüpheli/redded sonuç → yukleyici otomatik
+    PRIVATE'a düşürür ve uyarı flag oluşturur.
+    """
+    paket = (
+        f"BAŞLIK: {baslik}\n\n"
+        f"AÇIKLAMA:\n{aciklama}\n\n"
+        f"ETİKETLER: {', '.join(etiketler)}\n\n"
+        f"SENARYO:\n{senaryo}"
+    )
+    client = _client()
+    yanit = client.models.generate_content(
+        model=MODEL,
+        contents=[types.Content(role="user", parts=[types.Part.from_text(text=paket)])],
+        config=types.GenerateContentConfig(
+            system_instruction=UYGUNLUK_DENETIM_SISTEM,
+            response_mime_type="application/json",
+            temperature=0.2,
+            max_output_tokens=2048,
+        ),
+    )
+    sonuc = _json_temizle_ve_parse((yanit.text or "").strip())
+    sonuc.setdefault("karar", "SUPHELI")  # parse hatası → güvenli taraf
+    sonuc.setdefault("sebep", "")
+    sonuc.setdefault("risk_alanlari", [])
+    if sonuc["karar"] not in {"UYGUN", "SUPHELI", "REDDED"}:
+        sonuc["karar"] = "SUPHELI"
+    return sonuc
+
+
 def metin_onay_iste(metin: str, baglam: str = "") -> dict:
     """
     Bir metni (senaryo, başlık vs.) Gemini'ye denetletir.

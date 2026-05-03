@@ -101,6 +101,26 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      - name: Denetim uyarısı (şüpheli/redded içerik → issue + mail)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f .denetim_uyari ]; then
+            NOT=$(cat .denetim_uyari)
+            gh issue create \
+              --title "⚠️ Denetim uyarısı — run #${{ github.run_number }}" \
+              --body "Yayın uygunluk denetimi içeriği şüpheli buldu, video PRIVATE olarak yüklendi.
+
+          **Karar/Sebep:** $NOT
+
+          Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          İncele: https://studio.youtube.com/ → TrendCatcher → Content → en yeni video.
+          Uygunsa Public yap, değilse Tamamen sil. Sorunu çözünce bu issue'yu kapat."
+            rm -f .denetim_uyari
+          fi
+
       - name: Hata bildirimi (fail durumunda issue aç → mail tetiklenir)
         if: failure()
         env:
