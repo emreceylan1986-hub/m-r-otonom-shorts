@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-03T15:27:11.575344+00:00",
+  "uretim_zamani": "2026-05-03T16:38:26.558785+00:00",
   "haberler": [
     {
-      "baslik": "VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage",
-      "url": "https://github.com/microsoft/vscode/pull/310226",
+      "baslik": "This Month in Ladybird – April 2026",
+      "url": "https://ladybird.org/newsletter/2026-04-30/",
       "kaynak": "HN",
-      "skor": 1359,
-      "yas_saat": 19.5,
-      "yorum_sayisi": 732
+      "skor": 448,
+      "yas_saat": 19.9,
+      "yorum_sayisi": 128
     },
     {
-      "baslik": "Dav2d",
-      "url": "https://code.videolan.org/videolan/dav2d",
+      "baslik": "Do_not_track",
+      "url": "https://donottrack.sh/",
       "kaynak": "HN",
-      "skor": 548,
-      "yas_saat": 21.9,
-      "yorum_sayisi": 155
+      "skor": 443,
+      "yas_saat": 23.0,
+      "yorum_sayisi": 136
     },
     {
-      "baslik": "NetHack 5.0.0",
-      "url": "https://nethack.org/v500/release.html",
+      "baslik": "Six Years Perfecting Maps on WatchOS",
+      "url": "https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/",
       "kaynak": "HN",
-      "skor": 478,
-      "yas_saat": 21.4,
-      "yorum_sayisi": 157
+      "skor": 395,
+      "yas_saat": 19.4,
+      "yorum_sayisi": 98
     }
   ]
 }
