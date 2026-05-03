@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-02T19:47:53.033560+00:00",
+  "uretim_zamani": "2026-05-03T15:27:11.575344+00:00",
   "haberler": [
     {
-      "baslik": "Why does it take so long to release black fan versions?",
-      "url": "https://www.noctua.at/en/expertise/blog/how-can-it-take-so-long-to-release-black-fan-versions",
+      "baslik": "VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage",
+      "url": "https://github.com/microsoft/vscode/pull/310226",
       "kaynak": "HN",
-      "skor": 634,
-      "yas_saat": 15.2,
-      "yorum_sayisi": 266
+      "skor": 1359,
+      "yas_saat": 19.5,
+      "yorum_sayisi": 732
     },
     {
-      "baslik": "Ti-84 Evo",
-      "url": "https://education.ti.com/en/products/calculators/graphing-calculators/ti-84-evo",
+      "baslik": "Dav2d",
+      "url": "https://code.videolan.org/videolan/dav2d",
       "kaynak": "HN",
-      "skor": 554,
-      "yas_saat": 23.7,
-      "yorum_sayisi": 449
+      "skor": 548,
+      "yas_saat": 21.9,
+      "yorum_sayisi": 155
     },
     {
-      "baslik": "Ask.com has closed",
-      "url": "https://www.ask.com/",
+      "baslik": "NetHack 5.0.0",
+      "url": "https://nethack.org/v500/release.html",
       "kaynak": "HN",
-      "skor": 412,
-      "yas_saat": 15.6,
-      "yorum_sayisi": 214
+      "skor": 478,
+      "yas_saat": 21.4,
+      "yorum_sayisi": 157
     }
   ]
 }
