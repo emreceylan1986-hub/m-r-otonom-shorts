@@ -134,7 +134,24 @@ def metadatayi_denetlet(veri: dict, senaryo: str) -> dict:
         return veri
 
     yeni = rapor.get("revize_metin", "")
-    
+
+    # Gemini bazen revize_metin alanını dict (yapılandırılmış) olarak döndürüyor.
+    # Bu durumda doğrudan title/description/tags alanlarını çekmeyi dene;
+    # değilse JSON'a serialize edip regex parser'a düş.
+    if isinstance(yeni, dict):
+        if any(k in yeni for k in ("title", "description", "tags")):
+            if yeni.get("title"):
+                veri["title"] = str(yeni["title"]).strip()
+            if yeni.get("description"):
+                veri["description"] = str(yeni["description"]).strip()
+            tags = yeni.get("tags")
+            if isinstance(tags, list) and tags:
+                veri["tags"] = [str(t).strip() for t in tags if str(t).strip()]
+            return _metadata_dogrula(veri)
+        yeni = json.dumps(yeni, ensure_ascii=False)
+    elif not isinstance(yeni, str):
+        yeni = str(yeni)
+
     # Daha sağlam, bağımsız regex'ler kullanın
     # Başlık: TITLE: ile başlayan ve bir sonraki satıra veya dizenin sonuna kadar olan her şeyi arayın
     yt_match = re.search(r"TITLE:\s*(.+?)(?:\n|$)", yeni)
