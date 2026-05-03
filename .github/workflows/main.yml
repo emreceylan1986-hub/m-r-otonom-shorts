@@ -74,12 +74,13 @@ jobs:
           GIZLILIK: ${{ github.event.inputs.gizlilik || 'public' }}
         run: python yukleyici.py --gizlilik "$GIZLILIK"
 
-      - name: State commit (yuklemeler.json + haberler.json)
+      - name: State commit (yuklemeler + haberler + haber_gecmisi)
         if: always()
         run: |
           git config user.name  "M-R Otonom Bot"
           git config user.email "actions@github.com"
-          git add yuklemeler.json haberler.json 2>/dev/null || true
+          # haber_gecmisi.json KRİTİK — dedup'ın doğru çalışması için her run'da commit'lenmeli
+          git add yuklemeler.json haberler.json haber_gecmisi.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "state: $(date -u +'%Y-%m-%dT%H:%MZ') run #${{ github.run_number }}"
             git push
