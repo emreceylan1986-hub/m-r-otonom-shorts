@@ -101,6 +101,35 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      - name: Başarılı yayın bildirimi (issue + mail)
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f .basarili_yayin ]; then
+            VID=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['video_id'])")
+            TITLE=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['title'])")
+            WATCH=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['watch_url'])")
+            STUDIO=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['studio_url'])")
+            GIZ=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['gizlilik'])")
+            TAG=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['tag_sayisi'])")
+            ACK=$(python3 -c "import json; print(json.load(open('.basarili_yayin'))['aciklama_uzunluk'])")
+            gh issue create \
+              --title "✅ Yeni video yayında — $TITLE" \
+              --body "**Run #${{ github.run_number }}** otomatik yayın tamamlandı.
+
+          - **Başlık:** $TITLE
+          - **Video ID:** \`$VID\`
+          - **Watch:** $WATCH
+          - **Studio:** $STUDIO
+          - **Gizlilik:** $GIZ
+          - **SEO:** $TAG tag, açıklama $ACK karakter
+          - **Denetim:** UYGUN ✓ (telif/clickbait/olgusal/politika/marka)
+
+          İzlemek istemiyorsan bu issue'yu kapat. Sorun varsa Studio'dan müdahale et."
+            rm -f .basarili_yayin
+          fi
+
       - name: Denetim uyarısı (şüpheli/redded içerik → issue + mail)
         if: always()
         env:

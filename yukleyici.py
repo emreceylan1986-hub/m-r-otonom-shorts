@@ -21,7 +21,8 @@ SES_KLASORU = PANEL_KOK / "ses_ciktilari"
 CLIENT_SECRET = PANEL_KOK / "client_secret.json"
 TOKEN_DOSYASI = PANEL_KOK / "token.json"
 YUKLEME_LOGU = PANEL_KOK / "yuklemeler.json"
-DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow issue tetikleyici
+DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow şüpheli içerik issue tetikleyici
+BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yayın issue tetikleyici
 
 YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
@@ -29,17 +30,27 @@ YOUTUBE_KATEGORI_TECH = "28"        # Science & Technology
 
 METADATA_SISTEM_PROMPTU = """You produce YouTube Shorts metadata as STRICT JSON.
 
+This metadata MUST be SEO-optimized for YouTube search.
+
 Schema:
 {
-  "title": "<= 90 characters, no emojis, no clickbait, no ALL CAPS",
-  "description": "2-3 short paragraphs, plain English, ends with the line '#Shorts'. NO links unless provided.",
-  "tags": ["5 short tags, lowercase, no '#'"]
+  "title": "60-95 characters. FRONT-LOAD the main keyword in the first 50 chars (critical for search). No emojis, no ALL CAPS, no clickbait words like 'shocking' or 'you won't believe'.",
+  "description": "200-400 characters TOTAL. Structure:
+    - Line 1: Punchy SEO hook (first 100 chars MUST contain the main keyword — this is what Google indexes)
+    - Lines 2-3: 1-2 short sentences explaining the news factually
+    - Last line: 4-6 hashtags including #Shorts plus 3-5 topical tags (e.g. #Shorts #AI #TechNews #Anthropic)
+    NO external links. NO 'subscribe' / 'like' / 'follow' calls.",
+  "tags": ["8-12 lowercase tags, no '#' prefix, no spaces in single tags. Mix:
+            - 3 broad (e.g. 'tech news', 'ai', 'technology')
+            - 5 specific (e.g. 'claude code', 'openclaw', 'ai bias')
+            - 2 trending (e.g. 'ai 2026', 'youtube shorts')"]
 }
 
 Rules:
-- Title must be a clean factual hook, not a question or fake controversy
-- Description summarizes the script faithfully (no invented claims)
-- Tags relevant to the topic
+- Title is a FACTUAL hook, not a question, not fake controversy
+- Description summarizes the script faithfully (no invented claims, no hype)
+- Hashtags in description help YouTube clustering — 4-6 max, last line only
+- Tags drive search match — be specific to the actual story
 - Output ONLY the JSON object, no prose
 """
 
@@ -360,6 +371,21 @@ def main() -> int:
             print(
                 "\n[yukleyici] HATIRLATMA: Video PRIVATE olarak yüklendi. "
                 "YouTube Studio'da incele, hazırsa yayına al."
+            )
+
+        # Başarı bildirimi: yalnızca UYGUN denetim + public/unlisted yayında flag yaz
+        if denetim["karar"] == "UYGUN" and args.gizlilik in {"public", "unlisted"}:
+            BASARI_BILDIRIM_FLAG.write_text(
+                json.dumps({
+                    "video_id": video_id,
+                    "title": veri["title"],
+                    "watch_url": watch_url,
+                    "studio_url": studio_url,
+                    "gizlilik": args.gizlilik,
+                    "tag_sayisi": len(veri["tags"]),
+                    "aciklama_uzunluk": len(veri["description"]),
+                }, ensure_ascii=False),
+                encoding="utf-8",
             )
         return 0
 
