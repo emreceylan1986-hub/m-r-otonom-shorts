@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-04T17:23:12.349388+00:00",
+  "uretim_zamani": "2026-05-04T20:10:47.760022+00:00",
   "haberler": [
     {
-      "baslik": "Talking to 35 Strangers at the Gym",
-      "url": "https://thienantran.com/talking-to-35-strangers-at-the-gym/",
+      "baslik": "GameStop makes $55.5B takeover offer for eBay",
+      "url": "https://www.bbc.co.uk/news/articles/cn0p8yled1do",
       "kaynak": "HN",
-      "skor": 649,
-      "yas_saat": 5.7,
-      "yorum_sayisi": 326
+      "skor": 550,
+      "yas_saat": 10.7,
+      "yorum_sayisi": 484
     },
     {
-      "baslik": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro",
-      "url": "https://github.com/aattaran/deepclaude",
+      "baslik": "Trademark violation: Fake Notepad++ for Mac",
+      "url": "https://notepad-plus-plus.org/news/npp-trademark-infringement/",
       "kaynak": "HN",
-      "skor": 599,
-      "yas_saat": 19.2,
-      "yorum_sayisi": 254
+      "skor": 548,
+      "yas_saat": 10.5,
+      "yorum_sayisi": 242
     },
     {
-      "baslik": "Let's Buy Spirit Air",
-      "url": "https://letsbuyspiritair.com/",
+      "baslik": "Days without GitHub incidents",
+      "url": "https://www.dayswithoutgithubincident.com/",
       "kaynak": "HN",
-      "skor": 520,
-      "yas_saat": 17.8,
-      "yorum_sayisi": 494
+      "skor": 324,
+      "yas_saat": 2.6,
+      "yorum_sayisi": 129
     }
   ]
 }
