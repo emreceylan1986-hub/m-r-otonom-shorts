@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-05T17:16:33.368563+00:00",
+  "uretim_zamani": "2026-05-05T20:02:41.668875+00:00",
   "haberler": [
     {
-      "baslik": "Google Chrome silently installs a 4 GB AI model on your device without consent",
-      "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
+      "baslik": "AI didn't delete your database, you did",
+      "url": "https://idiallo.com/blog/ai-didnt-delete-your-database-you-did",
       "kaynak": "HN",
-      "skor": 801,
-      "yas_saat": 9.7,
-      "yorum_sayisi": 566
+      "skor": 452,
+      "yas_saat": 5.9,
+      "yorum_sayisi": 239
     },
     {
-      "baslik": "Zig → Rust porting guide",
-      "url": "https://github.com/oven-sh/bun/commit/46d3bc29f270fa881dd5730ef1549e88407701a5",
+      "baslik": "Train Your Own LLM from Scratch",
+      "url": "https://github.com/angelos-p/llm-from-scratch",
       "kaynak": "HN",
-      "skor": 685,
-      "yas_saat": 16.1,
-      "yorum_sayisi": 505
+      "skor": 400,
+      "yas_saat": 15.9,
+      "yorum_sayisi": 49
     },
     {
-      "baslik": "How OpenAI delivers low-latency voice AI at scale",
-      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+      "baslik": "Async Rust never left the MVP state",
+      "url": "https://tweedegolf.nl/en/blog/237/async-rust-never-left-the-mvp-state",
       "kaynak": "HN",
-      "skor": 475,
-      "yas_saat": 21.6,
-      "yorum_sayisi": 139
+      "skor": 396,
+      "yas_saat": 12.6,
+      "yorum_sayisi": 216
     }
   ]
 }
