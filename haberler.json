@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-04T20:10:47.760022+00:00",
+  "uretim_zamani": "2026-05-05T17:16:33.368563+00:00",
   "haberler": [
     {
-      "baslik": "GameStop makes $55.5B takeover offer for eBay",
-      "url": "https://www.bbc.co.uk/news/articles/cn0p8yled1do",
+      "baslik": "Google Chrome silently installs a 4 GB AI model on your device without consent",
+      "url": "https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/",
       "kaynak": "HN",
-      "skor": 550,
-      "yas_saat": 10.7,
-      "yorum_sayisi": 484
+      "skor": 801,
+      "yas_saat": 9.7,
+      "yorum_sayisi": 566
     },
     {
-      "baslik": "Trademark violation: Fake Notepad++ for Mac",
-      "url": "https://notepad-plus-plus.org/news/npp-trademark-infringement/",
+      "baslik": "Zig → Rust porting guide",
+      "url": "https://github.com/oven-sh/bun/commit/46d3bc29f270fa881dd5730ef1549e88407701a5",
       "kaynak": "HN",
-      "skor": 548,
-      "yas_saat": 10.5,
-      "yorum_sayisi": 242
+      "skor": 685,
+      "yas_saat": 16.1,
+      "yorum_sayisi": 505
     },
     {
-      "baslik": "Days without GitHub incidents",
-      "url": "https://www.dayswithoutgithubincident.com/",
+      "baslik": "How OpenAI delivers low-latency voice AI at scale",
+      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
       "kaynak": "HN",
-      "skor": 324,
-      "yas_saat": 2.6,
-      "yorum_sayisi": 129
+      "skor": 475,
+      "yas_saat": 21.6,
+      "yorum_sayisi": 139
     }
   ]
 }
