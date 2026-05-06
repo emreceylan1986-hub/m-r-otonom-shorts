@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-05T20:02:41.668875+00:00",
+  "uretim_zamani": "2026-05-06T17:23:49.125876+00:00",
   "haberler": [
     {
-      "baslik": "AI didn't delete your database, you did",
-      "url": "https://idiallo.com/blog/ai-didnt-delete-your-database-you-did",
+      "baslik": "DNSSEC disruption affecting .de domains – Resolved",
+      "url": "https://status.denic.de/pages/incident/592577eab611ce1e0d00046f/69fa60ef9d12f5057a974f38",
       "kaynak": "HN",
-      "skor": 452,
-      "yas_saat": 5.9,
-      "yorum_sayisi": 239
+      "skor": 724,
+      "yas_saat": 21.1,
+      "yorum_sayisi": 383
     },
     {
-      "baslik": "Train Your Own LLM from Scratch",
-      "url": "https://github.com/angelos-p/llm-from-scratch",
+      "baslik": "Red Squares – GitHub outages as contributions",
+      "url": "https://red-squares.cian.lol/",
       "kaynak": "HN",
-      "skor": 400,
-      "yas_saat": 15.9,
-      "yorum_sayisi": 49
+      "skor": 712,
+      "yas_saat": 6.9,
+      "yorum_sayisi": 160
     },
     {
-      "baslik": "Async Rust never left the MVP state",
-      "url": "https://tweedegolf.nl/en/blog/237/async-rust-never-left-the-mvp-state",
+      "baslik": "StarFighter 16-Inch",
+      "url": "https://us.starlabs.systems/pages/starfighter",
       "kaynak": "HN",
-      "skor": 396,
-      "yas_saat": 12.6,
-      "yorum_sayisi": 216
+      "skor": 586,
+      "yas_saat": 15.3,
+      "yorum_sayisi": 312
     }
   ]
 }
