@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-06T20:17:24.787446+00:00",
+  "uretim_zamani": "2026-05-07T17:42:26.737726+00:00",
   "haberler": [
     {
-      "baslik": "Valve releases Steam Controller CAD files under Creative Commons license",
-      "url": "https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license",
+      "baslik": "SQLite Is a Library of Congress Recommended Storage Format",
+      "url": "https://sqlite.org/locrsf.html",
       "kaynak": "HN",
-      "skor": 660,
-      "yas_saat": 4.6,
-      "yorum_sayisi": 212
+      "skor": 525,
+      "yas_saat": 19.7,
+      "yorum_sayisi": 161
     },
     {
-      "baslik": "Agents can now create Cloudflare accounts, buy domains, and deploy",
-      "url": "https://blog.cloudflare.com/agents-stripe-projects/",
+      "baslik": "Grand Theft Oil Futures: Insider traders keep making a killing at our expense",
+      "url": "https://paulkrugman.substack.com/p/grand-theft-oil-futures",
       "kaynak": "HN",
-      "skor": 600,
-      "yas_saat": 17.1,
-      "yorum_sayisi": 347
+      "skor": 418,
+      "yas_saat": 6.5,
+      "yorum_sayisi": 266
     },
     {
-      "baslik": "Knitting bullshit",
-      "url": "https://katedaviesdesigns.com/2026/04/29/knitting-bullshit/",
+      "baslik": "Google Cloud fraud defense, the next evolution of reCAPTCHA",
+      "url": "https://cloud.google.com/blog/products/identity-security/introducing-google-cloud-fraud-defense-the-next-evolution-of-recaptcha/",
       "kaynak": "HN",
-      "skor": 383,
-      "yas_saat": 15.1,
-      "yorum_sayisi": 160
+      "skor": 374,
+      "yas_saat": 23.7,
+      "yorum_sayisi": 382
     }
   ]
 }
