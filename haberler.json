@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-07T17:42:26.737726+00:00",
+  "uretim_zamani": "2026-05-07T20:08:47.692382+00:00",
   "haberler": [
     {
-      "baslik": "SQLite Is a Library of Congress Recommended Storage Format",
-      "url": "https://sqlite.org/locrsf.html",
+      "baslik": "The Burning Man MOOP Map",
+      "url": "https://www.not-ship.com/burning-man-moop/",
       "kaynak": "HN",
-      "skor": 525,
-      "yas_saat": 19.7,
-      "yorum_sayisi": 161
+      "skor": 434,
+      "yas_saat": 6.0,
+      "yorum_sayisi": 200
     },
     {
-      "baslik": "Grand Theft Oil Futures: Insider traders keep making a killing at our expense",
-      "url": "https://paulkrugman.substack.com/p/grand-theft-oil-futures",
+      "baslik": "Child marriages plunged when girls stayed in school in Nigeria",
+      "url": "https://www.nature.com/articles/d41586-026-00720-8",
       "kaynak": "HN",
-      "skor": 418,
-      "yas_saat": 6.5,
-      "yorum_sayisi": 266
+      "skor": 279,
+      "yas_saat": 6.6,
+      "yorum_sayisi": 197
     },
     {
-      "baslik": "Google Cloud fraud defense, the next evolution of reCAPTCHA",
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-google-cloud-fraud-defense-the-next-evolution-of-recaptcha/",
+      "baslik": "Chrome removes claim of On-device Al not sending data to Google Servers",
+      "url": "https://old.reddit.com/r/chrome/comments/1t5qayz/chrome_removes_claim_of_ondevice_al_not_sending/",
       "kaynak": "HN",
-      "skor": 374,
-      "yas_saat": 23.7,
-      "yorum_sayisi": 382
+      "skor": 278,
+      "yas_saat": 4.2,
+      "yorum_sayisi": 99
     }
   ]
 }
