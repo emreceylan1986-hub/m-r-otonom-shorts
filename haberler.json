@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-07T20:08:47.692382+00:00",
+  "uretim_zamani": "2026-05-08T17:03:38.958000+00:00",
   "haberler": [
     {
-      "baslik": "The Burning Man MOOP Map",
-      "url": "https://www.not-ship.com/burning-man-moop/",
+      "baslik": "Cloudflare to cut about 20% of its workforce",
+      "url": "https://www.reuters.com/business/world-at-work/cloudflare-cut-over-1100-jobs-2026-05-07/",
       "kaynak": "HN",
-      "skor": 434,
-      "yas_saat": 6.0,
-      "yorum_sayisi": 200
+      "skor": 1134,
+      "yas_saat": 20.7,
+      "yorum_sayisi": 786
     },
     {
-      "baslik": "Child marriages plunged when girls stayed in school in Nigeria",
-      "url": "https://www.nature.com/articles/d41586-026-00720-8",
+      "baslik": "Canvas online again as ShinyHunters threatens to leak schools’ data",
+      "url": "https://www.theverge.com/tech/926458/canvas-shinyhunters-breach",
       "kaynak": "HN",
-      "skor": 279,
-      "yas_saat": 6.6,
-      "yorum_sayisi": 197
+      "skor": 863,
+      "yas_saat": 18.7,
+      "yorum_sayisi": 568
     },
     {
-      "baslik": "Chrome removes claim of On-device Al not sending data to Google Servers",
-      "url": "https://old.reddit.com/r/chrome/comments/1t5qayz/chrome_removes_claim_of_ondevice_al_not_sending/",
+      "baslik": "AI slop is killing online communities",
+      "url": "https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/",
       "kaynak": "HN",
-      "skor": 278,
-      "yas_saat": 4.2,
-      "yorum_sayisi": 99
+      "skor": 766,
+      "yas_saat": 22.3,
+      "yorum_sayisi": 667
     }
   ]
 }
