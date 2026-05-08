@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-08T17:03:38.958000+00:00",
+  "uretim_zamani": "2026-05-08T20:04:18.399461+00:00",
   "haberler": [
     {
-      "baslik": "Cloudflare to cut about 20% of its workforce",
-      "url": "https://www.reuters.com/business/world-at-work/cloudflare-cut-over-1100-jobs-2026-05-07/",
+      "baslik": "Maybe you shouldn't install new software for a bit",
+      "url": "https://xeiaso.net/blog/2026/abstain-from-install/",
       "kaynak": "HN",
-      "skor": 1134,
-      "yas_saat": 20.7,
-      "yorum_sayisi": 786
+      "skor": 789,
+      "yas_saat": 21.0,
+      "yorum_sayisi": 410
     },
     {
-      "baslik": "Canvas online again as ShinyHunters threatens to leak schools’ data",
-      "url": "https://www.theverge.com/tech/926458/canvas-shinyhunters-breach",
+      "baslik": "Poland is now among the 20 largest economies",
+      "url": "https://apnews.com/article/poland-economy-growth-g20-gdp-26fe06e120398410f8d773ba5661e7aa",
       "kaynak": "HN",
-      "skor": 863,
-      "yas_saat": 18.7,
-      "yorum_sayisi": 568
+      "skor": 780,
+      "yas_saat": 7.6,
+      "yorum_sayisi": 668
     },
     {
-      "baslik": "AI slop is killing online communities",
-      "url": "https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/",
+      "baslik": "Google Cloud Fraud Defence is just WEI repackaged",
+      "url": "https://privatecaptcha.com/blog/google-cloud-fraud-defence-wei/",
       "kaynak": "HN",
-      "skor": 766,
-      "yas_saat": 22.3,
-      "yorum_sayisi": 667
+      "skor": 513,
+      "yas_saat": 6.1,
+      "yorum_sayisi": 248
     }
   ]
 }
