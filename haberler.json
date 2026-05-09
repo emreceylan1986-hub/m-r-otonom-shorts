@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-08T20:04:18.399461+00:00",
+  "uretim_zamani": "2026-05-09T16:42:47.891128+00:00",
   "haberler": [
     {
-      "baslik": "Maybe you shouldn't install new software for a bit",
-      "url": "https://xeiaso.net/blog/2026/abstain-from-install/",
+      "baslik": "Google broke reCAPTCHA for de-googled Android users",
+      "url": "https://reclaimthenet.org/google-broke-recaptcha-for-de-googled-android-users",
       "kaynak": "HN",
-      "skor": 789,
-      "yas_saat": 21.0,
-      "yorum_sayisi": 410
+      "skor": 1305,
+      "yas_saat": 21.9,
+      "yorum_sayisi": 476
     },
     {
-      "baslik": "Poland is now among the 20 largest economies",
-      "url": "https://apnews.com/article/poland-economy-growth-g20-gdp-26fe06e120398410f8d773ba5661e7aa",
+      "baslik": "A recent experience with ChatGPT 5.5 Pro",
+      "url": "https://gowers.wordpress.com/2026/05/08/a-recent-experience-with-chatgpt-5-5-pro/",
       "kaynak": "HN",
-      "skor": 780,
-      "yas_saat": 7.6,
-      "yorum_sayisi": 668
+      "skor": 499,
+      "yas_saat": 14.0,
+      "yorum_sayisi": 356
     },
     {
-      "baslik": "Google Cloud Fraud Defence is just WEI repackaged",
-      "url": "https://privatecaptcha.com/blog/google-cloud-fraud-defence-wei/",
+      "baslik": "AI is breaking two vulnerability cultures",
+      "url": "https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures",
       "kaynak": "HN",
-      "skor": 513,
-      "yas_saat": 6.1,
-      "yorum_sayisi": 248
+      "skor": 381,
+      "yas_saat": 22.8,
+      "yorum_sayisi": 150
     }
   ]
 }
