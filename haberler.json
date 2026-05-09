@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-09T16:42:47.891128+00:00",
+  "uretim_zamani": "2026-05-09T19:51:52.647267+00:00",
   "haberler": [
     {
-      "baslik": "Google broke reCAPTCHA for de-googled Android users",
-      "url": "https://reclaimthenet.org/google-broke-recaptcha-for-de-googled-android-users",
+      "baslik": "Internet Archive Switzerland",
+      "url": "https://blog.archive.org/2026/05/06/internet-archive-switzerland-expanding-a-global-mission-to-preserve-knowledge/",
       "kaynak": "HN",
-      "skor": 1305,
-      "yas_saat": 21.9,
-      "yorum_sayisi": 476
+      "skor": 411,
+      "yas_saat": 7.9,
+      "yorum_sayisi": 62
     },
     {
-      "baslik": "A recent experience with ChatGPT 5.5 Pro",
-      "url": "https://gowers.wordpress.com/2026/05/08/a-recent-experience-with-chatgpt-5-5-pro/",
+      "baslik": "Using Claude Code: The unreasonable effectiveness of HTML",
+      "url": "https://twitter.com/trq212/status/2052809885763747935",
       "kaynak": "HN",
-      "skor": 499,
-      "yas_saat": 14.0,
-      "yorum_sayisi": 356
+      "skor": 370,
+      "yas_saat": 15.0,
+      "yorum_sayisi": 223
     },
     {
-      "baslik": "AI is breaking two vulnerability cultures",
-      "url": "https://www.jefftk.com/p/ai-is-breaking-two-vulnerability-cultures",
+      "baslik": "LLMs corrupt your documents when you delegate",
+      "url": "https://arxiv.org/abs/2604.15597",
       "kaynak": "HN",
-      "skor": 381,
-      "yas_saat": 22.8,
-      "yorum_sayisi": 150
+      "skor": 272,
+      "yas_saat": 11.1,
+      "yorum_sayisi": 103
     }
   ]
 }
