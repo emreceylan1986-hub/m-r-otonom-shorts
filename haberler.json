@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-10T16:42:35.431525+00:00",
+  "uretim_zamani": "2026-05-10T19:53:29.117808+00:00",
   "haberler": [
     {
-      "baslik": "Meta's embrace of AI is making its employees miserable",
-      "url": "https://www.nytimes.com/2026/05/08/technology/meta-ai-employees-miserable.html",
+      "baslik": "Hardware Attestation as Monopoly Enabler",
+      "url": "https://grapheneos.social/@GrapheneOS/116550899908879585",
       "kaynak": "HN",
-      "skor": 415,
-      "yas_saat": 22.1,
-      "yorum_sayisi": 474
+      "skor": 336,
+      "yas_saat": 2.0,
+      "yorum_sayisi": 107
     },
     {
-      "baslik": "Show HN: Building a web server in assembly to give my life (a lack of) meaning",
-      "url": "https://github.com/imtomt/ymawky",
+      "baslik": "Louis Rossmann offers to pay legal fees for a threatened OrcaSlicer developer",
+      "url": "https://www.tomshardware.com/3d-printing/louis-rossmann-tells-3d-printer-maker-bambu-lab-to-go-bleep-yourself-over-its-lawsuit-against-enthusiast-right-to-repair-advocate-offers-to-pay-the-legal-fees-for-a-threatened-orcaslicer-developer",
       "kaynak": "HN",
-      "skor": 350,
-      "yas_saat": 13.7,
-      "yorum_sayisi": 188
+      "skor": 310,
+      "yas_saat": 5.1,
+      "yorum_sayisi": 183
     },
     {
-      "baslik": "Debian must ship reproducible packages",
-      "url": "https://lists.debian.org/debian-devel-announce/2026/05/msg00001.html",
+      "baslik": "Space Cadet Pinball on Linux",
+      "url": "https://brennan.io/2026/05/09/pinball-and-escrow/",
       "kaynak": "HN",
-      "skor": 308,
-      "yas_saat": 11.3,
-      "yorum_sayisi": 123
+      "skor": 269,
+      "yas_saat": 8.5,
+      "yorum_sayisi": 92
     }
   ]
 }
