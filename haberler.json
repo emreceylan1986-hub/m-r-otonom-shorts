@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-09T19:51:52.647267+00:00",
+  "uretim_zamani": "2026-05-10T16:42:35.431525+00:00",
   "haberler": [
     {
-      "baslik": "Internet Archive Switzerland",
-      "url": "https://blog.archive.org/2026/05/06/internet-archive-switzerland-expanding-a-global-mission-to-preserve-knowledge/",
+      "baslik": "Meta's embrace of AI is making its employees miserable",
+      "url": "https://www.nytimes.com/2026/05/08/technology/meta-ai-employees-miserable.html",
       "kaynak": "HN",
-      "skor": 411,
-      "yas_saat": 7.9,
-      "yorum_sayisi": 62
+      "skor": 415,
+      "yas_saat": 22.1,
+      "yorum_sayisi": 474
     },
     {
-      "baslik": "Using Claude Code: The unreasonable effectiveness of HTML",
-      "url": "https://twitter.com/trq212/status/2052809885763747935",
+      "baslik": "Show HN: Building a web server in assembly to give my life (a lack of) meaning",
+      "url": "https://github.com/imtomt/ymawky",
       "kaynak": "HN",
-      "skor": 370,
-      "yas_saat": 15.0,
-      "yorum_sayisi": 223
+      "skor": 350,
+      "yas_saat": 13.7,
+      "yorum_sayisi": 188
     },
     {
-      "baslik": "LLMs corrupt your documents when you delegate",
-      "url": "https://arxiv.org/abs/2604.15597",
+      "baslik": "Debian must ship reproducible packages",
+      "url": "https://lists.debian.org/debian-devel-announce/2026/05/msg00001.html",
       "kaynak": "HN",
-      "skor": 272,
-      "yas_saat": 11.1,
-      "yorum_sayisi": 103
+      "skor": 308,
+      "yas_saat": 11.3,
+      "yorum_sayisi": 123
     }
   ]
 }
