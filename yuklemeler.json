@@ -455,5 +455,31 @@
     "studio_url": "https://studio.youtube.com/video/71LzMPha02Y/edit",
     "denetim_notu": "SUPHELI: Başlıkta kullanılan \"gizlice casusluk yapıyor\" ifadesi, teknolojik bir süreci açıklarken abartılı ve sansasyonel bir dil kullanmaktadır, bu da yanıltıcı veya clickbait olarak algılanma riski taşır. (risk: clickbait)",
     "denetim_karari": "SUPHELI"
+  },
+  {
+    "zaman": "2026-05-11T17:52:07",
+    "video_id": "kPMCH_qME4M",
+    "title": "Veteran Developer Dumps AI Tools for Hand-Coding to Reclaim Core Skills",
+    "tags": [
+      "coding",
+      "developer skills",
+      "ai coding",
+      "hand coding",
+      "programming tools",
+      "ide",
+      "text editor",
+      "software development",
+      "tech debate",
+      "youtube shorts"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260511_175013.mp4",
+    "boyut_mb": 8.63,
+    "watch_url": "https://youtu.be/kPMCH_qME4M",
+    "studio_url": "https://studio.youtube.com/video/kPMCH_qME4M/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]

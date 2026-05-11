@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-10T19:53:29.117808+00:00",
+  "uretim_zamani": "2026-05-11T17:50:11.497343+00:00",
   "haberler": [
     {
-      "baslik": "Hardware Attestation as Monopoly Enabler",
-      "url": "https://grapheneos.social/@GrapheneOS/116550899908879585",
+      "baslik": "I'm going back to writing code by hand",
+      "url": "https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/",
       "kaynak": "HN",
-      "skor": 336,
-      "yas_saat": 2.0,
-      "yorum_sayisi": 107
+      "skor": 784,
+      "yas_saat": 16.4,
+      "yorum_sayisi": 448
     },
     {
-      "baslik": "Louis Rossmann offers to pay legal fees for a threatened OrcaSlicer developer",
-      "url": "https://www.tomshardware.com/3d-printing/louis-rossmann-tells-3d-printer-maker-bambu-lab-to-go-bleep-yourself-over-its-lawsuit-against-enthusiast-right-to-repair-advocate-offers-to-pay-the-legal-fees-for-a-threatened-orcaslicer-developer",
+      "baslik": "Mythos Finds a Curl Vulnerability",
+      "url": "https://daniel.haxx.se/blog/2026/05/11/mythos-finds-a-curl-vulnerability/",
       "kaynak": "HN",
-      "skor": 310,
-      "yas_saat": 5.1,
-      "yorum_sayisi": 183
+      "skor": 502,
+      "yas_saat": 11.2,
+      "yorum_sayisi": 211
     },
     {
-      "baslik": "Space Cadet Pinball on Linux",
-      "url": "https://brennan.io/2026/05/09/pinball-and-escrow/",
+      "baslik": "Running local models on an M4 with 24GB memory",
+      "url": "https://jola.dev/posts/running-local-models-on-m4",
       "kaynak": "HN",
-      "skor": 269,
-      "yas_saat": 8.5,
-      "yorum_sayisi": 92
+      "skor": 488,
+      "yas_saat": 18.7,
+      "yorum_sayisi": 146
     }
   ]
 }
