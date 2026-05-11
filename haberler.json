@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-11T17:50:11.497343+00:00",
+  "uretim_zamani": "2026-05-11T20:27:27.849801+00:00",
   "haberler": [
     {
-      "baslik": "I'm going back to writing code by hand",
-      "url": "https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/",
+      "baslik": "Ratty – A terminal emulator with inline 3D graphics",
+      "url": "https://ratty-term.org/",
       "kaynak": "HN",
-      "skor": 784,
-      "yas_saat": 16.4,
-      "yorum_sayisi": 448
+      "skor": 544,
+      "yas_saat": 10.2,
+      "yorum_sayisi": 175
     },
     {
-      "baslik": "Mythos Finds a Curl Vulnerability",
-      "url": "https://daniel.haxx.se/blog/2026/05/11/mythos-finds-a-curl-vulnerability/",
+      "baslik": "Gmail registration now requires scanning a QR code and sending a text message",
+      "url": "https://discuss.privacyguides.net/t/google-account-registration-now-requires-sending-an-sms-via-phone-instead-of-receiving-an-sms/36082",
       "kaynak": "HN",
-      "skor": 502,
-      "yas_saat": 11.2,
-      "yorum_sayisi": 211
+      "skor": 448,
+      "yas_saat": 13.0,
+      "yorum_sayisi": 303
     },
     {
-      "baslik": "Running local models on an M4 with 24GB memory",
-      "url": "https://jola.dev/posts/running-local-models-on-m4",
+      "baslik": "Obsidian plugin was abused to deploy a remote access trojan",
+      "url": "https://cyber.netsecops.io/articles/obsidian-plugin-abused-in-campaign-to-deploy-phantom-pulse-rat/",
       "kaynak": "HN",
-      "skor": 488,
-      "yas_saat": 18.7,
-      "yorum_sayisi": 146
+      "skor": 342,
+      "yas_saat": 22.4,
+      "yorum_sayisi": 202
     }
   ]
 }
