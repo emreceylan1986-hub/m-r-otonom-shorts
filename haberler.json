@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-11T20:27:27.849801+00:00",
+  "uretim_zamani": "2026-05-12T17:53:33.993660+00:00",
   "haberler": [
     {
-      "baslik": "Ratty – A terminal emulator with inline 3D graphics",
-      "url": "https://ratty-term.org/",
+      "baslik": "Postmortem: TanStack NPM supply-chain compromise",
+      "url": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem",
       "kaynak": "HN",
-      "skor": 544,
-      "yas_saat": 10.2,
-      "yorum_sayisi": 175
+      "skor": 1015,
+      "yas_saat": 20.7,
+      "yorum_sayisi": 428
     },
     {
-      "baslik": "Gmail registration now requires scanning a QR code and sending a text message",
-      "url": "https://discuss.privacyguides.net/t/google-account-registration-now-requires-sending-an-sms-via-phone-instead-of-receiving-an-sms/36082",
+      "baslik": "If AI writes your code, why use Python?",
+      "url": "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055",
       "kaynak": "HN",
-      "skor": 448,
-      "yas_saat": 13.0,
-      "yorum_sayisi": 303
+      "skor": 788,
+      "yas_saat": 21.1,
+      "yorum_sayisi": 814
     },
     {
-      "baslik": "Obsidian plugin was abused to deploy a remote access trojan",
-      "url": "https://cyber.netsecops.io/articles/obsidian-plugin-abused-in-campaign-to-deploy-phantom-pulse-rat/",
+      "baslik": "GitLab announces workforce reduction and end of their CREDIT values",
+      "url": "https://about.gitlab.com/blog/gitlab-act-2/",
       "kaynak": "HN",
-      "skor": 342,
-      "yas_saat": 22.4,
-      "yorum_sayisi": 202
+      "skor": 647,
+      "yas_saat": 21.0,
+      "yorum_sayisi": 631
     }
   ]
 }

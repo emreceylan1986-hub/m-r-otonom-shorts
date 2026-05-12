@@ -507,5 +507,31 @@
     "studio_url": "https://studio.youtube.com/video/pNCMqyQrJuA/edit",
     "denetim_notu": null,
     "denetim_karari": "UYGUN"
+  },
+  {
+    "zaman": "2026-05-12T17:55:17",
+    "video_id": "vk6fyVhi-F4",
+    "title": "ALERT: TanStack npm Attack Exposes Critical Dev Vulnerabilities",
+    "tags": [
+      "npm",
+      "supply chain attack",
+      "developer security",
+      "tanstack",
+      "open source security",
+      "package manager",
+      "cybersecurity news",
+      "software vulnerability",
+      "youtube shorts",
+      "tech news"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260512_175335.mp4",
+    "boyut_mb": 11.97,
+    "watch_url": "https://youtu.be/vk6fyVhi-F4",
+    "studio_url": "https://studio.youtube.com/video/vk6fyVhi-F4/edit",
+    "denetim_notu": "SUPHELI: Senaryo, TanStack kütüphanelerini etkileyen belirli bir siber güvenlik saldırısını iddia etmektedir; ancak bu iddianın gerçekliği tarafımdan doğrulanamamaktadır. (risk: olgusal)",
+    "denetim_karari": "SUPHELI"
   }
 ]
