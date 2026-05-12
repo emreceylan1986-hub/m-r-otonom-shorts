@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-12T17:53:33.993660+00:00",
+  "uretim_zamani": "2026-05-12T20:26:16.394635+00:00",
   "haberler": [
     {
-      "baslik": "Postmortem: TanStack NPM supply-chain compromise",
-      "url": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem",
+      "baslik": "Bambu Lab is abusing the open source social contract",
+      "url": "https://www.jeffgeerling.com/blog/2026/bambu-lab-abusing-open-source-social-contract/",
       "kaynak": "HN",
-      "skor": 1015,
-      "yas_saat": 20.7,
-      "yorum_sayisi": 428
+      "skor": 883,
+      "yas_saat": 5.5,
+      "yorum_sayisi": 303
     },
     {
-      "baslik": "If AI writes your code, why use Python?",
-      "url": "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055",
+      "baslik": "Screenshots of Old Desktop OSes",
+      "url": "http://www.typewritten.org/Media/",
       "kaynak": "HN",
-      "skor": 788,
-      "yas_saat": 21.1,
-      "yorum_sayisi": 814
+      "skor": 594,
+      "yas_saat": 15.2,
+      "yorum_sayisi": 309
     },
     {
-      "baslik": "GitLab announces workforce reduction and end of their CREDIT values",
-      "url": "https://about.gitlab.com/blog/gitlab-act-2/",
+      "baslik": "They Live (1988) inspired Adblocker",
+      "url": "https://github.com/davmlaw/they_live_adblocker",
       "kaynak": "HN",
-      "skor": 647,
-      "yas_saat": 21.0,
-      "yorum_sayisi": 631
+      "skor": 519,
+      "yas_saat": 19.8,
+      "yorum_sayisi": 168
     }
   ]
 }

@@ -533,5 +533,31 @@
     "studio_url": "https://studio.youtube.com/video/vk6fyVhi-F4/edit",
     "denetim_notu": "SUPHELI: Senaryo, TanStack kütüphanelerini etkileyen belirli bir siber güvenlik saldırısını iddia etmektedir; ancak bu iddianın gerçekliği tarafımdan doğrulanamamaktadır. (risk: olgusal)",
     "denetim_karari": "SUPHELI"
+  },
+  {
+    "zaman": "2026-05-12T20:27:51",
+    "video_id": "0ybb8mbGV0U",
+    "title": "Bambu Lab Under Fire for Open-Source Software Practices in 3D Printing",
+    "tags": [
+      "3d printing",
+      "open source",
+      "bambu lab",
+      "software ethics",
+      "tech news",
+      "community code",
+      "intellectual property",
+      "additive manufacturing",
+      "open source software",
+      "youtube shorts"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260512_202617.mp4",
+    "boyut_mb": 17.44,
+    "watch_url": "https://youtu.be/0ybb8mbGV0U",
+    "studio_url": "https://studio.youtube.com/video/0ybb8mbGV0U/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]
