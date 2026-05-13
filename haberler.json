@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-13T17:58:24.209637+00:00",
+  "uretim_zamani": "2026-05-13T20:27:44.069803+00:00",
   "haberler": [
     {
-      "baslik": "I moved my digital stack to Europe",
-      "url": "https://monokai.com/articles/how-i-moved-my-digital-stack-to-europe/",
+      "baslik": "Leaving GitHub for Forgejo",
+      "url": "https://jorijn.com/en/blog/leaving-github-for-forgejo/",
       "kaynak": "HN",
-      "skor": 681,
-      "yas_saat": 6.3,
-      "yorum_sayisi": 457
+      "skor": 464,
+      "yas_saat": 7.6,
+      "yorum_sayisi": 248
     },
     {
-      "baslik": "Restore full BambuNetwork support for Bambu Lab printers",
-      "url": "https://github.com/FULU-Foundation/OrcaSlicer-bambulab",
+      "baslik": "Setting up a free *.city.state.us locality domain (2025)",
+      "url": "https://fredchan.org/blog/locality-domains-guide/",
       "kaynak": "HN",
-      "skor": 614,
-      "yas_saat": 20.0,
-      "yorum_sayisi": 277
+      "skor": 389,
+      "yas_saat": 5.7,
+      "yorum_sayisi": 116
     },
     {
-      "baslik": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
-      "url": "https://github.com/cactus-compute/needle",
+      "baslik": "Kickstarter is forced to ban adult content by payment processors",
+      "url": "https://kotaku.com/kickstarter-is-the-latest-platform-seemingly-forced-to-ban-adult-content-by-payment-processors-2000695648",
       "kaynak": "HN",
-      "skor": 585,
-      "yas_saat": 23.9,
-      "yorum_sayisi": 172
+      "skor": 294,
+      "yas_saat": 5.0,
+      "yorum_sayisi": 216
     }
   ]
 }
