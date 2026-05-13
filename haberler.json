@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-12T20:26:16.394635+00:00",
+  "uretim_zamani": "2026-05-13T17:58:24.209637+00:00",
   "haberler": [
     {
-      "baslik": "Bambu Lab is abusing the open source social contract",
-      "url": "https://www.jeffgeerling.com/blog/2026/bambu-lab-abusing-open-source-social-contract/",
+      "baslik": "I moved my digital stack to Europe",
+      "url": "https://monokai.com/articles/how-i-moved-my-digital-stack-to-europe/",
       "kaynak": "HN",
-      "skor": 883,
-      "yas_saat": 5.5,
-      "yorum_sayisi": 303
+      "skor": 681,
+      "yas_saat": 6.3,
+      "yorum_sayisi": 457
     },
     {
-      "baslik": "Screenshots of Old Desktop OSes",
-      "url": "http://www.typewritten.org/Media/",
+      "baslik": "Restore full BambuNetwork support for Bambu Lab printers",
+      "url": "https://github.com/FULU-Foundation/OrcaSlicer-bambulab",
       "kaynak": "HN",
-      "skor": 594,
-      "yas_saat": 15.2,
-      "yorum_sayisi": 309
+      "skor": 614,
+      "yas_saat": 20.0,
+      "yorum_sayisi": 277
     },
     {
-      "baslik": "They Live (1988) inspired Adblocker",
-      "url": "https://github.com/davmlaw/they_live_adblocker",
+      "baslik": "Show HN: Needle: We Distilled Gemini Tool Calling into a 26M Model",
+      "url": "https://github.com/cactus-compute/needle",
       "kaynak": "HN",
-      "skor": 519,
-      "yas_saat": 19.8,
-      "yorum_sayisi": 168
+      "skor": 585,
+      "yas_saat": 23.9,
+      "yorum_sayisi": 172
     }
   ]
 }
