@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-13T20:27:44.069803+00:00",
+  "uretim_zamani": "2026-05-14T17:42:36.402198+00:00",
   "haberler": [
     {
-      "baslik": "Leaving GitHub for Forgejo",
-      "url": "https://jorijn.com/en/blog/leaving-github-for-forgejo/",
+      "baslik": "Claude for Small Business",
+      "url": "https://www.anthropic.com/news/claude-for-small-business",
       "kaynak": "HN",
-      "skor": 464,
-      "yas_saat": 7.6,
-      "yorum_sayisi": 248
+      "skor": 473,
+      "yas_saat": 13.7,
+      "yorum_sayisi": 428
     },
     {
-      "baslik": "Setting up a free *.city.state.us locality domain (2025)",
-      "url": "https://fredchan.org/blog/locality-domains-guide/",
+      "baslik": "MIT: 20% drop in incoming graduate students",
+      "url": "https://president.mit.edu/writing-speeches/video-transcript-message-president-kornbluth-about-funding-and-talent-pipeline",
       "kaynak": "HN",
-      "skor": 389,
-      "yas_saat": 5.7,
-      "yorum_sayisi": 116
+      "skor": 395,
+      "yas_saat": 2.9,
+      "yorum_sayisi": 375
     },
     {
-      "baslik": "Kickstarter is forced to ban adult content by payment processors",
-      "url": "https://kotaku.com/kickstarter-is-the-latest-platform-seemingly-forced-to-ban-adult-content-by-payment-processors-2000695648",
+      "baslik": "Princeton mandates proctoring for in-person exams, upending 133 year precedent",
+      "url": "https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent",
       "kaynak": "HN",
-      "skor": 294,
-      "yas_saat": 5.0,
-      "yorum_sayisi": 216
+      "skor": 366,
+      "yas_saat": 21.5,
+      "yorum_sayisi": 556
     }
   ]
 }
