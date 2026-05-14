@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-14T17:42:36.402198+00:00",
+  "uretim_zamani": "2026-05-14T20:24:19.814551+00:00",
   "haberler": [
     {
-      "baslik": "Claude for Small Business",
-      "url": "https://www.anthropic.com/news/claude-for-small-business",
+      "baslik": "Scorched Earth 2000 – Web",
+      "url": "http://www.scorch2000.com/web/",
       "kaynak": "HN",
-      "skor": 473,
-      "yas_saat": 13.7,
-      "yorum_sayisi": 428
+      "skor": 365,
+      "yas_saat": 19.7,
+      "yorum_sayisi": 143
     },
     {
-      "baslik": "MIT: 20% drop in incoming graduate students",
-      "url": "https://president.mit.edu/writing-speeches/video-transcript-message-president-kornbluth-about-funding-and-talent-pipeline",
+      "baslik": "RTX 5090 and M4 MacBook Air: Can It Game?",
+      "url": "https://scottjg.com/posts/2026-05-05-egpu-mac-gaming/",
       "kaynak": "HN",
-      "skor": 395,
-      "yas_saat": 2.9,
-      "yorum_sayisi": 375
+      "skor": 353,
+      "yas_saat": 4.6,
+      "yorum_sayisi": 94
     },
     {
-      "baslik": "Princeton mandates proctoring for in-person exams, upending 133 year precedent",
-      "url": "https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent",
+      "baslik": "Rewrite Bun in Rust has been merged",
+      "url": "https://github.com/oven-sh/bun/pull/30412",
       "kaynak": "HN",
-      "skor": 366,
-      "yas_saat": 21.5,
-      "yorum_sayisi": 556
+      "skor": 333,
+      "yas_saat": 12.1,
+      "yorum_sayisi": 392
     }
   ]
 }
