@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-14T20:24:19.814551+00:00",
+  "uretim_zamani": "2026-05-15T17:22:11.217757+00:00",
   "haberler": [
     {
-      "baslik": "Scorched Earth 2000 – Web",
-      "url": "http://www.scorch2000.com/web/",
+      "baslik": "New arXiv policy: 1-year ban for hallucinated references",
+      "url": "https://twitter.com/tdietterich/status/2055000956144935055",
       "kaynak": "HN",
-      "skor": 365,
-      "yas_saat": 19.7,
-      "yorum_sayisi": 143
+      "skor": 582,
+      "yas_saat": 20.7,
+      "yorum_sayisi": 208
     },
     {
-      "baslik": "RTX 5090 and M4 MacBook Air: Can It Game?",
-      "url": "https://scottjg.com/posts/2026-05-05-egpu-mac-gaming/",
+      "baslik": "Mullvad exit IPs are surprisingly identifying",
+      "url": "https://tmctmt.com/posts/mullvad-exit-ips-as-a-fingerprinting-vector/",
       "kaynak": "HN",
-      "skor": 353,
-      "yas_saat": 4.6,
-      "yorum_sayisi": 94
+      "skor": 523,
+      "yas_saat": 14.8,
+      "yorum_sayisi": 321
     },
     {
-      "baslik": "Rewrite Bun in Rust has been merged",
-      "url": "https://github.com/oven-sh/bun/pull/30412",
+      "baslik": "UK government replaces Palantir software with internally-built refugee system",
+      "url": "https://www.bbc.com/news/articles/c2l2j1lxdk5o",
       "kaynak": "HN",
-      "skor": 333,
-      "yas_saat": 12.1,
-      "yorum_sayisi": 392
+      "skor": 461,
+      "yas_saat": 18.6,
+      "yorum_sayisi": 179
     }
   ]
 }
