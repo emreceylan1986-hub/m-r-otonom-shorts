@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-15T18:28:39.097840+00:00",
+  "uretim_zamani": "2026-05-15T19:22:28.227575+00:00",
   "haberler": [
     {
-      "baslik": "Codex is now in the ChatGPT mobile app",
-      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
+      "baslik": "Project Gutenberg – keeps getting better",
+      "url": "https://www.gutenberg.org/",
       "kaynak": "HN",
-      "skor": 445,
-      "yas_saat": 22.4,
-      "yorum_sayisi": 223
+      "skor": 377,
+      "yas_saat": 3.1,
+      "yorum_sayisi": 117
     },
     {
-      "baslik": "A few words on DS4",
-      "url": "https://antirez.com/news/165",
+      "baslik": "We are retiring our bug bounty program",
+      "url": "https://turso.tech/blog/the-wonders-of-ai",
       "kaynak": "HN",
-      "skor": 398,
-      "yas_saat": 20.0,
-      "yorum_sayisi": 165
+      "skor": 331,
+      "yas_saat": 5.8,
+      "yorum_sayisi": 242
     },
     {
-      "baslik": "Explore Wikipedia Like a Windows XP Desktop",
-      "url": "https://explorer.samismith.com/",
+      "baslik": "Amazon workers under pressure to up their AI usage are making up tasks",
+      "url": "https://www.fastcompany.com/91541586/amazon-workers-pressured-to-up-ai-use-extraneous-tasks",
       "kaynak": "HN",
-      "skor": 397,
-      "yas_saat": 9.7,
-      "yorum_sayisi": 103
+      "skor": 244,
+      "yas_saat": 5.9,
+      "yorum_sayisi": 242
     }
   ]
 }
