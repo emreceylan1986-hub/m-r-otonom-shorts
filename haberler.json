@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-15T17:22:11.217757+00:00",
+  "uretim_zamani": "2026-05-15T18:28:39.097840+00:00",
   "haberler": [
     {
-      "baslik": "New arXiv policy: 1-year ban for hallucinated references",
-      "url": "https://twitter.com/tdietterich/status/2055000956144935055",
+      "baslik": "Codex is now in the ChatGPT mobile app",
+      "url": "https://openai.com/index/work-with-codex-from-anywhere/",
       "kaynak": "HN",
-      "skor": 582,
-      "yas_saat": 20.7,
-      "yorum_sayisi": 208
+      "skor": 445,
+      "yas_saat": 22.4,
+      "yorum_sayisi": 223
     },
     {
-      "baslik": "Mullvad exit IPs are surprisingly identifying",
-      "url": "https://tmctmt.com/posts/mullvad-exit-ips-as-a-fingerprinting-vector/",
+      "baslik": "A few words on DS4",
+      "url": "https://antirez.com/news/165",
       "kaynak": "HN",
-      "skor": 523,
-      "yas_saat": 14.8,
-      "yorum_sayisi": 321
+      "skor": 398,
+      "yas_saat": 20.0,
+      "yorum_sayisi": 165
     },
     {
-      "baslik": "UK government replaces Palantir software with internally-built refugee system",
-      "url": "https://www.bbc.com/news/articles/c2l2j1lxdk5o",
+      "baslik": "Explore Wikipedia Like a Windows XP Desktop",
+      "url": "https://explorer.samismith.com/",
       "kaynak": "HN",
-      "skor": 461,
-      "yas_saat": 18.6,
-      "yorum_sayisi": 179
+      "skor": 397,
+      "yas_saat": 9.7,
+      "yorum_sayisi": 103
     }
   ]
 }

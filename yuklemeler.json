@@ -689,5 +689,31 @@
     "studio_url": "https://studio.youtube.com/video/VPycmDjFjtU/edit",
     "denetim_notu": null,
     "denetim_karari": "UYGUN"
+  },
+  {
+    "zaman": "2026-05-15T18:30:33",
+    "video_id": "E4E1rzF1r1k",
+    "title": "ChatGPT Mobile App: Code Anywhere with OpenAI Codex AI!",
+    "tags": [
+      "openai codex",
+      "chatgpt app",
+      "mobile coding",
+      "ai development",
+      "code debugging",
+      "programming tools",
+      "tech news",
+      "ai updates",
+      "developer tools",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260515_182840.mp4",
+    "boyut_mb": 7.78,
+    "watch_url": "https://youtu.be/E4E1rzF1r1k",
+    "studio_url": "https://studio.youtube.com/video/E4E1rzF1r1k/edit",
+    "denetim_notu": "SUPHELI: Başlık ve senaryoda 'OpenAI Codex AI'ın doğrudan ChatGPT mobil uygulamasında olduğu iddiası, mevcut bilgilere göre teknik olarak tam doğru veya güncel olmayabilir, bu da olgusal hata ve yanıltıcı bilgi riski taşır. (risk: olgusal,clickbait)",
+    "denetim_karari": "SUPHELI"
   }
 ]
