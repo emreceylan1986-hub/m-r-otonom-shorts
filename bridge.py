@@ -194,6 +194,10 @@ Sana sunulan metni şu kriterlere göre değerlendir:
 4. Hedef formata uygunluk (Shorts ise ~30-45 sn, ~75-110 kelime)
 5. Reklam/spam/abartı dili yokluğu
 
+KRİTİK DİL KURALI: revize_metin'i HER ZAMAN orijinal metnin diliyle aynı
+dilde yaz. Orijinal İngilizce ise revize de %100 İngilizce olmalı —
+asla Türkçe'ye çevirme. Bu kanal global İngilizce kitleye yayın yapıyor.
+
 Yalnızca AŞAĞIDAKİ JSON ŞEMASIYLA cevap ver:
 
 {

@@ -30,6 +30,11 @@ YOUTUBE_KATEGORI_TECH = "28"        # Science & Technology
 
 METADATA_SISTEM_PROMPTU = """You produce YouTube Shorts metadata as STRICT JSON.
 
+LANGUAGE: ALL output (title, description, tags) MUST be in ENGLISH ONLY.
+Even if the source news is Turkish or any other language, translate and write
+100% English. This channel targets a global English-speaking audience for
+maximum reach and ad revenue. Non-English output is forbidden — non-negotiable.
+
 This metadata MUST be SEO-optimized for YouTube search.
 
 Schema:
