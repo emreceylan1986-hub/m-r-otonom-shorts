@@ -191,7 +191,8 @@ Sana sunulan metni şu kriterlere göre değerlendir:
 1. Akıcılık ve doğal konuşma dili
 2. Hook gücü (ilk cümle dikkat çekiyor mu?)
 3. Olgusal doğruluk (verilen bağlamla tutarlı mı?)
-4. Hedef formata uygunluk (Shorts ise ~30-45 sn, ~75-110 kelime)
+4. Hedef formata uygunluk (Shorts: ~25-30 sn, KESİN 55-70 kelime —
+   metni ASLA 70 kelimenin üstüne uzatma; gerekiyorsa KISALT)
 5. Reklam/spam/abartı dili yokluğu
 
 KRİTİK DİL KURALI: revize_metin'i HER ZAMAN orijinal metnin diliyle aynı

@@ -38,29 +38,29 @@ CIKTI_KLASOR = PANEL_KOK / "shorts_ciktilari"
 PEXELS_ARAMA_URL = "https://api.pexels.com/videos/search"
 HEDEF_GENISLIK = 1080
 HEDEF_YUKSEKLIK = 1920
-KLIP_SAYISI = 5          # 3→5: daha sık sahne değişimi = daha yüksek retention
+KLIP_SAYISI = 3          # 5→3: tutarlılık (viral referans tek-özne mantığı)
 ISTEK_ZAMAN_ASIMI = 30
 INDIRME_ZAMAN_ASIMI = 90
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
-# Shorts yakılmış altyazı stili (libass force_style). Büyük, ortalı, kalın,
-# kalın siyah kenarlık — sessiz izleyen %85'lik kitle için kritik.
-ALTYAZI_STILI = (
-    "FontName=Arial,Fontsize=15,Bold=1,"
-    "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H80000000,"
-    "BorderStyle=1,Outline=3,Shadow=1,"
-    "Alignment=2,MarginV=120"
-)
+# Altyazı artık ASS dosyasında stilli geliyor (sarı keyword highlight).
+# force_style GEREKMİYOR — ASS kendi [V4+ Styles] bloğunu taşır.
 
+KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 3 short
+visual stock-footage search queries (1–3 English words each) for a viral
+YouTube Short, IN NARRATIVE ORDER.
 
-KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 5 short
-visual stock-footage search queries (1–3 English words each) that would
-visually illustrate the given Shorts script, IN NARRATIVE ORDER (clip 1 = hook
-visual, last = closing visual). Pick concrete, photographable subjects
-(people, objects, places, screens, devices). Avoid abstract concepts.
+CRITICAL — emotional warmth beats literal accuracy. The viral reference
+video succeeded with close-up human faces and reactions, not cold stock.
+So prefer queries that return:
+- Close-up HUMAN FACES showing emotion (surprised, worried, amazed, focused)
+- People reacting, hands interacting with devices
+- Warm, cinematic, shallow-depth shots
 
-Format example: ["hacker typing keyboard", "server room lights", "ai robot face", "city data network", "person shocked phone"]
+Avoid: empty offices, abstract data, logos, sterile tech b-roll.
+
+Format example: ["shocked person face closeup", "hands holding phone reaction", "amazed woman looking screen"]
 """
 
 
@@ -125,17 +125,17 @@ def en_son_seslendirmeyi_al() -> tuple[Path, Path, Path, float]:
     mp3 = _en_son_dosya(SES_KLASORU, "seslendirme_*.mp3")
     damga = _damga(mp3)
     txt = SES_KLASORU / f"senaryo_{damga}.txt"
-    srt = SES_KLASORU / f"altyazi_{damga}.srt"
+    ass = SES_KLASORU / f"altyazi_{damga}.ass"
     if not txt.exists():
         raise FileNotFoundError(
             f"MP3 ile eşleşen senaryo yok: {txt.name} (damga {damga})"
         )
-    if not srt.exists():
+    if not ass.exists():
         raise FileNotFoundError(
-            f"MP3 ile eşleşen altyazı yok: {srt.name} (damga {damga})"
+            f"MP3 ile eşleşen ASS altyazı yok: {ass.name} (damga {damga})"
         )
     sure = MP3(mp3).info.length
-    return mp3, txt, srt, sure
+    return mp3, txt, ass, sure
 
 
 def keywordleri_uret(senaryo: str) -> list[str]:
@@ -200,12 +200,17 @@ def pexels_video_indir(keyword: str, hedef: Path, api_key: str) -> dict:
 
 def klip_kirp_normalize(kaynak: Path, hedef: Path, sure_sn: float) -> None:
     """
-    Kaynağı 1080×1920'a normalize eder ve TAM `sure_sn` saniyeye getirir.
-    Kaynak yetmezse `-stream_loop -1` ile döngüye alır → çıktı süresi garanti.
+    Kaynağı 1080×1920'a normalize eder + KEN BURNS yavaş içe-zoom (statik
+    stok bile sinematik/dinamik görünür → retention). TAM `sure_sn` saniye;
+    kaynak yetmezse -stream_loop -1 ile döngüye alınır.
     """
     filtre = (
         f"scale={HEDEF_GENISLIK}:{HEDEF_YUKSEKLIK}:force_original_aspect_ratio=increase,"
-        f"crop={HEDEF_GENISLIK}:{HEDEF_YUKSEKLIK},setsar=1"
+        f"crop={HEDEF_GENISLIK}:{HEDEF_YUKSEKLIK},"
+        f"zoompan=z='min(zoom+0.0007,1.15)':d=1:"
+        f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+        f"s={HEDEF_GENISLIK}x{HEDEF_YUKSEKLIK}:fps=30,"
+        f"setsar=1"
     )
     _ffmpeg_calistir(
         [
@@ -235,21 +240,21 @@ def klipleri_birlestir(klipler: list[Path], hedef: Path) -> None:
     )
 
 
-def altyazi_yak(video: Path, srt: Path, hedef: Path) -> None:
+def altyazi_yak(video: Path, ass: Path, hedef: Path) -> None:
     """
-    SRT altyazıyı videoya GÖMER (libass). Türkçe/boşluklu path sorununu
-    aşmak için SRT geçici klasöre ASCII adla kopyalanır, ffmpeg o dizinde
-    relative path ile çalıştırılır.
+    ASS altyazıyı videoya GÖMER (libass). ASS kendi stilini (sarı keyword
+    highlight) taşır — force_style gerekmez. Türkçe/boşluklu path sorununu
+    aşmak için dosyalar geçici klasöre ASCII adla kopyalanır.
     """
-    yerel_srt = GECICI_KLASOR / "altyazi_aktif.srt"
-    shutil.copyfile(srt, yerel_srt)
+    yerel_ass = GECICI_KLASOR / "altyazi_aktif.ass"
+    shutil.copyfile(ass, yerel_ass)
     yerel_video = GECICI_KLASOR / "altyazi_girdi.mp4"
     shutil.copyfile(video, yerel_video)
     yerel_cikti = GECICI_KLASOR / "altyazi_cikti.mp4"
     _ffmpeg_calistir(
         [
             "-i", "altyazi_girdi.mp4",
-            "-vf", f"subtitles=altyazi_aktif.srt:force_style='{ALTYAZI_STILI}'",
+            "-vf", "ass=altyazi_aktif.ass",
             "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
             "-pix_fmt", "yuv420p", "-an",
             "altyazi_cikti.mp4",
@@ -282,11 +287,11 @@ def main() -> int:
         CIKTI_KLASOR.mkdir(exist_ok=True)
 
         _adim(1, "En son seslendirme bulunuyor...")
-        mp3, txt, srt, sure_sn = en_son_seslendirmeyi_al()
+        mp3, txt, ass, sure_sn = en_son_seslendirmeyi_al()
         damga = _damga(mp3)  # final MP4 kaynak MP3 ile aynı damgayı taşısın
         _alt(f"MP3:    {mp3.name}")
         _alt(f"TXT:    {txt.name}")
-        _alt(f"SRT:    {srt.name}")
+        _alt(f"ASS:    {ass.name}")
         _alt(f"Süre:   {sure_sn:.2f} saniye")
 
         senaryo = txt.read_text(encoding="utf-8").strip()
@@ -326,9 +331,9 @@ def main() -> int:
         klipleri_birlestir(normal_klipler, birlesik)
         _alt(f"birlesik → {birlesik.name} ({birlesik.stat().st_size/1024:.0f} KB)")
 
-        _adim(7, "Altyazı videoya gömülüyor (libass, Shorts stili)...")
+        _adim(7, "ASS altyazı (sarı keyword highlight) videoya gömülüyor...")
         altyazili = GECICI_KLASOR / f"altyazili_{damga}.mp4"
-        altyazi_yak(birlesik, srt, altyazili)
+        altyazi_yak(birlesik, ass, altyazili)
         _alt(f"altyazılı → {altyazili.name} ({altyazili.stat().st_size/1024:.0f} KB)")
 
         _adim(8, "MP3 ses ile mux'lanıyor → final MP4...")
