@@ -741,5 +741,32 @@
     "studio_url": "https://studio.youtube.com/video/viIUxFrQsy4/edit",
     "denetim_notu": null,
     "denetim_karari": "UYGUN"
+  },
+  {
+    "zaman": "2026-05-15T20:12:35",
+    "video_id": "16No6_E3L8k",
+    "title": "Bun's Rust Rewrite Fails Memory Safety, Exposing Critical Flaws",
+    "tags": [
+      "bun js",
+      "rust programming",
+      "memory safety",
+      "undefined behavior",
+      "bun rewrite",
+      "programming news",
+      "tech flaws",
+      "application security",
+      "developer tools",
+      "javascript runtime",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260515_201038.mp4",
+    "boyut_mb": 11.2,
+    "watch_url": "https://youtu.be/16No6_E3L8k",
+    "studio_url": "https://studio.youtube.com/video/16No6_E3L8k/edit",
+    "denetim_notu": "SUPHELI: Başlık ve senaryodaki dil, konuyu aşırı derecede dramatize ederek ve kesin ifadelerle olası sonuçları abartarak clickbait ve yanıltıcı olma potansiyeli taşımaktadır; bu durum aynı zamanda TrendCatcher'ın bilgilendirici tonuyla da çelişebilir. (risk: clickbait,olgusal,marka)",
+    "denetim_karari": "SUPHELI"
   }
 ]
