@@ -111,6 +111,40 @@ def _client() -> genai.Client:
     return genai.Client(api_key=_api_anahtarini_oku())
 
 
+def _generate_retry(model: str, contents, config, _denemeler: int = 5):
+    """
+    Gemini generate_content + exponential backoff.
+    503/429/500 (geçici aşırı yük) → 2,4,8,16 sn bekleyip yeniden dener.
+    Production'da Gemini spike'ları normaldir; bu olmadan pipeline kırılır.
+    """
+    import time
+    from google.genai import errors as _genai_errors
+
+    client = _client()
+    son_hata = None
+    for deneme in range(_denemeler):
+        try:
+            return client.models.generate_content(
+                model=model, contents=contents, config=config
+            )
+        except _genai_errors.ServerError as hata:  # 5xx
+            son_hata = hata
+            bekle = 2 ** (deneme + 1)
+            print(f"[bridge] Gemini {getattr(hata,'code','5xx')} — {bekle}s sonra "
+                  f"yeniden ({deneme+1}/{_denemeler})", flush=True)
+            time.sleep(bekle)
+        except _genai_errors.ClientError as hata:  # 429 rate limit dahil
+            if getattr(hata, "code", None) == 429:
+                son_hata = hata
+                bekle = 2 ** (deneme + 1)
+                print(f"[bridge] Gemini 429 rate limit — {bekle}s sonra "
+                      f"yeniden ({deneme+1}/{_denemeler})", flush=True)
+                time.sleep(bekle)
+            else:
+                raise
+    raise RuntimeError(f"Gemini {_denemeler} denemede de yanıt vermedi: {son_hata}")
+
+
 # ---------------------------------------------------------------------------
 # GENEL AMAÇLI METİN ÜRETİMİ (senaryo, başlık, çeviri vs. için)
 # ---------------------------------------------------------------------------
@@ -128,7 +162,6 @@ def gemini_metin_uret(
     yiyebiliyor. dusunme_kapali=True (varsayılan) bu sebeple thinking_budget=0
     verir; saf çıkış metni için bütün token bütçesi kullanılır.
     """
-    client = _client()
     config_kwargs: dict = {
         "system_instruction": sistem_promptu or None,
         "temperature": sicaklik,
@@ -140,7 +173,7 @@ def gemini_metin_uret(
         except Exception:
             pass  # eski sürümlerde yoksa sessizce geç
 
-    yanit = client.models.generate_content(
+    yanit = _generate_retry(
         model=MODEL,
         contents=[types.Content(role="user", parts=[types.Part.from_text(text=prompt)])],
         config=types.GenerateContentConfig(**config_kwargs),
@@ -210,8 +243,7 @@ def icerik_uygunluk_denetimi(senaryo: str, baslik: str, aciklama: str, etiketler
         f"ETİKETLER: {', '.join(etiketler)}\n\n"
         f"SENARYO:\n{senaryo}"
     )
-    client = _client()
-    yanit = client.models.generate_content(
+    yanit = _generate_retry(
         model=MODEL,
         contents=[types.Content(role="user", parts=[types.Part.from_text(text=paket)])],
         config=types.GenerateContentConfig(
@@ -238,14 +270,13 @@ def metin_onay_iste(metin: str, baglam: str = "") -> dict:
     if not metin or not metin.strip():
         raise ValueError("Boş metin denetlenemez.")
 
-    client = _client()
     kullanici_promptu = (
         f"Bağlam:\n{baglam}\n\nDenetlenecek metin:\n---\n{metin}\n---"
         if baglam
         else f"Denetlenecek metin:\n---\n{metin}\n---"
     )
 
-    yanit = client.models.generate_content(
+    yanit = _generate_retry(
         model=MODEL,
         contents=[types.Content(role="user", parts=[types.Part.from_text(text=kullanici_promptu)])],
         config=types.GenerateContentConfig(
@@ -280,9 +311,7 @@ def kod_analiz_et(kod: str) -> dict:
     if not kod or not kod.strip():
         raise ValueError("Boş kod denetlenemez.")
 
-    client = _client()
-
-    yanit = client.models.generate_content(
+    yanit = _generate_retry(
         model=MODEL,
         contents=[
             types.Content(

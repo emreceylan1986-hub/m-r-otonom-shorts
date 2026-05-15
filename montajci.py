@@ -38,19 +38,29 @@ CIKTI_KLASOR = PANEL_KOK / "shorts_ciktilari"
 PEXELS_ARAMA_URL = "https://api.pexels.com/videos/search"
 HEDEF_GENISLIK = 1080
 HEDEF_YUKSEKLIK = 1920
-KLIP_SAYISI = 3
+KLIP_SAYISI = 5          # 3→5: daha sık sahne değişimi = daha yüksek retention
 ISTEK_ZAMAN_ASIMI = 30
 INDIRME_ZAMAN_ASIMI = 90
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
+# Shorts yakılmış altyazı stili (libass force_style). Büyük, ortalı, kalın,
+# kalın siyah kenarlık — sessiz izleyen %85'lik kitle için kritik.
+ALTYAZI_STILI = (
+    "FontName=Arial,Fontsize=15,Bold=1,"
+    "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H80000000,"
+    "BorderStyle=1,Outline=3,Shadow=1,"
+    "Alignment=2,MarginV=120"
+)
 
-KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 3 short
+
+KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 5 short
 visual stock-footage search queries (1–3 English words each) that would
-visually illustrate the given Shorts script. Pick concrete, photographable
-subjects (people, objects, places). Avoid abstract concepts.
+visually illustrate the given Shorts script, IN NARRATIVE ORDER (clip 1 = hook
+visual, last = closing visual). Pick concrete, photographable subjects
+(people, objects, places, screens, devices). Avoid abstract concepts.
 
-Format example: ["office workers typing", "courtroom judge gavel", "robotic arm assembly"]
+Format example: ["hacker typing keyboard", "server room lights", "ai robot face", "city data network", "person shocked phone"]
 """
 
 
@@ -86,11 +96,12 @@ def _en_son_dosya(klasor: Path, desen: str) -> Path:
     return adaylar[0]
 
 
-def _ffmpeg_calistir(args: list[str]) -> None:
+def _ffmpeg_calistir(args: list[str], cwd: str | None = None) -> None:
     sonuc = subprocess.run(
         [FFMPEG, "-hide_banner", "-loglevel", "error", "-y", *args],
         capture_output=True,
         text=True,
+        cwd=cwd,
     )
     if sonuc.returncode != 0:
         raise RuntimeError(f"ffmpeg hata: {sonuc.stderr.strip()}")
@@ -109,17 +120,22 @@ def _damga(yol: Path) -> str:
     return eslesme.group(1)
 
 
-def en_son_seslendirmeyi_al() -> tuple[Path, Path, float]:
-    """En son MP3'ü bulur ve AYNI zaman damgalı senaryo TXT'sini eşleştirir."""
+def en_son_seslendirmeyi_al() -> tuple[Path, Path, Path, float]:
+    """En son MP3'ü + AYNI damgalı senaryo TXT + altyazı SRT eşleştirir."""
     mp3 = _en_son_dosya(SES_KLASORU, "seslendirme_*.mp3")
     damga = _damga(mp3)
     txt = SES_KLASORU / f"senaryo_{damga}.txt"
+    srt = SES_KLASORU / f"altyazi_{damga}.srt"
     if not txt.exists():
         raise FileNotFoundError(
             f"MP3 ile eşleşen senaryo yok: {txt.name} (damga {damga})"
         )
+    if not srt.exists():
+        raise FileNotFoundError(
+            f"MP3 ile eşleşen altyazı yok: {srt.name} (damga {damga})"
+        )
     sure = MP3(mp3).info.length
-    return mp3, txt, sure
+    return mp3, txt, srt, sure
 
 
 def keywordleri_uret(senaryo: str) -> list[str]:
@@ -219,6 +235,30 @@ def klipleri_birlestir(klipler: list[Path], hedef: Path) -> None:
     )
 
 
+def altyazi_yak(video: Path, srt: Path, hedef: Path) -> None:
+    """
+    SRT altyazıyı videoya GÖMER (libass). Türkçe/boşluklu path sorununu
+    aşmak için SRT geçici klasöre ASCII adla kopyalanır, ffmpeg o dizinde
+    relative path ile çalıştırılır.
+    """
+    yerel_srt = GECICI_KLASOR / "altyazi_aktif.srt"
+    shutil.copyfile(srt, yerel_srt)
+    yerel_video = GECICI_KLASOR / "altyazi_girdi.mp4"
+    shutil.copyfile(video, yerel_video)
+    yerel_cikti = GECICI_KLASOR / "altyazi_cikti.mp4"
+    _ffmpeg_calistir(
+        [
+            "-i", "altyazi_girdi.mp4",
+            "-vf", f"subtitles=altyazi_aktif.srt:force_style='{ALTYAZI_STILI}'",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+            "-pix_fmt", "yuv420p", "-an",
+            "altyazi_cikti.mp4",
+        ],
+        cwd=str(GECICI_KLASOR),
+    )
+    shutil.move(str(yerel_cikti), str(hedef))
+
+
 def ses_mux(video: Path, mp3: Path, hedef: Path) -> None:
     _ffmpeg_calistir(
         [
@@ -242,10 +282,11 @@ def main() -> int:
         CIKTI_KLASOR.mkdir(exist_ok=True)
 
         _adim(1, "En son seslendirme bulunuyor...")
-        mp3, txt, sure_sn = en_son_seslendirmeyi_al()
+        mp3, txt, srt, sure_sn = en_son_seslendirmeyi_al()
         damga = _damga(mp3)  # final MP4 kaynak MP3 ile aynı damgayı taşısın
         _alt(f"MP3:    {mp3.name}")
         _alt(f"TXT:    {txt.name}")
+        _alt(f"SRT:    {srt.name}")
         _alt(f"Süre:   {sure_sn:.2f} saniye")
 
         senaryo = txt.read_text(encoding="utf-8").strip()
@@ -285,9 +326,14 @@ def main() -> int:
         klipleri_birlestir(normal_klipler, birlesik)
         _alt(f"birlesik → {birlesik.name} ({birlesik.stat().st_size/1024:.0f} KB)")
 
-        _adim(7, "MP3 ses ile mux'lanıyor → final MP4...")
+        _adim(7, "Altyazı videoya gömülüyor (libass, Shorts stili)...")
+        altyazili = GECICI_KLASOR / f"altyazili_{damga}.mp4"
+        altyazi_yak(birlesik, srt, altyazili)
+        _alt(f"altyazılı → {altyazili.name} ({altyazili.stat().st_size/1024:.0f} KB)")
+
+        _adim(8, "MP3 ses ile mux'lanıyor → final MP4...")
         final = CIKTI_KLASOR / f"shorts_{damga}.mp4"
-        ses_mux(birlesik, mp3, final)
+        ses_mux(altyazili, mp3, final)
         boyut_mb = final.stat().st_size / (1024 * 1024)
         _alt(f"FİNAL: {final.name} ({boyut_mb:.2f} MB)")
 
