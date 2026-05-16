@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-15T20:10:36.792124+00:00",
+  "uretim_zamani": "2026-05-16T16:47:15.079258+00:00",
   "haberler": [
     {
-      "baslik": "Bun Rust rewrite: \"codebase fails basic miri checks, allows for UB in safe rust\"",
-      "url": "https://github.com/oven-sh/bun/issues/30719",
+      "baslik": "I believe there are entire companies right now under AI psychosis",
+      "url": "https://twitter.com/mitchellh/status/2055380239711457578",
       "kaynak": "HN",
-      "skor": 273,
-      "yas_saat": 3.3,
-      "yorum_sayisi": 179
+      "skor": 1642,
+      "yas_saat": 20.3,
+      "yorum_sayisi": 862
     },
     {
-      "baslik": "A 0-click exploit chain for the Pixel 10",
-      "url": "https://projectzero.google/2026/05/pixel-10-exploit.html",
+      "baslik": "Bill to block publishers from killing online games advances in California",
+      "url": "https://arstechnica.com/gaming/2026/05/bill-to-keep-online-games-playable-clears-key-hurdle-in-california/",
       "kaynak": "HN",
-      "skor": 257,
-      "yas_saat": 6.5,
-      "yorum_sayisi": 108
+      "skor": 542,
+      "yas_saat": 21.0,
+      "yorum_sayisi": 360
     },
     {
-      "baslik": "Details of the Daring Airdrop at Tristan Da Cunha",
-      "url": "https://www.tristandc.com/government/news-2026-05-11-airdrop.php",
+      "baslik": "U.S. DOJ demands Apple and Google unmask over 100k users of car-tinkering app",
+      "url": "https://macdailynews.com/2026/05/15/u-s-doj-demands-apple-and-google-unmask-over-100000-users-of-popular-car-tinkering-app-in-emissions-crackdown/",
       "kaynak": "HN",
-      "skor": 245,
-      "yas_saat": 16.2,
-      "yorum_sayisi": 91
+      "skor": 447,
+      "yas_saat": 23.3,
+      "yorum_sayisi": 320
     }
   ]
 }
