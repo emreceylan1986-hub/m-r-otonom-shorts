@@ -795,5 +795,31 @@
     "studio_url": "https://studio.youtube.com/video/OQXNwo1KW50/edit",
     "denetim_notu": "SUPHELI: Senaryodaki 'AI'ın sıklıkla çözmesi gereken sorunları yarattığı' iddiası, genel ve doğrulanmamış bir ifade olup olgusal hata riski taşımaktadır. (risk: olgusal)",
     "denetim_karari": "SUPHELI"
+  },
+  {
+    "zaman": "2026-05-16T19:59:24",
+    "video_id": "h-SafjTGF-I",
+    "title": "Developer Quits Tailwind CSS for Plain CSS, Citing Maintainability Issues",
+    "tags": [
+      "tailwind css",
+      "plain css",
+      "web development",
+      "coding",
+      "developer experience",
+      "css maintainability",
+      "frontend development",
+      "programming",
+      "youtube shorts",
+      "tech news"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260516_195738.mp4",
+    "boyut_mb": 11.42,
+    "watch_url": "https://youtu.be/h-SafjTGF-I",
+    "studio_url": "https://studio.youtube.com/video/h-SafjTGF-I/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]
