@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-17T16:46:36.995396+00:00",
+  "uretim_zamani": "2026-05-17T20:01:22.437477+00:00",
   "haberler": [
     {
-      "baslik": "Zerostack – A Unix-inspired coding agent written in pure Rust",
-      "url": "https://crates.io/crates/zerostack/1.0.0",
+      "baslik": "Security researcher says Microsoft built a Bitlocker backdoor, releases exploit",
+      "url": "https://www.techspot.com/news/112410-security-researcher-microsoft-secretly-built-backdoor-bitlocker-releases.html",
       "kaynak": "HN",
-      "skor": 492,
-      "yas_saat": 18.4,
-      "yorum_sayisi": 269
+      "skor": 482,
+      "yas_saat": 6.3,
+      "yorum_sayisi": 200
     },
     {
-      "baslik": "Mozilla to UK regulators: VPNs are essential privacy and security tools",
-      "url": "https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/",
+      "baslik": "Every AI Subscription Is a Ticking Time Bomb for Enterprise",
+      "url": "https://www.thestateofbrand.com/news/ai-subscription-time-bomb",
       "kaynak": "HN",
-      "skor": 466,
-      "yas_saat": 10.5,
-      "yorum_sayisi": 207
+      "skor": 327,
+      "yas_saat": 8.2,
+      "yorum_sayisi": 328
     },
     {
-      "baslik": "I don't think AI will make your processes go faster",
-      "url": "https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/",
+      "baslik": "Native all the way, until you need text",
+      "url": "https://justsitandgrin.im/posts/native-all-the-way-until-you-need-text/",
       "kaynak": "HN",
-      "skor": 275,
-      "yas_saat": 4.5,
-      "yorum_sayisi": 218
+      "skor": 318,
+      "yas_saat": 8.2,
+      "yorum_sayisi": 215
     }
   ]
 }

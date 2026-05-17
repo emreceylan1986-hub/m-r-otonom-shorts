@@ -847,5 +847,31 @@
     "studio_url": "https://studio.youtube.com/video/5FBQrAv2GeI/edit",
     "denetim_notu": "SUPHELI: Zerostack AI'ın varlığı ve iddia edilen yetenekleri hakkında sunulan bilgiler doğrulanmamıştır, bu da olgusal hata riski taşımaktadır. (risk: olgusal)",
     "denetim_karari": "SUPHELI"
+  },
+  {
+    "zaman": "2026-05-17T20:03:00",
+    "video_id": "OnDGDxjYIIM",
+    "title": "Microsoft BitLocker backdoor exploit found, Windows encryption bypassed",
+    "tags": [
+      "bitlocker exploit",
+      "microsoft security",
+      "windows encryption",
+      "cyber security news",
+      "data security",
+      "network vulnerability",
+      "security research",
+      "bitlocker bypass",
+      "tech news",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260517_200124.mp4",
+    "boyut_mb": 7.45,
+    "watch_url": "https://youtu.be/OnDGDxjYIIM",
+    "studio_url": "https://studio.youtube.com/video/OnDGDxjYIIM/edit",
+    "denetim_notu": "REDDED: Senaryo, 'Microsoft just built a BitLocker backdoor' ifadesiyle ciddi, doğrulanmamış ve muhtemelen yanlış bir iddiada bulunarak içeriği yanıltıcı, olgusal olarak hatalı ve TrendCatcher'ın haber/bilgilendirme tonuyla tutarsız hale getirmektedir. (risk: clickbait,olgusal,politika,marka)",
+    "denetim_karari": "REDDED"
   }
 ]
