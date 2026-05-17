@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-16T19:57:36.941348+00:00",
+  "uretim_zamani": "2026-05-17T16:46:36.995396+00:00",
   "haberler": [
     {
-      "baslik": "Moving away from Tailwind, and learning to structure my CSS",
-      "url": "https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/",
+      "baslik": "Zerostack – A Unix-inspired coding agent written in pure Rust",
+      "url": "https://crates.io/crates/zerostack/1.0.0",
       "kaynak": "HN",
-      "skor": 305,
-      "yas_saat": 10.7,
-      "yorum_sayisi": 201
+      "skor": 492,
+      "yas_saat": 18.4,
+      "yorum_sayisi": 269
     },
     {
-      "baslik": "Frontier AI has broken the open CTF format",
-      "url": "https://kabir.au/blog/the-ctf-scene-is-dead",
+      "baslik": "Mozilla to UK regulators: VPNs are essential privacy and security tools",
+      "url": "https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/",
       "kaynak": "HN",
-      "skor": 289,
-      "yas_saat": 12.9,
-      "yorum_sayisi": 251
+      "skor": 466,
+      "yas_saat": 10.5,
+      "yorum_sayisi": 207
     },
     {
-      "baslik": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
-      "url": "https://nvlabs.github.io/Sana/WM/",
+      "baslik": "I don't think AI will make your processes go faster",
+      "url": "https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/",
       "kaynak": "HN",
-      "skor": 244,
-      "yas_saat": 7.9,
-      "yorum_sayisi": 101
+      "skor": 275,
+      "yas_saat": 4.5,
+      "yorum_sayisi": 218
     }
   ]
 }
