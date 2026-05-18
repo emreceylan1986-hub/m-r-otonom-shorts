@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-17T20:01:22.437477+00:00",
+  "uretim_zamani": "2026-05-18T17:52:37.223186+00:00",
   "haberler": [
     {
-      "baslik": "Security researcher says Microsoft built a Bitlocker backdoor, releases exploit",
-      "url": "https://www.techspot.com/news/112410-security-researcher-microsoft-secretly-built-backdoor-bitlocker-releases.html",
+      "baslik": "GenCAD",
+      "url": "https://gencad.github.io/",
       "kaynak": "HN",
-      "skor": 482,
+      "skor": 414,
+      "yas_saat": 20.2,
+      "yorum_sayisi": 114
+    },
+    {
+      "baslik": "Show HN: Files.md – Open-source alternative to Obsidian",
+      "url": "https://github.com/zakirullin/files.md",
+      "kaynak": "HN",
+      "skor": 329,
+      "yas_saat": 4.3,
+      "yorum_sayisi": 184
+    },
+    {
+      "baslik": "Show HN: Auto-identity-remove – Automated data broker opt-out runner for macOS",
+      "url": "https://github.com/stephenlthorn/auto-identity-remove",
+      "kaynak": "HN",
+      "skor": 306,
       "yas_saat": 6.3,
-      "yorum_sayisi": 200
-    },
-    {
-      "baslik": "Every AI Subscription Is a Ticking Time Bomb for Enterprise",
-      "url": "https://www.thestateofbrand.com/news/ai-subscription-time-bomb",
-      "kaynak": "HN",
-      "skor": 327,
-      "yas_saat": 8.2,
-      "yorum_sayisi": 328
-    },
-    {
-      "baslik": "Native all the way, until you need text",
-      "url": "https://justsitandgrin.im/posts/native-all-the-way-until-you-need-text/",
-      "kaynak": "HN",
-      "skor": 318,
-      "yas_saat": 8.2,
-      "yorum_sayisi": 215
+      "yorum_sayisi": 122
     }
   ]
 }
