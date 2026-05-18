@@ -899,5 +899,31 @@
     "studio_url": "https://studio.youtube.com/video/lK2IMQ18lks/edit",
     "denetim_notu": "REDDED: Başlık ve senaryodaki iddialar (AI'ın kendini tasarlaması, insan girdisi olmadan evrimleşmesi) mevcut AI teknolojisinin yeteneklerini aşırı derecede abartmakta ve yanıltıcı bilgiler içermektedir. (risk: clickbait,olgusal,marka)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-18T20:23:30",
+    "video_id": "U4OmfRgNC1o",
+    "title": "Elon Musk loses OpenAI lawsuit, judge rules he approved for-profit shift",
+    "tags": [
+      "elon musk",
+      "openai",
+      "lawsuit",
+      "sam altman",
+      "tech news",
+      "ai news",
+      "technology",
+      "court ruling",
+      "for profit",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260518_202149.mp4",
+    "boyut_mb": 5.16,
+    "watch_url": "https://youtu.be/U4OmfRgNC1o",
+    "studio_url": "https://studio.youtube.com/video/U4OmfRgNC1o/edit",
+    "denetim_notu": "REDDED: Senaryo, Elon Musk'ın OpenAI davasının sonucu hakkında önemli bir olgusal hata içermektedir; dava yargıç tarafından değil, Musk tarafından geri çekilmiştir ve iddia edilen mahkeme kararı mevcut değildir. (risk: olgusal)",
+    "denetim_karari": "REDDED"
   }
 ]
