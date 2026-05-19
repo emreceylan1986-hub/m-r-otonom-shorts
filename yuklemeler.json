@@ -952,5 +952,31 @@
     "studio_url": "https://studio.youtube.com/video/SdcubPKDM-E/edit",
     "denetim_notu": "SUPHELI: Başlık ve senaryodaki 'OpenAI'dan rakibine geçiyor' ifadesi, Karpathy'nin OpenAI'dan ayrılması ile Anthropic'e katılması arasında bir yıllık bir boşluk olduğu gerçeğini basitleştirerek yanıltıcı bir doğrudan geçiş izlenimi yaratmaktadır. (risk: olgusal)",
     "denetim_karari": "SUPHELI"
+  },
+  {
+    "zaman": "2026-05-19T20:27:06",
+    "video_id": "ltZrEfLHJn4",
+    "title": "Gaussian Splatting creates instant 3D models from photos, revolutionizing VR",
+    "tags": [
+      "gaussian splatting",
+      "3d rendering",
+      "virtual reality",
+      "tech news",
+      "real time 3d",
+      "graphics technology",
+      "3d models",
+      "ai in graphics",
+      "youtube shorts",
+      "innovation"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260519_202529.mp4",
+    "boyut_mb": 6.38,
+    "watch_url": "https://youtu.be/ltZrEfLHJn4",
+    "studio_url": "https://studio.youtube.com/video/ltZrEfLHJn4/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]

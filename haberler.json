@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-19T17:57:57.068459+00:00",
+  "uretim_zamani": "2026-05-19T20:25:28.223439+00:00",
   "haberler": [
     {
-      "baslik": "I’ve joined Anthropic",
-      "url": "https://twitter.com/karpathy/status/2056753169888334312",
+      "baslik": "Show HN: Gaussian Splat of a Strawberry",
+      "url": "https://superspl.at/scene/84df8849",
       "kaynak": "HN",
-      "skor": 673,
-      "yas_saat": 2.8,
-      "yorum_sayisi": 262
+      "skor": 425,
+      "yas_saat": 9.8,
+      "yorum_sayisi": 169
     },
     {
-      "baslik": "The last six months in LLMs in five minutes",
-      "url": "https://simonwillison.net/2026/May/19/5-minute-llms/",
+      "baslik": "I’ve built a virtual museum with nearly every operating system you can think of",
+      "url": "https://virtualosmuseum.org/",
       "kaynak": "HN",
-      "skor": 643,
-      "yas_saat": 16.5,
-      "yorum_sayisi": 513
+      "skor": 405,
+      "yas_saat": 4.5,
+      "yorum_sayisi": 89
     },
     {
-      "baslik": "Apple unveils new accessibility features",
-      "url": "https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/",
+      "baslik": "Click (2016)",
+      "url": "https://clickclickclick.click/",
       "kaynak": "HN",
-      "skor": 401,
-      "yas_saat": 5.9,
-      "yorum_sayisi": 219
+      "skor": 361,
+      "yas_saat": 21.4,
+      "yorum_sayisi": 91
     }
   ]
 }
