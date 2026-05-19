@@ -925,5 +925,32 @@
     "studio_url": "https://studio.youtube.com/video/U4OmfRgNC1o/edit",
     "denetim_notu": "REDDED: Senaryo, Elon Musk'ın OpenAI davasının sonucu hakkında önemli bir olgusal hata içermektedir; dava yargıç tarafından değil, Musk tarafından geri çekilmiştir ve iddia edilen mahkeme kararı mevcut değildir. (risk: olgusal)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-19T17:59:43",
+    "video_id": "SdcubPKDM-E",
+    "title": "Karpathy joins Anthropic to enhance Claude 3 safety, leaving OpenAI for rival",
+    "tags": [
+      "ai news",
+      "technology",
+      "artificial intelligence",
+      "andrej karpathy",
+      "anthropic",
+      "openai",
+      "claude 3",
+      "ai safety",
+      "tech industry",
+      "ai race",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260519_175758.mp4",
+    "boyut_mb": 8.82,
+    "watch_url": "https://youtu.be/SdcubPKDM-E",
+    "studio_url": "https://studio.youtube.com/video/SdcubPKDM-E/edit",
+    "denetim_notu": "SUPHELI: Başlık ve senaryodaki 'OpenAI'dan rakibine geçiyor' ifadesi, Karpathy'nin OpenAI'dan ayrılması ile Anthropic'e katılması arasında bir yıllık bir boşluk olduğu gerçeğini basitleştirerek yanıltıcı bir doğrudan geçiş izlenimi yaratmaktadır. (risk: olgusal)",
+    "denetim_karari": "SUPHELI"
   }
 ]

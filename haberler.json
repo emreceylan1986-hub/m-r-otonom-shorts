@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-18T20:21:48.295178+00:00",
+  "uretim_zamani": "2026-05-19T17:57:57.068459+00:00",
   "haberler": [
     {
-      "baslik": "Elon Musk has lost his lawsuit against Sam Altman and OpenAI",
-      "url": "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/",
+      "baslik": "I’ve joined Anthropic",
+      "url": "https://twitter.com/karpathy/status/2056753169888334312",
       "kaynak": "HN",
-      "skor": 481,
-      "yas_saat": 2.7,
-      "yorum_sayisi": 236
+      "skor": 673,
+      "yas_saat": 2.8,
+      "yorum_sayisi": 262
     },
     {
-      "baslik": "Garry Tan, the CEO of YC, accused me of unethical reporting",
-      "url": "https://radleybalko.substack.com/p/truth-power-and-honest-journalism",
+      "baslik": "The last six months in LLMs in five minutes",
+      "url": "https://simonwillison.net/2026/May/19/5-minute-llms/",
       "kaynak": "HN",
-      "skor": 321,
-      "yas_saat": 5.1,
-      "yorum_sayisi": 50
+      "skor": 643,
+      "yas_saat": 16.5,
+      "yorum_sayisi": 513
     },
     {
-      "baslik": "We stopped AI bot spam in our GitHub repo using Git's –author flag",
-      "url": "https://archestra.ai/blog/only-responsible-ai",
+      "baslik": "Apple unveils new accessibility features",
+      "url": "https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/",
       "kaynak": "HN",
-      "skor": 313,
-      "yas_saat": 5.0,
-      "yorum_sayisi": 152
+      "skor": 401,
+      "yas_saat": 5.9,
+      "yorum_sayisi": 219
     }
   ]
 }
