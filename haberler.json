@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-19T20:25:28.223439+00:00",
+  "uretim_zamani": "2026-05-20T18:10:22.227328+00:00",
   "haberler": [
     {
-      "baslik": "Show HN: Gaussian Splat of a Strawberry",
-      "url": "https://superspl.at/scene/84df8849",
+      "baslik": "Minnesota becomes first state to ban prediction markets",
+      "url": "https://www.npr.org/2026/05/19/nx-s1-5821265/minnesota-ban-prediction-markets",
       "kaynak": "HN",
-      "skor": 425,
-      "yas_saat": 9.8,
-      "yorum_sayisi": 169
+      "skor": 752,
+      "yas_saat": 22.9,
+      "yorum_sayisi": 230
     },
     {
-      "baslik": "I’ve built a virtual museum with nearly every operating system you can think of",
-      "url": "https://virtualosmuseum.org/",
+      "baslik": "Goodbye Visa and Mastercard: 130M Europeans switching to sovereign payment",
+      "url": "https://www.lesnumeriques.com/banque-en-ligne/adieu-visa-et-mastercard-130-millions-d-europeens-basculent-vers-un-paiement-100-souverain-des-2026-n250918.html",
       "kaynak": "HN",
-      "skor": 405,
-      "yas_saat": 4.5,
-      "yorum_sayisi": 89
+      "skor": 736,
+      "yas_saat": 5.1,
+      "yorum_sayisi": 598
     },
     {
-      "baslik": "Click (2016)",
-      "url": "https://clickclickclick.click/",
+      "baslik": "Meta blocks human rights accounts from reaching audiences in Saudi Arabia, UAE",
+      "url": "https://www.alqst.org/ar/posts/1190",
       "kaynak": "HN",
-      "skor": 361,
-      "yas_saat": 21.4,
-      "yorum_sayisi": 91
+      "skor": 720,
+      "yas_saat": 5.4,
+      "yorum_sayisi": 309
     }
   ]
 }
