@@ -1004,5 +1004,31 @@
     "studio_url": "https://studio.youtube.com/video/mtXHPg9zMWA/edit",
     "denetim_notu": null,
     "denetim_karari": "UYGUN"
+  },
+  {
+    "zaman": "2026-05-20T20:59:29",
+    "video_id": "gQm7VWm_u1E",
+    "title": "GitHub Hacked: Sensitive Data Stolen from Internal Repositories",
+    "tags": [
+      "github hack",
+      "cyber security",
+      "data breach",
+      "cloud security",
+      "github security",
+      "internal repositories",
+      "private code",
+      "tech news",
+      "youtube shorts",
+      "github compromised"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260520_205744.mp4",
+    "boyut_mb": 7.21,
+    "watch_url": "https://youtu.be/gQm7VWm_u1E",
+    "studio_url": "https://studio.youtube.com/video/gQm7VWm_u1E/edit",
+    "denetim_notu": "REDDED: Senaryo, doğrulanmamış veya gerçek dışı olabilecek belirli bir GitHub güvenlik ihlali iddiasını güncel bir haber gibi sunmaktadır. (risk: olgusal)",
+    "denetim_karari": "REDDED"
   }
 ]

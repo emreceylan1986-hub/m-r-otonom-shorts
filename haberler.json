@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-20T18:10:22.227328+00:00",
+  "uretim_zamani": "2026-05-20T20:57:41.706512+00:00",
   "haberler": [
     {
-      "baslik": "Minnesota becomes first state to ban prediction markets",
-      "url": "https://www.npr.org/2026/05/19/nx-s1-5821265/minnesota-ban-prediction-markets",
+      "baslik": "GitHub is investigating unauthorized access to their internal repositories",
+      "url": "https://twitter.com/github/status/2056884788179726685",
       "kaynak": "HN",
-      "skor": 752,
-      "yas_saat": 22.9,
-      "yorum_sayisi": 230
+      "skor": 595,
+      "yas_saat": 20.9,
+      "yorum_sayisi": 318
     },
     {
-      "baslik": "Goodbye Visa and Mastercard: 130M Europeans switching to sovereign payment",
-      "url": "https://www.lesnumeriques.com/banque-en-ligne/adieu-visa-et-mastercard-130-millions-d-europeens-basculent-vers-un-paiement-100-souverain-des-2026-n250918.html",
+      "baslik": "Tennessee man jailed 37 days for Trump meme wins settlement after lawsuit",
+      "url": "https://www.fire.org/news/victory-tennessee-man-jailed-37-days-trump-meme-wins-835000-settlement-after-first-amendment",
       "kaynak": "HN",
-      "skor": 736,
-      "yas_saat": 5.1,
-      "yorum_sayisi": 598
+      "skor": 590,
+      "yas_saat": 6.4,
+      "yorum_sayisi": 380
     },
     {
-      "baslik": "Meta blocks human rights accounts from reaching audiences in Saudi Arabia, UAE",
-      "url": "https://www.alqst.org/ar/posts/1190",
+      "baslik": "Qwen3.7-Max: The Agent Frontier",
+      "url": "https://qwen.ai/blog?id=qwen3.7",
       "kaynak": "HN",
-      "skor": 720,
-      "yas_saat": 5.4,
-      "yorum_sayisi": 309
+      "skor": 529,
+      "yas_saat": 10.4,
+      "yorum_sayisi": 209
     }
   ]
 }
