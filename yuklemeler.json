@@ -1030,5 +1030,32 @@
     "studio_url": "https://studio.youtube.com/video/gQm7VWm_u1E/edit",
     "denetim_notu": "REDDED: Senaryo, doğrulanmamış veya gerçek dışı olabilecek belirli bir GitHub güvenlik ihlali iddiasını güncel bir haber gibi sunmaktadır. (risk: olgusal)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-21T17:53:00",
+    "video_id": "9kFPYNUdEZA",
+    "title": "OpenAI AI Breaks 60-Year Math Mystery, Challenges Foundational Truths",
+    "tags": [
+      "openai",
+      "ai",
+      "mathematics",
+      "math conjecture",
+      "borsuk-ulam",
+      "discrete geometry",
+      "ai breakthrough",
+      "ai research",
+      "tech news",
+      "artificial intelligence",
+      "youtube shorts"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260521_175055.mp4",
+    "boyut_mb": 8.43,
+    "watch_url": "https://youtu.be/9kFPYNUdEZA",
+    "studio_url": "https://studio.youtube.com/video/9kFPYNUdEZA/edit",
+    "denetim_notu": "REDDED: Başlık ve içerik, Borsuk-Ulam teoreminin çürütüldüğü yönünde ciddi bir olgusal hata ve yanıltıcı bir iddia içermektedir, bu da markanın güvenilirliğini zedeleyecektir. (risk: clickbait,olgusal,marka)",
+    "denetim_karari": "REDDED"
   }
 ]

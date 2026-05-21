@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-20T20:57:41.706512+00:00",
+  "uretim_zamani": "2026-05-21T17:50:54.576905+00:00",
   "haberler": [
     {
-      "baslik": "GitHub is investigating unauthorized access to their internal repositories",
-      "url": "https://twitter.com/github/status/2056884788179726685",
+      "baslik": "An OpenAI model has disproved a central conjecture in discrete geometry",
+      "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
       "kaynak": "HN",
-      "skor": 595,
-      "yas_saat": 20.9,
-      "yorum_sayisi": 318
+      "skor": 1343,
+      "yas_saat": 22.8,
+      "yorum_sayisi": 971
     },
     {
-      "baslik": "Tennessee man jailed 37 days for Trump meme wins settlement after lawsuit",
-      "url": "https://www.fire.org/news/victory-tennessee-man-jailed-37-days-trump-meme-wins-835000-settlement-after-first-amendment",
+      "baslik": "Flipper One – we need your help",
+      "url": "https://blog.flipper.net/flipper-one-we-need-your-help/",
       "kaynak": "HN",
-      "skor": 590,
-      "yas_saat": 6.4,
-      "yorum_sayisi": 380
+      "skor": 770,
+      "yas_saat": 6.8,
+      "yorum_sayisi": 342
     },
     {
-      "baslik": "Qwen3.7-Max: The Agent Frontier",
-      "url": "https://qwen.ai/blog?id=qwen3.7",
+      "baslik": "AI is just unauthorised plagiarism at a bigger scale",
+      "url": "https://axelk.ee/ai-is-just-unauthorised-plagiarism-at-a-bigger-scale/",
       "kaynak": "HN",
-      "skor": 529,
-      "yas_saat": 10.4,
-      "yorum_sayisi": 209
+      "skor": 632,
+      "yas_saat": 4.2,
+      "yorum_sayisi": 496
     }
   ]
 }
