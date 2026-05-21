@@ -1057,5 +1057,31 @@
     "studio_url": "https://studio.youtube.com/video/9kFPYNUdEZA/edit",
     "denetim_notu": "REDDED: Başlık ve içerik, Borsuk-Ulam teoreminin çürütüldüğü yönünde ciddi bir olgusal hata ve yanıltıcı bir iddia içermektedir, bu da markanın güvenilirliğini zedeleyecektir. (risk: clickbait,olgusal,marka)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-21T20:48:15",
+    "video_id": "A5LeTw0HFCc",
+    "title": "Google Tests New Direct Offer Ads Within Search Results",
+    "tags": [
+      "google ads",
+      "search marketing",
+      "digital advertising",
+      "tech news",
+      "google direct offers",
+      "ad formats",
+      "online advertising",
+      "marketing strategy",
+      "youtube shorts",
+      "advertising technology"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260521_204646.mp4",
+    "boyut_mb": 8.68,
+    "watch_url": "https://youtu.be/A5LeTw0HFCc",
+    "studio_url": "https://studio.youtube.com/video/A5LeTw0HFCc/edit",
+    "denetim_notu": "SUPHELI: Video, Google'ın 'Direct Offers' adlı yeni bir pilot programı hakkında doğrulanmamış bir iddiayı gerçekmiş gibi sunmaktadır. (risk: olgusal)",
+    "denetim_karari": "SUPHELI"
   }
 ]
