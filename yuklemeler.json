@@ -1242,5 +1242,30 @@
     "studio_url": "https://studio.youtube.com/video/CFe3u6_7cJk/edit",
     "denetim_notu": "REDDED: Senaryo, kaynak haberin başlığını ve içeriğini çarpıtarak, Alberta'nın Kanada'dan ayrılma konusunda referandum yapacağını iddia etmektedir. Kaynak haber, Alberta'nın Kanada'da kalıp kalmayacağı konusunda referandum yapacağını belirtmektedir, bu da ayrılma referandumu anlamına gelmez. (risk: olgusal)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-22T20:29:56",
+    "video_id": "U-LoA4WyyE0",
+    "title": "Microsoft Cancels Claude Code Licenses to Avoid Brand Confusion",
+    "tags": [
+      "microsoft news",
+      "coding tools",
+      "software",
+      "brand confusion",
+      "claude code",
+      "microsoft notepad",
+      "tech updates",
+      "youtube shorts",
+      "software development"
+    ],
+    "gizlilik": "private",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260522_202830.mp4",
+    "boyut_mb": 9.77,
+    "watch_url": "https://youtu.be/U-LoA4WyyE0",
+    "studio_url": "https://studio.youtube.com/video/U-LoA4WyyE0/edit",
+    "denetim_notu": "REDDED: Senaryo, kaynak haberdeki 'Claude Code' uygulamasının Microsoft Notepad ile isim benzerliği nedeniyle iptal edildiği iddiasını çarpıtıyor. Kaynak haberde 'Claude Code' isimli bir uygulamanın varlığından veya Microsoft Notepad ile isim benzerliğinden bahsedilmiyor. Kaynak haber, 'Microsoft starts canceling Claude Code licenses' başlığıyla, Microsoft'un kendi 'Claude Code' lisanslarını iptal etmeye başladığını belirtiyor, üçüncü taraf bir uygulamadan bahsetmiyor. (risk: olgusal)",
+    "denetim_karari": "REDDED"
   }
 ]

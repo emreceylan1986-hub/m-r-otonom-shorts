@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-22T20:24:07.336801+00:00",
+  "uretim_zamani": "2026-05-22T20:28:29.232097+00:00",
   "haberler": [
     {
-      "baslik": "Alberta to hold referendum on whether to remain in Canada",
-      "url": "https://www.bbc.com/news/articles/cvgze8n5dxko",
+      "baslik": "Microsoft starts canceling Claude Code licenses",
+      "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad",
       "kaynak": "HN",
-      "skor": 139,
-      "yas_saat": 7.1,
-      "yorum_sayisi": 296
+      "skor": 109,
+      "yas_saat": 2.9,
+      "yorum_sayisi": 74
     },
     {
-      "baslik": "Show HN: ShadowCat – file transfer through QR Codes in a Browser",
-      "url": "https://github.com/unprovable/ShadowCat",
+      "baslik": "How to convert between wealth and income tax",
+      "url": "https://paulgraham.com/winc.html",
       "kaynak": "HN",
-      "skor": 115,
-      "yas_saat": 9.2,
-      "yorum_sayisi": 42
+      "skor": 99,
+      "yas_saat": 4.7,
+      "yorum_sayisi": 310
     },
     {
-      "baslik": "The spread of Christianity, from antiquity until today, on an animated map",
-      "url": "https://www.openculture.com/2026/05/the-spread-of-christianity-animated-from-antiquity-until-today.html",
+      "baslik": "CODA: Rewriting Transformer Blocks as GEMM-Epilogue Programs",
+      "url": "https://arxiv.org/abs/2605.19269",
       "kaynak": "HN",
-      "skor": 108,
-      "yas_saat": 6.7,
-      "yorum_sayisi": 93
+      "skor": 96,
+      "yas_saat": 15.6,
+      "yorum_sayisi": 12
     }
   ]
 }
