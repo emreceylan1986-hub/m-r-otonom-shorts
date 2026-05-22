@@ -1162,5 +1162,31 @@
     "studio_url": "https://studio.youtube.com/video/qMwRFcVJ9X4/edit",
     "denetim_notu": "REDDED:  (risk: )",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-22T19:54:01",
+    "video_id": "GAyW3Y5Z8KM",
+    "title": "Bun Support Deprecated by yt-dlp Project Due to Unresolved Issues",
+    "tags": [
+      "developer news",
+      "tech update",
+      "programming",
+      "bun js",
+      "yt-dlp",
+      "javascript runtime",
+      "deprecation",
+      "open source",
+      "software development",
+      "youtube shorts"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260522_195252.mp4",
+    "boyut_mb": 5.65,
+    "watch_url": "https://youtu.be/GAyW3Y5Z8KM",
+    "studio_url": "https://studio.youtube.com/video/GAyW3Y5Z8KM/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]

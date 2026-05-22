@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-22T19:47:46.815402+00:00",
+  "uretim_zamani": "2026-05-22T19:52:50.045731+00:00",
   "haberler": [
     {
-      "baslik": "Deno 2.8",
-      "url": "https://deno.com/blog/v2.8",
+      "baslik": "Bun support is now limited and deprecated",
+      "url": "https://github.com/yt-dlp/yt-dlp/issues/16766",
       "kaynak": "HN",
-      "skor": 216,
-      "yas_saat": 8.4,
-      "yorum_sayisi": 99
+      "skor": 187,
+      "yas_saat": 2.5,
+      "yorum_sayisi": 139
     },
     {
-      "baslik": "Trump Mobile exposed customers' personal data",
-      "url": "https://techcrunch.com/2026/05/22/trump-mobile-confirms-it-exposed-customers-personal-data-including-phone-numbers-and-home-addresses/",
+      "baslik": "Slumber a TUI HTTP Client",
+      "url": "https://slumber.lucaspickering.me",
       "kaynak": "HN",
-      "skor": 205,
-      "yas_saat": 3.8,
-      "yorum_sayisi": 90
+      "skor": 155,
+      "yas_saat": 15.4,
+      "yorum_sayisi": 57
     },
     {
-      "baslik": "U.S. researchers face new restrictions on publishing with foreign collaborators",
-      "url": "https://www.science.org/content/article/u-s-researchers-face-new-restrictions-publishing-foreign-collaborators",
+      "baslik": "DeepSeek makes the V4 Pro price discount permanent",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
       "kaynak": "HN",
-      "skor": 189,
-      "yas_saat": 3.4,
-      "yorum_sayisi": 106
+      "skor": 154,
+      "yas_saat": 3.9,
+      "yorum_sayisi": 79
     }
   ]
 }
