@@ -111,32 +111,32 @@ def _client() -> genai.Client:
     return genai.Client(api_key=_api_anahtarini_oku())
 
 
-def _generate_retry(model: str, contents, config, _denemeler: int = 5):
+def _generate_retry(model: str, contents, config, _denemeler: int = 9):
     """
-    Gemini generate_content + exponential backoff.
-    503/429/500 (geçici aşırı yük) → 2,4,8,16 sn bekleyip yeniden dener.
-    Production'da Gemini spike'ları normaldir; bu olmadan pipeline kırılır.
+    Gemini generate_content + exponential backoff (cap 90s).
+    503/429/500 (geçici aşırı yük) → 9 deneme, ~6 dk toplam bekleme.
+    Gemini spike'ları uzun sürebilir; workflow 25 dk timeout içinde rahat.
     """
     import time
     from google.genai import errors as _genai_errors
 
-    client = _client()
     son_hata = None
     for deneme in range(_denemeler):
         try:
+            client = _client()
             return client.models.generate_content(
                 model=model, contents=contents, config=config
             )
         except _genai_errors.ServerError as hata:  # 5xx
             son_hata = hata
-            bekle = 2 ** (deneme + 1)
+            bekle = min(2 ** (deneme + 1), 90)
             print(f"[bridge] Gemini {getattr(hata,'code','5xx')} — {bekle}s sonra "
                   f"yeniden ({deneme+1}/{_denemeler})", flush=True)
             time.sleep(bekle)
         except _genai_errors.ClientError as hata:  # 429 rate limit dahil
             if getattr(hata, "code", None) == 429:
                 son_hata = hata
-                bekle = 2 ** (deneme + 1)
+                bekle = min(2 ** (deneme + 1), 90)
                 print(f"[bridge] Gemini 429 rate limit — {bekle}s sonra "
                       f"yeniden ({deneme+1}/{_denemeler})", flush=True)
                 time.sleep(bekle)
