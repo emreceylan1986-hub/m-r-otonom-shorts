@@ -1188,5 +1188,33 @@
     "studio_url": "https://studio.youtube.com/video/GAyW3Y5Z8KM/edit",
     "denetim_notu": null,
     "denetim_karari": "UYGUN"
+  },
+  {
+    "zaman": "2026-05-22T20:04:31",
+    "video_id": "lY_cNDiYUnQ",
+    "title": "Deno 2.8: Built-in Cron API Changes Everything!",
+    "tags": [
+      "deno",
+      "deno 2.8",
+      "cron api",
+      "javascript",
+      "typescript",
+      "web development",
+      "server-side",
+      "task scheduling",
+      "developer tools",
+      "backend development",
+      "programming news",
+      "youtube shorts"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260522_200257.mp4",
+    "boyut_mb": 11.17,
+    "watch_url": "https://youtu.be/lY_cNDiYUnQ",
+    "studio_url": "https://studio.youtube.com/video/lY_cNDiYUnQ/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]

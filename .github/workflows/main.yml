@@ -81,12 +81,24 @@ jobs:
           git config user.email "actions@github.com"
           # haber_gecmisi.json KRİTİK — dedup'ın doğru çalışması için her run'da commit'lenmeli
           git add yuklemeler.json haberler.json haber_gecmisi.json 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "state: $(date -u +'%Y-%m-%dT%H:%MZ') run #${{ github.run_number }}"
-            git push
-          else
+          if git diff --cached --quiet; then
             echo "State değişmedi, commit yok."
+            exit 0
           fi
+          git commit -m "state: $(date -u +'%Y-%m-%dT%H:%MZ') run #${{ github.run_number }}"
+          # Push-retry: eşzamanlı run / re-run'da remote ileride olabilir →
+          # non-fast-forward reddi. pull --rebase --autostash ile birleştir, 5 kez dene.
+          for deneme in 1 2 3 4 5; do
+            if git push; then
+              echo "State push OK (deneme $deneme)"
+              exit 0
+            fi
+            echo "Push reddedildi (remote ileride) — pull --rebase + retry ($deneme/5)"
+            git pull --rebase --autostash origin main || true
+            sleep 3
+          done
+          echo "State push 5 denemede de başarısız — bir sonraki run telafi eder."
+          exit 1
 
       - name: Upload artifacts (debug için)
         if: always()
