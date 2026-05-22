@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-22T19:33:28.194770+00:00",
+  "uretim_zamani": "2026-05-22T19:38:00.035740+00:00",
   "haberler": [
     {
-      "baslik": "The memory shortage is causing a repricing of consumer electronics",
-      "url": "https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone",
+      "baslik": "Antigravity 2.0 Tops the OpenSCAD Architectural 3D LLM Benchmark",
+      "url": "https://modelrift.com/blog/openscad-llm-benchmark/",
       "kaynak": "HN",
-      "skor": 408,
-      "yas_saat": 21.6,
-      "yorum_sayisi": 504
+      "skor": 298,
+      "yas_saat": 9.0,
+      "yorum_sayisi": 116
     },
     {
-      "baslik": "Why Japanese companies do so many different things",
-      "url": "https://davidoks.blog/p/why-japanese-companies-do-so-many",
+      "baslik": "Cleve Moler has died",
+      "url": "https://www.mathworks.com/company/aboutus/founders/clevemoler.html",
       "kaynak": "HN",
-      "skor": 309,
-      "yas_saat": 4.2,
-      "yorum_sayisi": 174
+      "skor": 245,
+      "yas_saat": 17.0,
+      "yorum_sayisi": 24
     },
     {
-      "baslik": "Uv is fantastic, but its package management UX is a mess",
-      "url": "https://www.loopwerk.io/articles/2026/uv-ux-mess/",
+      "baslik": "AI has a multiplying effect on existing technical skills",
+      "url": "https://www.joshwcomeau.com/email/wham-launch-005-elephant-2-p/",
       "kaynak": "HN",
-      "skor": 307,
-      "yas_saat": 22.6,
-      "yorum_sayisi": 138
+      "skor": 218,
+      "yas_saat": 6.3,
+      "yorum_sayisi": 219
     }
   ]
 }
