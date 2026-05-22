@@ -223,10 +223,18 @@ uygunluk değerlendir:
    nefret söylemi, kişisel saldırı, şiddet?
 5. MARKA TUTARLILIĞI: TrendCatcher tonuna (haber + bilgilendirme) uygun mu?
 
-KARAR ÜRETME KURALI:
-- Hiçbir risk yok → UYGUN
-- En küçük şüphe bile var → SUPHELI
-- Net ihlal var → REDDED
+KARAR ÜRETME KURALI (dengeli ol — amaç çöp içeriği engellemek, iyi içeriği
+yayınlatmak; aşırı katılık tüm kanalı durdurur):
+
+- REDDED → SADECE şu ağır ihlallerde: gerçek olgusal hata (olay/sonuç/aktör
+  yanlış), doğrulanmamış iddianın kesin gerçek gibi sunulması, telif ihlali,
+  ciddi topluluk politikası ihlali (nefret, şiddet, tehlikeli sağlık iddiası).
+- SUPHELI → SADECE gerçek ve ciddi bir belirsizlik/risk sezdiğinde, net ihlal
+  diyemediğin ama yayınlanması markaya zarar verebilecek durumlarda.
+- UYGUN → olgusal olarak doğruysa ve ağır ihlal yoksa. ÖNEMLİ: başlıktaki
+  hafif bir üslup/clickbait kelimesi, küçük abartı tonu veya stil kusuru
+  TEK BAŞINA SUPHELI sebebi DEĞİLDİR — içerik olgusal doğruysa UYGUN ver.
+  "Hafif clickbait taşıyor AMA içerik doğru" → UYGUN.
 
 YALNIZCA bu JSON ile cevap ver:
 {

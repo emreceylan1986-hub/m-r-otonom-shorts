@@ -39,7 +39,7 @@ This metadata MUST be SEO-optimized for YouTube search.
 
 Schema:
 {
-  "title": "60-95 characters. FRONT-LOAD the main keyword in the first 50 chars (critical for search). No emojis, no ALL CAPS, no clickbait words like 'shocking' or 'you won't believe'.",
+  "title": "60-95 characters. FRONT-LOAD the main keyword in the first 50 chars (critical for search). No emojis, no ALL CAPS. BANNED clickbait words/phrases — never use any of: shocking, secretly, secret, hidden, they don't want you to know, you won't believe, this is why, the truth about, exposed, will blow your mind, insane, crazy. The title must be a calm factual statement of what happened.",
   "description": "200-400 characters TOTAL. Structure:
     - Line 1: Punchy SEO hook (first 100 chars MUST contain the main keyword — this is what Google indexes)
     - Lines 2-3: 1-2 short sentences explaining the news factually
