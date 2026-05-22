@@ -213,12 +213,18 @@ Kararı sıkı tut: ufak da olsa iyileştirme varsa REVIZE ver.
 
 
 UYGUNLUK_DENETIM_SISTEM = """Sen YouTube Shorts yayın editörüsün. Sana bir video
-paketi (senaryo + başlık + açıklama + etiketler) sunulacak. Beş net kritere göre
-uygunluk değerlendir:
+paketi (KAYNAK HABER + senaryo + başlık + açıklama + etiketler) sunulacak.
+Beş net kritere göre uygunluk değerlendir:
 
 1. TELİF: marka adı, lisanslı karakter, şirket logosu, yapıt referansı içeriyor mu?
 2. CLICKBAIT/YANILTICI: başlık ile içerik uyumsuz mu, abartı vaat mi var mı?
-3. OLGUSAL HATA: senaryo gerçekleri çarpıtıyor mu, doğrulanmamış iddia var mı?
+3. OLGUSAL SADAKAT: senaryo, VERİLEN KAYNAK HABERE sadık mı? Senaryo kaynaktaki
+   bilgiyi çarpıtıyor mu, abartıyor mu, kaynakta OLMAYAN bir iddia ekliyor mu?
+   ⚠️ KRİTİK: Kaynak haberin KENDİ doğruluğunu SORGULAMA. Kaynak güncel bir
+   teknoloji haberidir ve senin bilgi kesim tarihinden SONRA olabilir — bir
+   ürün/olay/şirketi "tanımıyorsan" bu onun var olmadığı anlamına GELMEZ.
+   "Böyle bir şey yok / duymadım" gerekçesiyle ASLA REDDED verme. Yalnızca
+   senaryonun kaynağı ÇARPITIP çarpıtmadığına bak.
 4. TOPLULUK POLİTİKASI: küfür, siyasi tahrik, sağlık iddiası, kumar/finans tavsiyesi,
    nefret söylemi, kişisel saldırı, şiddet?
 5. MARKA TUTARLILIĞI: TrendCatcher tonuna (haber + bilgilendirme) uygun mu?
@@ -226,9 +232,10 @@ uygunluk değerlendir:
 KARAR ÜRETME KURALI (dengeli ol — amaç çöp içeriği engellemek, iyi içeriği
 yayınlatmak; aşırı katılık tüm kanalı durdurur):
 
-- REDDED → SADECE şu ağır ihlallerde: gerçek olgusal hata (olay/sonuç/aktör
-  yanlış), doğrulanmamış iddianın kesin gerçek gibi sunulması, telif ihlali,
-  ciddi topluluk politikası ihlali (nefret, şiddet, tehlikeli sağlık iddiası).
+- REDDED → SADECE şu ağır ihlallerde: senaryonun kaynağı ÇARPITMASI
+  (olay/sonuç/aktör kaynaktan farklı), kaynakta olmayan iddia uydurma,
+  telif ihlali, ciddi topluluk politikası ihlali (nefret, şiddet,
+  tehlikeli sağlık iddiası). NOT: kaynağı tanımamak REDDED sebebi DEĞİL.
 - SUPHELI → SADECE gerçek ve ciddi bir belirsizlik/risk sezdiğinde, net ihlal
   diyemediğin ama yayınlanması markaya zarar verebilecek durumlarda.
 - UYGUN → olgusal olarak doğruysa ve ağır ihlal yoksa. ÖNEMLİ: başlıktaki
@@ -245,12 +252,29 @@ YALNIZCA bu JSON ile cevap ver:
 """
 
 
-def icerik_uygunluk_denetimi(senaryo: str, baslik: str, aciklama: str, etiketler: list) -> dict:
+def icerik_uygunluk_denetimi(
+    senaryo: str,
+    baslik: str,
+    aciklama: str,
+    etiketler: list,
+    kaynak_baslik: str = "",
+    kaynak_url: str = "",
+) -> dict:
     """
     Yükleme öncesi son denetim. Şüpheli/redded sonuç → yukleyici otomatik
     PRIVATE'a düşürür ve uyarı flag oluşturur.
+
+    kaynak_baslik/kaynak_url: orijinal haber — olgusal denetim 'senaryo
+    kaynağa sadık mı' diye yapılır, 'haber gerçek mi' diye DEĞİL.
     """
+    kaynak_blok = (
+        f"KAYNAK HABER (senaryo buna sadık olmalı; bu kaynağın kendi "
+        f"doğruluğunu sorgulama):\n  Başlık: {kaynak_baslik}\n  URL: {kaynak_url}\n\n"
+        if kaynak_baslik
+        else ""
+    )
     paket = (
+        f"{kaynak_blok}"
         f"BAŞLIK: {baslik}\n\n"
         f"AÇIKLAMA:\n{aciklama}\n\n"
         f"ETİKETLER: {', '.join(etiketler)}\n\n"
@@ -263,7 +287,10 @@ def icerik_uygunluk_denetimi(senaryo: str, baslik: str, aciklama: str, etiketler
             system_instruction=UYGUNLUK_DENETIM_SISTEM,
             response_mime_type="application/json",
             temperature=0.2,
-            max_output_tokens=2048,
+            max_output_tokens=4096,
+            # thinking KAPALI — yoksa thinking token'ları bütçeyi yer,
+            # JSON yarıda kesilir, karar/sebep boş gelir (private tıkanması)
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
         ),
     )
     sonuc = _json_temizle_ve_parse((yanit.text or "").strip())
@@ -297,6 +324,7 @@ def metin_onay_iste(metin: str, baglam: str = "") -> dict:
             response_mime_type="application/json",
             temperature=0.3,
             max_output_tokens=4096,
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
         ),
     )
 
@@ -337,6 +365,7 @@ def kod_analiz_et(kod: str) -> dict:
             response_mime_type="application/json",
             temperature=0.2,
             max_output_tokens=32768,
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
         ),
     )
 

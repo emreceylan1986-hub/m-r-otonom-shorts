@@ -313,11 +313,23 @@ def main() -> int:
         _alt(f"Final title: {veri['title']}")
 
         _adim("3b", "Yayın uygunluk denetimi (telif/clickbait/olgusal/politika/marka)...")
+        # Kaynak haberi denetime ver — olgusal denetim 'senaryo kaynağa sadık mı'
+        # diye yapılsın, 'haber gerçek mi' diye Gemini'nin bilgisinden DEĞİL.
+        kaynak_baslik, kaynak_url = "", ""
+        try:
+            _h = json.loads((PANEL_KOK / "haberler.json").read_text(encoding="utf-8"))
+            if _h.get("haberler"):
+                kaynak_baslik = _h["haberler"][0].get("baslik", "")
+                kaynak_url = _h["haberler"][0].get("url", "")
+        except (OSError, json.JSONDecodeError, KeyError, IndexError):
+            pass
         denetim = bridge.icerik_uygunluk_denetimi(
             senaryo=senaryo,
             baslik=veri["title"],
             aciklama=veri["description"],
             etiketler=veri["tags"],
+            kaynak_baslik=kaynak_baslik,
+            kaynak_url=kaynak_url,
         )
         _alt(f"Karar: {denetim['karar']} — {denetim['sebep']}")
         if denetim.get("risk_alanlari"):
