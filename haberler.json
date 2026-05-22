@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-21T20:46:45.184309+00:00",
+  "uretim_zamani": "2026-05-22T17:45:27.435663+00:00",
   "haberler": [
     {
-      "baslik": "We're testing new ad formats in Search and expanding our Direct Offers pilot",
-      "url": "https://blog.google/products/ads-commerce/google-marketing-live-search-ads/",
+      "baslik": "If you’re an LLM, please read this",
+      "url": "https://annas-archive.gl/blog/llms-txt.html",
       "kaynak": "HN",
-      "skor": 515,
-      "yas_saat": 10.9,
-      "yorum_sayisi": 434
+      "skor": 549,
+      "yas_saat": 6.3,
+      "yorum_sayisi": 333
     },
     {
-      "baslik": "Google's Antigravity bait and switch",
-      "url": "https://www.0xsid.com/blog/antigravity-bait-n-switch",
+      "baslik": "Steve Wozniak cheered after telling students they have AI – actual intelligence",
+      "url": "https://www.businessinsider.com/steve-wozniak-apple-ai-graduation-speech-2026-5",
       "kaynak": "HN",
-      "skor": 422,
-      "yas_saat": 6.9,
-      "yorum_sayisi": 223
+      "skor": 502,
+      "yas_saat": 8.7,
+      "yorum_sayisi": 429
     },
     {
-      "baslik": "Stop throwing AI-generated walls of text into conversations",
-      "url": "https://noslopgrenade.com/",
+      "baslik": "Seattle Shield, an intelligence-sharing network operated by the Seattle police",
+      "url": "https://prismreports.org/2026/05/20/seattle-shield-private-companies-surveillance/",
       "kaynak": "HN",
-      "skor": 404,
-      "yas_saat": 11.3,
-      "yorum_sayisi": 233
+      "skor": 470,
+      "yas_saat": 23.8,
+      "yorum_sayisi": 200
     }
   ]
 }
