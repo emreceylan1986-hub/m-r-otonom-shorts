@@ -52,6 +52,10 @@ Schema:
 }
 
 Rules:
+- FACTUAL FIDELITY (highest priority): title + description must be 100%
+  faithful to the script. NEVER overstate, never invent, never present a
+  rumored/unverified item as confirmed. Do not change outcome/cause/actors.
+  A metaphorical script line must be stated literally in the title.
 - Title is a FACTUAL hook, not a question, not fake controversy
 - Description summarizes the script faithfully (no invented claims, no hype)
 - Hashtags in description help YouTube clustering — 4-6 max, last line only
