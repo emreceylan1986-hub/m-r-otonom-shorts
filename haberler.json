@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-23T16:51:56.923211+00:00",
+  "uretim_zamani": "2026-05-23T20:02:02.134664+00:00",
   "haberler": [
     {
-      "baslik": "Shipping a laptop to a refugee camp in Uganda",
-      "url": "https://notesbylex.com/shipping-a-laptop-to-a-refugee-camp-in-uganda",
+      "baslik": "On The <dl> (2021)",
+      "url": "https://benmyers.dev/blog/on-the-dl/",
       "kaynak": "HN",
-      "skor": 609,
-      "yas_saat": 19.2,
-      "yorum_sayisi": 211
+      "skor": 292,
+      "yas_saat": 7.0,
+      "yorum_sayisi": 90
     },
     {
-      "baslik": "Project Glasswing: An Initial Update",
-      "url": "https://www.anthropic.com/research/glasswing-initial-update",
+      "baslik": "SpaceX launches Starship v3 rocket",
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight",
       "kaynak": "HN",
-      "skor": 489,
-      "yas_saat": 21.3,
-      "yorum_sayisi": 292
+      "skor": 272,
+      "yas_saat": 20.3,
+      "yorum_sayisi": 186
     },
     {
-      "baslik": "BambuStudio has been violating PrusaSlicer AGPL license since their fork",
-      "url": "https://xcancel.com/josefprusa/status/2054602354851254330",
+      "baslik": "Texas woman arrested for Facebook post about town water quality",
+      "url": "https://reclaimthenet.org/texas-woman-arrested-for-facebook-post-about-town-water-quality",
       "kaynak": "HN",
-      "skor": 320,
-      "yas_saat": 8.4,
-      "yorum_sayisi": 114
+      "skor": 264,
+      "yas_saat": 2.0,
+      "yorum_sayisi": 107
     }
   ]
 }
