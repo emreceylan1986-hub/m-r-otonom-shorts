@@ -113,6 +113,15 @@ def en_son_video_ve_senaryo() -> tuple[Path, str]:
 
 def _metadata_dogrula(veri: dict) -> dict:
     """Metadata alanlarını YouTube gereksinimlerine göre doğrular ve düzeltir."""
+    # YouTube API title/description'da < ve > kabul etmiyor (XSS güvenliği).
+    # Gemini bazen kaynaktaki HTML tag adlarını (örn '<dl>') başlığa olduğu
+    # gibi taşıyor → 'invalidTitle' 400. Tag karakterlerini güvenli formata çevir.
+    for alan in ("title", "description"):
+        if isinstance(veri.get(alan), str):
+            veri[alan] = veri[alan].replace("<", "(").replace(">", ")").strip()
+    # Boş title — YouTube reddi; basit fallback (denetim sonrası fark edilirse)
+    if not veri.get("title"):
+        veri["title"] = "Tech News Update"
     if len(veri["title"]) > 100:
         veri["title"] = veri["title"][:97] + "..."
     if "#Shorts" not in veri["description"]:
