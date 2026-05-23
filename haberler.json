@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-22T20:28:29.232097+00:00",
+  "uretim_zamani": "2026-05-23T16:51:56.923211+00:00",
   "haberler": [
     {
-      "baslik": "Microsoft starts canceling Claude Code licenses",
-      "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad",
+      "baslik": "Shipping a laptop to a refugee camp in Uganda",
+      "url": "https://notesbylex.com/shipping-a-laptop-to-a-refugee-camp-in-uganda",
       "kaynak": "HN",
-      "skor": 109,
-      "yas_saat": 2.9,
-      "yorum_sayisi": 74
+      "skor": 609,
+      "yas_saat": 19.2,
+      "yorum_sayisi": 211
     },
     {
-      "baslik": "How to convert between wealth and income tax",
-      "url": "https://paulgraham.com/winc.html",
+      "baslik": "Project Glasswing: An Initial Update",
+      "url": "https://www.anthropic.com/research/glasswing-initial-update",
       "kaynak": "HN",
-      "skor": 99,
-      "yas_saat": 4.7,
-      "yorum_sayisi": 310
+      "skor": 489,
+      "yas_saat": 21.3,
+      "yorum_sayisi": 292
     },
     {
-      "baslik": "CODA: Rewriting Transformer Blocks as GEMM-Epilogue Programs",
-      "url": "https://arxiv.org/abs/2605.19269",
+      "baslik": "BambuStudio has been violating PrusaSlicer AGPL license since their fork",
+      "url": "https://xcancel.com/josefprusa/status/2054602354851254330",
       "kaynak": "HN",
-      "skor": 96,
-      "yas_saat": 15.6,
-      "yorum_sayisi": 12
+      "skor": 320,
+      "yas_saat": 8.4,
+      "yorum_sayisi": 114
     }
   ]
 }

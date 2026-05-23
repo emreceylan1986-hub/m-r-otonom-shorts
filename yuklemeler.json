@@ -1267,5 +1267,31 @@
     "studio_url": "https://studio.youtube.com/video/U-LoA4WyyE0/edit",
     "denetim_notu": "REDDED: Senaryo, kaynak haberdeki 'Claude Code' uygulamasının Microsoft Notepad ile isim benzerliği nedeniyle iptal edildiği iddiasını çarpıtıyor. Kaynak haberde 'Claude Code' isimli bir uygulamanın varlığından veya Microsoft Notepad ile isim benzerliğinden bahsedilmiyor. Kaynak haber, 'Microsoft starts canceling Claude Code licenses' başlığıyla, Microsoft'un kendi 'Claude Code' lisanslarını iptal etmeye başladığını belirtiyor, üçüncü taraf bir uygulamadan bahsetmiyor. (risk: olgusal)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-23T16:53:26",
+    "video_id": "ecZQu4Rg_Mc",
+    "title": "Sending Laptops to Uganda Refugee Camps Requires Trusted Personal Delivery",
+    "tags": [
+      "refugee aid",
+      "uganda",
+      "humanitarian",
+      "laptop delivery",
+      "refugee camps",
+      "tech access",
+      "international shipping",
+      "aid logistics",
+      "global giving",
+      "youtube shorts"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260523_165159.mp4",
+    "boyut_mb": 9.23,
+    "watch_url": "https://youtu.be/ecZQu4Rg_Mc",
+    "studio_url": "https://studio.youtube.com/video/ecZQu4Rg_Mc/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]
