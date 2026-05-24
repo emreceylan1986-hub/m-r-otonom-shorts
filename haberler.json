@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-23T20:15:44.713895+00:00",
+  "uretim_zamani": "2026-05-24T16:53:21.179777+00:00",
   "haberler": [
     {
-      "baslik": "Sleep research led to a new sleep apnea drug",
-      "url": "https://temertymedicine.utoronto.ca/news/how-decades-sleep-research-led-new-sleep-apnea-drug",
+      "baslik": "Time to talk about my writerdeck",
+      "url": "https://veronicaexplains.net/my-first-writerdeck/",
       "kaynak": "HN",
-      "skor": 218,
-      "yas_saat": 22.2,
-      "yorum_sayisi": 143
+      "skor": 427,
+      "yas_saat": 22.1,
+      "yorum_sayisi": 253
     },
     {
-      "baslik": "Oura says it gets government demands for user data",
-      "url": "https://this.weekinsecurity.com/oura-says-it-gets-government-demands-for-user-data-will-it-share-how-many/",
+      "baslik": "Microsoft open-sources \"the earliest DOS source code discovered to date\"",
+      "url": "https://arstechnica.com/gadgets/2026/04/microsoft-open-sources-the-earliest-dos-source-code-discovered-to-date/",
       "kaynak": "HN",
-      "skor": 212,
-      "yas_saat": 6.1,
-      "yorum_sayisi": 130
+      "skor": 361,
+      "yas_saat": 15.5,
+      "yorum_sayisi": 119
     },
     {
-      "baslik": "US tech firms share Dutch regulator officials' names with Senate",
-      "url": "https://www.dutchnews.nl/2026/05/us-tech-firms-share-dutch-regulator-officials-names-with-senate/",
+      "baslik": "Wake up! 16b",
+      "url": "https://hellmood.111mb.de/wake_up_16b_writeup.html",
       "kaynak": "HN",
-      "skor": 192,
-      "yas_saat": 9.3,
-      "yorum_sayisi": 143
+      "skor": 343,
+      "yas_saat": 16.4,
+      "yorum_sayisi": 25
     }
   ]
 }
