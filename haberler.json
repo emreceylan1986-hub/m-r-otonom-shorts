@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-24T16:53:21.179777+00:00",
+  "uretim_zamani": "2026-05-24T20:00:18.781997+00:00",
   "haberler": [
     {
-      "baslik": "Time to talk about my writerdeck",
-      "url": "https://veronicaexplains.net/my-first-writerdeck/",
+      "baslik": "Amazon Web Services – Four Years and Out",
+      "url": "https://www.adventuresinoss.com/aws-four-years/",
       "kaynak": "HN",
-      "skor": 427,
-      "yas_saat": 22.1,
-      "yorum_sayisi": 253
+      "skor": 292,
+      "yas_saat": 15.1,
+      "yorum_sayisi": 118
     },
     {
-      "baslik": "Microsoft open-sources \"the earliest DOS source code discovered to date\"",
-      "url": "https://arstechnica.com/gadgets/2026/04/microsoft-open-sources-the-earliest-dos-source-code-discovered-to-date/",
+      "baslik": "DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost",
+      "url": "https://esengine.github.io/DeepSeek-Reasonix/",
       "kaynak": "HN",
-      "skor": 361,
-      "yas_saat": 15.5,
-      "yorum_sayisi": 119
+      "skor": 272,
+      "yas_saat": 7.0,
+      "yorum_sayisi": 141
     },
     {
-      "baslik": "Wake up! 16b",
-      "url": "https://hellmood.111mb.de/wake_up_16b_writeup.html",
+      "baslik": "Why is Vivado 2026.1 dropping Linux support for free tier?",
+      "url": "https://adaptivesupport.amd.com/s/question/0D5Pd00001YQLdMKAX/why-is-vivado-20261-dropping-linux-support-for-free-tier-?language=en_US",
       "kaynak": "HN",
-      "skor": 343,
-      "yas_saat": 16.4,
-      "yorum_sayisi": 25
+      "skor": 270,
+      "yas_saat": 15.8,
+      "yorum_sayisi": 158
     }
   ]
 }
