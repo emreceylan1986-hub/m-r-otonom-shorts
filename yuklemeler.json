@@ -1398,5 +1398,31 @@
     "studio_url": "https://studio.youtube.com/video/HcvCFQ-Azkc/edit",
     "denetim_notu": "REDDED: Senaryo, kaynak haberde belirtilen Papa Leo XIV'ün 'Magnifica Humanitas' adlı bir ansiklik yayınladığı iddiasını çarpıtmaktadır. Kaynak haber, Papa Leo XIV'ün 15 Mayıs 2026 tarihli 'Magnifica Humanitas' adlı bir ansikliki olduğunu belirtmektedir, ancak bu bilgi gerçek dışıdır. Papa Leo XIV diye bir papa bulunmamaktadır ve bu ansiklik yayınlanmamıştır. Bu durum, olgusal sadakat ilkesini ihlal etmektedir. (risk: olgusal)",
     "denetim_karari": "REDDED"
+  },
+  {
+    "zaman": "2026-05-25T20:21:09",
+    "video_id": "eyTRE5CVYF8",
+    "title": "Your Project Manager's Worst Nightmare: Code in Jira?",
+    "tags": [
+      "jira turing complete",
+      "jira code execution",
+      "project management",
+      "software development",
+      "jql automation",
+      "turing complete",
+      "developer tools",
+      "tech news",
+      "youtube shorts",
+      "atlassian jira"
+    ],
+    "gizlilik": "public",
+    "made_for_kids": "no",
+    "kategori": "tech",
+    "kaynak_dosya": "shorts_20260525_201952.mp4",
+    "boyut_mb": 9.01,
+    "watch_url": "https://youtu.be/eyTRE5CVYF8",
+    "studio_url": "https://studio.youtube.com/video/eyTRE5CVYF8/edit",
+    "denetim_notu": null,
+    "denetim_karari": "UYGUN"
   }
 ]

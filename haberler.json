@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-25T17:28:24.566697+00:00",
+  "uretim_zamani": "2026-05-25T20:19:50.551372+00:00",
   "haberler": [
     {
-      "baslik": "Magnifica Humanitas",
-      "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+      "baslik": "Jira Is Turing-Complete",
+      "url": "https://seriot.ch/computation/jira.html",
       "kaynak": "HN",
-      "skor": 727,
-      "yas_saat": 7.3,
-      "yorum_sayisi": 310
+      "skor": 285,
+      "yas_saat": 16.4,
+      "yorum_sayisi": 137
     },
     {
-      "baslik": "Search engines alternatives now that Google isn't Google anymore",
-      "url": "https://techcrunch.com/2026/05/21/six-search-engines-worth-trying-now-that-google-isnt-really-google-anymore/",
+      "baslik": "Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks",
+      "url": "https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/",
       "kaynak": "HN",
-      "skor": 464,
-      "yas_saat": 5.0,
-      "yorum_sayisi": 438
+      "skor": 219,
+      "yas_saat": 6.4,
+      "yorum_sayisi": 53
     },
     {
-      "baslik": "The Eternal Sloptember",
-      "url": "https://geohot.github.io//blog/jekyll/update/2026/05/24/the-eternal-sloptember.html",
+      "baslik": "California moves to exempt Linux from its age-verification law after backlash",
+      "url": "https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law",
       "kaynak": "HN",
-      "skor": 417,
-      "yas_saat": 13.7,
-      "yorum_sayisi": 336
+      "skor": 202,
+      "yas_saat": 2.0,
+      "yorum_sayisi": 108
     }
   ]
 }
