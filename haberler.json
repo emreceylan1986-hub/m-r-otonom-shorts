@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-24T20:00:18.781997+00:00",
+  "uretim_zamani": "2026-05-25T17:28:24.566697+00:00",
   "haberler": [
     {
-      "baslik": "Amazon Web Services – Four Years and Out",
-      "url": "https://www.adventuresinoss.com/aws-four-years/",
+      "baslik": "Magnifica Humanitas",
+      "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
       "kaynak": "HN",
-      "skor": 292,
-      "yas_saat": 15.1,
-      "yorum_sayisi": 118
+      "skor": 727,
+      "yas_saat": 7.3,
+      "yorum_sayisi": 310
     },
     {
-      "baslik": "DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost",
-      "url": "https://esengine.github.io/DeepSeek-Reasonix/",
+      "baslik": "Search engines alternatives now that Google isn't Google anymore",
+      "url": "https://techcrunch.com/2026/05/21/six-search-engines-worth-trying-now-that-google-isnt-really-google-anymore/",
       "kaynak": "HN",
-      "skor": 272,
-      "yas_saat": 7.0,
-      "yorum_sayisi": 141
+      "skor": 464,
+      "yas_saat": 5.0,
+      "yorum_sayisi": 438
     },
     {
-      "baslik": "Why is Vivado 2026.1 dropping Linux support for free tier?",
-      "url": "https://adaptivesupport.amd.com/s/question/0D5Pd00001YQLdMKAX/why-is-vivado-20261-dropping-linux-support-for-free-tier-?language=en_US",
+      "baslik": "The Eternal Sloptember",
+      "url": "https://geohot.github.io//blog/jekyll/update/2026/05/24/the-eternal-sloptember.html",
       "kaynak": "HN",
-      "skor": 270,
-      "yas_saat": 15.8,
-      "yorum_sayisi": 158
+      "skor": 417,
+      "yas_saat": 13.7,
+      "yorum_sayisi": 336
     }
   ]
 }
