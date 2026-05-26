@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-26T18:17:51.273981+00:00",
+  "uretim_zamani": "2026-05-26T20:51:17.261677+00:00",
   "haberler": [
     {
-      "baslik": "Using AI to write better code more slowly",
-      "url": "https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/",
+      "baslik": "Spain blocks prediction markets Polymarket, Kalshi over lack of gambling licence",
+      "url": "https://www.reuters.com/business/spain-blocks-prediction-markets-polymarket-kalshi-over-lack-gambling-licences-2026-05-26/",
       "kaynak": "HN",
-      "skor": 1038,
-      "yas_saat": 19.0,
-      "yorum_sayisi": 391
+      "skor": 590,
+      "yas_saat": 7.7,
+      "yorum_sayisi": 281
     },
     {
-      "baslik": "Taking a walk may lead to more creativity than sitting, study finds (2014)",
-      "url": "https://www.apa.org/news/press/releases/2014/04/creativity-walk",
+      "baslik": "Netherlands blocks US takeover of vital digital supplier",
+      "url": "https://www.politico.eu/article/netherlands-blocks-us-takeover-vital-digital-supplier/",
       "kaynak": "HN",
-      "skor": 519,
-      "yas_saat": 19.8,
-      "yorum_sayisi": 207
+      "skor": 456,
+      "yas_saat": 9.1,
+      "yorum_sayisi": 179
     },
     {
-      "baslik": "Ferrari Luce",
-      "url": "https://www.ferrari.com/en-EN/auto/ferrari-luce",
+      "baslik": "How Shamir's Secret Sharing Works",
+      "url": "https://ente.com/blog/how-shamirs-secret-sharing-works/",
       "kaynak": "HN",
-      "skor": 435,
-      "yas_saat": 21.3,
-      "yorum_sayisi": 811
+      "skor": 354,
+      "yas_saat": 22.2,
+      "yorum_sayisi": 66
     }
   ]
 }
