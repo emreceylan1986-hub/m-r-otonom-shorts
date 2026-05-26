@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-25T20:19:50.551372+00:00",
+  "uretim_zamani": "2026-05-26T18:17:51.273981+00:00",
   "haberler": [
     {
-      "baslik": "Jira Is Turing-Complete",
-      "url": "https://seriot.ch/computation/jira.html",
+      "baslik": "Using AI to write better code more slowly",
+      "url": "https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/",
       "kaynak": "HN",
-      "skor": 285,
-      "yas_saat": 16.4,
-      "yorum_sayisi": 137
+      "skor": 1038,
+      "yas_saat": 19.0,
+      "yorum_sayisi": 391
     },
     {
-      "baslik": "Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks",
-      "url": "https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/",
+      "baslik": "Taking a walk may lead to more creativity than sitting, study finds (2014)",
+      "url": "https://www.apa.org/news/press/releases/2014/04/creativity-walk",
       "kaynak": "HN",
-      "skor": 219,
-      "yas_saat": 6.4,
-      "yorum_sayisi": 53
+      "skor": 519,
+      "yas_saat": 19.8,
+      "yorum_sayisi": 207
     },
     {
-      "baslik": "California moves to exempt Linux from its age-verification law after backlash",
-      "url": "https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law",
+      "baslik": "Ferrari Luce",
+      "url": "https://www.ferrari.com/en-EN/auto/ferrari-luce",
       "kaynak": "HN",
-      "skor": 202,
-      "yas_saat": 2.0,
-      "yorum_sayisi": 108
+      "skor": 435,
+      "yas_saat": 21.3,
+      "yorum_sayisi": 811
     }
   ]
 }
