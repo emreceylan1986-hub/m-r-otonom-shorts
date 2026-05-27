@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-27T18:20:26.902151+00:00",
+  "uretim_zamani": "2026-05-27T20:58:50.485578+00:00",
   "haberler": [
     {
-      "baslik": "I'm Tired of Talking to AI",
-      "url": "https://orchidfiles.com/im-tired-of-ai-generated-answers/",
+      "baslik": "Last.fm is now independent",
+      "url": "https://support.last.fm/t/last-fm-is-now-independent/118591",
       "kaynak": "HN",
-      "skor": 1725,
-      "yas_saat": 7.6,
-      "yorum_sayisi": 832
+      "skor": 496,
+      "yas_saat": 5.4,
+      "yorum_sayisi": 143
     },
     {
-      "baslik": "The worst job interview I ever had",
-      "url": "https://www.oliverio.dev/blog/the-worst-job-interview-i-had",
+      "baslik": "DuckDuckGo search saw 28% more visits after Google said people love AI mode",
+      "url": "https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/",
       "kaynak": "HN",
-      "skor": 583,
-      "yas_saat": 22.1,
-      "yorum_sayisi": 468
+      "skor": 469,
+      "yas_saat": 4.5,
+      "yorum_sayisi": 247
     },
     {
-      "baslik": "That Methyl Methacrylate Tank",
-      "url": "https://www.science.org/content/blog-post/methyl-methacrylate-tank",
+      "baslik": "Tech CEOs are apparently suffering from AI psychosis",
+      "url": "https://techcrunch.com/2026/05/27/tech-ceos-are-apparently-suffering-from-ai-psychosis/",
       "kaynak": "HN",
-      "skor": 404,
-      "yas_saat": 22.9,
-      "yorum_sayisi": 176
+      "skor": 428,
+      "yas_saat": 5.6,
+      "yorum_sayisi": 210
     }
   ]
 }
