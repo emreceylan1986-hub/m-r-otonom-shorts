@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-26T20:51:17.261677+00:00",
+  "uretim_zamani": "2026-05-27T18:20:26.902151+00:00",
   "haberler": [
     {
-      "baslik": "Spain blocks prediction markets Polymarket, Kalshi over lack of gambling licence",
-      "url": "https://www.reuters.com/business/spain-blocks-prediction-markets-polymarket-kalshi-over-lack-gambling-licences-2026-05-26/",
+      "baslik": "I'm Tired of Talking to AI",
+      "url": "https://orchidfiles.com/im-tired-of-ai-generated-answers/",
       "kaynak": "HN",
-      "skor": 590,
-      "yas_saat": 7.7,
-      "yorum_sayisi": 281
+      "skor": 1725,
+      "yas_saat": 7.6,
+      "yorum_sayisi": 832
     },
     {
-      "baslik": "Netherlands blocks US takeover of vital digital supplier",
-      "url": "https://www.politico.eu/article/netherlands-blocks-us-takeover-vital-digital-supplier/",
+      "baslik": "The worst job interview I ever had",
+      "url": "https://www.oliverio.dev/blog/the-worst-job-interview-i-had",
       "kaynak": "HN",
-      "skor": 456,
-      "yas_saat": 9.1,
-      "yorum_sayisi": 179
+      "skor": 583,
+      "yas_saat": 22.1,
+      "yorum_sayisi": 468
     },
     {
-      "baslik": "How Shamir's Secret Sharing Works",
-      "url": "https://ente.com/blog/how-shamirs-secret-sharing-works/",
+      "baslik": "That Methyl Methacrylate Tank",
+      "url": "https://www.science.org/content/blog-post/methyl-methacrylate-tank",
       "kaynak": "HN",
-      "skor": 354,
-      "yas_saat": 22.2,
-      "yorum_sayisi": 66
+      "skor": 404,
+      "yas_saat": 22.9,
+      "yorum_sayisi": 176
     }
   ]
 }
