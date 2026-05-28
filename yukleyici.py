@@ -27,6 +27,7 @@ BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yay�
 YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
 YOUTUBE_KATEGORI_TECH = "28"        # Science & Technology
+YOUTUBE_KATEGORI_ANIMALS = "15"     # Pets & Animals (yeni niş varsayılanı)
 
 METADATA_SISTEM_PROMPTU = """You produce YouTube Shorts metadata as STRICT JSON.
 
@@ -41,14 +42,15 @@ Schema:
 {
   "title": "60-95 characters. FRONT-LOAD the main keyword in the first 50 chars (critical for search). No emojis, no ALL CAPS. BANNED clickbait words/phrases — never use any of: shocking, secretly, secret, hidden, they don't want you to know, you won't believe, this is why, the truth about, exposed, will blow your mind, insane, crazy. The title must be a calm factual statement of what happened.",
   "description": "200-400 characters TOTAL. Structure:
-    - Line 1: Punchy SEO hook (first 100 chars MUST contain the main keyword — this is what Google indexes)
-    - Lines 2-3: 1-2 short sentences explaining the news factually
-    - Last line: 4-6 hashtags including #Shorts plus 3-5 topical tags (e.g. #Shorts #AI #TechNews #Anthropic)
+    - Line 1: Punchy SEO hook (first 100 chars MUST contain the main animal/nature keyword)
+    - Lines 2-3: 1-2 short sentences explaining the fact/footage
+    - Last line: 4-6 hashtags. ALWAYS include #Shorts, then 3-5 niche tags
+      like #animals #nature #wildlife #didyouknow #amazingfacts #animallover #fyp
     NO external links. NO 'subscribe' / 'like' / 'follow' calls.",
   "tags": ["8-12 lowercase tags, no '#' prefix, no spaces in single tags. Mix:
-            - 3 broad (e.g. 'tech news', 'ai', 'technology')
-            - 5 specific (e.g. 'claude code', 'openclaw', 'ai bias')
-            - 2 trending (e.g. 'ai 2026', 'youtube shorts')"]
+            - 3 broad niche tags ('animals', 'nature', 'wildlife', 'didyouknow', 'amazingfacts')
+            - 5 specific tags about the actual subject ('octopus', 'deep sea', 'predator')
+            - 2 trending ('shorts', 'fyp', 'animallovers', 'satisfying')"]
 }
 
 Rules:
@@ -300,8 +302,8 @@ def main() -> int:
         help="COPPA/Made for Kids beyanı. Varsayılan: no (haber içeriği).",
     )
     p.add_argument(
-        "--kategori", choices=["news", "tech"], default="tech",
-        help="YouTube kategori: news=25, tech=28. Varsayılan: tech.",
+        "--kategori", choices=["news", "tech", "animals"], default="animals",
+        help="YouTube kategori: news=25, tech=28, animals=15. Varsayılan: animals (yeni niş).",
     )
     args = p.parse_args()
 
@@ -356,9 +358,11 @@ def main() -> int:
         youtube = youtube_istemcisi()
         _alt("YouTube istemcisi hazır ✓")
 
-        kategori_id = (
-            YOUTUBE_KATEGORI_NEWS if args.kategori == "news" else YOUTUBE_KATEGORI_TECH
-        )
+        kategori_id = {
+            "news": YOUTUBE_KATEGORI_NEWS,
+            "tech": YOUTUBE_KATEGORI_TECH,
+            "animals": YOUTUBE_KATEGORI_ANIMALS,
+        }[args.kategori]
         _adim(
             5,
             f"YouTube'a yükleniyor — gizlilik={args.gizlilik}, "

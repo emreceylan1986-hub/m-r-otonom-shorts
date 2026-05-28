@@ -49,18 +49,23 @@ FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
 KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 3 short
 visual stock-footage search queries (1–3 English words each) for a viral
-YouTube Short, IN NARRATIVE ORDER.
+YouTube Short in the ANIMAL / NATURE / AMAZING-FACTS niche, IN NARRATIVE ORDER.
 
-CRITICAL — emotional warmth beats literal accuracy. The viral reference
-video succeeded with close-up human faces and reactions, not cold stock.
+CRITICAL — beautiful, emotional, close-up nature footage drives retention.
+The viral reference video succeeded with close-up subjects filling the frame.
 So prefer queries that return:
-- Close-up HUMAN FACES showing emotion (surprised, worried, amazed, focused)
-- People reacting, hands interacting with devices
-- Warm, cinematic, shallow-depth shots
+- Close-up ANIMAL FACES (cat, dog, owl, octopus, whatever the script implies)
+- Nature beauty (forest, ocean, sunrise, slow-motion water, drone landscapes)
+- Wildlife in motion (running, flying, hunting, playing)
+- Macro shots (leaves, insects, drops, fur)
 
-Avoid: empty offices, abstract data, logos, sterile tech b-roll.
+Pick queries that VISUALLY MATCH the script's subject. If the script is about
+octopuses, use "octopus closeup", not generic "ocean". Be specific to the
+animal/phenomenon mentioned.
 
-Format example: ["shocked person face closeup", "hands holding phone reaction", "amazed woman looking screen"]
+Avoid: people in offices, logos, abstract data, empty rooms.
+
+Format example: ["octopus closeup ocean", "deep sea creature", "tentacles macro slow motion"]
 """
 
 

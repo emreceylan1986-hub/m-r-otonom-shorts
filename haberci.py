@@ -18,6 +18,7 @@ Kaynaklar (hepsi RESMİ API, scraping yok, ban riski sıfır):
 """
 
 import json
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -26,14 +27,24 @@ from typing import Iterable
 import requests
 
 
-HN_TOP_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
-HN_ITEM_URL = "https://hacker-news.firebaseio.com/v0/item/{id}.json"
-HN_TARANACAK_ADET = 60  # top listenin ilk N hikayesi taranır
+# NİŞ: HAYVAN + DOĞA + İLGİNÇ GERÇEKLER (viral evrensel format)
+# Kaynaklar: tek bir konuya değil çoğunlukla görsel/duygusal/şaşırtıcı içeriğe
+# odaklı, telif riski sıfır subreddit'ler.
+REDDIT_URLS = [
+    "https://www.reddit.com/r/NatureIsFuckingLit/top.json?t=day&limit=25",
+    "https://www.reddit.com/r/AnimalsBeingBros/top.json?t=day&limit=25",
+    "https://www.reddit.com/r/Damnthatsinteresting/top.json?t=day&limit=25",
+    "https://www.reddit.com/r/todayilearned/top.json?t=day&limit=25",
+]
+KULLANICI_AJANI = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"
 
-REDDIT_URL = "https://www.reddit.com/r/technology/top.json?t=day&limit=25"
-KULLANICI_AJANI = "MR-Studio-Haberci/1.0 (kisisel arastirma)"
+# Eski HN/r/technology sabitleri (geçici — referans/import kırılmasın diye)
+HN_TOP_URL = ""
+HN_ITEM_URL = ""
+HN_TARANACAK_ADET = 0
+REDDIT_URL = REDDIT_URLS[0]
 
-ZAMAN_PENCERESI_SAAT = 24
+ZAMAN_PENCERESI_SAAT = 48  # niş içerikte gün gün taze değil, "viral son 2 gün"
 ISTEK_ZAMAN_ASIMI = 10
 ISTEKLER_ARASI_GECIKME = 0.05
 
@@ -52,88 +63,50 @@ def _yas_saat(unix_zaman: int) -> float:
 
 
 def hackernews_haberleri() -> list[dict]:
-    haberler: list[dict] = []
-    try:
-        ust_yanit = requests.get(HN_TOP_URL, timeout=ISTEK_ZAMAN_ASIMI)
-        ust_yanit.raise_for_status()
-        kimlikler = ust_yanit.json()[:HN_TARANACAK_ADET]
-    except requests.RequestException as hata:
-        print(f"[haberci] HN top listesi alınamadı: {hata}")
-        return haberler
+    """KAPATILDI — nişten çıkarıldı. Geri uyumluluk için boş döner."""
+    return []
 
-    for hid in kimlikler:
+
+def reddit_haberleri() -> list[dict]:
+    """4 viral subreddit'ten son 48 saatin top postları (hayvan/doğa/ilginç)."""
+    haberler: list[dict] = []
+    for url in REDDIT_URLS:
+        sub = url.split("/r/")[1].split("/")[0]
         try:
             yanit = requests.get(
-                HN_ITEM_URL.format(id=hid),
+                url,
                 timeout=ISTEK_ZAMAN_ASIMI,
                 headers={"User-Agent": KULLANICI_AJANI},
             )
             yanit.raise_for_status()
-            item = yanit.json() or {}
+            gonderiler = yanit.json().get("data", {}).get("children", [])
         except requests.RequestException as hata:
-            print(f"[haberci] HN item {hid} alınamadı: {hata}")
+            print(f"[haberci] r/{sub} alınamadı: {hata}")
             continue
 
-        if item.get("type") != "story" or item.get("dead") or item.get("deleted"):
-            continue
-        if not item.get("url") or not item.get("title"):
-            continue
-
-        yas = _yas_saat(item.get("time", 0))
-        if yas > ZAMAN_PENCERESI_SAAT:
-            continue
-
-        haberler.append(
-            {
-                "baslik": item["title"],
-                "url": item["url"],
-                "kaynak": "HN",
-                "skor": int(item.get("score", 0)),
-                "yas_saat": round(yas, 1),
-                "yorum_sayisi": int(item.get("descendants", 0)),
-            }
-        )
-        time.sleep(ISTEKLER_ARASI_GECIKME)
-
-    return haberler
-
-
-def reddit_haberleri() -> list[dict]:
-    haberler: list[dict] = []
-    try:
-        yanit = requests.get(
-            REDDIT_URL,
-            timeout=ISTEK_ZAMAN_ASIMI,
-            headers={"User-Agent": KULLANICI_AJANI},
-        )
-        yanit.raise_for_status()
-        gonderiler = yanit.json().get("data", {}).get("children", [])
-    except requests.RequestException as hata:
-        print(f"[haberci] Reddit alınamadı: {hata}")
-        return haberler
-
-    for g in gonderiler:
-        veri = g.get("data", {})
-        if veri.get("stickied") or veri.get("is_self"):
-            continue
-        url = veri.get("url_overridden_by_dest") or veri.get("url")
-        baslik = veri.get("title")
-        olusturma = veri.get("created_utc")
-        if not (url and baslik and olusturma):
-            continue
-        yas = _yas_saat(int(olusturma))
-        if yas > ZAMAN_PENCERESI_SAAT:
-            continue
-        haberler.append(
-            {
-                "baslik": baslik,
-                "url": url,
-                "kaynak": "Reddit",
-                "skor": int(veri.get("ups", 0)),
-                "yas_saat": round(yas, 1),
-                "yorum_sayisi": int(veri.get("num_comments", 0)),
-            }
-        )
+        for g in gonderiler:
+            veri = g.get("data", {})
+            if veri.get("stickied") or veri.get("over_18"):
+                continue
+            url_h = veri.get("url_overridden_by_dest") or veri.get("url")
+            baslik = veri.get("title")
+            olusturma = veri.get("created_utc")
+            if not (url_h and baslik and olusturma):
+                continue
+            yas = _yas_saat(int(olusturma))
+            if yas > ZAMAN_PENCERESI_SAAT:
+                continue
+            haberler.append(
+                {
+                    "baslik": baslik,
+                    "url": url_h,
+                    "kaynak": f"r/{sub}",
+                    "skor": int(veri.get("ups", 0)),
+                    "yas_saat": round(yas, 1),
+                    "yorum_sayisi": int(veri.get("num_comments", 0)),
+                }
+            )
+        time.sleep(ISTEKLER_ARASI_GECIKME * 5)  # subreddit'ler arası nezaket
 
     return haberler
 
@@ -149,6 +122,61 @@ def _tekrarlari_ele(haberler: Iterable[dict]) -> list[dict]:
 
 def _normalize_url(url: str) -> str:
     return url.split("?")[0].rstrip("/").lower()
+
+
+GEMINI_KONU_SISTEM = """You produce viral YouTube Shorts TOPICS for an
+ANIMAL / NATURE / AMAZING-FACTS channel. Output ONLY a JSON array of EXACTLY
+3 topic objects.
+
+Each topic = a well-established, factual, surprising fact about an animal,
+natural phenomenon, or science wonder that:
+- Has clear visual potential (stock footage of the subject exists on Pexels)
+- Is broadly known and TRUE (no urban legends, no debunked claims)
+- Stops the scroll: emotionally surprising or beautiful
+
+Each object MUST have:
+- "baslik": punchy English headline of the fact (e.g. "Octopuses have three hearts and blue blood")
+- "url": Wikipedia URL of the main subject (e.g. https://en.wikipedia.org/wiki/Octopus). MUST be a real Wikipedia page.
+
+CRITICAL: avoid any topic whose Wikipedia URL appears in the BLOCKED list
+provided in the user prompt — those have been used already.
+"""
+
+
+def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
+    """Reddit fail olursa fallback — Gemini'den niş konu üretir."""
+    import bridge
+    blokli_liste = sorted(list(blokli_url))[-100:]  # son 100 yeter
+    bloklar = "\n".join(f"- {u}" for u in blokli_liste) or "(yok)"
+    try:
+        yanit = bridge.gemini_metin_uret(
+            prompt=(
+                f"BLOCKED Wikipedia URLs (do not reuse any of these):\n{bloklar}\n\n"
+                f"Produce exactly {adet} fresh viral animal/nature topics now."
+            ),
+            sistem_promptu=GEMINI_KONU_SISTEM,
+            sicaklik=0.9,
+            max_token=2048,
+        )
+        m = re.search(r"\[.*\]", yanit, re.DOTALL)
+        if not m:
+            return []
+        kayitlar = json.loads(m.group(0))
+        sonuc = []
+        for i, k in enumerate(kayitlar[:adet]):
+            if k.get("baslik") and k.get("url"):
+                sonuc.append({
+                    "baslik": k["baslik"],
+                    "url": k["url"],
+                    "kaynak": "gemini-fallback",
+                    "skor": 1000 - i,
+                    "yas_saat": 0,
+                    "yorum_sayisi": 0,
+                })
+        return sonuc
+    except Exception as hata:
+        print(f"[haberci] Gemini fallback hatası: {hata}")
+        return []
 
 
 def _gecmisi_oku() -> set[str]:
@@ -186,16 +214,27 @@ def en_populer_3() -> list[dict]:
     ]
     yenidenIslenmemis.sort(key=lambda h: h["skor"], reverse=True)
     print(
-        f"[haberci] Havuz: {len(benzersiz)} benzersiz haber, "
-        f"geçmişte işlenmiş {len(benzersiz) - len(yenidenIslenmemis)}, "
+        f"[haberci] Reddit havuzu: {len(benzersiz)} benzersiz, "
+        f"geçmişte {len(benzersiz) - len(yenidenIslenmemis)}, "
         f"aday {len(yenidenIslenmemis)}",
         flush=True,
     )
+    # Reddit yetersiz (engellendi / hepsi geçmişte): Gemini fallback
+    if len(yenidenIslenmemis) < 3:
+        print("[haberci] Reddit yetersiz → Gemini konu fallback'i devrede.", flush=True)
+        fallback = gemini_konu_uret(gecmis, adet=3)
+        # mevcut adayların URL'lerini tekrar etmesin
+        mevcut_urller = {_normalize_url(h["url"]) for h in yenidenIslenmemis}
+        for k in fallback:
+            if _normalize_url(k["url"]) not in mevcut_urller:
+                yenidenIslenmemis.append(k)
+                mevcut_urller.add(_normalize_url(k["url"]))
+        print(f"[haberci] Gemini sonrası toplam aday: {len(yenidenIslenmemis)}", flush=True)
     return yenidenIslenmemis[:3]
 
 
 def main() -> int:
-    print("[haberci] Son 24 saatin teknoloji haberleri taranıyor...\n")
+    print("[haberci] Hayvan/doğa nişi — Reddit + Gemini fallback taranıyor...\n")
     secilenler = en_populer_3()
 
     if not secilenler:
