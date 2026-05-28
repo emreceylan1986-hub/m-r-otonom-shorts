@@ -217,25 +217,43 @@ async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
     """
     MP3 ses + viral-Shorts stili ASS altyazı (sarı keyword highlight).
     edge-tts WordBoundary/SentenceBoundary event'i toplar, _karaoke_ass ile
-    referans viral videodaki stile çevirir. Sıfır ek maliyet.
+    referans viral videodaki stile çevirir.
+
+    edge-tts WebSocket 503/Handshake hatalarına karşı 5 denemeli backoff —
+    Microsoft Edge TTS uçnoktası ara sıra spike yapıyor.
     """
-    iletisim = edge_tts.Communicate(
-        text=metin,
-        voice=SES,
-        rate=HIZ,
-        pitch=PERDE,
-        volume=SES_SEVIYESI,
-    )
-    cues: list[tuple[int, int, str]] = []
-    with open(mp3_yolu, "wb") as ses:
-        async for chunk in iletisim.stream():
-            if chunk["type"] == "audio":
-                ses.write(chunk["data"])
-            elif chunk["type"] in ("WordBoundary", "SentenceBoundary"):
-                cues.append((chunk["offset"], chunk["duration"], chunk["text"]))
-    if not cues:
-        raise RuntimeError("edge-tts hiç altyazı zamanlaması döndürmedi.")
-    ass_yolu.write_text(_karaoke_ass(cues), encoding="utf-8")
+    import asyncio as _aio
+    son_hata: Exception | None = None
+    for deneme in range(5):
+        try:
+            iletisim = edge_tts.Communicate(
+                text=metin,
+                voice=SES,
+                rate=HIZ,
+                pitch=PERDE,
+                volume=SES_SEVIYESI,
+            )
+            cues: list[tuple[int, int, str]] = []
+            with open(mp3_yolu, "wb") as ses:
+                async for chunk in iletisim.stream():
+                    if chunk["type"] == "audio":
+                        ses.write(chunk["data"])
+                    elif chunk["type"] in ("WordBoundary", "SentenceBoundary"):
+                        cues.append((chunk["offset"], chunk["duration"], chunk["text"]))
+            if not cues:
+                raise RuntimeError("edge-tts hiç altyazı zamanlaması döndürmedi.")
+            ass_yolu.write_text(_karaoke_ass(cues), encoding="utf-8")
+            return
+        except Exception as hata:  # WSServerHandshakeError, NoAudioReceived, vs.
+            son_hata = hata
+            bekle = min(2 ** (deneme + 2), 60)  # 4, 8, 16, 32, 60 sn
+            print(
+                f"[seslendirici] edge-tts hata ({type(hata).__name__}) — "
+                f"{bekle}s sonra yeniden ({deneme+1}/5)",
+                flush=True,
+            )
+            await _aio.sleep(bekle)
+    raise RuntimeError(f"edge-tts 5 denemede de başarısız: {son_hata}")
 
 
 def seslendir(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
