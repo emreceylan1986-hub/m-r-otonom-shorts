@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-27T20:58:50.485578+00:00",
+  "uretim_zamani": "2026-05-28T18:31:06.348212+00:00",
   "haberler": [
     {
-      "baslik": "Last.fm is now independent",
-      "url": "https://support.last.fm/t/last-fm-is-now-independent/118591",
+      "baslik": "YouTube to automatically label AI-generated videos",
+      "url": "https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/",
       "kaynak": "HN",
-      "skor": 496,
-      "yas_saat": 5.4,
-      "yorum_sayisi": 143
+      "skor": 1221,
+      "yas_saat": 22.5,
+      "yorum_sayisi": 725
     },
     {
-      "baslik": "DuckDuckGo search saw 28% more visits after Google said people love AI mode",
-      "url": "https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/",
+      "baslik": "Claude Opus 4.8",
+      "url": "https://www.anthropic.com/news/claude-opus-4-8",
       "kaynak": "HN",
-      "skor": 469,
-      "yas_saat": 4.5,
-      "yorum_sayisi": 247
+      "skor": 593,
+      "yas_saat": 1.7,
+      "yorum_sayisi": 426
     },
     {
-      "baslik": "Tech CEOs are apparently suffering from AI psychosis",
-      "url": "https://techcrunch.com/2026/05/27/tech-ceos-are-apparently-suffering-from-ai-psychosis/",
+      "baslik": "Disagreement among frontier LLMs on real-world fact-checks",
+      "url": "https://lenz.io/research/llm-disagreement",
       "kaynak": "HN",
-      "skor": 428,
-      "yas_saat": 5.6,
-      "yorum_sayisi": 210
+      "skor": 456,
+      "yas_saat": 6.2,
+      "yorum_sayisi": 313
     }
   ]
 }
