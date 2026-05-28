@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-28T23:50:43.477134+00:00",
+  "uretim_zamani": "2026-05-28T23:54:26.347231+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,16 +10,16 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The 'immortal jellyfish' can revert to an earlier life stage, effectively living forever!",
-      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "baslik": "Sharks can detect a single drop of blood in an Olympic-sized swimming pool!",
+      "url": "https://en.wikipedia.org/wiki/Shark",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Butterflies taste with their feet!",
-      "url": "https://en.wikipedia.org/wiki/Butterfly",
+      "baslik": "The 'immortal jellyfish' can revert to its juvenile stage after reaching maturity!",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
