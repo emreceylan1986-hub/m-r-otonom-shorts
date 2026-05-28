@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-28T18:31:06.348212+00:00",
+  "uretim_zamani": "2026-05-28T21:03:20.439016+00:00",
   "haberler": [
     {
-      "baslik": "YouTube to automatically label AI-generated videos",
-      "url": "https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/",
+      "baslik": "Show HN: Hallucinate – Massively Multiplayer Online Rave",
+      "url": "https://hallucinate.site",
       "kaynak": "HN",
-      "skor": 1221,
-      "yas_saat": 22.5,
-      "yorum_sayisi": 725
+      "skor": 390,
+      "yas_saat": 17.2,
+      "yorum_sayisi": 173
     },
     {
-      "baslik": "Claude Opus 4.8",
-      "url": "https://www.anthropic.com/news/claude-opus-4-8",
+      "baslik": "EU fines Temu €200M for allowing sale of illegal products",
+      "url": "https://www.bbc.co.uk/news/articles/c1k2ydn1rz8o",
       "kaynak": "HN",
-      "skor": 593,
-      "yas_saat": 1.7,
-      "yorum_sayisi": 426
+      "skor": 264,
+      "yas_saat": 6.7,
+      "yorum_sayisi": 188
     },
     {
-      "baslik": "Disagreement among frontier LLMs on real-world fact-checks",
-      "url": "https://lenz.io/research/llm-disagreement",
+      "baslik": "New York passes pied-a-terre tax",
+      "url": "https://www.cnbc.com/2026/05/28/new-york-mamdani-pied-a-terre-tax-passes.html",
       "kaynak": "HN",
-      "skor": 456,
-      "yas_saat": 6.2,
-      "yorum_sayisi": 313
+      "skor": 236,
+      "yas_saat": 6.4,
+      "yorum_sayisi": 376
     }
   ]
 }
