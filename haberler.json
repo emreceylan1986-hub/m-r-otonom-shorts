@@ -1,29 +1,29 @@
 {
-  "uretim_zamani": "2026-05-28T21:03:20.439016+00:00",
+  "uretim_zamani": "2026-05-28T23:50:43.477134+00:00",
   "haberler": [
     {
-      "baslik": "Show HN: Hallucinate – Massively Multiplayer Online Rave",
-      "url": "https://hallucinate.site",
-      "kaynak": "HN",
-      "skor": 390,
-      "yas_saat": 17.2,
-      "yorum_sayisi": 173
+      "baslik": "A group of owls is called a parliament!",
+      "url": "https://en.wikipedia.org/wiki/Owl",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
     },
     {
-      "baslik": "EU fines Temu €200M for allowing sale of illegal products",
-      "url": "https://www.bbc.co.uk/news/articles/c1k2ydn1rz8o",
-      "kaynak": "HN",
-      "skor": 264,
-      "yas_saat": 6.7,
-      "yorum_sayisi": 188
+      "baslik": "The 'immortal jellyfish' can revert to an earlier life stage, effectively living forever!",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
     },
     {
-      "baslik": "New York passes pied-a-terre tax",
-      "url": "https://www.cnbc.com/2026/05/28/new-york-mamdani-pied-a-terre-tax-passes.html",
-      "kaynak": "HN",
-      "skor": 236,
-      "yas_saat": 6.4,
-      "yorum_sayisi": 376
+      "baslik": "Butterflies taste with their feet!",
+      "url": "https://en.wikipedia.org/wiki/Butterfly",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
     }
   ]
 }
