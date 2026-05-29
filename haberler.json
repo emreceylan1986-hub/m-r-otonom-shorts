@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-29T01:22:21.291704+00:00",
+  "uretim_zamani": "2026-05-29T18:27:10.328839+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,16 +10,16 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Cows have best friends and get stressed when separated!",
-      "url": "https://en.wikipedia.org/wiki/Cattle",
+      "baslik": "The shortest war in history lasted only 38 to 45 minutes!",
+      "url": "https://en.wikipedia.org/wiki/Anglo-Zanzibar_War",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The 'immortal jellyfish' can technically live forever by reverting to its juvenile stage!",
-      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "baslik": "Wombat poop is cube-shaped!",
+      "url": "https://en.wikipedia.org/wiki/Wombat",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
