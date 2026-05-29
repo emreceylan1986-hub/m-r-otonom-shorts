@@ -1,25 +1,17 @@
 {
-  "uretim_zamani": "2026-05-29T19:49:55.397252+00:00",
+  "uretim_zamani": "2026-05-29T19:56:47.317126+00:00",
   "haberler": [
     {
-      "baslik": "A group of owls is called a parliament!",
-      "url": "https://en.wikipedia.org/wiki/Owl",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "The deepest part of the ocean is deeper than Mount Everest is tall.",
-      "url": "https://en.wikipedia.org/wiki/Challenger_Deep",
+      "baslik": "Antarctica is the only continent with no native reptiles or amphibians!",
+      "url": "https://en.wikipedia.org/wiki/Antarctica",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Pistachio nuts are technically fruits, not nuts!",
-      "url": "https://en.wikipedia.org/wiki/Pistachio",
+      "baslik": "The sound of a snapping shrimp is louder than a jet engine!",
+      "url": "https://en.wikipedia.org/wiki/Alpheidae",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
