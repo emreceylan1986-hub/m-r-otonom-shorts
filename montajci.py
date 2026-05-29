@@ -82,17 +82,14 @@ def _alt(mesaj: str) -> None:
 
 def _jamendo_anahtarini_oku() -> str:
     """Jamendo client_id — varsa müzik devreye girer, yoksa graceful skip.
-    NOT: Pixabay Music alternatifi — Pixabay Türkiye IP'sini Cloudflare 403 ile
-    engelliyor, kayıt mümkün değil. Jamendo TR'den erişilebilir, CC müzik."""
-    for anahtar in ("JAMENDO_CLIENT_ID", "PIXABAY_API_KEY"):  # geriye uyum
-        if os.environ.get(anahtar):
-            return os.environ[anahtar]
+    SADECE JAMENDO_CLIENT_ID arar. Pixabay key Jamendo'da geçersiz."""
+    if os.environ.get("JAMENDO_CLIENT_ID"):
+        return os.environ["JAMENDO_CLIENT_ID"]
     env = PANEL_KOK / ".env"
     if env.exists():
         for satir in env.read_text(encoding="utf-8").splitlines():
-            for anahtar in ("JAMENDO_CLIENT_ID=", "PIXABAY_API_KEY="):
-                if satir.startswith(anahtar):
-                    return satir.split("=", 1)[1].strip().strip('"').strip("'")
+            if satir.startswith("JAMENDO_CLIENT_ID="):
+                return satir.split("=", 1)[1].strip().strip('"').strip("'")
     return ""  # yoksa müzik atlanır
 
 
