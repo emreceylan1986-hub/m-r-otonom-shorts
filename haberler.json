@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-29T01:18:42.104586+00:00",
+  "uretim_zamani": "2026-05-29T01:22:21.291704+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,16 +10,16 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The 'immortal jellyfish' can revert to its juvenile stage, potentially living forever!",
-      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "baslik": "Cows have best friends and get stressed when separated!",
+      "url": "https://en.wikipedia.org/wiki/Cattle",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Trees communicate and share resources through an underground 'wood wide web' of fungi!",
-      "url": "https://en.wikipedia.org/wiki/Mycorrhizal_network",
+      "baslik": "The 'immortal jellyfish' can technically live forever by reverting to its juvenile stage!",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
