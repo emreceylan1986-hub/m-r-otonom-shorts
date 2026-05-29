@@ -155,17 +155,64 @@ Each object MUST have:
 - "baslik": punchy English headline of the fact (e.g. "Octopuses have three hearts and blue blood")
 - "url": Wikipedia URL of the main subject (e.g. https://en.wikipedia.org/wiki/Octopus). MUST be a real Wikipedia page.
 
-CRITICAL: avoid any topic whose Wikipedia URL appears in the BLOCKED list
-provided in the user prompt — those have been used already.
+CRITICAL — ANTI-DUPLICATE RULES:
+1) Avoid any topic whose Wikipedia URL appears in the BLOCKED URLs list.
+2) Avoid any topic that is SEMANTICALLY SIMILAR to titles in the BLOCKED TITLES
+   list — even if you use a different Wikipedia URL or rephrase the headline.
+   Example: if "A group of owls is called a parliament" was used, then
+   "Why is a group of owls called a parliament" or anything about owl group
+   names is BANNED. Pick a completely different animal/phenomenon.
+3) Prefer subjects that do NOT share the main noun (animal/species name) with
+   any blocked title.
 """
+
+
+def _basit_baslik_kelimeleri(b: str) -> set[str]:
+    """Başlığın anlamlı kelimelerini set olarak döner (stopword'leri at)."""
+    import re as _re
+    ATIL = {
+        "a","an","the","is","are","was","were","of","in","on","at","to","for",
+        "and","or","but","with","as","by","be","has","have","had","do","does",
+        "did","this","that","these","those","it","its","i","you","we","they",
+        "their","what","why","how","when","known","called","group","fact",
+    }
+    kelimeler = _re.findall(r"[a-z]{3,}", b.lower())
+    return {k for k in kelimeler if k not in ATIL}
+
+
+def _baslik_benzer_mi(yeni: str, eski_setleri: list[set[str]], esik: float = 0.4) -> bool:
+    """Yeni başlık eski setlerden biriyle %esik üstü kelime overlap'ı varsa True."""
+    y = _basit_baslik_kelimeleri(yeni)
+    if not y:
+        return False
+    for s in eski_setleri:
+        if not s:
+            continue
+        kesisim = len(y & s)
+        oran = kesisim / max(len(y), 1)
+        if oran >= esik:
+            return True
+    return False
 
 
 def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
     """Reddit fail olursa fallback — Gemini'den niş konu üretir.
-    Bonus: pytrends ile günün US trend aramalarını seed olarak verir."""
+    URL + konu/başlık benzerliği ile çift katmanlı dedup. pytrends seed eklenir."""
     import bridge
-    blokli_liste = sorted(list(blokli_url))[-100:]  # son 100 yeter
+    blokli_liste = sorted(list(blokli_url))[-100:]  # son 100 URL
     bloklar = "\n".join(f"- {u}" for u in blokli_liste) or "(yok)"
+    # YUKLEMELER son 50 başlık — semantik benzerlik için Gemini'ye + Python filter'a
+    son_basliklar: list[str] = []
+    try:
+        yuklemeler_yolu = Path(__file__).parent / "yuklemeler.json"
+        if yuklemeler_yolu.exists():
+            kayitlar = json.loads(yuklemeler_yolu.read_text(encoding="utf-8"))
+            son_basliklar = [k.get("title", "") for k in kayitlar[-50:] if k.get("title")]
+    except (OSError, json.JSONDecodeError):
+        pass
+    baslik_bloklari = "\n".join(f"- {b}" for b in son_basliklar) or "(yok)"
+    eski_set_listesi = [_basit_baslik_kelimeleri(b) for b in son_basliklar]
+
     trend_seedleri = gunun_trend_seedleri()
     trend_blok = (
         f"\nTODAY'S GOOGLE TRENDS (top US search trends — gentle inspiration, "
@@ -175,23 +222,46 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
         if trend_seedleri else ""
     )
     try:
-        yanit = bridge.gemini_metin_uret(
-            prompt=(
-                f"BLOCKED Wikipedia URLs (do not reuse any of these):\n{bloklar}"
-                f"{trend_blok}\n\n"
-                f"Produce exactly {adet} fresh viral animal/nature topics now."
-            ),
-            sistem_promptu=GEMINI_KONU_SISTEM,
-            sicaklik=0.9,
-            max_token=2048,
-        )
-        m = re.search(r"\[.*\]", yanit, re.DOTALL)
-        if not m:
-            return []
-        kayitlar = json.loads(m.group(0))
-        sonuc = []
-        for i, k in enumerate(kayitlar[:adet]):
-            if k.get("baslik") and k.get("url"):
+        # 2 turlu üretim: ilk turda red varsa Python filter'la ele, 2. turda
+        # daha güçlü uyarıyla yeniden iste.
+        sonuc: list[dict] = []
+        for tur in range(2):
+            ek_uyari = (
+                ""
+                if tur == 0
+                else (
+                    "\n\nYOUR PREVIOUS BATCH CONTAINED TOPICS TOO SIMILAR TO BLOCKED "
+                    "TITLES. Choose entirely different animals/phenomena. "
+                    "Forbidden subjects this round: "
+                    + ", ".join(sorted({list(s)[0] for s in eski_set_listesi if s})[:30])
+                )
+            )
+            yanit = bridge.gemini_metin_uret(
+                prompt=(
+                    f"BLOCKED Wikipedia URLs (do not reuse):\n{bloklar}\n\n"
+                    f"BLOCKED TITLES (do not produce semantically similar topics):\n{baslik_bloklari}"
+                    f"{trend_blok}{ek_uyari}\n\n"
+                    f"Produce exactly {adet} fresh viral animal/nature topics now."
+                ),
+                sistem_promptu=GEMINI_KONU_SISTEM,
+                sicaklik=0.95,
+                max_token=2048,
+            )
+            m = re.search(r"\[.*\]", yanit, re.DOTALL)
+            if not m:
+                continue
+            kayitlar = json.loads(m.group(0))
+            for i, k in enumerate(kayitlar[:adet]):
+                if not (k.get("baslik") and k.get("url")):
+                    continue
+                # Konu/başlık benzerliği kontrolü
+                if _baslik_benzer_mi(k["baslik"], eski_set_listesi):
+                    print(f"[haberci] Gemini başlığı '{k['baslik'][:40]}…' eski bir konuya çok benzer → atlandı")
+                    continue
+                # URL geçmişte var mı
+                if _normalize_url(k["url"]) in blokli_url:
+                    print(f"[haberci] Gemini URL'si geçmişte → atlandı: {k['url']}")
+                    continue
                 sonuc.append({
                     "baslik": k["baslik"],
                     "url": k["url"],
@@ -200,7 +270,9 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                     "yas_saat": 0,
                     "yorum_sayisi": 0,
                 })
-        return sonuc
+            if len(sonuc) >= 1:
+                break
+        return sonuc[:adet]
     except Exception as hata:
         print(f"[haberci] Gemini fallback hatası: {hata}")
         return []
