@@ -48,12 +48,16 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          JAMENDO_CLIENT_ID: ${{ secrets.JAMENDO_CLIENT_ID }}
           CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
           TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
         run: |
           {
             echo "GEMINI_API_KEY=${GEMINI_API_KEY}"
             echo "PEXELS_API_KEY=${PEXELS_API_KEY}"
+            echo "PIXABAY_API_KEY=${PIXABAY_API_KEY}"
+            echo "JAMENDO_CLIENT_ID=${JAMENDO_CLIENT_ID}"
           } > .env
           printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
           printf '%s' "$TOKEN_JSON"         > token.json
