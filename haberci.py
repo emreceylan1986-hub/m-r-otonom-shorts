@@ -124,6 +124,23 @@ def _normalize_url(url: str) -> str:
     return url.split("?")[0].rstrip("/").lower()
 
 
+def gunun_trend_seedleri() -> list[str]:
+    """
+    Google Trends (pytrends) — günün US trending searches'inden seed çek.
+    Gemini fallback'e "şu konular şu an viral" ipucu olarak verilir.
+    Fail-safe: pytrends hata verirse boş döner, ana akış bozulmaz.
+    """
+    try:
+        from pytrends.request import TrendReq
+        pt = TrendReq(hl="en-US", tz=0, timeout=(5, 10))
+        df = pt.trending_searches(pn="united_states")
+        seedler = [str(s) for s in df[0].head(10).tolist()]
+        return seedler
+    except Exception as hata:
+        print(f"[haberci] pytrends trend seed alınamadı: {hata}")
+        return []
+
+
 GEMINI_KONU_SISTEM = """You produce viral YouTube Shorts TOPICS for an
 ANIMAL / NATURE / AMAZING-FACTS channel. Output ONLY a JSON array of EXACTLY
 3 topic objects.
@@ -144,14 +161,24 @@ provided in the user prompt — those have been used already.
 
 
 def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
-    """Reddit fail olursa fallback — Gemini'den niş konu üretir."""
+    """Reddit fail olursa fallback — Gemini'den niş konu üretir.
+    Bonus: pytrends ile günün US trend aramalarını seed olarak verir."""
     import bridge
     blokli_liste = sorted(list(blokli_url))[-100:]  # son 100 yeter
     bloklar = "\n".join(f"- {u}" for u in blokli_liste) or "(yok)"
+    trend_seedleri = gunun_trend_seedleri()
+    trend_blok = (
+        f"\nTODAY'S GOOGLE TRENDS (top US search trends — gentle inspiration, "
+        f"NOT mandatory; pick a related animal/nature angle ONLY if a clean "
+        f"connection exists; otherwise ignore):\n"
+        + "\n".join(f"  · {s}" for s in trend_seedleri)
+        if trend_seedleri else ""
+    )
     try:
         yanit = bridge.gemini_metin_uret(
             prompt=(
-                f"BLOCKED Wikipedia URLs (do not reuse any of these):\n{bloklar}\n\n"
+                f"BLOCKED Wikipedia URLs (do not reuse any of these):\n{bloklar}"
+                f"{trend_blok}\n\n"
                 f"Produce exactly {adet} fresh viral animal/nature topics now."
             ),
             sistem_promptu=GEMINI_KONU_SISTEM,

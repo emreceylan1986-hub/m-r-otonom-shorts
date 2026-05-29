@@ -161,9 +161,13 @@ def _vurgu_kelime(kelimeler: list[str]) -> int:
 
 def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
     """
-    edge-tts cue'larından viral-Shorts stili ASS altyazı: 3 kelimelik hızlı
-    bloklar + her blokta ANA kelime SARI vurgulu (referans viral videodaki
-    stil). libass ile videoya gömülür. Stil ASS içinde — force_style gereksiz.
+    Captacity-tarzı animasyonlu viral altyazı (Captacity repo mantığı, kendi
+    implementasyonumuz — ek bağımlılık yok).
+    - 3 kelimelik hızlı bloklar
+    - Her bloğa POP animasyonu (\\t ile scale büyüt-küçült)
+    - Hızlı fade-in (\\fad)
+    - Ana kelime SARI + büyütülmüş scale
+    - Kalın siyah outline + gölge (sessiz izleyene maksimum okunabilirlik)
     """
     bas = (
         "[Script Info]\n"
@@ -177,14 +181,17 @@ def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
         "OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, "
         "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        "Style: Pop,Arial,60,&H00FFFFFF,&H000000FF,&H00000000,&H64000000,"
-        "1,0,0,0,100,100,0,0,1,5,2,2,60,60,300,1\n\n"
+        # Daha kalın outline (6), gölge (3), italik kapalı, semi-transparent BG
+        "Style: Pop,Arial Black,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,"
+        "1,0,0,0,100,100,0,0,1,6,3,2,60,60,260,1\n\n"
         "[Events]\n"
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, "
         "MarginV, Effect, Text\n"
     )
     SARI = r"{\c&H0000FFFF&}"
     BEYAZ = r"{\c&H00FFFFFF&}"
+    # Captacity-tarzı pop: ilk 120ms scale 70→105→100, fade-in 80ms.
+    POP_GIRIS = r"{\fad(80,40)\t(0,80,\fscx110\fscy110)\t(80,160,\fscx100\fscy100)}"
     satirlar: list[str] = []
     for offset, duration, metin in cues:
         kelimeler = metin.split()
@@ -203,8 +210,12 @@ def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
             vi = _vurgu_kelime(g)
             parcalar = []
             for i, w in enumerate(g):
-                parcalar.append(f"{SARI}{w.upper()}{BEYAZ}" if i == vi else w)
-            metin_ass = " ".join(parcalar)
+                if i == vi:
+                    # ana kelime: sarı + biraz daha büyük (15% scale)
+                    parcalar.append(rf"{SARI}{{\fscx115\fscy115}}{w.upper()}{{\fscx100\fscy100}}{BEYAZ}")
+                else:
+                    parcalar.append(w)
+            metin_ass = POP_GIRIS + " ".join(parcalar)
             satirlar.append(
                 f"Dialogue: 0,{_ass_zaman(baslangic/10000.0)},"
                 f"{_ass_zaman(bit/10000.0)},Pop,,0,0,0,,{metin_ass}"

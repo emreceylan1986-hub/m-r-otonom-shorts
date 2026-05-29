@@ -80,6 +80,55 @@ def _alt(mesaj: str) -> None:
     print(f"   ↳ {mesaj}", flush=True)
 
 
+def _pixabay_anahtarini_oku() -> str:
+    """Pixabay key — varsa müzik devreye girer, yoksa graceful skip."""
+    if os.environ.get("PIXABAY_API_KEY"):
+        return os.environ["PIXABAY_API_KEY"]
+    env = PANEL_KOK / ".env"
+    if env.exists():
+        for satir in env.read_text(encoding="utf-8").splitlines():
+            if satir.startswith("PIXABAY_API_KEY="):
+                return satir.split("=", 1)[1].strip().strip('"').strip("'")
+    return ""  # yoksa müzik atlanır
+
+
+PIXABAY_MUSIC_URL = "https://pixabay.com/api/music/"
+MUZIK_SES_DB = "-22dB"  # arka plan TTS'in altında kalsın
+
+
+def pixabay_muzik_indir(arama: str, hedef_mp3: Path, api_key: str) -> bool:
+    """Pixabay Music API'den keyword'e uygun ücretsiz arka plan müziği indir."""
+    if not api_key:
+        return False
+    try:
+        yanit = requests.get(
+            PIXABAY_MUSIC_URL,
+            params={"key": api_key, "q": arama, "per_page": 20, "safesearch": "true"},
+            timeout=ISTEK_ZAMAN_ASIMI,
+        )
+        yanit.raise_for_status()
+        hits = (yanit.json() or {}).get("hits") or []
+        if not hits:
+            return False
+        # 30-90 sn aralığında ilk uygun olanı seç
+        adaylar = [h for h in hits if 25 <= (h.get("duration") or 999) <= 120]
+        if not adaylar:
+            adaylar = hits[:5]
+        sec = adaylar[0]
+        mp3_url = sec.get("audio") or sec.get("audio_url") or sec.get("audio_mp3")
+        if not mp3_url:
+            return False
+        indir = requests.get(mp3_url, stream=True, timeout=INDIRME_ZAMAN_ASIMI)
+        indir.raise_for_status()
+        with open(hedef_mp3, "wb") as f:
+            for parca in indir.iter_content(chunk_size=1 << 15):
+                f.write(parca)
+        return True
+    except (requests.RequestException, KeyError, ValueError, OSError) as e:
+        print(f"   ↳ Pixabay müzik indirilemedi: {e}")
+        return False
+
+
 def _pexels_anahtarini_oku() -> str:
     if os.environ.get("PEXELS_API_KEY"):
         return os.environ["PEXELS_API_KEY"]
@@ -159,6 +208,94 @@ def keywordleri_uret(senaryo: str) -> list[str]:
             f"Tam {KLIP_SAYISI} keyword bekleniyordu, gelen: {keywords!r}"
         )
     return [str(k).strip() for k in keywords]
+
+
+WIKIMEDIA_API = "https://commons.wikimedia.org/w/api.php"
+
+
+def wikimedia_foto_indir(keyword: str, foto_hedef: Path) -> dict:
+    """Wikimedia Commons'tan keyword için en alakalı portrait fotoğrafı indir."""
+    sonuc = requests.get(
+        WIKIMEDIA_API,
+        params={
+            "action": "query",
+            "format": "json",
+            "generator": "search",
+            "gsrsearch": f"{keyword} filetype:bitmap",
+            "gsrnamespace": "6",
+            "gsrlimit": 8,
+            "prop": "imageinfo",
+            "iiprop": "url|size|mime",
+            "iiurlwidth": "1080",
+        },
+        headers={"User-Agent": "MR-Studio-Montajci/1.0 (https://urunya.com)"},
+        timeout=ISTEK_ZAMAN_ASIMI,
+    )
+    sonuc.raise_for_status()
+    sayfalar = (sonuc.json().get("query") or {}).get("pages") or {}
+    # en iyi: yüksekliği genişliğinden büyük (portrait), JPG/PNG
+    aday = None
+    for s in sayfalar.values():
+        ii = (s.get("imageinfo") or [{}])[0]
+        if not ii:
+            continue
+        mime = ii.get("mime", "")
+        if not mime.startswith("image/"):
+            continue
+        w, h = ii.get("width", 0), ii.get("height", 0)
+        if h <= w:
+            continue
+        if aday is None or h > aday["h"]:
+            aday = {"url": ii.get("thumburl") or ii.get("url"), "w": w, "h": h, "title": s.get("title", "")}
+    if not aday:
+        raise RuntimeError(f"'{keyword}' için Wikimedia portrait foto yok.")
+    indirme = requests.get(
+        aday["url"], stream=True, timeout=INDIRME_ZAMAN_ASIMI,
+        headers={"User-Agent": "MR-Studio-Montajci/1.0"},
+    )
+    indirme.raise_for_status()
+    with open(foto_hedef, "wb") as f:
+        for parca in indirme.iter_content(chunk_size=1 << 15):
+            f.write(parca)
+    return {"keyword": keyword, "url": aday["url"], "boyut": (aday["w"], aday["h"]), "kaynak": "wikimedia", "title": aday["title"]}
+
+
+def foto_video_yap(foto: Path, hedef: Path, sure_sn: float) -> None:
+    """Tek foto → Ken Burns zoom'lu video (Pexels alternatifi)."""
+    _ffmpeg_calistir(
+        [
+            "-loop", "1",
+            "-i", str(foto),
+            "-t", f"{sure_sn:.3f}",
+            "-vf",
+            f"scale={HEDEF_GENISLIK*2}:{HEDEF_YUKSEKLIK*2}:force_original_aspect_ratio=increase,"
+            f"crop={HEDEF_GENISLIK*2}:{HEDEF_YUKSEKLIK*2},"
+            f"zoompan=z='min(zoom+0.0007,1.20)':d=1:"
+            f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+            f"s={HEDEF_GENISLIK}x{HEDEF_YUKSEKLIK}:fps=30,setsar=1",
+            "-r", "30", "-an",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+            "-pix_fmt", "yuv420p",
+            str(hedef),
+        ]
+    )
+
+
+def gorsel_kaynak_indir(keyword: str, hedef: Path, sure_sn: float, api_key: str) -> dict:
+    """
+    Önce Pexels video; başarısız olursa Wikimedia foto → Ken Burns video.
+    Hayvan/doğa nişinde Wikimedia gerçek bilimsel görselleri sağlar.
+    """
+    try:
+        return pexels_video_indir(keyword, hedef, api_key)
+    except (requests.RequestException, RuntimeError) as e:
+        print(f"   ↳ Pexels '{keyword}' fail ({e}) → Wikimedia denenecek")
+    foto = hedef.with_suffix(".jpg")
+    bilgi = wikimedia_foto_indir(keyword, foto)
+    foto_video_yap(foto, hedef, sure_sn)
+    bilgi["sure"] = sure_sn
+    bilgi["fotograf"] = f"Wikimedia: {bilgi.get('title','?')[:30]}"
+    return bilgi
 
 
 def pexels_video_indir(keyword: str, hedef: Path, api_key: str) -> dict:
@@ -269,18 +406,40 @@ def altyazi_yak(video: Path, ass: Path, hedef: Path) -> None:
     shutil.move(str(yerel_cikti), str(hedef))
 
 
-def ses_mux(video: Path, mp3: Path, hedef: Path) -> None:
-    _ffmpeg_calistir(
-        [
-            "-i", str(video),
-            "-i", str(mp3),
-            "-c:v", "copy",
-            "-c:a", "aac", "-b:a", "192k",
-            "-shortest",
-            "-movflags", "+faststart",
-            str(hedef),
-        ]
-    )
+def ses_mux(video: Path, mp3: Path, hedef: Path, muzik: Path | None = None) -> None:
+    """
+    Video + TTS sesi (+ varsa arka plan müziği) → final MP4.
+    Arka plan müzik TTS'in -22dB altında, aynı süreye kırpılır.
+    """
+    if muzik and muzik.exists():
+        _ffmpeg_calistir(
+            [
+                "-i", str(video),
+                "-i", str(mp3),
+                "-i", str(muzik),
+                "-filter_complex",
+                f"[2:a]volume={MUZIK_SES_DB},aloop=loop=-1:size=2e+09[bg];"
+                "[1:a][bg]amix=inputs=2:duration=first:dropout_transition=2[aout]",
+                "-map", "0:v", "-map", "[aout]",
+                "-c:v", "copy",
+                "-c:a", "aac", "-b:a", "192k",
+                "-shortest",
+                "-movflags", "+faststart",
+                str(hedef),
+            ]
+        )
+    else:
+        _ffmpeg_calistir(
+            [
+                "-i", str(video),
+                "-i", str(mp3),
+                "-c:v", "copy",
+                "-c:a", "aac", "-b:a", "192k",
+                "-shortest",
+                "-movflags", "+faststart",
+                str(hedef),
+            ]
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -311,15 +470,15 @@ def main() -> int:
         for k in keywords:
             _alt(k)
 
-        _adim(4, f"Pexels'ten her keyword için 1 portrait klip indiriliyor (klip başına {klip_basina:.2f} sn)...")
+        _adim(4, f"Görsel kaynak (Pexels → Wikimedia fallback) — klip başına {klip_basina:.2f} sn...")
         ham_klipler: list[Path] = []
         for sira, kw in enumerate(keywords, 1):
             ham = GECICI_KLASOR / f"ham_{damga}_{sira}.mp4"
-            bilgi = pexels_video_indir(kw, ham, api_key)
+            bilgi = gorsel_kaynak_indir(kw, ham, klip_basina, api_key)
             ham_klipler.append(ham)
             _alt(
                 f"#{sira} '{kw}' → {bilgi['boyut'][0]}×{bilgi['boyut'][1]}, "
-                f"kaynak süre {bilgi['sure']}s, Pexels: {bilgi['fotograf']} "
+                f"kaynak: {bilgi.get('fotograf','?')} "
                 f"({ham.stat().st_size/1024:.0f} KB)"
             )
 
@@ -341,9 +500,20 @@ def main() -> int:
         altyazi_yak(birlesik, ass, altyazili)
         _alt(f"altyazılı → {altyazili.name} ({altyazili.stat().st_size/1024:.0f} KB)")
 
-        _adim(8, "MP3 ses ile mux'lanıyor → final MP4...")
+        _adim(8, "Pixabay arka plan müzik aranıyor (varsa)...")
+        muzik_yolu = GECICI_KLASOR / f"bgm_{damga}.mp3"
+        muzik_key = _pixabay_anahtarini_oku()
+        # ana keyword: senaryonun ilk keyword'ünden + 'cinematic' tarzı
+        muzik_arama = (keywords[0] if keywords else "calm") + " cinematic"
+        muzik_var = pixabay_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
+        if muzik_var:
+            _alt(f"Müzik: '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
+        else:
+            _alt("Müzik atlandı (PIXABAY_API_KEY yok veya sonuç yok).")
+
+        _adim(9, "TTS + müzik mux'lanıyor → final MP4...")
         final = CIKTI_KLASOR / f"shorts_{damga}.mp4"
-        ses_mux(altyazili, mp3, final)
+        ses_mux(altyazili, mp3, final, muzik_yolu if muzik_var else None)
         boyut_mb = final.stat().st_size / (1024 * 1024)
         _alt(f"FİNAL: {final.name} ({boyut_mb:.2f} MB)")
 
