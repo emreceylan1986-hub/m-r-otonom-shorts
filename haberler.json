@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-29T01:07:23.588343+00:00",
+  "uretim_zamani": "2026-05-29T01:11:03.462629+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,16 +10,16 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The Immortal Jellyfish Can Live Forever By Reverting to an Earlier Stage of Life!",
-      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "baslik": "The Mantis Shrimp can punch with the force of a .22 caliber bullet!",
+      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Sunsets on Mars are blue!",
-      "url": "https://en.wikipedia.org/wiki/Sky_on_Mars",
+      "baslik": "Trees communicate with each other through an underground fungal network!",
+      "url": "https://en.wikipedia.org/wiki/Mycorrhizal_network",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
