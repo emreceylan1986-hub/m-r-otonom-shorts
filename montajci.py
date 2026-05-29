@@ -535,13 +535,18 @@ def main() -> int:
         _adim(8, "Jamendo arka plan müzik aranıyor (Creative Commons, varsa)...")
         muzik_yolu = GECICI_KLASOR / f"bgm_{damga}.mp3"
         muzik_key = _jamendo_anahtarini_oku()
-        # ana keyword: senaryonun ilk keyword'ünden + 'cinematic' tarzı
-        muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
-        muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
-        if muzik_var:
-            _alt(f"Müzik: '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
+        _alt(f"DEBUG: key bulundu mu → uzunluk={len(muzik_key)}, ilk6={muzik_key[:6]!r}")
+        if not muzik_key:
+            _alt("Müzik atlandı: JAMENDO_CLIENT_ID env veya .env'de yok.")
+            muzik_var = False
         else:
-            _alt("Müzik atlandı (JAMENDO_CLIENT_ID yok veya sonuç yok).")
+            muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
+            _alt(f"DEBUG: Jamendo arama sorgusu='{muzik_arama}'")
+            muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
+            if muzik_var:
+                _alt(f"Müzik: '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
+            else:
+                _alt(f"Müzik atlandı: Jamendo aramasından dosya gelmedi (key={len(muzik_key)} char).")
 
         _adim(9, "TTS + müzik mux'lanıyor → final MP4...")
         final = CIKTI_KLASOR / f"shorts_{damga}.mp4"
