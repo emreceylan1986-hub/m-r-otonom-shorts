@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-29T01:15:12.451032+00:00",
+  "uretim_zamani": "2026-05-29T01:18:42.104586+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,7 +10,7 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The 'immortal jellyfish' can revert to its juvenile stage and potentially live forever.",
+      "baslik": "The 'immortal jellyfish' can revert to its juvenile stage, potentially living forever!",
       "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
       "kaynak": "gemini-fallback",
       "skor": 999,
@@ -18,8 +18,8 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Pistachio nuts are actually seeds, not true nuts!",
-      "url": "https://en.wikipedia.org/wiki/Pistachio",
+      "baslik": "Trees communicate and share resources through an underground 'wood wide web' of fungi!",
+      "url": "https://en.wikipedia.org/wiki/Mycorrhizal_network",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
