@@ -80,42 +80,69 @@ def _alt(mesaj: str) -> None:
     print(f"   ↳ {mesaj}", flush=True)
 
 
-def _pixabay_anahtarini_oku() -> str:
-    """Pixabay key — varsa müzik devreye girer, yoksa graceful skip."""
-    if os.environ.get("PIXABAY_API_KEY"):
-        return os.environ["PIXABAY_API_KEY"]
+def _jamendo_anahtarini_oku() -> str:
+    """Jamendo client_id — varsa müzik devreye girer, yoksa graceful skip.
+    NOT: Pixabay Music alternatifi — Pixabay Türkiye IP'sini Cloudflare 403 ile
+    engelliyor, kayıt mümkün değil. Jamendo TR'den erişilebilir, CC müzik."""
+    for anahtar in ("JAMENDO_CLIENT_ID", "PIXABAY_API_KEY"):  # geriye uyum
+        if os.environ.get(anahtar):
+            return os.environ[anahtar]
     env = PANEL_KOK / ".env"
     if env.exists():
         for satir in env.read_text(encoding="utf-8").splitlines():
-            if satir.startswith("PIXABAY_API_KEY="):
-                return satir.split("=", 1)[1].strip().strip('"').strip("'")
+            for anahtar in ("JAMENDO_CLIENT_ID=", "PIXABAY_API_KEY="):
+                if satir.startswith(anahtar):
+                    return satir.split("=", 1)[1].strip().strip('"').strip("'")
     return ""  # yoksa müzik atlanır
 
 
-PIXABAY_MUSIC_URL = "https://pixabay.com/api/music/"
+JAMENDO_URL = "https://api.jamendo.com/v3.0/tracks/"
 MUZIK_SES_DB = "-22dB"  # arka plan TTS'in altında kalsın
 
 
-def pixabay_muzik_indir(arama: str, hedef_mp3: Path, api_key: str) -> bool:
-    """Pixabay Music API'den keyword'e uygun ücretsiz arka plan müziği indir."""
-    if not api_key:
+def jamendo_muzik_indir(arama: str, hedef_mp3: Path, client_id: str) -> bool:
+    """
+    Jamendo Music API'den arka plan müziği indir (Creative Commons).
+    arama: senaryo anahtar kelimesinden türetilmiş ton (örn 'nature ambient').
+    """
+    if not client_id:
         return False
     try:
         yanit = requests.get(
-            PIXABAY_MUSIC_URL,
-            params={"key": api_key, "q": arama, "per_page": 20, "safesearch": "true"},
+            JAMENDO_URL,
+            params={
+                "client_id": client_id,
+                "format": "json",
+                "limit": 20,
+                "audioformat": "mp31",
+                "search": arama,
+                "tags": "cinematic+ambient+nature",
+                "duration_between": "25_180",
+                "include": "musicinfo",
+                "order": "popularity_total_desc",
+            },
             timeout=ISTEK_ZAMAN_ASIMI,
         )
         yanit.raise_for_status()
-        hits = (yanit.json() or {}).get("hits") or []
-        if not hits:
+        tracks = (yanit.json() or {}).get("results") or []
+        if not tracks:
+            # Geniş bant — tag'siz tekrar dene
+            yanit = requests.get(
+                JAMENDO_URL,
+                params={
+                    "client_id": client_id, "format": "json", "limit": 10,
+                    "audioformat": "mp31", "search": arama,
+                    "duration_between": "25_180",
+                    "order": "popularity_total_desc",
+                },
+                timeout=ISTEK_ZAMAN_ASIMI,
+            )
+            yanit.raise_for_status()
+            tracks = (yanit.json() or {}).get("results") or []
+        if not tracks:
             return False
-        # 30-90 sn aralığında ilk uygun olanı seç
-        adaylar = [h for h in hits if 25 <= (h.get("duration") or 999) <= 120]
-        if not adaylar:
-            adaylar = hits[:5]
-        sec = adaylar[0]
-        mp3_url = sec.get("audio") or sec.get("audio_url") or sec.get("audio_mp3")
+        sec = tracks[0]
+        mp3_url = sec.get("audio") or sec.get("audiodownload")
         if not mp3_url:
             return False
         indir = requests.get(mp3_url, stream=True, timeout=INDIRME_ZAMAN_ASIMI)
@@ -125,8 +152,13 @@ def pixabay_muzik_indir(arama: str, hedef_mp3: Path, api_key: str) -> bool:
                 f.write(parca)
         return True
     except (requests.RequestException, KeyError, ValueError, OSError) as e:
-        print(f"   ↳ Pixabay müzik indirilemedi: {e}")
+        print(f"   ↳ Jamendo müzik indirilemedi: {e}")
         return False
+
+
+# Geriye-uyum alias'ları (eski çağrılar kırılmasın)
+_pixabay_anahtarini_oku = _jamendo_anahtarini_oku
+pixabay_muzik_indir = jamendo_muzik_indir
 
 
 def _pexels_anahtarini_oku() -> str:
@@ -500,16 +532,16 @@ def main() -> int:
         altyazi_yak(birlesik, ass, altyazili)
         _alt(f"altyazılı → {altyazili.name} ({altyazili.stat().st_size/1024:.0f} KB)")
 
-        _adim(8, "Pixabay arka plan müzik aranıyor (varsa)...")
+        _adim(8, "Jamendo arka plan müzik aranıyor (Creative Commons, varsa)...")
         muzik_yolu = GECICI_KLASOR / f"bgm_{damga}.mp3"
-        muzik_key = _pixabay_anahtarini_oku()
+        muzik_key = _jamendo_anahtarini_oku()
         # ana keyword: senaryonun ilk keyword'ünden + 'cinematic' tarzı
-        muzik_arama = (keywords[0] if keywords else "calm") + " cinematic"
-        muzik_var = pixabay_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
+        muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
+        muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
         if muzik_var:
             _alt(f"Müzik: '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
         else:
-            _alt("Müzik atlandı (PIXABAY_API_KEY yok veya sonuç yok).")
+            _alt("Müzik atlandı (JAMENDO_CLIENT_ID yok veya sonuç yok).")
 
         _adim(9, "TTS + müzik mux'lanıyor → final MP4...")
         final = CIKTI_KLASOR / f"shorts_{damga}.mp4"
