@@ -1,5 +1,5 @@
 {
-  "uretim_zamani": "2026-05-29T18:27:10.328839+00:00",
+  "uretim_zamani": "2026-05-29T19:49:55.397252+00:00",
   "haberler": [
     {
       "baslik": "A group of owls is called a parliament!",
@@ -10,16 +10,16 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The shortest war in history lasted only 38 to 45 minutes!",
-      "url": "https://en.wikipedia.org/wiki/Anglo-Zanzibar_War",
+      "baslik": "The deepest part of the ocean is deeper than Mount Everest is tall.",
+      "url": "https://en.wikipedia.org/wiki/Challenger_Deep",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Wombat poop is cube-shaped!",
-      "url": "https://en.wikipedia.org/wiki/Wombat",
+      "baslik": "Pistachio nuts are technically fruits, not nuts!",
+      "url": "https://en.wikipedia.org/wiki/Pistachio",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
