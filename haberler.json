@@ -1,24 +1,24 @@
 {
-  "uretim_zamani": "2026-05-28T23:54:26.347231+00:00",
+  "uretim_zamani": "2026-05-29T00:04:22.024104+00:00",
   "haberler": [
     {
-      "baslik": "A group of owls is called a parliament!",
-      "url": "https://en.wikipedia.org/wiki/Owl",
+      "baslik": "A chameleon's tongue is twice as long as its body!",
+      "url": "https://en.wikipedia.org/wiki/Chameleon",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Sharks can detect a single drop of blood in an Olympic-sized swimming pool!",
-      "url": "https://en.wikipedia.org/wiki/Shark",
+      "baslik": "Tardigrades can survive the vacuum of space and extreme radiation!",
+      "url": "https://en.wikipedia.org/wiki/Tardigrade",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The 'immortal jellyfish' can revert to its juvenile stage after reaching maturity!",
+      "baslik": "The 'immortal jellyfish' can revert to an earlier life stage, effectively living forever!",
       "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
       "kaynak": "gemini-fallback",
       "skor": 998,
