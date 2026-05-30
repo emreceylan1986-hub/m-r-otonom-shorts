@@ -1,17 +1,9 @@
 {
-  "uretim_zamani": "2026-05-30T16:53:06.014405+00:00",
+  "uretim_zamani": "2026-05-30T20:03:12.935765+00:00",
   "haberler": [
     {
-      "baslik": "Pistol Shrimp: The Tiny Animal That Can Boil Water With Its Claw!",
-      "url": "https://en.wikipedia.org/wiki/Pistol_shrimp",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Mimic Octopus: The Master of Disguise That Impersonates Other Animals!",
-      "url": "https://en.wikipedia.org/wiki/Mimic_octopus",
+      "baslik": "Some sharks glow in the dark using biofluorescence!",
+      "url": "https://en.wikipedia.org/wiki/Biofluorescence",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
