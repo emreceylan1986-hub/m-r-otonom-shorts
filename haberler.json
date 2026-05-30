@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-05-30T20:03:12.935765+00:00",
+  "uretim_zamani": "2026-05-30T20:19:22.575861+00:00",
   "haberler": [
     {
-      "baslik": "Some sharks glow in the dark using biofluorescence!",
-      "url": "https://en.wikipedia.org/wiki/Biofluorescence",
+      "baslik": "There's a 'Great Pacific Garbage Patch' Twice the Size of Texas!",
+      "url": "https://en.wikipedia.org/wiki/Great_Pacific_garbage_patch",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Penguins have an organ above their eyes that filters salt from seawater!",
+      "url": "https://en.wikipedia.org/wiki/Penguin",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
