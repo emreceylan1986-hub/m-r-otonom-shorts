@@ -24,7 +24,7 @@ YUKLEME_LOGU = PANEL_KOK / "yuklemeler.json"
 DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow şüpheli içerik issue tetikleyici
 BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yayın issue tetikleyici
 
-YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube"]  # upload + delete + update
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
 YOUTUBE_KATEGORI_TECH = "28"        # Science & Technology
 YOUTUBE_KATEGORI_ANIMALS = "15"     # Pets & Animals (yeni niş varsayılanı)
