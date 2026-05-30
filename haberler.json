@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-05-30T20:19:22.575861+00:00",
+  "uretim_zamani": "2026-05-30T20:48:59.604313+00:00",
   "haberler": [
     {
-      "baslik": "There's a 'Great Pacific Garbage Patch' Twice the Size of Texas!",
-      "url": "https://en.wikipedia.org/wiki/Great_Pacific_garbage_patch",
+      "baslik": "Glass sponges can live for 15,000 years, making them among the longest-living animals!",
+      "url": "https://en.wikipedia.org/wiki/Hexactinellid",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Penguins have an organ above their eyes that filters salt from seawater!",
-      "url": "https://en.wikipedia.org/wiki/Penguin",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
