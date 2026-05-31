@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-05-31T16:57:42.730475+00:00",
+  "uretim_zamani": "2026-05-31T20:01:15.262769+00:00",
   "haberler": [
     {
-      "baslik": "Komodo Dragons Can Reproduce Without a Mate!",
-      "url": "https://en.wikipedia.org/wiki/Komodo_dragon",
+      "baslik": "Sloths are so slow that algae grows on their fur!",
+      "url": "https://en.wikipedia.org/wiki/Sloth",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Honeybees Can Detect Landmines, Saving Lives!",
-      "url": "https://en.wikipedia.org/wiki/Honey_bee",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
