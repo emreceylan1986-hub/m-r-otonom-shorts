@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-05-30T20:48:59.604313+00:00",
+  "uretim_zamani": "2026-05-31T16:57:42.730475+00:00",
   "haberler": [
     {
-      "baslik": "Glass sponges can live for 15,000 years, making them among the longest-living animals!",
-      "url": "https://en.wikipedia.org/wiki/Hexactinellid",
+      "baslik": "Komodo Dragons Can Reproduce Without a Mate!",
+      "url": "https://en.wikipedia.org/wiki/Komodo_dragon",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Honeybees Can Detect Landmines, Saving Lives!",
+      "url": "https://en.wikipedia.org/wiki/Honey_bee",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
