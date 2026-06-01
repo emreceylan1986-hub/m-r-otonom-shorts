@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-05-31T20:01:15.262769+00:00",
+  "uretim_zamani": "2026-06-01T20:11:28.436911+00:00",
   "haberler": [
     {
-      "baslik": "Sloths are so slow that algae grows on their fur!",
-      "url": "https://en.wikipedia.org/wiki/Sloth",
+      "baslik": "Dolphins Sleep With One Eye Open!",
+      "url": "https://en.wikipedia.org/wiki/Dolphin",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
