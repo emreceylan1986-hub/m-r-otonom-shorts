@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-04T20:54:31.734459+00:00",
+  "uretim_zamani": "2026-06-05T17:48:05.625691+00:00",
   "haberler": [
     {
-      "baslik": "There's a lake in Tanzania so caustic it turns animals into stone mummies!",
-      "url": "https://en.wikipedia.org/wiki/Lake_Natron",
+      "baslik": "There's a 'Blood Falls' in Antarctica that bleeds red!",
+      "url": "https://en.wikipedia.org/wiki/Blood_Falls",
       "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Wood Frogs can freeze solid and then thaw out, coming back to life!",
-      "url": "https://en.wikipedia.org/wiki/Wood_frog",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
