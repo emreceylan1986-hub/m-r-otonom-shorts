@@ -1,19 +1,19 @@
 {
-  "uretim_zamani": "2026-06-06T17:00:52.317025+00:00",
+  "uretim_zamani": "2026-06-06T20:04:35.479859+00:00",
   "haberler": [
     {
-      "baslik": "There's a lake that's pink! The stunning secret of Lake Hillier.",
-      "url": "https://en.wikipedia.org/wiki/Lake_Hillier",
+      "baslik": "There's a fungus that turns ants into 'zombies' and controls their minds!",
+      "url": "https://en.wikipedia.org/wiki/Ophiocordyceps_unilateralis",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Frogs can freeze solid and then thaw out completely, coming back to life!",
-      "url": "https://en.wikipedia.org/wiki/Cryoanalgesia",
+      "baslik": "Some male seahorses carry up to 2,000 babies in a pouch!",
+      "url": "https://en.wikipedia.org/wiki/Seahorse",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
