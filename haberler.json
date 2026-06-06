@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-05T20:46:03.390044+00:00",
+  "uretim_zamani": "2026-06-06T17:00:52.317025+00:00",
   "haberler": [
     {
-      "baslik": "Hummingbirds Can Fly Backwards! The Only Bird That Can!",
-      "url": "https://en.wikipedia.org/wiki/Hummingbird",
+      "baslik": "There's a lake that's pink! The stunning secret of Lake Hillier.",
+      "url": "https://en.wikipedia.org/wiki/Lake_Hillier",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Frogs can freeze solid and then thaw out completely, coming back to life!",
+      "url": "https://en.wikipedia.org/wiki/Cryoanalgesia",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
