@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-06T20:04:35.479859+00:00",
+  "uretim_zamani": "2026-06-07T17:06:06.212273+00:00",
   "haberler": [
     {
-      "baslik": "There's a fungus that turns ants into 'zombies' and controls their minds!",
-      "url": "https://en.wikipedia.org/wiki/Ophiocordyceps_unilateralis",
+      "baslik": "There's a fungus that can survive in outer space!",
+      "url": "https://en.wikipedia.org/wiki/Wallemia_sebi",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Some male seahorses carry up to 2,000 babies in a pouch!",
-      "url": "https://en.wikipedia.org/wiki/Seahorse",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
