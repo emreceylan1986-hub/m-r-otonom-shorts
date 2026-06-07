@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-06-07T17:06:06.212273+00:00",
+  "uretim_zamani": "2026-06-07T20:06:28.428007+00:00",
   "haberler": [
     {
-      "baslik": "There's a fungus that can survive in outer space!",
-      "url": "https://en.wikipedia.org/wiki/Wallemia_sebi",
+      "baslik": "Frogs Can Freeze Solid and Come Back to Life!",
+      "url": "https://en.wikipedia.org/wiki/Freeze-tolerance",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
