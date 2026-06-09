@@ -1,9 +1,17 @@
 {
-  "uretim_zamani": "2026-06-08T18:19:44.712484+00:00",
+  "uretim_zamani": "2026-06-09T17:53:47.409899+00:00",
   "haberler": [
     {
-      "baslik": "A group of rhinos is called a 'crash'!",
-      "url": "https://en.wikipedia.org/wiki/Rhinoceros",
+      "baslik": "There's a lake in Dominica that boils constantly!",
+      "url": "https://en.wikipedia.org/wiki/Boiling_Lake",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Some sharks glow in the dark with natural bioluminescence!",
+      "url": "https://en.wikipedia.org/wiki/Bioluminescence",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
