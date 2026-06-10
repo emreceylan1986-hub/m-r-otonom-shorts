@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-09T20:53:08.395124+00:00",
+  "uretim_zamani": "2026-06-10T18:25:02.864391+00:00",
   "haberler": [
     {
-      "baslik": "Penguins have an organ above their eyes that filters salt from seawater!",
-      "url": "https://en.wikipedia.org/wiki/Salt_gland",
+      "baslik": "There's a lake that's 10x saltier than the ocean, and it's shrinking!",
+      "url": "https://en.wikipedia.org/wiki/Dead_Sea",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "There are more possible chess games than atoms in the observable universe!",
-      "url": "https://en.wikipedia.org/wiki/Shannon_number",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
