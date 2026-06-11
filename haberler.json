@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-06-10T18:25:02.864391+00:00",
+  "uretim_zamani": "2026-06-11T18:41:07.949283+00:00",
   "haberler": [
     {
-      "baslik": "There's a lake that's 10x saltier than the ocean, and it's shrinking!",
-      "url": "https://en.wikipedia.org/wiki/Dead_Sea",
+      "baslik": "The Grand Prismatic Spring: Earth's Most Colorful Hot Spring Changes Colors with the Seasons!",
+      "url": "https://en.wikipedia.org/wiki/Grand_Prismatic_Spring",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
