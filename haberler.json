@@ -1,25 +1,17 @@
 {
-  "uretim_zamani": "2026-06-12T09:40:42.196889+00:00",
+  "uretim_zamani": "2026-06-12T09:44:50.787566+00:00",
   "haberler": [
     {
-      "baslik": "Antarctica's Dry Valleys: The Driest Place on Earth!",
-      "url": "https://en.wikipedia.org/wiki/Dry_Valleys",
+      "baslik": "Desert Rain Frogs Are the World's Cutest Screamers!",
+      "url": "https://en.wikipedia.org/wiki/Desert_rain_frog",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Meet the Pompeii Worm: Thriving in Volcanic Heat!",
-      "url": "https://en.wikipedia.org/wiki/Pompeii_worm",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Desert Rain Frogs: The Cutest, Squeakiest Residents of the Namib Desert!",
-      "url": "https://en.wikipedia.org/wiki/Breviceps_macrops",
+      "baslik": "The Arctic Tern: Nature's Ultimate Marathon Flier!",
+      "url": "https://en.wikipedia.org/wiki/Arctic_tern",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
