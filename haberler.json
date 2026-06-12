@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-06-12T07:46:58.162749+00:00",
+  "uretim_zamani": "2026-06-12T08:18:31.172179+00:00",
   "haberler": [
     {
-      "baslik": "Mimic Octopus: The Ultimate Shapeshifter of the Ocean!",
-      "url": "https://en.wikipedia.org/wiki/Thaumoctopus_mimicus",
+      "baslik": "Ocean Sunfish: The Heaviest Bony Fish, Laying 300 Million Eggs At Once!",
+      "url": "https://en.wikipedia.org/wiki/Ocean_sunfish",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
