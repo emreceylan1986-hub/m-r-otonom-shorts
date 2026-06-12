@@ -96,19 +96,40 @@ def ilk_haberi_oku() -> dict:
 
 
 def senaryo_uret(haber: dict) -> str:
+    # FAZ 7 — 60 sn A/B: Pazartesi+Perşembe günlerinde 100-115 kelime uzun varyant
+    # (~50-55 sn). Diğer günlerde standart 60-75 (~25-30 sn).
+    # Watch-time YPP için kritik — uzun varyant test sayar.
+    import datetime
+    wd = datetime.datetime.utcnow().weekday()  # 0=Mon, 3=Thu
+    hour = datetime.datetime.utcnow().hour
+    # Uzun varyant: Pazartesi 12 UTC + Perşembe 16 UTC (haftada 2 video deneme)
+    uzun_varyant = (wd == 0 and hour < 14) or (wd == 3 and 14 <= hour < 18)
+    if uzun_varyant:
+        hedef_kelime = "100-115"
+        min_kelime = 95
+    else:
+        hedef_kelime = "60-75"
+        min_kelime = 50
+
     temel_prompt = (
         f"Headline: {haber['baslik']}\n"
         f"Source URL: {haber['url']}\n"
         f"Engagement signal: score={haber.get('skor')}, "
         f"comments={haber.get('yorum_sayisi')}, age={haber.get('yas_saat')}h\n\n"
-        f"Write the Shorts voice-over script now (60-75 words, English only)."
+        f"Write the Shorts voice-over script now ({hedef_kelime} words, English only)."
     )
+    if uzun_varyant:
+        temel_prompt += (
+            f"\n\nLONG-FORM VARIANT (test): aim for {hedef_kelime} words / ~50-55 sec.\n"
+            f"Add 1-2 extra concrete examples or comparisons in CONTEXT.\n"
+            f"Hook + subscribe CTA stay punchy; expansion in the middle."
+        )
     # Çok kısa çıkarsa 1 kez daha dene
     son_senaryo = ""
     for deneme in range(2):
         ek = "" if deneme == 0 else (
             f"\n\nYOUR PREVIOUS DRAFT WAS TOO SHORT ({len(son_senaryo.split())} words). "
-            f"Rewrite it 60-75 words by adding one concrete detail to CONTEXT. Keep the same hook."
+            f"Rewrite it {hedef_kelime} words by adding one concrete detail to CONTEXT. Keep the same hook."
         )
         senaryo = bridge.gemini_metin_uret(
             prompt=temel_prompt + ek,
@@ -117,7 +138,7 @@ def senaryo_uret(haber: dict) -> str:
             max_token=2048,
         ).strip('"').strip()
         son_senaryo = senaryo
-        if len(senaryo.split()) >= 50:
+        if len(senaryo.split()) >= min_kelime:
             return senaryo
     raise RuntimeError(
         f"Senaryo 2 denemede de çok kısa ({len(son_senaryo.split())} kelime). "

@@ -1,0 +1,63 @@
+name: Kalite Temizleyici (günlük)
+
+# 48 saat+ eski, <30 izl, <2 beğeni → otomatik private.
+# Kanal "puanını" korur, algoritma bad performer'lardan etkilenmesin.
+on:
+  schedule:
+    # Her gece 03:00 UTC = 06:00 TR (sessiz saat)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      kuru:
+        description: "Kuru mod (rapor, private yapma)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Write token
+        env:
+          TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+        run: printf '%s' "$TOKEN_JSON" > token.json
+
+      - name: Run kalite_temizleyici
+        env:
+          KURU: ${{ github.event.inputs.kuru || 'false' }}
+        run: |
+          if [ "$KURU" = "true" ]; then
+            python kalite_temizleyici.py --kuru
+          else
+            python kalite_temizleyici.py
+          fi
+
+      - name: State commit
+        if: always()
+        run: |
+          git config user.name  "M-R Cleanup Bot"
+          git config user.email "actions@github.com"
+          git add kalite_temizleyici.log 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "cleanup: $(date -u +'%Y-%m-%dT%H:%MZ')" || true
+          git pull --rebase --autostash 2>&1 | tail -2 || true
+          git push 2>&1 | tail -2 || true

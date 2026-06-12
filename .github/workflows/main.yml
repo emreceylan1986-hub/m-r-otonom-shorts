@@ -140,6 +140,16 @@ jobs:
         continue-on-error: true
         run: python yorum_yanit_bot.py --max-cevap 15 --min-yas 5
 
+      - name: 12) Schedule Optimizer — optimum yayın saatleri (rapor)
+        if: success()
+        continue-on-error: true
+        run: python schedule_optimizer.py
+
+      - name: 13) Community Post — viral video'lar için poll kuyruğu
+        if: success()
+        continue-on-error: true
+        run: python community_post.py
+
       - name: State commit (JSON-aware merge + push retry)
         if: always()
         env:

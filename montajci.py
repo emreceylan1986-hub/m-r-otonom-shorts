@@ -310,13 +310,44 @@ def foto_video_yap(foto: Path, hedef: Path, sure_sn: float) -> None:
     )
 
 
-def gorsel_kaynak_indir(keyword: str, hedef: Path, sure_sn: float, api_key: str) -> dict:
+def _gorsel_qc_gecer_mi(klip_yolu: Path, keyword: str, baslik: str = "") -> bool:
+    """Klibin ilk karesini Gemini Vision'a sor — konuyla eşleşir mi?"""
+    try:
+        import gorsel_qc
+        import imageio_ffmpeg
+        import subprocess, tempfile
+        ffmpeg_bin = imageio_ffmpeg.get_ffmpeg_exe()
+        tmp_png = Path(tempfile.mktemp(suffix=".png"))
+        # 1. saniyenin karesini al
+        subprocess.run(
+            [ffmpeg_bin, "-y", "-ss", "1", "-i", str(klip_yolu),
+             "-vframes", "1", "-q:v", "2", str(tmp_png)],
+            capture_output=True, timeout=20,
+        )
+        if not tmp_png.exists():
+            return True  # frame çıkmazsa kontrolsüz geç
+        sonuc = gorsel_qc.gorsel_konuyla_eslesir_mi(tmp_png, keyword, baslik, esik_skor=6)
+        tmp_png.unlink(missing_ok=True)
+        return sonuc
+    except Exception as h:
+        print(f"   ↳ QC atlandı: {str(h)[:80]}")
+        return True
+
+
+def gorsel_kaynak_indir(keyword: str, hedef: Path, sure_sn: float, api_key: str,
+                         baslik: str = "") -> dict:
     """
     Önce Pexels video; başarısız olursa Wikimedia foto → Ken Burns video.
-    Hayvan/doğa nişinde Wikimedia gerçek bilimsel görselleri sağlar.
+    Faz 7: Gemini Vision QC — Pexels klibi konuyla eşleşmiyorsa Wikimedia'ya düş.
     """
     try:
-        return pexels_video_indir(keyword, hedef, api_key)
+        bilgi = pexels_video_indir(keyword, hedef, api_key)
+        # QC: konuyla eşleşmiyorsa Wikimedia
+        if hedef.exists() and not _gorsel_qc_gecer_mi(hedef, keyword, baslik):
+            print(f"   ↳ Pexels '{keyword}' konuyla eşleşmedi → Wikimedia denenecek")
+            hedef.unlink(missing_ok=True)
+            raise RuntimeError(f"QC red: {keyword}")
+        return bilgi
     except (requests.RequestException, RuntimeError) as e:
         print(f"   ↳ Pexels '{keyword}' fail ({e}) → Wikimedia denenecek")
     foto = hedef.with_suffix(".jpg")

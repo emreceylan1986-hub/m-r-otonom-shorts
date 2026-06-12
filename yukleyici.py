@@ -375,6 +375,21 @@ def main() -> int:
         except Exception as h:
             _alt(f"Affiliate zenginleştirme atlandı: {h}")
 
+        # FAZ 7: Pre-publish hook QC (Gemini Vision)
+        try:
+            import pre_publish_qc
+            hook_skor, hook_sebep = pre_publish_qc.hook_qc(
+                mp4, veri["title"], veri.get("tags", [""])[0] if veri.get("tags") else ""
+            )
+            _alt(f"Hook QC skor: {hook_skor}/10 — {hook_sebep[:80]}")
+            if hook_skor < 5:
+                _alt(f"⚠️ Hook zayıf (skor {hook_skor}) → gizlilik PRIVATE'a override")
+                args.gizlilik = "private"
+                hook_uyari = f"Pre-publish QC: hook skor {hook_skor}/10 — {hook_sebep}"
+                DENETIM_UYARI_FLAG.write_text(hook_uyari, encoding="utf-8")
+        except Exception as h:
+            _alt(f"Pre-publish QC atlandı: {str(h)[:100]}")
+
         _adim(4, "OAuth: kimlik doğrulama / token yenileme...")
         youtube = youtube_istemcisi()
         _alt("YouTube istemcisi hazır ✓")
