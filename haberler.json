@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-06-12T07:17:20.270128+00:00",
+  "uretim_zamani": "2026-06-12T07:46:58.162749+00:00",
   "haberler": [
     {
-      "baslik": "There's a lake that's been on fire for over 50 years!",
-      "url": "https://en.wikipedia.org/wiki/Darvaza_gas_crater",
+      "baslik": "Mimic Octopus: The Ultimate Shapeshifter of the Ocean!",
+      "url": "https://en.wikipedia.org/wiki/Thaumoctopus_mimicus",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
