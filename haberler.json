@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-06-12T10:38:52.767174+00:00",
+  "uretim_zamani": "2026-06-12T10:40:47.501688+00:00",
   "haberler": [
     {
-      "baslik": "Antarctica's Subglacial Lakes: Hidden Worlds Beneath Miles of Ice!",
-      "url": "https://en.wikipedia.org/wiki/Subglacial_lake",
+      "baslik": "There's a Fish That Lives in Underwater Caves & Never Sees the Sun!",
+      "url": "https://en.wikipedia.org/wiki/Cavefish",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Antarctica Has an Active Volcano That Emits GOLD Dust!",
+      "url": "https://en.wikipedia.org/wiki/Mount_Erebus",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "The Namib Desert: Where Sand Dunes 'Sing' and Fog is Life!",
+      "url": "https://en.wikipedia.org/wiki/Namib_Desert",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
