@@ -1,9 +1,25 @@
 {
-  "uretim_zamani": "2026-06-12T08:18:31.172179+00:00",
+  "uretim_zamani": "2026-06-12T09:40:42.196889+00:00",
   "haberler": [
     {
-      "baslik": "Ocean Sunfish: The Heaviest Bony Fish, Laying 300 Million Eggs At Once!",
-      "url": "https://en.wikipedia.org/wiki/Ocean_sunfish",
+      "baslik": "Antarctica's Dry Valleys: The Driest Place on Earth!",
+      "url": "https://en.wikipedia.org/wiki/Dry_Valleys",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Meet the Pompeii Worm: Thriving in Volcanic Heat!",
+      "url": "https://en.wikipedia.org/wiki/Pompeii_worm",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Desert Rain Frogs: The Cutest, Squeakiest Residents of the Namib Desert!",
+      "url": "https://en.wikipedia.org/wiki/Breviceps_macrops",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
