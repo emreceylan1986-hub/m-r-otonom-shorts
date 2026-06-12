@@ -326,7 +326,7 @@ def _gorsel_qc_gecer_mi(klip_yolu: Path, keyword: str, baslik: str = "") -> bool
         )
         if not tmp_png.exists():
             return True  # frame çıkmazsa kontrolsüz geç
-        sonuc = gorsel_qc.gorsel_konuyla_eslesir_mi(tmp_png, keyword, baslik, esik_skor=6)
+        sonuc = gorsel_qc.gorsel_konuyla_eslesir_mi(tmp_png, keyword, baslik, esik_skor=5)
         tmp_png.unlink(missing_ok=True)
         return sonuc
     except Exception as h:
@@ -339,23 +339,49 @@ def gorsel_kaynak_indir(keyword: str, hedef: Path, sure_sn: float, api_key: str,
     """
     Önce Pexels video; başarısız olursa Wikimedia foto → Ken Burns video.
     Faz 7: Gemini Vision QC — Pexels klibi konuyla eşleşmiyorsa Wikimedia'ya düş.
+    Wikimedia da fail olursa Pexels'i ZORLA kullanır (pipeline'ı koparma).
     """
+    # 1. Pexels deneme (QC ile)
+    pexels_bilgi = None
+    qc_passed = True
     try:
-        bilgi = pexels_video_indir(keyword, hedef, api_key)
-        # QC: konuyla eşleşmiyorsa Wikimedia
+        pexels_bilgi = pexels_video_indir(keyword, hedef, api_key)
         if hedef.exists() and not _gorsel_qc_gecer_mi(hedef, keyword, baslik):
-            print(f"   ↳ Pexels '{keyword}' konuyla eşleşmedi → Wikimedia denenecek")
+            print(f"   ↳ Pexels '{keyword}' konuyla eşleşmedi (QC red) — Wikimedia denenecek")
+            # Backup'a kaydet, sonra zorla geri yüklemek için
+            backup = hedef.with_suffix(".pexels_backup.mp4")
+            import shutil as _sh
+            _sh.copy(str(hedef), str(backup))
+            qc_passed = False
             hedef.unlink(missing_ok=True)
-            raise RuntimeError(f"QC red: {keyword}")
-        return bilgi
     except (requests.RequestException, RuntimeError) as e:
-        print(f"   ↳ Pexels '{keyword}' fail ({e}) → Wikimedia denenecek")
+        print(f"   ↳ Pexels '{keyword}' bulunamadı ({str(e)[:80]}) → Wikimedia denenecek")
+        qc_passed = False
+
+    if qc_passed and pexels_bilgi:
+        return pexels_bilgi
+
+    # 2. Wikimedia deneme
     foto = hedef.with_suffix(".jpg")
-    bilgi = wikimedia_foto_indir(keyword, foto)
-    foto_video_yap(foto, hedef, sure_sn)
-    bilgi["sure"] = sure_sn
-    bilgi["fotograf"] = f"Wikimedia: {bilgi.get('title','?')[:30]}"
-    return bilgi
+    try:
+        bilgi = wikimedia_foto_indir(keyword, foto)
+        foto_video_yap(foto, hedef, sure_sn)
+        bilgi["sure"] = sure_sn
+        bilgi["fotograf"] = f"Wikimedia: {bilgi.get('title','?')[:30]}"
+        return bilgi
+    except Exception as e:
+        print(f"   ↳ Wikimedia '{keyword}' de fail ({str(e)[:80]})")
+
+    # 3. Son çare: Pexels backup'ı zorla kullan (QC red olsa bile)
+    backup = hedef.with_suffix(".pexels_backup.mp4")
+    if backup.exists():
+        print(f"   ↳ Son çare: Pexels QC-red klibi zorla kullan")
+        import shutil as _sh
+        _sh.move(str(backup), str(hedef))
+        return pexels_bilgi or {"sure": sure_sn, "fotograf": f"Pexels(QC-red): {keyword}"}
+
+    # 4. Hiç bulunamadıysa exception
+    raise RuntimeError(f"'{keyword}' için ne Pexels ne Wikimedia bulundu")
 
 
 def pexels_video_indir(keyword: str, hedef: Path, api_key: str) -> dict:
