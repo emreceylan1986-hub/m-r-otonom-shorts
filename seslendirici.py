@@ -55,7 +55,7 @@ TONE: Warm, awe-struck, fascinated. Imagine a calm narrator showing the
 viewer something beautiful and surprising about the natural world. Conversational,
 not academic. NO clickbait words (shocking, insane, crazy, you won't believe).
 
-Required structure (55-70 words total):
+Required structure (60-75 words total):
 - HOOK (first sentence, MAX 8 words): a punchy, curiosity-gap opener about
   the animal/nature subject. Truthful. Feel: "Octopuses have three hearts."
   / "This bird builds traps." / "Trees can warn each other." NO question marks.
@@ -67,15 +67,19 @@ Required structure (55-70 words total):
 - CONTEXT (1-2 sentences): the actual nature/science behind it, plain language.
   ── 8-12. saniye drop-off riski yüksek — bu cümlede SOMUT bir SAYI veya
      karşılaştırma kullan (kaç kat, kaç yıl, kaç metre). Sayı = retention boost.
-- PAYOFF (final short sentence): a wonder-inducing closing thought.
-  ── Implicit CTA: cümle "comments" / "thoughts" / "wonder" / "ever" kelimesini
-     içerebilir — viewer'a açık soru SORMA, sezgisel olarak yorum tetikle.
-     Örnek: "Nature still hides countless wonders like this one."
-     ASLA "subscribe/like/follow", "comment below", "share this". NO hashtags,
-     NO emojis.
+- PAYOFF (1 short sentence): a wonder-inducing closing thought before the CTA.
+  Örnek: "Nature still hides countless wonders like this one."
+- SUBSCRIBE CTA (final sentence, MANDATORY, exactly 1 short line, max 7 words):
+  ── A casual, warm, NOT pushy subscribe ask. Examples:
+     "Hit subscribe for daily nature shorts."
+     "Subscribe — more nature gems daily."
+     "Subscribe for one wild fact daily."
+     "Follow for daily nature secrets."
+  ── Variation per video. NEVER say "like", "share", "comment below".
+  ── NO hashtags, NO emojis in the script body.
 
 Constraints:
-- Total length: STRICT 55–70 words. Never above 70, never below 50.
+- Total length: STRICT 60–75 words (subscribe CTA dahil). Never above 75.
 - Very short, punchy sentences. Spoken rhythm. Contractions OK.
 - Output ONLY the spoken script text — no headings, no labels, no quotation marks
 """
@@ -97,14 +101,14 @@ def senaryo_uret(haber: dict) -> str:
         f"Source URL: {haber['url']}\n"
         f"Engagement signal: score={haber.get('skor')}, "
         f"comments={haber.get('yorum_sayisi')}, age={haber.get('yas_saat')}h\n\n"
-        f"Write the Shorts voice-over script now (55-70 words, English only)."
+        f"Write the Shorts voice-over script now (60-75 words, English only)."
     )
     # Çok kısa çıkarsa 1 kez daha dene
     son_senaryo = ""
     for deneme in range(2):
         ek = "" if deneme == 0 else (
             f"\n\nYOUR PREVIOUS DRAFT WAS TOO SHORT ({len(son_senaryo.split())} words). "
-            f"Rewrite it 55-70 words by adding one concrete detail to CONTEXT. Keep the same hook."
+            f"Rewrite it 60-75 words by adding one concrete detail to CONTEXT. Keep the same hook."
         )
         senaryo = bridge.gemini_metin_uret(
             prompt=temel_prompt + ek,
@@ -113,7 +117,7 @@ def senaryo_uret(haber: dict) -> str:
             max_token=2048,
         ).strip('"').strip()
         son_senaryo = senaryo
-        if len(senaryo.split()) >= 45:
+        if len(senaryo.split()) >= 50:
             return senaryo
     raise RuntimeError(
         f"Senaryo 2 denemede de çok kısa ({len(son_senaryo.split())} kelime). "
@@ -126,7 +130,7 @@ def senaryoyu_denetlet(senaryo: str, haber: dict) -> str:
         f"Bu metin ~25-30 saniyelik viral YouTube Shorts seslendirme senaryosu.\n"
         f"Haber: {haber['baslik']}\n"
         f"Kaynak: {haber['url']}\n"
-        f"Hedef: KESİN 55-70 İngilizce kelime. ASLA uzatma — kısa = yüksek "
+        f"Hedef: KESİN 60-75 İngilizce kelime (subscribe CTA dahil). ASLA uzatma — kısa = yüksek "
         f"tamamlanma oranı (en kritik Shorts sinyali). 70 kelimeyi aşan "
         f"revize KABUL EDİLEMEZ. Güçlü hook + curiosity bridge korunmalı, "
         f"dil İngilizce kalmalı."

@@ -44,8 +44,12 @@ Schema:
 {
   "title": "60-95 characters. FRONT-LOAD the main keyword in the first 50 chars (critical for search). No emojis, no ALL CAPS. BANNED clickbait words/phrases — never use any of: shocking, secretly, secret, hidden, they don't want you to know, you won't believe, this is why, the truth about, exposed, will blow your mind, insane, crazy. The title must be a calm factual statement of what happened.",
   "description": "200-400 characters TOTAL. Structure:
-    - Line 1: Punchy SEO hook (first 100 chars MUST contain the main animal/nature keyword)
-    - Lines 2-3: 1-2 short sentences explaining the fact/footage
+    - LINE 1 (most important — first 100 chars get strongest SEO weight):
+      Start with a curiosity question containing the main keyword.
+      Example: 'Did you know Lake Hillier is permanently bubblegum-pink?'
+      The keyword MUST appear in the first 80 characters.
+    - Lines 2-3: 1-2 short sentences expanding the fact with a concrete number
+      or comparison (e.g. '10× saltier than the ocean').
     - Last line: 4-6 hashtags. ALWAYS include #Shorts, then 3-5 niche tags
       like #animals #nature #wildlife #didyouknow #amazingfacts #animallover #fyp
     NO external links. NO 'subscribe' / 'like' / 'follow' calls.",
@@ -397,6 +401,26 @@ def main() -> int:
         _alt(f"Video ID:    {video_id}")
         _alt(f"Watch:       {watch_url}")
         _alt(f"Studio:      {studio_url}")
+
+        # FAZ 4: A/B title test — aktif başlık A, Gemini'den B alternatifi üret + kayıt
+        try:
+            import ab_title_test
+            alt_baslik = ab_title_test.baslik_iki_uret(haber.get("baslik") if 'haber' in dir() else veri["title"])
+            if alt_baslik and len(alt_baslik) > 1:
+                ab_title_test.ab_kaydet(
+                    veri["title"][:80], video_id,
+                    veri["title"], alt_baslik[1] or alt_baslik[0]
+                )
+                _alt(f"A/B test kaydedildi: A={veri['title'][:40]}... | B={alt_baslik[1][:40]}...")
+        except Exception as ab_h:
+            _alt(f"A/B test kayıt atlandı: {ab_h}")
+
+        # FAZ 4: Creator pinned comment (engagement bomba)
+        try:
+            import pinned_comment
+            pinned_comment.creator_comment_at(youtube, video_id, veri["title"], senaryo[:300])
+        except Exception as pc_h:
+            _alt(f"Creator comment atlandı: {pc_h}")
 
         yukleme_loguna_yaz({
             "zaman": datetime.now().isoformat(timespec="seconds"),

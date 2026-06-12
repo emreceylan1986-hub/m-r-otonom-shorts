@@ -286,6 +286,40 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
         + "\n".join(f"  · {s}" for s in trend_seedleri)
         if trend_seedleri else ""
     )
+
+    # FAZ 4: Daily Theme — kanal kimliği için günün haftasının teması
+    import datetime
+    DAILY_THEMES = {
+        0: "weird/extreme animals (rare behaviors, unusual species)",
+        1: "lakes, rivers, oceans, water phenomena",
+        2: "fungi, plants, parasites, microorganisms",
+        3: "insects, arachnids, tiny creatures",
+        4: "extreme environments (deserts, poles, volcanoes, caves)",
+        5: "birds, flight, migration, unusual nests",
+        6: "marine life, deep sea, coral, cephalopods",
+    }
+    bugun_tema = DAILY_THEMES.get(datetime.datetime.now().weekday(), "any animal/nature")
+    tema_blok = (
+        f"\nDAILY THEME (today's editorial focus — STRONGLY prefer topics from this theme):\n"
+        f"  → {bugun_tema}\n"
+    )
+
+    # FAZ 4: Sequel injection — son haftanın top viral'lerinin DEVAMI
+    sequel_blok = ""
+    try:
+        vp = Path(__file__).parent / "viral_patterns.json"
+        if vp.exists():
+            vp_data = json.loads(vp.read_text())
+            ornek = vp_data.get("viral", {}).get("ornek_basliklar", [])[:3]
+            if ornek:
+                sequel_blok = (
+                    f"\nSEQUEL OPPORTUNITY (own channel's recent viral hits — "
+                    f"consider a 'next chapter' or related-but-different topic):\n"
+                    + "\n".join(f"  · {t}" for t in ornek)
+                    + "\n  → If you make a sequel, pick an ADJACENT topic (same category, different example).\n"
+                )
+    except Exception:
+        pass
     try:
         # 2 turlu üretim: ilk turda red varsa Python filter'la ele, 2. turda
         # daha güçlü uyarıyla yeniden iste.
@@ -305,7 +339,7 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                 prompt=(
                     f"BLOCKED Wikipedia URLs (do not reuse):\n{bloklar}\n\n"
                     f"BLOCKED TITLES (do not produce semantically similar topics):\n{baslik_bloklari}"
-                    f"{trend_blok}{ek_uyari}\n\n"
+                    f"{trend_blok}{tema_blok}{sequel_blok}{ek_uyari}\n\n"
                     f"Produce exactly {adet} fresh viral animal/nature topics now."
                 ),
                 sistem_promptu=GEMINI_KONU_SISTEM,
