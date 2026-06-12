@@ -50,6 +50,8 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           JAMENDO_CLIENT_ID: ${{ secrets.JAMENDO_CLIENT_ID }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
           TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
         run: |
@@ -58,25 +60,53 @@ jobs:
             echo "PEXELS_API_KEY=${PEXELS_API_KEY}"
             echo "PIXABAY_API_KEY=${PIXABAY_API_KEY}"
             echo "JAMENDO_CLIENT_ID=${JAMENDO_CLIENT_ID}"
+            echo "REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}"
+            echo "REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}"
           } > .env
           printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
           printf '%s' "$TOKEN_JSON"         > token.json
           # Sağlamlık doğrulaması (içerik yok ya da bozuksa burada erken patlasın)
           python -c "import json; json.load(open('client_secret.json')); json.load(open('token.json')); print('secrets OK')"
 
-      - name: 1) Haberci — son 24h teknoloji haberi top 3
+      - name: 0) Trend Signal Mixer (PRAW + GTrends + YouTube autocomplete + competitor)
+        continue-on-error: true
+        run: |
+          python competitor_scan.py || echo "competitor_scan opsiyonel — skip"
+          python trend_signal_mixer.py || echo "trend_signal opsiyonel — skip"
+
+      - name: 1) Haberci — Reddit PRAW + Gemini fallback (animal/nature niche)
         run: python haberci.py
 
-      - name: 2) Seslendirici — Gemini senaryo + edge-tts MP3
+      - name: 2) Seslendirici — Gemini senaryo + edge-tts MP3 (hook+CTA güçlendirilmiş)
         run: python seslendirici.py
 
-      - name: 3) Montajcı — Pexels + ffmpeg → 1080×1920 MP4
+      - name: 3) Montajcı — Pexels + Wikimedia + Suno fallback → 1080×1920 MP4
         run: python montajci.py
 
-      - name: 4) Yükleyici — YouTube Shorts upload
+      - name: 4) Yükleyici — YouTube Shorts upload + thumbnail
         env:
           GIZLILIK: ${{ github.event.inputs.gizlilik || 'public' }}
         run: python yukleyici.py --gizlilik "$GIZLILIK"
+
+      - name: 5) Pattern Detector — viral öğrenme loop
+        if: success()
+        continue-on-error: true
+        run: python pattern_detector.py --esik 500
+
+      - name: 6) Analytics çek — retention + CTR + traffic source
+        if: success()
+        continue-on-error: true
+        run: python analytics.py --gun 14
+
+      - name: 7) Dashboard üret — lokal HTML KPI panel
+        if: success()
+        continue-on-error: true
+        run: python dashboard.py
+
+      - name: 8) A/B title karşılaştır (24h+ önceki testler)
+        if: success()
+        continue-on-error: true
+        run: python ab_title_test.py --karsilastir
 
       - name: State commit (JSON-aware merge + push retry)
         if: always()

@@ -1,0 +1,617 @@
+{
+  "uretim": "2026-06-12T07:04:50+00:00",
+  "kanal_id": "UC5-FcLdqFSX_fpPcYL7zG8g",
+  "gun_kapsam": 14,
+  "gun_gun": {
+    "kind": "youtubeAnalytics#resultTable",
+    "columnHeaders": [
+      {
+        "name": "day",
+        "columnType": "DIMENSION",
+        "dataType": "STRING"
+      },
+      {
+        "name": "views",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "estimatedMinutesWatched",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "subscribersGained",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "subscribersLost",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "likes",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "comments",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "shares",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      }
+    ],
+    "rows": [
+      [
+        "2026-05-29",
+        20,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-05-30",
+        20,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-05-31",
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-06-01",
+        16,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-06-02",
+        15,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-06-03",
+        28,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        "2026-06-04",
+        9,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-06-05",
+        13,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "2026-06-06",
+        2301,
+        225,
+        2,
+        0,
+        27,
+        1,
+        0
+      ],
+      [
+        "2026-06-07",
+        2159,
+        179,
+        1,
+        0,
+        26,
+        0,
+        0
+      ],
+      [
+        "2026-06-08",
+        983,
+        139,
+        1,
+        0,
+        30,
+        0,
+        0
+      ],
+      [
+        "2026-06-09",
+        1498,
+        188,
+        0,
+        0,
+        18,
+        0,
+        0
+      ]
+    ]
+  },
+  "traffic_source": {
+    "kind": "youtubeAnalytics#resultTable",
+    "columnHeaders": [
+      {
+        "name": "insightTrafficSourceType",
+        "columnType": "DIMENSION",
+        "dataType": "STRING"
+      },
+      {
+        "name": "views",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "estimatedMinutesWatched",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      },
+      {
+        "name": "averageViewDuration",
+        "columnType": "METRIC",
+        "dataType": "INTEGER"
+      }
+    ],
+    "rows": [
+      [
+        "SHORTS",
+        6747,
+        694,
+        14
+      ],
+      [
+        "YT_SEARCH",
+        306,
+        40,
+        16
+      ],
+      [
+        "YT_OTHER_PAGE",
+        125,
+        33,
+        45
+      ],
+      [
+        "YT_CHANNEL",
+        31,
+        2,
+        10
+      ],
+      [
+        "EXT_URL",
+        6,
+        1,
+        14
+      ],
+      [
+        "RELATED_VIDEO",
+        3,
+        0,
+        8
+      ],
+      [
+        "NO_LINK_OTHER",
+        3,
+        0,
+        16
+      ],
+      [
+        "SUBSCRIBER",
+        2,
+        0,
+        8
+      ]
+    ]
+  },
+  "video_retention": {
+    "OTdF4tFHmzI": {
+      "title": "How Do Penguins Drink Saltwater? A Secret Gland!",
+      "data": [
+        "OTdF4tFHmzI",
+        727,
+        15,
+        51.85999999999999,
+        12,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "r__Bu5VE0Ho": {
+      "title": "The Lake That Boils Non-Stop: Dominica's Fiery Secret",
+      "data": [
+        "r__Bu5VE0Ho",
+        706,
+        14,
+        58.59000000000001,
+        6,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "qq4yfzDSiWo": {
+      "title": "Why is a Group of Rhinos Called a 'Crash'?",
+      "data": [
+        "qq4yfzDSiWo",
+        751,
+        17,
+        59.48,
+        29,
+        0,
+        0,
+        1
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "K4dMgZQg2U4": {
+      "title": "Frogs Freeze Solid & Revive!",
+      "data": [
+        "K4dMgZQg2U4",
+        1080,
+        10,
+        45.02,
+        13,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "uNn2P6fvqas": {
+      "title": "Fungus Thrives in Space: Wallemia sebi's Cosmic Secret!",
+      "data": [
+        "uNn2P6fvqas",
+        233,
+        18,
+        61.42999999999999,
+        7,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "q0UHQKRiSqU": {
+      "title": "Nature's Real-Life Horror: The Zombie-Ant Fungus!",
+      "data": [
+        "q0UHQKRiSqU",
+        1072,
+        14,
+        49.35,
+        6,
+        0,
+        0,
+        1
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "ZsB94EciY8M": {
+      "title": "Australia's Lake Hillier is a naturally bubblegum pink lake",
+      "data": [
+        "ZsB94EciY8M",
+        1127,
+        12,
+        48.49,
+        7,
+        0,
+        0,
+        1
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "egkgHLIakvU": {
+      "title": "The ONLY Bird That Can Fly Backward?!",
+      "data": [
+        "egkgHLIakvU",
+        680,
+        18,
+        60.69,
+        19,
+        1,
+        0,
+        1
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "3Szk0vgbEgk": {
+      "title": "Antarctica's Blood Falls: The Red Waterfall Mystery",
+      "data": [
+        "3Szk0vgbEgk",
+        208,
+        14,
+        48.36,
+        1,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "X13JQmCqWy8": {
+      "title": "This Lake Turns Animals to Stone!",
+      "data": [
+        "X13JQmCqWy8",
+        297,
+        12,
+        49.02,
+        1,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "OtlX9bq-UJw": {
+      "title": "Electric Eels Generate 600 Volts of Electricity for Hunting and Defense",
+      "data": [
+        "OtlX9bq-UJw",
+        74,
+        10,
+        48.05,
+        1,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "kkCH0i7O348": {
+      "title": "Dragon's Breath Chili: A Medical Marvel, Not a Meal!",
+      "data": [
+        "kkCH0i7O348",
+        12,
+        22,
+        88.64,
+        0,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "tLLK0tN7s_8": {
+      "title": "Sloths have green fur due to algae growing in their shaggy coats",
+      "data": [
+        "tLLK0tN7s_8",
+        2,
+        25,
+        78.21,
+        0,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "cvoTuyDZwe0": {
+      "title": "Komodo Dragons: The Ultimate Solo Parents!",
+      "data": [
+        "cvoTuyDZwe0",
+        9,
+        19,
+        74.62,
+        0,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "nKvBT1gZ3Lc": {
+      "title": "Glass Sponges Live for 15,000 Years in the Deep Ocean",
+      "data": [
+        "nKvBT1gZ3Lc",
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    },
+    "r20KEpf6ed0": {
+      "title": "Jellyfish Lake in Palau hosts millions of non-stinging golden jellyfish",
+      "data": [
+        "r20KEpf6ed0",
+        14,
+        20,
+        80.49,
+        0,
+        0,
+        0,
+        0
+      ],
+      "columns": [
+        "video",
+        "views",
+        "averageViewDuration",
+        "averageViewPercentage",
+        "likes",
+        "comments",
+        "shares",
+        "subscribersGained"
+      ]
+    }
+  }
+}

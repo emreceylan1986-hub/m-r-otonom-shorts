@@ -59,10 +59,20 @@ Required structure (55-70 words total):
 - HOOK (first sentence, MAX 8 words): a punchy, curiosity-gap opener about
   the animal/nature subject. Truthful. Feel: "Octopuses have three hearts."
   / "This bird builds traps." / "Trees can warn each other." NO question marks.
+  ── REGISTERED VIRAL PATTERN (TrendCatcher kanal verisi 2026-Haz):
+     Top performers — "Frogs Freeze & Revive" (1079 izl), "Zombie-Ant Fungus"
+     (1074 izl), "Australia Lake Hillier Pink" (1125 izl). ORTAK PATTERN:
+     [doğal anomali] + [sürpriz tek-cümle] + [somut sayı/öğe].
 - TURN (1 sentence): the surprising-but-true expansion of the hook
-- CONTEXT (1-2 sentences): the actual nature/science behind it, plain language
-- PAYOFF (final short sentence): a wonder-inducing closing thought. NO hashtags,
-  NO emojis, NO "subscribe/like/follow", NO question to the audience.
+- CONTEXT (1-2 sentences): the actual nature/science behind it, plain language.
+  ── 8-12. saniye drop-off riski yüksek — bu cümlede SOMUT bir SAYI veya
+     karşılaştırma kullan (kaç kat, kaç yıl, kaç metre). Sayı = retention boost.
+- PAYOFF (final short sentence): a wonder-inducing closing thought.
+  ── Implicit CTA: cümle "comments" / "thoughts" / "wonder" / "ever" kelimesini
+     içerebilir — viewer'a açık soru SORMA, sezgisel olarak yorum tetikle.
+     Örnek: "Nature still hides countless wonders like this one."
+     ASLA "subscribe/like/follow", "comment below", "share this". NO hashtags,
+     NO emojis.
 
 Constraints:
 - Total length: STRICT 55–70 words. Never above 70, never below 50.

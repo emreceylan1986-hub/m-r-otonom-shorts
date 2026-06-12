@@ -67,8 +67,73 @@ def hackernews_haberleri() -> list[dict]:
     return []
 
 
+def _praw_clienti():
+    """Reddit OAuth client (PRAW). Eğer credentials yoksa None döner ve
+    anonim JSON fallback'e geçer."""
+    import os
+    cid = os.environ.get("REDDIT_CLIENT_ID")
+    csec = os.environ.get("REDDIT_CLIENT_SECRET")
+    if not (cid and csec):
+        return None
+    try:
+        import praw
+    except ImportError:
+        print("[haberci] praw yok — anonim fallback")
+        return None
+    try:
+        r = praw.Reddit(
+            client_id=cid,
+            client_secret=csec,
+            user_agent="TrendCatcher/1.0 by /u/trendcatcher_bot",
+            read_only=True,
+        )
+        # Test
+        _ = r.subreddit("test").display_name
+        return r
+    except Exception as h:
+        print(f"[haberci] PRAW client başarısız: {h}")
+        return None
+
+
+def _reddit_praw_fetch(reddit, sub_name: str) -> list[dict]:
+    """PRAW ile bir subreddit'in günlük top postlarını çek."""
+    out = []
+    try:
+        for post in reddit.subreddit(sub_name).top(time_filter="day", limit=25):
+            if post.stickied or post.over_18: continue
+            url = post.url or ""
+            if not (url and post.title and post.created_utc): continue
+            yas = _yas_saat(int(post.created_utc))
+            if yas > ZAMAN_PENCERESI_SAAT: continue
+            out.append({
+                "baslik": post.title,
+                "url": url,
+                "kaynak": f"r/{sub_name}",
+                "skor": int(post.ups or 0),
+                "yas_saat": round(yas, 1),
+                "yorum_sayisi": int(post.num_comments or 0),
+            })
+    except Exception as h:
+        print(f"[haberci] PRAW r/{sub_name}: {h}")
+    return out
+
+
 def reddit_haberleri() -> list[dict]:
-    """4 viral subreddit'ten son 48 saatin top postları (hayvan/doğa/ilginç)."""
+    """4 viral subreddit'ten son 48 saatin top postları (hayvan/doğa/ilginç).
+
+    Önce PRAW (OAuth) dener — GitHub Actions IP'lerinden 403 alma riskini
+    sıfırlar. Credentials yoksa anonim JSON fallback'e döner."""
+    reddit = _praw_clienti()
+    if reddit is not None:
+        print("[haberci] Reddit PRAW (OAuth) modunda")
+        haberler = []
+        for url in REDDIT_URLS:
+            sub = url.split("/r/")[1].split("/")[0]
+            haberler.extend(_reddit_praw_fetch(reddit, sub))
+            time.sleep(0.5)
+        return haberler
+
+    # Anonim JSON fallback
     haberler: list[dict] = []
     for url in REDDIT_URLS:
         sub = url.split("/r/")[1].split("/")[0]

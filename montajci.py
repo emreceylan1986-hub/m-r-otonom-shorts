@@ -529,21 +529,35 @@ def main() -> int:
         altyazi_yak(birlesik, ass, altyazili)
         _alt(f"altyazılı → {altyazili.name} ({altyazili.stat().st_size/1024:.0f} KB)")
 
-        _adim(8, "Jamendo arka plan müzik aranıyor (Creative Commons, varsa)...")
+        _adim(8, "Arka plan müzik — önce Suno kütüphane, sonra Jamendo CC fallback...")
         muzik_yolu = GECICI_KLASOR / f"bgm_{damga}.mp3"
-        muzik_key = _jamendo_anahtarini_oku()
-        _alt(f"DEBUG: key bulundu mu → uzunluk={len(muzik_key)}, ilk6={muzik_key[:6]!r}")
-        if not muzik_key:
-            _alt("Müzik atlandı: JAMENDO_CLIENT_ID env veya .env'de yok.")
-            muzik_var = False
-        else:
-            muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
-            _alt(f"DEBUG: Jamendo arama sorgusu='{muzik_arama}'")
-            muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
-            if muzik_var:
-                _alt(f"Müzik: '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
+        muzik_var = False
+
+        # 1. öncelik: Suno Pro elle üretilmiş kütüphane (suno_tracks/*.mp3)
+        try:
+            import suno_kutuphane
+            suno_yolu = suno_kutuphane.track_sec(keywords[0] if keywords else None)
+            if suno_yolu and Path(suno_yolu).exists():
+                import shutil
+                shutil.copy(suno_yolu, muzik_yolu)
+                muzik_var = True
+                _alt(f"Müzik (Suno): {Path(suno_yolu).name} → {muzik_yolu.name}")
+        except Exception as h:
+            _alt(f"Suno kütüphane atlandı: {h}")
+
+        # 2. fallback: Jamendo CC API
+        if not muzik_var:
+            muzik_key = _jamendo_anahtarini_oku()
+            if not muzik_key:
+                _alt("Müzik atlandı: Jamendo key yok + Suno kütüphane boş.")
             else:
-                _alt(f"Müzik atlandı: Jamendo aramasından dosya gelmedi (key={len(muzik_key)} char).")
+                muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
+                _alt(f"DEBUG: Jamendo arama sorgusu='{muzik_arama}'")
+                muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
+                if muzik_var:
+                    _alt(f"Müzik (Jamendo): '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
+                else:
+                    _alt(f"Müzik atlandı: Jamendo aramasından dosya gelmedi.")
 
         _adim(9, "TTS + müzik mux'lanıyor → final MP4...")
         final = CIKTI_KLASOR / f"shorts_{damga}.mp4"

@@ -25,6 +25,8 @@ DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow şüpheli içerik
 BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yayın issue tetikleyici
 
 YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube"]  # upload + delete + update
+# yt-analytics.readonly scope ayrı bir OAuth flow gerektirir; analytics.py
+# kendi token'ını yönetir (token_analytics.json). yukleyici stabil kalır.
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
 YOUTUBE_KATEGORI_TECH = "28"        # Science & Technology
 YOUTUBE_KATEGORI_ANIMALS = "15"     # Pets & Animals (yeni niş varsayılanı)
