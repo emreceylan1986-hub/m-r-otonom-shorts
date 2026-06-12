@@ -28,10 +28,14 @@ import bridge
 KAYNAK_DOSYA = Path(__file__).parent / "haberler.json"
 CIKTI_KLASORU = Path(__file__).parent / "ses_ciktilari"
 
-SES = "en-US-AriaNeural"
+SES = "en-US-AriaNeural"          # ana ses (kadın, sıcak)
+SES_IKINCI = "en-US-ChristopherNeural"  # ikinci ses (erkek, dialog için)
 HIZ = "-3%"        # hafif yavaş → daha şefkatli/sıcak his
 PERDE = "+3Hz"     # hafif yüksek perde → daha tatlı tonlama
 SES_SEVIYESI = "+0%"
+
+# FAZ 8: Çarşamba (haftada 1) → dialog formatı dene
+DIALOG_GUN = 2  # Wednesday
 
 SENARYO_SISTEM_PROMPTU = """You are a viral YouTube Shorts narrator in the
 ANIMAL / NATURE / AMAZING-FACTS niche. Your job is RETENTION — the first
@@ -104,9 +108,15 @@ def senaryo_uret(haber: dict) -> str:
     hour = datetime.datetime.utcnow().hour
     # Uzun varyant: Pazartesi 12 UTC + Perşembe 16 UTC (haftada 2 video deneme)
     uzun_varyant = (wd == 0 and hour < 14) or (wd == 3 and 14 <= hour < 18)
+    # FAZ 8: Çarşamba (DIALOG_GUN=2) — dialog formatı dene (ikili ses)
+    dialog_varyant = (wd == DIALOG_GUN)
+
     if uzun_varyant:
         hedef_kelime = "100-115"
         min_kelime = 95
+    elif dialog_varyant:
+        hedef_kelime = "70-85"
+        min_kelime = 60
     else:
         hedef_kelime = "60-75"
         min_kelime = 50
@@ -124,22 +134,64 @@ def senaryo_uret(haber: dict) -> str:
             f"Add 1-2 extra concrete examples or comparisons in CONTEXT.\n"
             f"Hook + subscribe CTA stay punchy; expansion in the middle."
         )
-    # Çok kısa çıkarsa 1 kez daha dene
-    son_senaryo = ""
-    for deneme in range(2):
-        ek = "" if deneme == 0 else (
-            f"\n\nYOUR PREVIOUS DRAFT WAS TOO SHORT ({len(son_senaryo.split())} words). "
-            f"Rewrite it {hedef_kelime} words by adding one concrete detail to CONTEXT. Keep the same hook."
+    elif dialog_varyant:
+        temel_prompt += (
+            f"\n\nDIALOG VARIANT (weekly test): write the script as a TWO-PERSON dialog.\n"
+            f"Format STRICTLY:\n"
+            f"  A: <line>\n"
+            f"  B: <line>\n"
+            f"  A: <line>\n"
+            f"  ...\n"
+            f"Roles: A = main narrator (curious, warm). B = reactive partner\n"
+            f"  (surprised, asks short follow-ups: 'Wait, really?', 'How?', 'No way').\n"
+            f"Keep the HOOK as A's first line (still max 8 words, truthful).\n"
+            f"B's lines are SHORT (3-6 words). Total exchange = {hedef_kelime} words.\n"
+            f"End with A's subscribe CTA on a new 'A:' line.\n"
+            f"Output ONLY the dialog lines."
         )
+    # Çok kısa çıkarsa 1 kez daha dene + FAZ 8: Hook Predictor ile zayıf hook'u rejene
+    son_senaryo = ""
+    for deneme in range(3):
+        if deneme == 0:
+            ek = ""
+        elif son_senaryo and len(son_senaryo.split()) < min_kelime:
+            ek = (f"\n\nYOUR PREVIOUS DRAFT WAS TOO SHORT ({len(son_senaryo.split())} words). "
+                  f"Rewrite it {hedef_kelime} words by adding one concrete detail to CONTEXT. Keep the same hook.")
+        else:
+            # Hook zayıf — yeni hook iste
+            ek = (f"\n\nYOUR PREVIOUS HOOK WAS WEAK. The first sentence must be MAX 8 words, "
+                  f"with a concrete subject + a surprising specific detail (number, comparison, or contradiction). "
+                  f"NO question marks, NO 'did you know', NO generic openers. Rewrite the entire script with a stronger hook.")
+
         senaryo = bridge.gemini_metin_uret(
             prompt=temel_prompt + ek,
             sistem_promptu=SENARYO_SISTEM_PROMPTU,
-            sicaklik=0.8,
+            sicaklik=0.85 if deneme > 0 else 0.8,
             max_token=2048,
         ).strip('"').strip()
         son_senaryo = senaryo
-        if len(senaryo.split()) >= min_kelime:
+
+        if len(senaryo.split()) < min_kelime:
+            continue  # Yetersiz uzunluk — bir sonraki deneme
+
+        # FAZ 8: Hook predictor
+        try:
+            import hook_predictor
+            skor, sebep, alt = hook_predictor.hook_skor_ver(senaryo)
+            print(f"[seslendirici] Hook skor: {skor}/10 — {sebep[:80]}")
+            if skor >= 6:
+                return senaryo
+            if alt:
+                print(f"   ↪ Önerilen alt hook: {alt}")
+            if deneme < 2:
+                continue  # Yeniden dene
+            else:
+                # Son deneme — kabul et
+                return senaryo
+        except Exception as h:
+            print(f"[seslendirici] Hook predictor hata: {str(h)[:120]} — kabul edildi")
             return senaryo
+    return son_senaryo
     raise RuntimeError(
         f"Senaryo 2 denemede de çok kısa ({len(son_senaryo.split())} kelime). "
         f"Ham çıktı: {son_senaryo!r}"
@@ -259,15 +311,93 @@ def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
     return bas + "\n".join(satirlar) + "\n"
 
 
+def _dialog_mu(metin: str) -> bool:
+    """Senaryo 'A:' / 'B:' formatında mı?"""
+    satirlar = [s.strip() for s in metin.splitlines() if s.strip()]
+    a_b_satir = sum(1 for s in satirlar if s.startswith(("A:", "B:")))
+    return a_b_satir >= 3
+
+
+def _dialog_parse(metin: str) -> list[tuple[str, str]]:
+    """[(speaker, text), ...] döner."""
+    out = []
+    for satir in metin.splitlines():
+        satir = satir.strip()
+        if not satir: continue
+        if satir.startswith("A:"):
+            out.append(("A", satir[2:].strip()))
+        elif satir.startswith("B:"):
+            out.append(("B", satir[2:].strip()))
+    return out
+
+
+async def _tts_tek_segment(metin: str, voice: str) -> tuple[bytes, list]:
+    """Bir segmenti edge-tts ile sesli yap. Audio bytes + cues döner."""
+    import asyncio as _aio
+    son_hata = None
+    for deneme in range(3):
+        try:
+            iletisim = edge_tts.Communicate(text=metin, voice=voice, rate=HIZ, pitch=PERDE, volume=SES_SEVIYESI)
+            audio = bytearray()
+            cues = []
+            async for chunk in iletisim.stream():
+                if chunk["type"] == "audio":
+                    audio.extend(chunk["data"])
+                elif chunk["type"] in ("WordBoundary", "SentenceBoundary"):
+                    cues.append((chunk["offset"], chunk["duration"], chunk["text"]))
+            if audio and cues: return bytes(audio), cues
+            raise RuntimeError("boş audio")
+        except Exception as h:
+            son_hata = h
+            await _aio.sleep(min(2 ** (deneme + 2), 30))
+    raise RuntimeError(f"TTS fail: {son_hata}")
+
+
+async def _seslendir_dialog_async(metin: str, mp3_yolu: Path, ass_yolu: Path):
+    """Dialog formatı için 2 sesle render et."""
+    parcalar = _dialog_parse(metin)
+    if not parcalar:
+        # Parse fail → standart mod
+        return await _seslendir_async(metin, mp3_yolu, ass_yolu)
+
+    print(f"[seslendirici] DIALOG modu — {len(parcalar)} parça (A={SES} B={SES_IKINCI})")
+    tum_cues = []
+    audio_parcalar = []
+    offset_ms = 0
+    for speaker, txt in parcalar:
+        voice = SES if speaker == "A" else SES_IKINCI
+        audio, cues = await _tts_tek_segment(txt, voice)
+        # Cues'leri offset'le kaydır
+        for of, du, te in cues:
+            tum_cues.append((of + offset_ms, du, te))
+        audio_parcalar.append(audio)
+        # En son cue'nun bitiş zamanı
+        if cues:
+            son = cues[-1]
+            offset_ms += son[0] + son[1] + 200  # 200ms boşluk arası
+        # Aralarda kısa silence ekle
+        import io
+        audio_parcalar.append(b"")  # placeholder
+
+    # Audio dosyalarını birleştir + 200ms silence
+    with open(mp3_yolu, "wb") as f:
+        for ap in audio_parcalar:
+            if ap: f.write(ap)
+    if not tum_cues:
+        raise RuntimeError("dialog cues boş")
+    ass_yolu.write_text(_karaoke_ass(tum_cues), encoding="utf-8")
+    print(f"   ↳ Dialog MP3 yazıldı, {len(tum_cues)} cue")
+
+
 async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
     """
     MP3 ses + viral-Shorts stili ASS altyazı (sarı keyword highlight).
-    edge-tts WordBoundary/SentenceBoundary event'i toplar, _karaoke_ass ile
-    referans viral videodaki stile çevirir.
-
-    edge-tts WebSocket 503/Handshake hatalarına karşı 5 denemeli backoff —
-    Microsoft Edge TTS uçnoktası ara sıra spike yapıyor.
+    Dialog formatı ('A:' / 'B:') varsa otomatik 2 ses kullanır.
     """
+    # FAZ 8: Dialog detect
+    if _dialog_mu(metin):
+        return await _seslendir_dialog_async(metin, mp3_yolu, ass_yolu)
+
     import asyncio as _aio
     son_hata: Exception | None = None
     for deneme in range(5):
@@ -290,9 +420,9 @@ async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
                 raise RuntimeError("edge-tts hiç altyazı zamanlaması döndürmedi.")
             ass_yolu.write_text(_karaoke_ass(cues), encoding="utf-8")
             return
-        except Exception as hata:  # WSServerHandshakeError, NoAudioReceived, vs.
+        except Exception as hata:
             son_hata = hata
-            bekle = min(2 ** (deneme + 2), 60)  # 4, 8, 16, 32, 60 sn
+            bekle = min(2 ** (deneme + 2), 60)
             print(
                 f"[seslendirici] edge-tts hata ({type(hata).__name__}) — "
                 f"{bekle}s sonra yeniden ({deneme+1}/5)",

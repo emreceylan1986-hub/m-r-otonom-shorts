@@ -125,6 +125,11 @@ jobs:
         continue-on-error: true
         run: python ab_title_test.py --karsilastir
 
+      - name: 8b) Thumbnail A/B karşılaştır + auto-swap (24h+)
+        if: success()
+        continue-on-error: true
+        run: python thumbnail_ab.py --karsilastir
+
       - name: 9) YPP Eligibility Tracker — para yolu durumu
         if: success()
         continue-on-error: true

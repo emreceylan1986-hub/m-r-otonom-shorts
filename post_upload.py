@@ -27,56 +27,23 @@ def _veri_oku() -> dict:
 
 
 def thumbnail_uret_ve_yukle(veri: dict) -> bool:
-    """Thumbnail üret + YouTube'a set."""
+    """FAZ 8: A/B Test — A ve B üret, A'yı YT'ye set et, B'yi state'e kaydet."""
     try:
-        from thumbnail import pexels_landscape_indir, metin_yerlestir
+        import thumbnail_ab
     except ImportError as h:
-        print(f"  thumbnail modül yok: {h}"); return False
+        print(f"  thumbnail_ab modül yok: {h}"); return False
 
     video_id = veri["video_id"]
     baslik = veri["title"]
-    tmp_bg = PANEL_KOK / f"_thumb_bg_{video_id}.png"
-    tmp_thumb = PANEL_KOK / f"_thumb_{video_id}.png"
-
-    # Arama — başlığın ilk 2 kelimesi
-    arama = " ".join(baslik.split()[:2])
-    if not pexels_landscape_indir(arama, tmp_bg):
-        print(f"  Pexels indirilemedi: {arama}")
-        return False
-
-    # Vurgulanacak kelime — başlığın ilk anlamlı uzun kelimesi
+    # Vurgu — başlığın en uzun anlamlı kelimesi
     vurgu = next((w for w in baslik.split() if len(w) > 5), "")
-    metin_yerlestir(tmp_bg, baslik, vurgu, tmp_thumb)
-    tmp_bg.unlink(missing_ok=True)
 
-    if not tmp_thumb.exists():
-        print(f"  Thumbnail üretilemedi"); return False
-
-    # YouTube'a set
-    try:
-        from google.oauth2.credentials import Credentials
-        from google.auth.transport.requests import Request
-        from googleapiclient.discovery import build
-        from googleapiclient.http import MediaFileUpload
-        creds = Credentials.from_authorized_user_file(str(PANEL_KOK / "token.json"),
-            ["https://www.googleapis.com/auth/youtube"])
-        if creds.expired and creds.refresh_token: creds.refresh(Request())
-        yt = build("youtube", "v3", credentials=creds, cache_discovery=False)
-        media = MediaFileUpload(str(tmp_thumb), mimetype="image/png")
-        yt.thumbnails().set(videoId=video_id, media_body=media).execute()
-        print(f"  ✓ Thumbnail yüklendi → video {video_id}")
-        # Pinterest için tut, sonra temizlenir
+    sonuc = thumbnail_ab.uret_iki(video_id, baslik, vurgu)
+    if sonuc:
+        print(f"  ✓ Thumbnail A aktif, B kayıtlı — 24h sonra karşılaştırma")
         return True
-    except Exception as h:
-        msg = str(h)[:200]
-        if "forbidden" in msg.lower() or "permission" in msg.lower():
-            print(f"  ⚠️  Thumbnail upload izni yok (kanal verified değil olabilir): {msg}")
-        else:
-            print(f"  ✗ Thumbnail upload fail: {msg}")
-        return False
-    finally:
-        # Pinterest sonrası temizlenecek, şimdilik bırak
-        pass
+    else:
+        print(f"  ✗ Thumbnail A/B fail"); return False
 
 
 def pinterest_pin_olustur(veri: dict, thumb_yolu: Path | None) -> bool:

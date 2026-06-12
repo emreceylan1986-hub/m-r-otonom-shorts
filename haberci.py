@@ -320,6 +320,27 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                 )
     except Exception:
         pass
+
+    # FAZ 8: Real-Time Trending Detector — competitor'lardan VIRAL (10K+ izl) konular
+    trending_blok = ""
+    try:
+        cs = Path(__file__).parent / "competitor_signals.json"
+        if cs.exists():
+            cs_data = json.loads(cs.read_text())
+            # 10K+ izlenmiş "GERÇEK viral" başlıklar
+            top = cs_data.get("rakip_top_30_izlenme", [])
+            gercek_viral = [t for t in top if t.get("views", 0) >= 10000][:8]
+            if gercek_viral:
+                lines = [f"  · [{t['views']:,} views] {t['title'][:80]}" for t in gercek_viral]
+                trending_blok = (
+                    f"\nREAL-TIME TRENDING (10K+ view nature/animal shorts from top channels, last 7d) "
+                    f"— THESE ANGLES ARE PROVEN VIRAL RIGHT NOW:\n"
+                    + "\n".join(lines)
+                    + "\n  → STRONGLY prefer adapting one of these angles to a different subject "
+                    + "(same hook structure, different species/place). Trend riding = algorithm boost.\n"
+                )
+    except Exception:
+        pass
     try:
         # 2 turlu üretim: ilk turda red varsa Python filter'la ele, 2. turda
         # daha güçlü uyarıyla yeniden iste.
@@ -339,7 +360,7 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                 prompt=(
                     f"BLOCKED Wikipedia URLs (do not reuse):\n{bloklar}\n\n"
                     f"BLOCKED TITLES (do not produce semantically similar topics):\n{baslik_bloklari}"
-                    f"{trend_blok}{tema_blok}{sequel_blok}{ek_uyari}\n\n"
+                    f"{trend_blok}{tema_blok}{sequel_blok}{trending_blok}{ek_uyari}\n\n"
                     f"Produce exactly {adet} fresh viral animal/nature topics now."
                 ),
                 sistem_promptu=GEMINI_KONU_SISTEM,
