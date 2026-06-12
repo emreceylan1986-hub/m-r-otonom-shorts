@@ -1,17 +1,9 @@
 {
-  "uretim_zamani": "2026-06-12T09:48:46.521447+00:00",
+  "uretim_zamani": "2026-06-12T10:36:17.857007+00:00",
   "haberler": [
     {
-      "baslik": "This Fish Lives Deep in an Underwater Cave Without Eyes!",
-      "url": "https://en.wikipedia.org/wiki/Mexican_tetra",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Siberian Salamanders Can Survive Being Frozen for Years!",
-      "url": "https://en.wikipedia.org/wiki/Siberian_salamander",
+      "baslik": "The Namib Desert Beetle Harvests Water From Fog to Survive!",
+      "url": "https://en.wikipedia.org/wiki/Stenocara_gracilipes",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
