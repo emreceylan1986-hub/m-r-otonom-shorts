@@ -538,8 +538,11 @@ def main() -> int:
             import suno_kutuphane
             suno_yolu = suno_kutuphane.track_sec(keywords[0] if keywords else None)
             if suno_yolu and Path(suno_yolu).exists():
-                import shutil
-                shutil.copy(suno_yolu, muzik_yolu)
+                # NOT: 'shutil' modül seviyesinde import edili — local 'import shutil'
+                # kullanma; Python local-scope shadowing modül sonundaki shutil.rmtree'yi
+                # bozar (UnboundLocalError).
+                import shutil as _shutil
+                _shutil.copy(suno_yolu, muzik_yolu)
                 muzik_var = True
                 _alt(f"Müzik (Suno): {Path(suno_yolu).name} → {muzik_yolu.name}")
         except Exception as h:
