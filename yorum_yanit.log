@@ -84,3 +84,13 @@
 [2026-06-12 20:31:30] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-12 20:31:30] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 7) ===
+[2026-06-12 22:14:05] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-12 22:14:05] Son 30 video taranıyor...
+[2026-06-12 22:14:10] Cevaplanacak aday yorum: 1 (max 10 işlenecek)
+[2026-06-12 22:14:10] 
+→ Yorum: @dynomax101: Why not show pictures of the blobfish in its natural home? 😊
+[2026-06-12 22:14:11]   Cevap (gemini): Deep sea pressure keeps blobfish looking "normal" down there.
+[2026-06-12 22:14:11]   Reply gönderim fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/comments?part=snippet&alt=json returned "The request cannot be completed because you have exceeded your <a 
+[2026-06-12 22:14:11]   ✗ Gönderim başarısız
+[2026-06-12 22:14:16] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 7) ===
