@@ -24,7 +24,10 @@ YUKLEME_LOGU = PANEL_KOK / "yuklemeler.json"
 DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow şüpheli içerik issue tetikleyici
 BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yayın issue tetikleyici
 
-YOUTUBE_SCOPES = ["https://www.googleapis.com/auth/youtube"]  # upload + delete + update
+YOUTUBE_SCOPES = [
+    "https://www.googleapis.com/auth/youtube",
+    "https://www.googleapis.com/auth/youtube.force-ssl",  # comment+caption upload
+]
 # yt-analytics.readonly scope ayrı bir OAuth flow gerektirir; analytics.py
 # kendi token'ını yönetir (token_analytics.json). yukleyici stabil kalır.
 YOUTUBE_KATEGORI_NEWS = "25"        # News & Politics
@@ -405,15 +408,17 @@ def main() -> int:
         # FAZ 4: A/B title test — aktif başlık A, Gemini'den B alternatifi üret + kayıt
         try:
             import ab_title_test
-            alt_baslik = ab_title_test.baslik_iki_uret(haber.get("baslik") if 'haber' in dir() else veri["title"])
-            if alt_baslik and len(alt_baslik) > 1:
+            alt_basliklar = ab_title_test.baslik_iki_uret(veri["title"])
+            if alt_basliklar and len(alt_basliklar) >= 2:
+                # Gemini A ve B üretir — biz A=aktif başlık (yayında), B=alternatif
+                B_baslik = alt_basliklar[1] or alt_basliklar[0]
                 ab_title_test.ab_kaydet(
                     veri["title"][:80], video_id,
-                    veri["title"], alt_baslik[1] or alt_baslik[0]
+                    veri["title"], B_baslik
                 )
-                _alt(f"A/B test kaydedildi: A={veri['title'][:40]}... | B={alt_baslik[1][:40]}...")
+                _alt(f"A/B test kaydedildi — B alternatifi: {B_baslik[:50]}")
         except Exception as ab_h:
-            _alt(f"A/B test kayıt atlandı: {ab_h}")
+            _alt(f"A/B test kayıt atlandı: {str(ab_h)[:100]}")
 
         # FAZ 4: Creator pinned comment (engagement bomba)
         try:
