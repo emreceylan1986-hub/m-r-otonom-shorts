@@ -135,6 +135,11 @@ jobs:
         continue-on-error: true
         run: python sponsor_kit.py
 
+      - name: 11) Yorum Yanıt Bot — kanaldaki yeni yorumlara cevap (cron yedek)
+        if: success()
+        continue-on-error: true
+        run: python yorum_yanit_bot.py --max-cevap 15 --min-yas 5
+
       - name: State commit (JSON-aware merge + push retry)
         if: always()
         env:
