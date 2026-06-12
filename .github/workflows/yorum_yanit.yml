@@ -1,0 +1,88 @@
+name: Yorum Yanıt Botu
+
+# TrendCatcher'a gelen yorumlara 5-15 dk içinde otomatik cevap.
+# YouTube cron uyumlu (force-ssl scope ile reply olarak gönderir).
+on:
+  schedule:
+    # Her 10 dakikada bir (GitHub Actions cron en sık 5 dk; pratik sapma var,
+    # 10 dk daha güvenli ve quota dostu)
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      kuru:
+        description: "Kuru mod (sadece taslak, gönderim yok)"
+        type: boolean
+        default: false
+      max_cevap:
+        description: "Bir run'da max cevap"
+        type: string
+        default: "10"
+
+permissions:
+  contents: write   # comment_replies.json commit
+
+jobs:
+  reply-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Write token + .env
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+        run: |
+          echo "GEMINI_API_KEY=${GEMINI_API_KEY}" > .env
+          printf '%s' "$TOKEN_JSON" > token.json
+          python -c "import json; json.load(open('token.json')); print('token OK')"
+
+      - name: Run yorum_yanit_bot
+        env:
+          KURU: ${{ github.event.inputs.kuru || 'false' }}
+          MAX_CEVAP: ${{ github.event.inputs.max_cevap || '10' }}
+        run: |
+          if [ "$KURU" = "true" ]; then
+            python yorum_yanit_bot.py --kuru --max-cevap "$MAX_CEVAP" --video-sayisi 30
+          else
+            python yorum_yanit_bot.py --max-cevap "$MAX_CEVAP" --video-sayisi 30
+          fi
+
+      - name: State commit (comment_replies.json)
+        if: always()
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          git config user.name  "M-R Reply Bot"
+          git config user.email "actions@github.com"
+          git add comment_replies.json yorum_yanit.log 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Yeni cevap yok, commit gerekmez."
+            exit 0
+          fi
+          git commit -m "reply: $(date -u +'%Y-%m-%dT%H:%MZ') run #${GITHUB_RUN_NUMBER}" || true
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash 2>&1 | tail -2 && git push 2>&1; then
+              echo "✓ Push OK (deneme $i)"
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
