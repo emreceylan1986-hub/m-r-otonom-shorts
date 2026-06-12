@@ -356,6 +356,18 @@ def main() -> int:
                 args.gizlilik = "private"
             DENETIM_UYARI_FLAG.write_text(denetim_notu, encoding="utf-8")
 
+        # FAZ 5: Affiliate link açıklama zenginleştirici (env'de tag yoksa no-op)
+        try:
+            from affiliate_link import aciklama_zenginleştir
+            zenginlestirilmis = aciklama_zenginleştir(
+                veri["description"], veri["title"], veri.get("tags", [])
+            )
+            if zenginlestirilmis != veri["description"]:
+                _alt("Açıklama affiliate link ile zenginleştirildi")
+                veri["description"] = zenginlestirilmis
+        except Exception as h:
+            _alt(f"Affiliate zenginleştirme atlandı: {h}")
+
         _adim(4, "OAuth: kimlik doğrulama / token yenileme...")
         youtube = youtube_istemcisi()
         _alt("YouTube istemcisi hazır ✓")

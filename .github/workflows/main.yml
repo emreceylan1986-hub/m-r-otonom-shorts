@@ -2,8 +2,9 @@ name: M-R Otonom Pipeline
 
 on:
   schedule:
-    # TR 19:00 ve 22:00 → UTC 16:00 ve 19:00 (TR = UTC+3)
-    - cron: "0 16,19 * * *"
+    # TR 15:00, 19:00, 22:00 → UTC 12:00, 16:00, 19:00 (TR = UTC+3)
+    # Faz 4: günlük 2 → 3 video. Algoritma daha fazla push eder.
+    - cron: "0 12,16,19 * * *"
   workflow_dispatch:
     inputs:
       gizlilik:
@@ -52,6 +53,9 @@ jobs:
           JAMENDO_CLIENT_ID: ${{ secrets.JAMENDO_CLIENT_ID }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          PINTEREST_TOKEN: ${{ secrets.PINTEREST_TOKEN }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          AMAZON_ASSOCIATES_TAG: ${{ secrets.AMAZON_ASSOCIATES_TAG }}
           CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
           TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
         run: |
@@ -62,6 +66,9 @@ jobs:
             echo "JAMENDO_CLIENT_ID=${JAMENDO_CLIENT_ID}"
             echo "REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}"
             echo "REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}"
+            echo "PINTEREST_TOKEN=${PINTEREST_TOKEN}"
+            echo "PINTEREST_BOARD_ID=${PINTEREST_BOARD_ID}"
+            echo "AMAZON_ASSOCIATES_TAG=${AMAZON_ASSOCIATES_TAG}"
           } > .env
           printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
           printf '%s' "$TOKEN_JSON"         > token.json
@@ -83,15 +90,25 @@ jobs:
       - name: 3) Montajcı — Pexels + Wikimedia + Suno fallback → 1080×1920 MP4
         run: python montajci.py
 
-      - name: 4) Yükleyici — YouTube Shorts upload + thumbnail
+      - name: 4) Yükleyici — YouTube Shorts upload + affiliate açıklama
         env:
           GIZLILIK: ${{ github.event.inputs.gizlilik || 'public' }}
         run: python yukleyici.py --gizlilik "$GIZLILIK"
+
+      - name: 4b) Post-Upload — Thumbnail set + Pinterest pin + Multilang caption
+        if: success()
+        continue-on-error: true
+        run: python post_upload.py
 
       - name: 5) Pattern Detector — viral öğrenme loop
         if: success()
         continue-on-error: true
         run: python pattern_detector.py --esik 500
+
+      - name: 5b) Retention Learner — drop-off feedback → seslendirici
+        if: success()
+        continue-on-error: true
+        run: python retention_learner.py
 
       - name: 6) Analytics çek — retention + CTR + traffic source
         if: success()
@@ -107,6 +124,16 @@ jobs:
         if: success()
         continue-on-error: true
         run: python ab_title_test.py --karsilastir
+
+      - name: 9) YPP Eligibility Tracker — para yolu durumu
+        if: success()
+        continue-on-error: true
+        run: python ypp_tracker.py
+
+      - name: 10) Sponsor Media Kit — outreach raporu
+        if: success()
+        continue-on-error: true
+        run: python sponsor_kit.py
 
       - name: State commit (JSON-aware merge + push retry)
         if: always()
