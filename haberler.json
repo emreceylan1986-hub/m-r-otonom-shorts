@@ -1,25 +1,25 @@
 {
-  "uretim_zamani": "2026-06-12T10:40:47.501688+00:00",
+  "uretim_zamani": "2026-06-12T11:06:48.559523+00:00",
   "haberler": [
     {
-      "baslik": "There's a Fish That Lives in Underwater Caves & Never Sees the Sun!",
-      "url": "https://en.wikipedia.org/wiki/Cavefish",
+      "baslik": "Desert Lizards Drink Through Their Skin?!",
+      "url": "https://en.wikipedia.org/wiki/Thorny_dragon",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Antarctica Has an Active Volcano That Emits GOLD Dust!",
-      "url": "https://en.wikipedia.org/wiki/Mount_Erebus",
+      "baslik": "Antarctic Fish Have Natural Antifreeze in Their Blood!",
+      "url": "https://en.wikipedia.org/wiki/Notothenioidei",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "The Namib Desert: Where Sand Dunes 'Sing' and Fog is Life!",
-      "url": "https://en.wikipedia.org/wiki/Namib_Desert",
+      "baslik": "This Plant EATS Metal: How It Cleans Up Pollution!",
+      "url": "https://en.wikipedia.org/wiki/Hyperaccumulator",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
