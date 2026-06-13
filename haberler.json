@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-06-13T17:22:17.419018+00:00",
+  "uretim_zamani": "2026-06-13T20:15:59.203268+00:00",
   "haberler": [
     {
-      "baslik": "Meet the Secretarybird: The ONLY Raptor That Hunts Snakes on Foot!",
-      "url": "https://en.wikipedia.org/wiki/Secretarybird",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Vultures Eat BONES?! The Lammergeier's Shocking Diet!",
-      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
+      "baslik": "Eagles Snatch Goats: The Sky's Apex Predator!",
+      "url": "https://en.wikipedia.org/wiki/Golden_eagle",
       "kaynak": "gemini-fallback",
       "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "This Bird's Call Sounds Like a LASER GUN! Meet the Bellbird!",
-      "url": "https://en.wikipedia.org/wiki/Bellbird",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
