@@ -1,9 +1,17 @@
 {
-  "uretim_zamani": "2026-06-13T13:58:24.779345+00:00",
+  "uretim_zamani": "2026-06-13T14:24:43.582957+00:00",
   "haberler": [
     {
-      "baslik": "Weaver Birds Craft Intricate, Multi-Chamber Nests!",
-      "url": "https://en.wikipedia.org/wiki/Weaverbird",
+      "baslik": "Eagles Can See a Mouse From a Mile Away?!",
+      "url": "https://en.wikipedia.org/wiki/Eagle",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Vultures Have Acidic Stomachs to Dissolve Bones!",
+      "url": "https://en.wikipedia.org/wiki/Vulture",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
