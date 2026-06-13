@@ -75,9 +75,10 @@ jobs:
           # Sağlamlık doğrulaması (içerik yok ya da bozuksa burada erken patlasın)
           python -c "import json; json.load(open('client_secret.json')); json.load(open('token.json')); print('secrets OK')"
 
-      - name: 0) Trend Signal Mixer (PRAW + GTrends + YouTube autocomplete + competitor)
+      - name: 0) Trend Signal Mixer + Viral Radar (PROVEN VIRAL last 72h)
         continue-on-error: true
         run: |
+          python viral_radar.py || echo "viral_radar opsiyonel — skip"
           python competitor_scan.py || echo "competitor_scan opsiyonel — skip"
           python trend_signal_mixer.py || echo "trend_signal opsiyonel — skip"
 

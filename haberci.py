@@ -290,13 +290,15 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
     # FAZ 4: Daily Theme — kanal kimliği için günün haftasının teması
     import datetime
     DAILY_THEMES = {
-        0: "weird/extreme animals (rare behaviors, unusual species)",
-        1: "lakes, rivers, oceans, water phenomena",
-        2: "fungi, plants, parasites, microorganisms",
-        3: "insects, arachnids, tiny creatures",
-        4: "extreme environments (deserts, poles, volcanoes, caves)",
-        5: "birds, flight, migration, unusual nests",
-        6: "marine life, deep sea, coral, cephalopods",
+        # NİŞ DARALTMA (13 Haz 2026): "Extreme/Anomaly Nature" odak.
+        # Emre Bey favori: dağ keçisi — haftada en az 1 mountain animal içerik.
+        0: "mountain animals — ibex/markhor/bighorn/mountain goats defying gravity on vertical cliffs",
+        1: "anomaly lakes/waters — pink lakes, boiling lakes, blood waterfalls, glowing beaches",
+        2: "extremophile life — parasites, fungi mind-controlling hosts, surviving in lava/acid",
+        3: "tiny extreme creatures — tardigrades, mantis shrimp, jumping spiders with superpowers",
+        4: "extreme environments — Antarctic survivors, desert nomads, deep caves, volcanic vents",
+        5: "raptors/birds with superpowers — eagles snatching goats, vultures eating bones",
+        6: "deep sea anomalies — anglerfish, vampire squid, immortal jellyfish",
     }
     bugun_tema = DAILY_THEMES.get(datetime.datetime.now().weekday(), "any animal/nature")
     tema_blok = (
@@ -317,6 +319,23 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                     f"consider a 'next chapter' or related-but-different topic):\n"
                     + "\n".join(f"  · {t}" for t in ornek)
                     + "\n  → If you make a sequel, pick an ADJACENT topic (same category, different example).\n"
+                )
+    except Exception:
+        pass
+
+    # FAZ 9: viral_radar.py'den YouTube'da SON 72h 50K+ izlenmiş trending Shorts
+    viral_radar_blok = ""
+    try:
+        vr = Path(__file__).parent / "viral_targets.json"
+        if vr.exists():
+            vr_data = json.loads(vr.read_text())
+            angles = vr_data.get("angles_for_haberci", [])[:8]
+            if angles:
+                viral_radar_blok = (
+                    f"\n🔥 YOUTUBE TRENDING NOW (last 72h, 50K+ views — these angles are PROVEN VIRAL):\n"
+                    + "\n".join(f"  • {a}" for a in angles)
+                    + "\n  → ABSOLUTELY adapt one of these angles to a different but related subject. "
+                    + "Same hook structure, different species/location. Riding active wave = algorithm push.\n"
                 )
     except Exception:
         pass
@@ -360,7 +379,7 @@ def gemini_konu_uret(blokli_url: set[str], adet: int = 3) -> list[dict]:
                 prompt=(
                     f"BLOCKED Wikipedia URLs (do not reuse):\n{bloklar}\n\n"
                     f"BLOCKED TITLES (do not produce semantically similar topics):\n{baslik_bloklari}"
-                    f"{trend_blok}{tema_blok}{sequel_blok}{trending_blok}{ek_uyari}\n\n"
+                    f"{viral_radar_blok}{trend_blok}{tema_blok}{sequel_blok}{trending_blok}{ek_uyari}\n\n"
                     f"Produce exactly {adet} fresh viral animal/nature topics now."
                 ),
                 sistem_promptu=GEMINI_KONU_SISTEM,

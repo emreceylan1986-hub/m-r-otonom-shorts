@@ -59,7 +59,7 @@ TONE: Warm, awe-struck, fascinated. Imagine a calm narrator showing the
 viewer something beautiful and surprising about the natural world. Conversational,
 not academic. NO clickbait words (shocking, insane, crazy, you won't believe).
 
-Required structure (60-75 words total):
+Required structure (100-130 words total (≈55-60 seconds — long Shorts for end-screen + better CPM)):
 - HOOK (first sentence, MAX 8 words): a punchy, curiosity-gap opener about
   the animal/nature subject. Truthful. Feel: "Octopuses have three hearts."
   / "This bird builds traps." / "Trees can warn each other." NO question marks.
@@ -83,7 +83,7 @@ Required structure (60-75 words total):
   ── NO hashtags, NO emojis in the script body.
 
 Constraints:
-- Total length: STRICT 60–75 words (subscribe CTA dahil). Never above 75.
+- Total length: STRICT 100–130 words (subscribe CTA dahil). Never above 130.
 - Very short, punchy sentences. Spoken rhythm. Contractions OK.
 - Output ONLY the spoken script text — no headings, no labels, no quotation marks
 """
@@ -118,8 +118,8 @@ def senaryo_uret(haber: dict) -> str:
         hedef_kelime = "70-85"
         min_kelime = 60
     else:
-        hedef_kelime = "60-75"
-        min_kelime = 50
+        hedef_kelime = "100-130"
+        min_kelime = 90  # 60-saniye Shorts → CPM 2x + watch time +%50
 
     temel_prompt = (
         f"Headline: {haber['baslik']}\n"
