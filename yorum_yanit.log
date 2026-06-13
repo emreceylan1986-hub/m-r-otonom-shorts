@@ -178,3 +178,9 @@
 [2026-06-13 17:44:03] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-13 17:44:03] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 13) ===
+[2026-06-13 19:01:29] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-13 19:01:29] Son 30 video taranıyor...
+[2026-06-13 19:01:29]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-13 19:01:33] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-13 19:01:33] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 13) ===
