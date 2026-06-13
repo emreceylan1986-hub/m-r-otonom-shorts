@@ -1,19 +1,27 @@
 {
-  "uretim_zamani": "2026-06-13T14:24:43.582957+00:00",
+  "uretim_zamani": "2026-06-13T17:22:17.419018+00:00",
   "haberler": [
     {
-      "baslik": "Eagles Can See a Mouse From a Mile Away?!",
-      "url": "https://en.wikipedia.org/wiki/Eagle",
+      "baslik": "Meet the Secretarybird: The ONLY Raptor That Hunts Snakes on Foot!",
+      "url": "https://en.wikipedia.org/wiki/Secretarybird",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Vultures Have Acidic Stomachs to Dissolve Bones!",
-      "url": "https://en.wikipedia.org/wiki/Vulture",
+      "baslik": "Vultures Eat BONES?! The Lammergeier's Shocking Diet!",
+      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "This Bird's Call Sounds Like a LASER GUN! Meet the Bellbird!",
+      "url": "https://en.wikipedia.org/wiki/Bellbird",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
