@@ -103,3 +103,27 @@
 [2026-06-12 23:56:30]   ✓ Reply gönderildi
 [2026-06-12 23:56:35] 
 === Bot bitti — 1 cevap gönderildi (toplam history: 8) ===
+[2026-06-13 04:21:24] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-13 04:21:24] Son 30 video taranıyor...
+[2026-06-13 04:21:25]   video ERAmMIjQ yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ERAmMIjQPK4&maxResults=100&orde
+[2026-06-13 04:21:25]   video BLOeTlNm yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=BLOeTlNmZkA&maxResults=100&orde
+[2026-06-13 04:21:25]   video wGT2JpUF yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=wGT2JpUFj4A&maxResults=100&orde
+[2026-06-13 04:21:25]   video Z8UsMFTb yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=Z8UsMFTbGF4&maxResults=100&orde
+[2026-06-13 04:21:25]   video ZBmQvaRk yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZBmQvaRkYrY&maxResults=100&orde
+[2026-06-13 04:21:26]   video u9bvQRZs yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=u9bvQRZsUVA&maxResults=100&orde
+[2026-06-13 04:21:26]   video 9KhSQ9nx yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=9KhSQ9nx9zc&maxResults=100&orde
+[2026-06-13 04:21:26]   video 6A1O3a_y yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=6A1O3a_ygBs&maxResults=100&orde
+[2026-06-13 04:21:26]   video nSZPSP-L yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nSZPSP-LFe8&maxResults=100&orde
+[2026-06-13 04:21:26]   video OTdF4tFH yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=OTdF4tFHmzI&maxResults=100&orde
+[2026-06-13 04:21:26]   video r__Bu5VE yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=r__Bu5VE0Ho&maxResults=100&orde
+[2026-06-13 04:21:27]   video uNn2P6fv yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=uNn2P6fvqas&maxResults=100&orde
+[2026-06-13 04:21:27]   video ZsB94Eci yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZsB94EciY8M&maxResults=100&orde
+[2026-06-13 04:21:27]   video 3Szk0vgb yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=3Szk0vgbEgk&maxResults=100&orde
+[2026-06-13 04:21:27]   video X13JQmCq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=X13JQmCqWy8&maxResults=100&orde
+[2026-06-13 04:21:27]   video OtlX9bq- yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=OtlX9bq-UJw&maxResults=100&orde
+[2026-06-13 04:21:28]   video DP9830f5 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=DP9830f5ANo&maxResults=100&orde
+[2026-06-13 04:21:28]   video tLLK0tN7 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=tLLK0tN7s_8&maxResults=100&orde
+[2026-06-13 04:21:28]   video cvoTuyDZ yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=cvoTuyDZwe0&maxResults=100&orde
+[2026-06-13 04:21:28] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-13 04:21:28] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 8) ===
