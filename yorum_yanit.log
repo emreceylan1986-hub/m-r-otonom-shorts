@@ -190,3 +190,13 @@
 [2026-06-13 20:39:18] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-13 20:39:18] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 13) ===
+[2026-06-13 21:51:40] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-13 21:51:40] Son 30 video taranıyor...
+[2026-06-13 21:51:41]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-13 21:51:45] Cevaplanacak aday yorum: 1 (max 10 işlenecek)
+[2026-06-13 21:51:45] 
+→ Yorum: @richardhruza676: Not a golden
+[2026-06-13 21:51:47]   Cevap (gemini): That's a Steppe Eagle, a close relative often mistaken for a Golden.
+[2026-06-13 21:51:47]   ✓ Reply gönderildi
+[2026-06-13 21:51:52] 
+=== Bot bitti — 1 cevap gönderildi (toplam history: 14) ===
