@@ -1,17 +1,9 @@
 {
-  "uretim_zamani": "2026-06-14T14:00:58.224033+00:00",
+  "uretim_zamani": "2026-06-14T20:17:35.960675+00:00",
   "haberler": [
     {
-      "baslik": "Meet the Vampire Squid: Living Fossil of the Deep Sea!",
-      "url": "https://en.wikipedia.org/wiki/Vampire_squid",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Anglerfish: The Deep Sea Hunter With Its Own Built-in Light!",
-      "url": "https://en.wikipedia.org/wiki/Anglerfish",
+      "baslik": "Giant Squid: Elusive Monsters of the Deep, Rarely Seen by Human Eyes!",
+      "url": "https://en.wikipedia.org/wiki/Giant_squid",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
