@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-16T16:50:22.966495+00:00",
+  "uretim_zamani": "2026-06-16T21:42:04.360593+00:00",
   "haberler": [
     {
-      "baslik": "Crocodiles Never Stop Growing: An Ancient Predator's Endless Size!",
-      "url": "https://en.wikipedia.org/wiki/Crocodile",
+      "baslik": "Lake Baikal: Earth's Deepest & Oldest Lake Holds 20% of World's Fresh Water!",
+      "url": "https://en.wikipedia.org/wiki/Lake_Baikal",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "The Mariana Trench: Earth's Deepest Spot Is Deeper Than Mount Everest Is Tall!",
+      "url": "https://en.wikipedia.org/wiki/Mariana_Trench",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
