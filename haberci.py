@@ -444,31 +444,37 @@ def _gecmise_ekle(yeni_urller: list[str]) -> None:
 
 
 def en_populer_3() -> list[dict]:
-    havuz = hackernews_haberleri() + reddit_haberleri()
-    benzersiz = _tekrarlari_ele(havuz)
+    """17 Haz 2026: Reddit GitHub IP'lerini blokladı (403). Ana kaynak Gemini.
+    Reddit kodu kaldırılmadı (geriye uyumluluk için tutuldu) ama
+    PRIMARY kaynak artık Gemini + viral_radar (YouTube trending besli).
+    """
     gecmis = _gecmisi_oku()
-    yenidenIslenmemis = [
-        h for h in benzersiz if _normalize_url(h["url"]) not in gecmis
-    ]
-    yenidenIslenmemis.sort(key=lambda h: h["skor"], reverse=True)
-    print(
-        f"[haberci] Reddit havuzu: {len(benzersiz)} benzersiz, "
-        f"geçmişte {len(benzersiz) - len(yenidenIslenmemis)}, "
-        f"aday {len(yenidenIslenmemis)}",
-        flush=True,
-    )
-    # Reddit yetersiz (engellendi / hepsi geçmişte): Gemini fallback
-    if len(yenidenIslenmemis) < 3:
-        print("[haberci] Reddit yetersiz → Gemini konu fallback'i devrede.", flush=True)
-        fallback = gemini_konu_uret(gecmis, adet=3)
-        # mevcut adayların URL'lerini tekrar etmesin
-        mevcut_urller = {_normalize_url(h["url"]) for h in yenidenIslenmemis}
-        for k in fallback:
-            if _normalize_url(k["url"]) not in mevcut_urller:
-                yenidenIslenmemis.append(k)
-                mevcut_urller.add(_normalize_url(k["url"]))
-        print(f"[haberci] Gemini sonrası toplam aday: {len(yenidenIslenmemis)}", flush=True)
-    return yenidenIslenmemis[:3]
+
+    # 1. ÖNCELİK: Gemini direkt konu üretsin (viral_radar bloğu beslenir)
+    print("[haberci] Ana kaynak: Gemini + viral_radar (Reddit kaldırıldı 17 Haz)", flush=True)
+    secilen = gemini_konu_uret(gecmis, adet=5)
+    print(f"[haberci] Gemini'den {len(secilen)} konu önerisi geldi", flush=True)
+
+    # 2. Yedek: Reddit dene (eğer GitHub IP blok kalkmışsa bonus aday)
+    if len(secilen) < 3:
+        print("[haberci] Gemini yetersiz → Reddit deneniyor (yedek)...", flush=True)
+        try:
+            havuz = hackernews_haberleri() + reddit_haberleri()
+            benzersiz = _tekrarlari_ele(havuz)
+            ekstra = [
+                h for h in benzersiz if _normalize_url(h["url"]) not in gecmis
+            ]
+            ekstra.sort(key=lambda h: h["skor"], reverse=True)
+            mevcut_urller = {_normalize_url(h["url"]) for h in secilen}
+            for k in ekstra:
+                if _normalize_url(k["url"]) not in mevcut_urller:
+                    secilen.append(k)
+                    mevcut_urller.add(_normalize_url(k["url"]))
+            print(f"[haberci] Reddit yedeği sonrası toplam: {len(secilen)}", flush=True)
+        except Exception as h:
+            print(f"[haberci] Reddit yedek başarısız: {str(h)[:120]}", flush=True)
+
+    return secilen[:3]
 
 
 def main() -> int:
