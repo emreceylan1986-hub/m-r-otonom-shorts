@@ -1,0 +1,62 @@
+name: Yedek Tetik (kaçan saatleri kurtar)
+
+# GitHub Actions schedule saatleri bazen yoğunlukta atlatıyor.
+# Bu yedek motor her 10 dakikada bir çalışır, son tetikleyici saati kaçırılmış mı kontrol eder.
+# Ana saatler: 12, 16, 19, 22 UTC (TC)
+# Eğer son 1 saat içinde başarılı bir run yoksa → ana pipeline'ı tetikler.
+
+on:
+  schedule:
+    - cron: "*/30 12-23 * * *"  # 12-23 UTC arası her 30 dk
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  kontrol_ve_tetikle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Son başarılı pipeline ne zaman kontrol et
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # UTC saati al
+          NOW_UTC=$(date -u +%H)
+          ANA_SAATLER="12 16 19 22"
+
+          # Şu an ana saatten 0-60 dk sonra mı?
+          SAAT_KACIRILDI=""
+          for SAAT in $ANA_SAATLER; do
+            DK_GECTI=$(( ( $(date -u +%s) - $(date -u -d "today $SAAT:00:00" +%s) ) / 60 ))
+            if [ "$DK_GECTI" -ge 5 ] && [ "$DK_GECTI" -lt 70 ]; then
+              SAAT_KACIRILDI=$SAAT
+              break
+            fi
+          done
+
+          if [ -z "$SAAT_KACIRILDI" ]; then
+            echo "Şu an ana saatten sonra 5-70 dk aralığında değil — kontrol atlanıyor"
+            exit 0
+          fi
+
+          echo "Ana saat ${SAAT_KACIRILDI}:00 UTC için kaçırma kontrolü..."
+
+          # Son 70 dakikadaki başarılı schedule run var mı?
+          BUGUN=$(date -u +%Y-%m-%d)
+          ONCE_UTC=$(date -u -d '70 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+
+          BASARILI=$(gh api "/repos/${{ github.repository }}/actions/workflows/main.yml/runs?event=schedule&status=success&created=>${ONCE_UTC}" \
+            --jq '.total_count')
+
+          echo "Son 70 dk başarılı schedule run sayısı: $BASARILI"
+
+          if [ "$BASARILI" -eq 0 ]; then
+            echo "❌ Ana saat kaçırıldı → yedek tetik DEVREDE"
+            gh workflow run main.yml --ref main -f gizlilik=public || true
+            echo "✓ Ana pipeline tetiklendi"
+          else
+            echo "✓ Ana saat zaten başarılı, yedek gerekmez"
+          fi
