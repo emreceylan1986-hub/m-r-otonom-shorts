@@ -207,28 +207,51 @@ def gunun_trend_seedleri() -> list[str]:
 
 
 GEMINI_KONU_SISTEM = """You produce viral YouTube Shorts TOPICS for an
-ANIMAL / NATURE / AMAZING-FACTS channel. Output ONLY a JSON array of EXACTLY
+EXTREME NATURE / ANIMAL / WONDER channel called TrendCatcher. Output ONLY a JSON array of EXACTLY
 3 topic objects.
 
 Each topic = a well-established, factual, surprising fact about an animal,
 natural phenomenon, or science wonder that:
-- Has clear visual potential (stock footage of the subject exists on Pexels)
+- Has clear visual potential (Pexels/Wikimedia footage exists)
 - Is broadly known and TRUE (no urban legends, no debunked claims)
 - Stops the scroll: emotionally surprising or beautiful
 
+═══ PROVEN VIRAL PATTERNS (TrendCatcher top performers — 17 Haz 2026) ═══
+These videos got 2-3× the channel average. ADAPT these patterns:
+
+  ✅ 2000 izl: "Why Babies React in Surprising Ways"
+     PATTERN: İnsanlık + sürpriz
+  ✅ 1400 izl: "Thorny dragons drink water through their skin"
+     PATTERN: Sıra dışı yetenek + spesifik isim
+  ✅ 1100 izl: "Australia's Lake Hillier is a naturally bubblegum pink lake"
+     PATTERN: Anomali yer + renk benzetmesi
+  ✅ 1000 izl: "Nature's Real-Life Horror: The Zombie-Ant Fungus!"
+     PATTERN: Korku/dramatik + bilim
+  ✅ 1000 izl: "Frogs Freeze Solid & Revive!"
+     PATTERN: Yoksunluk/dramatik yetenek (freeze, revive)
+  ✅ 945 izl:  "Cavefish Thrive in Total Darkness Without Eyes!"
+     PATTERN: Yoksunluk + 'without' yapısı
+
+KEY VIRAL TRIGGERS:
+- 'Without eyes/mouth/water/sun' tarzı YOKSUNLUK
+- 'Pink lake', 'boiling lake', 'dead sea' tarzı ANOMALI YER
+- 'Blobfish', 'Mimic Octopus', 'Thorny dragon' tarzı GARİP YARATIK ADI
+- 'Zombie', 'horror', 'epic battle' tarzı DRAMATİK SÖZLER
+- Somut sayı: '200 MPH', 'a mile away', '15 species'
+
+═══ FORBIDDEN PATTERNS (low performers) ═══
+  ❌ Tech/yazılım haberleri (eski TC kalıntısı, dipte)
+  ❌ Soyut bilim (magnetic field, anomaly)
+  ❌ "Did you know" / "Ever wonder" başlangıçları (AI sinyali)
+
 Each object MUST have:
-- "baslik": punchy English headline of the fact (e.g. "Octopuses have three hearts and blue blood")
-- "url": Wikipedia URL of the main subject (e.g. https://en.wikipedia.org/wiki/Octopus). MUST be a real Wikipedia page.
+- "baslik": punchy English headline (e.g. "Octopuses have three hearts and blue blood")
+- "url": Wikipedia URL of the main subject. MUST be a real Wikipedia page.
 
 CRITICAL — ANTI-DUPLICATE RULES:
 1) Avoid any topic whose Wikipedia URL appears in the BLOCKED URLs list.
-2) Avoid any topic that is SEMANTICALLY SIMILAR to titles in the BLOCKED TITLES
-   list — even if you use a different Wikipedia URL or rephrase the headline.
-   Example: if "A group of owls is called a parliament" was used, then
-   "Why is a group of owls called a parliament" or anything about owl group
-   names is BANNED. Pick a completely different animal/phenomenon.
-3) Prefer subjects that do NOT share the main noun (animal/species name) with
-   any blocked title.
+2) Avoid topics SEMANTICALLY SIMILAR to BLOCKED TITLES.
+3) Prefer subjects that do NOT share the main noun with any blocked title.
 """
 
 
