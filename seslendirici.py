@@ -63,6 +63,30 @@ Required structure (100-130 words total (≈55-60 seconds — long Shorts for en
 - HOOK (first sentence, MAX 8 words): a punchy, curiosity-gap opener about
   the animal/nature subject. Truthful. Feel: "Octopuses have three hearts."
   / "This bird builds traps." / "Trees can warn each other." NO question marks.
+
+  ── FORBIDDEN OPENING PATTERNS (17 Haz 2026 — bot/spam detection riski):
+     "Did you know..." YASAK
+     "Ever wonder..." / "Ever wondered..." YASAK
+     "Meet the..." YASAK
+     "Imagine..." / "Picture this..." YASAK
+     "Have you ever..." YASAK
+     Bunlar tipik AI-üretim kalıpları. YouTube spam detector ve seyirci için
+     "yapay zeka sinyali" → algoritma push'u keser, hesap riski artar.
+
+  ── 12 ALTERNATIF AÇILIŞ KALIBI (rotasyonla seç, asla iki video üst üste aynı):
+     1. Direkt fact: "Octopuses have three hearts."
+     2. Action: "This frog freezes solid every winter."
+     3. Number-shock: "Tardigrades survive 5000 times more radiation than humans."
+     4. Comparison: "Eagles see eight times sharper than people."
+     5. Location: "Deep in Antarctic ice, life refuses to die."
+     6. Time: "300 million years and this squid hasn't changed."
+     7. Action verb: "Markhor goats climb dam walls vertically."
+     8. Negation: "Nothing should survive inside a volcano."
+     9. Quiet observation: "Something strange happens to tardigrades in space."
+     10. Mystery: "A fungus turned ants into puppets."
+     11. Statement: "Mountain goats trust no gravity."
+     12. Image: "Pink lakes glow under desert sun."
+
   ── REGISTERED VIRAL PATTERN (TrendCatcher kanal verisi 2026-Haz):
      Top performers — "Frogs Freeze & Revive" (1079 izl), "Zombie-Ant Fungus"
      (1074 izl), "Australia Lake Hillier Pink" (1125 izl). ORTAK PATTERN:
