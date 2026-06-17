@@ -452,8 +452,14 @@ def en_populer_3() -> list[dict]:
 
     # 1. ÖNCELİK: Gemini direkt konu üretsin (viral_radar bloğu beslenir)
     print("[haberci] Ana kaynak: Gemini + viral_radar (Reddit kaldırıldı 17 Haz)", flush=True)
-    secilen = gemini_konu_uret(gecmis, adet=5)
+    # Gemini'den fazlasıyla iste — Wikipedia URL'leri çoğu zaman geçmişte
+    secilen = gemini_konu_uret(gecmis, adet=15)
     print(f"[haberci] Gemini'den {len(secilen)} konu önerisi geldi", flush=True)
+    # Eğer 0 geldiyse 2. tur dene (daha agresif unique prompt)
+    if len(secilen) == 0:
+        print("[haberci] 1. tur boş → 2. tur Gemini (geniş konu)", flush=True)
+        secilen = gemini_konu_uret(set(), adet=15)  # geçmiş bypass
+        print(f"[haberci] 2. tur Gemini'den {len(secilen)} konu geldi", flush=True)
 
     # 2. Yedek: Reddit dene (eğer GitHub IP blok kalkmışsa bonus aday)
     if len(secilen) < 3:
