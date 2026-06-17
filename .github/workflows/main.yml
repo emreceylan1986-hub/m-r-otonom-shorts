@@ -2,9 +2,10 @@ name: M-R Otonom Pipeline
 
 on:
   schedule:
-    # TR 15:00, 19:00, 22:00 → UTC 12:00, 16:00, 19:00 (TR = UTC+3)
-    # Faz 4: günlük 2 → 3 video. Algoritma daha fazla push eder.
-    - cron: "0 12,16,19 * * *"
+    # TR 15:00, 19:00, 22:00, 01:00 → UTC 12:00, 16:00, 19:00, 22:00 (TR = UTC+3)
+    # Faz 4: günlük 2 → 3 video. Faz 10 (16 Haz): 3 → 4 video.
+    # 22 UTC = ABD East 18:00 prime time + Asya sabah 06:00.
+    - cron: "0 12,16,19,22 * * *"
   workflow_dispatch:
     inputs:
       gizlilik:
