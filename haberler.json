@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-06-17T18:27:57.045800+00:00",
+  "uretim_zamani": "2026-06-17T21:16:01.463903+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic ice worms live ON glaciers and die if they get too warm!",
-      "url": "https://en.wikipedia.org/wiki/Ice_worm",
+      "baslik": "Parasitic Barnacles Castrate Crabs and Hijack Their Minds!",
+      "url": "https://en.wikipedia.org/wiki/Sacculina",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Immortal Jellyfish REVERSE Age: Can They Live Forever?",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Pistol Shrimp: Nature's Underwater Bullet That Boils Water!",
+      "url": "https://en.wikipedia.org/wiki/Alpheidae",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
