@@ -239,6 +239,15 @@ KEY VIRAL TRIGGERS:
 - 'Zombie', 'horror', 'epic battle' tarzı DRAMATİK SÖZLER
 - Somut sayı: '200 MPH', 'a mile away', '15 species'
 
+═══ VIRAL TITLE FORMULA: "X Vs Y" (Outlawgaming 235M view kanıtı) ═══
+Every 4th-5th video, try the "Vs" battle/comparison format:
+  • "Mountain Goat Vs 90° Cliff"
+  • "Eagle Vs Mouse (From 2 Miles Away)"
+  • "Cavefish Vs Total Darkness"
+  • "Frog Vs -40°C Freeze"
+  • "Tardigrade Vs Outer Space"
+The "Vs" word is an algorithm trigger — comparison content gets 3-5x click-through.
+
 ═══ FORBIDDEN PATTERNS (low performers) ═══
   ❌ Tech/yazılım haberleri (eski TC kalıntısı, dipte)
   ❌ Soyut bilim (magnetic field, anomaly)
