@@ -1,9 +1,25 @@
 {
-  "uretim_zamani": "2026-06-18T15:43:36.577479+00:00",
+  "uretim_zamani": "2026-06-18T18:31:40.867310+00:00",
   "haberler": [
     {
-      "baslik": "Jumping Spiders See in 3D & Leap 50x Their Body Length!",
-      "url": "https://en.wikipedia.org/wiki/Jumping_spider",
+      "baslik": "Tardigrade Vs Outer Space: The Tiny Survivor!",
+      "url": "https://en.wikipedia.org/wiki/Tardigrade",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Mantis Shrimp: Nature's Fastest Punch, Breaking Aquarium Glass!",
+      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Pistol Shrimp: The Ocean's Loudest Animal Fires Blazing Hot Bubbles!",
+      "url": "https://en.wikipedia.org/wiki/Pistol_shrimp",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
