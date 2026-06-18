@@ -1,25 +1,9 @@
 {
-  "uretim_zamani": "2026-06-17T23:44:53.616546+00:00",
+  "uretim_zamani": "2026-06-18T15:43:36.577479+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Microbes Thrive Without Sunlight, Eating Rocks!",
-      "url": "https://en.wikipedia.org/wiki/Extremophile",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Tardigrades: The 'Water Bears' That Survive Absolute Zero and Space!",
-      "url": "https://en.wikipedia.org/wiki/Tardigrade",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Velvet Worms Spray Sticky Slime 30 CM To Capture Prey!",
-      "url": "https://en.wikipedia.org/wiki/Onychophora",
+      "baslik": "Jumping Spiders See in 3D & Leap 50x Their Body Length!",
+      "url": "https://en.wikipedia.org/wiki/Jumping_spider",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
