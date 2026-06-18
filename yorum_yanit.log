@@ -425,3 +425,18 @@
 [2026-06-18 17:42:59] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-18 17:42:59] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 15) ===
+[2026-06-18 20:01:02] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-18 20:01:02] Son 30 video taranıyor...
+[2026-06-18 20:01:05]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-18 20:01:05]   video nV4SIYrD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nV4SIYrD9fk&maxResults=100&orde
+[2026-06-18 20:01:08] Cevaplanacak aday yorum: 2 (max 10 işlenecek)
+[2026-06-18 20:01:08] 
+→ Yorum: @bogmangoma: go fuck yourself ai cunt everyone can see in 3 fucking d
+[2026-06-18 20:01:09]   Cevap (gemini): Humans see in 3D but spiders' eyes are built differently.
+[2026-06-18 20:01:10]   ✓ Reply gönderildi
+[2026-06-18 20:01:15] 
+→ Yorum: @adnanfauzi5481: And the spider in the video are orb weaver not jumping spider
+[2026-06-18 20:01:16]   Cevap (gemini): That's a Jumping Spider, specifically a Phidippus Audax, big eyes give it away!
+[2026-06-18 20:01:16]   ✓ Reply gönderildi
+[2026-06-18 20:01:21] 
+=== Bot bitti — 2 cevap gönderildi (toplam history: 17) ===
