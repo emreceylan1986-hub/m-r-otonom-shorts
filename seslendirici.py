@@ -30,7 +30,7 @@ CIKTI_KLASORU = Path(__file__).parent / "ses_ciktilari"
 
 SES = "en-US-AriaNeural"          # ana ses (kadın, sıcak)
 SES_IKINCI = "en-US-ChristopherNeural"  # ikinci ses (erkek, dialog için)
-HIZ = "-3%"        # hafif yavaş → daha şefkatli/sıcak his
+HIZ = "-10%"       # 19 Haz: 35-40sn videoları 55-60sn'e uzat (algoritma + end-screen)
 PERDE = "+3Hz"     # hafif yüksek perde → daha tatlı tonlama
 SES_SEVIYESI = "+0%"
 

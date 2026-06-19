@@ -157,6 +157,16 @@ jobs:
         continue-on-error: true
         run: python community_post.py
 
+      - name: 14) QC kontrol — son yayınlanan video düzgün mü
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "⏳ 60sn bekle (YouTube indeksleme için)..."
+          sleep 60
+          python qc_video.py --son 1 --issue || echo "QC sorunu var, issue açıldı"
+
       - name: State commit (JSON-aware merge + push retry)
         if: always()
         env:
