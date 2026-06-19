@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-19T20:41:44.439333+00:00",
+  "uretim_zamani": "2026-06-19T23:06:29.926454+00:00",
   "haberler": [
     {
-      "baslik": "Pistol Shrimp: A Bubble So Fast, It BOILS Water!",
-      "url": "https://en.wikipedia.org/wiki/Alpheidae",
+      "baslik": "Antarctic Midge: Earth's ONLY Insect That Survives Extreme Cold Without Freezing!",
+      "url": "https://en.wikipedia.org/wiki/Belgica_antarctica",
       "kaynak": "gemini-fallback",
       "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Hagfish: Slime Defense vs. Shark Attack!",
-      "url": "https://en.wikipedia.org/wiki/Hagfish",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
