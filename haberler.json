@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-19T18:05:11.153511+00:00",
+  "uretim_zamani": "2026-06-19T20:41:44.439333+00:00",
   "haberler": [
     {
-      "baslik": "Cone Snails: Nature's Miniature Harpoons Deliver Instant Paralysis!",
-      "url": "https://en.wikipedia.org/wiki/Cone_snail",
+      "baslik": "Pistol Shrimp: A Bubble So Fast, It BOILS Water!",
+      "url": "https://en.wikipedia.org/wiki/Alpheidae",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Hagfish: Slime Defense vs. Shark Attack!",
+      "url": "https://en.wikipedia.org/wiki/Hagfish",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
