@@ -163,6 +163,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # OCR (altyazı taşma kontrolü için)
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng >/dev/null 2>&1 || true
           echo "⏳ 60sn bekle (YouTube indeksleme için)..."
           sleep 60
           python qc_video.py --son 1 --issue || echo "QC sorunu var, issue açıldı"

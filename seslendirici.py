@@ -285,16 +285,18 @@ def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
         "ScriptType: v4.00+\n"
         "PlayResX: 1080\n"
         "PlayResY: 1920\n"
-        "WrapStyle: 2\n"
+        # WrapStyle 0: smart wrap (uzun satırı otomatik kırar — taşma yasak)
+        "WrapStyle: 0\n"
         "ScaledBorderAndShadow: yes\n\n"
         "[V4+ Styles]\n"
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, "
         "OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, "
         "ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        # Daha kalın outline (6), gölge (3), italik kapalı, semi-transparent BG
-        "Style: Pop,Arial Black,64,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,"
-        "1,0,0,0,100,100,0,0,1,6,3,2,60,60,260,1\n\n"
+        # Font 64 → 56 (uzun kelimeler için ekstra alan), kalın outline 6, gölge 3
+        # Margin L/R 60 → 80 (taşma sıfır toleransı)
+        "Style: Pop,Arial Black,56,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,"
+        "1,0,0,0,100,100,0,0,1,6,3,2,80,80,260,1\n\n"
         "[Events]\n"
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, "
         "MarginV, Effect, Text\n"
@@ -304,15 +306,43 @@ def _karaoke_ass(cues: list[tuple[int, int, str]], grup: int = 3) -> str:
     # Captacity-tarzı pop: ilk 120ms scale 70→105→100, fade-in 80ms.
     POP_GIRIS = r"{\fad(80,40)\t(0,80,\fscx110\fscy110)\t(80,160,\fscx100\fscy100)}"
     satirlar: list[str] = []
+    # MAX_KARAKTER_PER_GRUP: 1080px ekran, 80px margin, font Arial Black 56pt
+    # Tahmini her harf ~28-32 piksel → kullanılabilir 920px = ~30 karakter max
+    # Güvenli sınır: 24 karakter (uzun kelime + boşluklar dahil)
+    MAX_KARAKTER = 24
+
+    def _akilli_grupla(kelimeler):
+        """Karakter sayısına göre grup oluştur — uzun kelime taşmasın."""
+        gruplar = []
+        mevcut = []
+        mevcut_uzunluk = 0
+        for k in kelimeler:
+            # Tek başına uzun kelime: ayrı gruba
+            if len(k) >= MAX_KARAKTER:
+                if mevcut:
+                    gruplar.append(mevcut)
+                    mevcut = []
+                    mevcut_uzunluk = 0
+                gruplar.append([k])
+                continue
+            # Eklemek taşırır mı?
+            yeni_uzunluk = mevcut_uzunluk + len(k) + (1 if mevcut else 0)
+            if yeni_uzunluk > MAX_KARAKTER and mevcut:
+                gruplar.append(mevcut)
+                mevcut = [k]
+                mevcut_uzunluk = len(k)
+            else:
+                mevcut.append(k)
+                mevcut_uzunluk = yeni_uzunluk
+        if mevcut:
+            gruplar.append(mevcut)
+        return gruplar
+
     for offset, duration, metin in cues:
         kelimeler = metin.split()
         if not kelimeler:
             continue
-        gruplar = (
-            [kelimeler]
-            if len(kelimeler) <= 4
-            else [kelimeler[i:i + grup] for i in range(0, len(kelimeler), grup)]
-        )
+        gruplar = _akilli_grupla(kelimeler)
         toplam = len(kelimeler)
         baslangic = offset
         for g in gruplar:

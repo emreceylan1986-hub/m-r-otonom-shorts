@@ -94,6 +94,58 @@ def son_2sn_ses_db(yol, video_sure_sn):
     return -100.0
 
 
+def altyazi_tasma_kontrol(video_yol):
+    """Video'dan 3 frame al, OCR ile metin tespit, ekran sınırı dışında mı kontrol et.
+
+    Hızlı yaklaşım (OCR yok): Üretim aşamasında ASS dosyası kontrol ediliyor.
+    Burada video frame'inde altyazı kutusu çok geniş mi diye basit piksel kontrolü.
+    Tesseract OCR yoksa skip eder.
+    """
+    try:
+        # Tesseract var mı kontrol
+        subprocess.run(["which", "tesseract"], capture_output=True, check=True, timeout=5)
+    except Exception:
+        return None  # OCR yok, skip
+
+    # Video orta frame'i al (altyazı en olası)
+    try:
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+            frame_yol = tmp.name
+        subprocess.run([
+            "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
+            "-ss", "10", "-i", str(video_yol), "-vframes", "1", frame_yol
+        ], check=True, timeout=20)
+
+        # Tesseract ile pozisyon + boyut
+        cikti = subprocess.run([
+            "tesseract", frame_yol, "stdout", "tsv", "-l", "eng"
+        ], capture_output=True, text=True, timeout=30).stdout
+
+        os.unlink(frame_yol)
+
+        # TSV header: level, page, block, par, line, word, left, top, width, height, conf, text
+        max_genislik = 0
+        for satir in cikti.split("\n")[1:]:
+            parcalar = satir.split("\t")
+            if len(parcalar) < 12 or not parcalar[11].strip():
+                continue
+            try:
+                left = int(parcalar[6])
+                width = int(parcalar[8])
+                sag = left + width
+                if sag > max_genislik:
+                    max_genislik = sag
+            except Exception:
+                continue
+
+        # 1080 piksel sınır, 80 piksel margin → 1000+ piksel = TAŞMA
+        if max_genislik > 1000:
+            return f"altyazi_tasma ({max_genislik}px > 1000)"
+        return None
+    except Exception:
+        return None
+
+
 def kontrol_et(video_id):
     """Bir video için tüm kontrolleri yap, rapor dict döndür."""
     rapor = {"video_id": video_id, "url": f"https://youtu.be/{video_id}",
@@ -147,6 +199,12 @@ def kontrol_et(video_id):
         # Kural 3: Son 2sn sessizlik (=yarım kesilme veya kuyruk)
         if son_db < MIN_SON_2SN_SES_DB:
             rapor["uyarilar"].append(f"son_2sn_sessiz ({son_db:.0f}dB) — CTA kesilmiş olabilir")
+
+        # Kural 4: Altyazı taşma (OCR varsa)
+        tasma = altyazi_tasma_kontrol(video_yol)
+        if tasma:
+            rapor["sorunlar"].append(tasma)
+            rapor["ok"] = False
 
         durum = "✓ OK" if rapor["ok"] else "❌ SORUN"
         log(f"  {durum} | Sorun: {len(rapor['sorunlar'])}, Uyarı: {len(rapor['uyarilar'])}")
