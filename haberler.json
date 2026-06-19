@@ -1,17 +1,9 @@
 {
-  "uretim_zamani": "2026-06-19T15:36:18.708566+00:00",
+  "uretim_zamani": "2026-06-19T18:05:11.153511+00:00",
   "haberler": [
     {
-      "baslik": "Pangolins Vs Termites: A Sticky Tongue Battle!",
-      "url": "https://en.wikipedia.org/wiki/Pangolin",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Hagfish Vs Slime: Nature's Grossest Defense Without Bones!",
-      "url": "https://en.wikipedia.org/wiki/Hagfish",
+      "baslik": "Cone Snails: Nature's Miniature Harpoons Deliver Instant Paralysis!",
+      "url": "https://en.wikipedia.org/wiki/Cone_snail",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
