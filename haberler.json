@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-06-19T23:06:29.926454+00:00",
+  "uretim_zamani": "2026-06-20T14:21:42.005837+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Midge: Earth's ONLY Insect That Survives Extreme Cold Without Freezing!",
-      "url": "https://en.wikipedia.org/wiki/Belgica_antarctica",
+      "baslik": "Arctic Tern Vs. The World: Longest Migration on Earth!",
+      "url": "https://en.wikipedia.org/wiki/Arctic_tern",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Pistol Shrimp: Tiny Hunter, BIGGEST Punch in the Ocean!",
+      "url": "https://en.wikipedia.org/wiki/Pistol_shrimp",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Honey Badger Vs. Cobra: Nature's Fearless Fighter!",
+      "url": "https://en.wikipedia.org/wiki/Honey_badger",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
