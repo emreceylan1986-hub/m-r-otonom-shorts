@@ -558,3 +558,17 @@
 [2026-06-20 01:56:05]   ✓ Reply gönderildi
 [2026-06-20 01:56:10] 
 === Bot bitti — 1 cevap gönderildi (toplam history: 18) ===
+[2026-06-20 06:27:17] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-20 06:27:17] Son 30 video taranıyor...
+[2026-06-20 06:27:19]   video qLBm9-W- yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=qLBm9-W-izA&maxResults=100&orde
+[2026-06-20 06:27:19]   video 5xYxAwyd yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5xYxAwydsog&maxResults=100&orde
+[2026-06-20 06:27:19]   video ZS_dY_qY yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZS_dY_qYsz0&maxResults=100&orde
+[2026-06-20 06:27:20]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-20 06:27:21]   video qE8ZI-hU yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=qE8ZI-hUmc0&maxResults=100&orde
+[2026-06-20 06:27:21]   video nV4SIYrD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nV4SIYrD9fk&maxResults=100&orde
+[2026-06-20 06:27:21]   video KryR_pEW yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=KryR_pEWt1c&maxResults=100&orde
+[2026-06-20 06:27:21]   video wGT2JpUF yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=wGT2JpUFj4A&maxResults=100&orde
+[2026-06-20 06:27:22]   video Z8UsMFTb yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=Z8UsMFTbGF4&maxResults=100&orde
+[2026-06-20 06:27:22] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-20 06:27:22] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 18) ===
