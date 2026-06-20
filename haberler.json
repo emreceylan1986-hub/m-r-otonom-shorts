@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-06-20T14:21:42.005837+00:00",
+  "uretim_zamani": "2026-06-20T20:21:44.602499+00:00",
   "haberler": [
     {
-      "baslik": "Arctic Tern Vs. The World: Longest Migration on Earth!",
-      "url": "https://en.wikipedia.org/wiki/Arctic_tern",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Pistol Shrimp: Tiny Hunter, BIGGEST Punch in the Ocean!",
-      "url": "https://en.wikipedia.org/wiki/Pistol_shrimp",
+      "baslik": "Arctic Fox Vs. Winter: Changing Fur for Survival!",
+      "url": "https://en.wikipedia.org/wiki/Arctic_fox",
       "kaynak": "gemini-fallback",
       "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Honey Badger Vs. Cobra: Nature's Fearless Fighter!",
-      "url": "https://en.wikipedia.org/wiki/Honey_badger",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
