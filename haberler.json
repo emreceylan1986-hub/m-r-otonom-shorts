@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-20T20:21:44.602499+00:00",
+  "uretim_zamani": "2026-06-20T23:18:11.889823+00:00",
   "haberler": [
     {
-      "baslik": "Arctic Fox Vs. Winter: Changing Fur for Survival!",
-      "url": "https://en.wikipedia.org/wiki/Arctic_fox",
+      "baslik": "Lammergeier Vulture Vs Bone: Nature's Ultimate Bone Crusher!",
+      "url": "https://en.wikipedia.org/wiki/Lammergeier",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Snakes Can 'See' Heat: Nature's Thermal Vision Hunters!",
+      "url": "https://en.wikipedia.org/wiki/Pit_organ",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
