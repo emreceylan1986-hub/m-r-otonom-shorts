@@ -547,3 +547,14 @@
 [2026-06-19 23:46:37] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-19 23:46:37] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 17) ===
+[2026-06-20 01:55:57] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-20 01:55:57] Son 30 video taranıyor...
+[2026-06-20 01:56:01]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-20 01:56:01]   video nV4SIYrD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nV4SIYrD9fk&maxResults=100&orde
+[2026-06-20 01:56:02] Cevaplanacak aday yorum: 1 (max 10 işlenecek)
+[2026-06-20 01:56:02] 
+→ Yorum: @randomfabuloushuman34: This looks like AI
+[2026-06-20 01:56:04]   Cevap (gemini): Real life is wilder than any AI art, fr fr!
+[2026-06-20 01:56:05]   ✓ Reply gönderildi
+[2026-06-20 01:56:10] 
+=== Bot bitti — 1 cevap gönderildi (toplam history: 18) ===
