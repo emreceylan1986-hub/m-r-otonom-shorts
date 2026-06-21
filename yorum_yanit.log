@@ -714,3 +714,14 @@
 [2026-06-21 20:07:47] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-21 20:07:47] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 18) ===
+[2026-06-21 21:41:50] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-21 21:41:50] Son 30 video taranıyor...
+[2026-06-21 21:41:51]   video ZWskDaLF yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZWskDaLFEyY&maxResults=100&orde
+[2026-06-21 21:41:51]   video 5hHoE-k9 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5hHoE-k9cQo&maxResults=100&orde
+[2026-06-21 21:41:51]   video IlFStp8p yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=IlFStp8pZJw&maxResults=100&orde
+[2026-06-21 21:41:52]   video Xn5UrCxO yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=Xn5UrCxOXF8&maxResults=100&orde
+[2026-06-21 21:41:55]   video rCTWyYGI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=rCTWyYGINv0&maxResults=100&orde
+[2026-06-21 21:41:55]   video nV4SIYrD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nV4SIYrD9fk&maxResults=100&orde
+[2026-06-21 21:41:55] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-21 21:41:55] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 18) ===
