@@ -1,19 +1,19 @@
 {
-  "uretim_zamani": "2026-06-20T23:18:11.889823+00:00",
+  "uretim_zamani": "2026-06-21T14:26:54.202689+00:00",
   "haberler": [
     {
-      "baslik": "Lammergeier Vulture Vs Bone: Nature's Ultimate Bone Crusher!",
-      "url": "https://en.wikipedia.org/wiki/Lammergeier",
+      "baslik": "Anglerfish: The Deep Sea's Fishing Lure Predator!",
+      "url": "https://en.wikipedia.org/wiki/Anglerfish",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Snakes Can 'See' Heat: Nature's Thermal Vision Hunters!",
-      "url": "https://en.wikipedia.org/wiki/Pit_organ",
+      "baslik": "Immortal Jellyfish: Can This Creature Live Forever?",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
