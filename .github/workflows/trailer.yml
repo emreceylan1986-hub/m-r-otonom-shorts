@@ -6,6 +6,11 @@ on:
 permissions:
   contents: read
 
+env:
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+  JAMENDO_CLIENT_ID: ${{ secrets.JAMENDO_CLIENT_ID }}
+
 jobs:
   trailer:
     runs-on: ubuntu-latest
@@ -25,7 +30,7 @@ jobs:
       - name: ffmpeg yükle (apt)
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-noto-color-emoji fonts-liberation
+          sudo apt-get install -y ffmpeg fonts-liberation libass9
 
       - name: Write OAuth secret files
         env:
@@ -36,12 +41,7 @@ jobs:
           printf '%s' "$TOKEN_JSON" > token.json
           python -c "import json; json.load(open('client_secret.json')); json.load(open('token.json')); print('secrets OK')"
 
-      - name: Linux font path düzelt
-        run: |
-          sed -i 's#/System/Library/Fonts/Helvetica.ttc#/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf#g' trailer_uret.py
-          sed -i 's#/System/Library/Fonts/Apple Color Emoji.ttc#/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf#g' trailer_uret.py
-
-      - name: Trailer üret
+      - name: Trailer üret (Pexels + Wikimedia + ASS altyazı)
         run: python trailer_uret.py
 
       - name: Trailer yükle + kanal trailer set
