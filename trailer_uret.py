@@ -21,6 +21,10 @@ BRANDING = PANEL / "branding"
 GECICI = PANEL / "trailer_gecici"
 GECICI.mkdir(parents=True, exist_ok=True)
 BRANDING.mkdir(exist_ok=True)
+# montajci'nin GECICI_KLASOR'ü ön-oluştur
+Path(montajci.GECICI_KLASOR).mkdir(exist_ok=True)
+if hasattr(montajci, "CIKTI_KLASOR"):
+    Path(montajci.CIKTI_KLASOR).mkdir(exist_ok=True)
 
 SCRIPT = """Welcome to TrendCatcher.
 
