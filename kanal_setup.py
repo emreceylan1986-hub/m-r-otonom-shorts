@@ -254,8 +254,90 @@ def mevcut_playlistler_var_mi(yt):
     return benim.issubset(mevcut)
 
 
+def playlist_id_haritasi(yt):
+    """Mevcut playlistlerden başlık → id sözlüğü."""
+    harita = {}
+    sayfa_token = None
+    while True:
+        r = yt.playlists().list(
+            part="snippet", mine=True, maxResults=50, pageToken=sayfa_token
+        ).execute()
+        for pl in r.get("items", []):
+            harita[pl["snippet"]["title"]] = pl["id"]
+        sayfa_token = r.get("nextPageToken")
+        if not sayfa_token:
+            break
+    return harita
+
+
+def mevcut_sectionlar(yt):
+    r = yt.channelSections().list(part="snippet,contentDetails", mine=True).execute()
+    return r.get("items", [])
+
+
+def section_var_mi(mevcut, type_, playlist_id=None):
+    type_l = type_.lower()
+    for sec in mevcut:
+        sn = sec.get("snippet", {})
+        cd = sec.get("contentDetails", {})
+        if sn.get("type", "").lower() != type_l:
+            continue
+        if type_l == "singleplaylist":
+            if playlist_id and playlist_id in cd.get("playlists", []):
+                return True
+        else:
+            return True
+    return False
+
+
+def sectionlari_kur(yt):
+    """Kanal ana sayfasına 5 bölüm: Recent → Popular → 3 playlist."""
+    log("4) Kanal Sections kuruluyor (ana sayfa düzeni)...")
+    mevcut = mevcut_sectionlar(yt)
+    log(f"   Mevcut section: {len(mevcut)}")
+
+    plist = playlist_id_haritasi(yt)
+
+    plan = [
+        {"type": "recentUploads", "title": None, "playlist_id": None},
+        {"type": "popularUploads", "title": None, "playlist_id": None},
+    ]
+    for pl_cfg in PLAYLISTS:
+        pl_id = plist.get(pl_cfg["title"])
+        if not pl_id:
+            log(f"   ! Playlist bulunamadı, atla: {pl_cfg['title']}")
+            continue
+        plan.append({"type": "singlePlaylist", "title": pl_cfg["title"], "playlist_id": pl_id})
+
+    eklendi = 0
+    for pos, sec_cfg in enumerate(plan):
+        if section_var_mi(mevcut, sec_cfg["type"], sec_cfg["playlist_id"]):
+            log(f"   = Pozisyon {pos}: '{sec_cfg['type']}' zaten var — atla")
+            continue
+        body = {
+            "snippet": {
+                "type": sec_cfg["type"],
+                "style": "horizontalRow",
+                "position": pos,
+                "defaultLanguage": "en",
+            }
+        }
+        if sec_cfg["type"] == "singlePlaylist" and sec_cfg["playlist_id"]:
+            body["contentDetails"] = {"playlists": [sec_cfg["playlist_id"]]}
+        try:
+            r = yt.channelSections().insert(part="snippet,contentDetails", body=body).execute()
+            etiket = sec_cfg["title"] or sec_cfg["type"]
+            log(f"   ✓ Pozisyon {pos}: '{etiket}' eklendi ({r['id']})")
+            eklendi += 1
+        except HttpError as e:
+            log(f"   ❌ Pozisyon {pos} ({sec_cfg['type']}) eklenemedi: {str(e)[:140]}")
+
+    log(f"   ✓ {eklendi} yeni section eklendi")
+    return True
+
+
 def main():
-    log("=== CosmoBytes kanal kurulumu başladı ===")
+    log("=== TrendCatcher kanal kurulumu başladı ===")
     yt = yt_istemci()
     kanal = kanal_bilgi(yt)
     kanal_id = kanal["id"]
@@ -274,6 +356,8 @@ def main():
         sonuc.append(("Playlist (zaten var)", True))
     else:
         sonuc.append(("Playlist oluştur + doldur", playlistleri_olustur_ve_doldur(yt)))
+
+    sonuc.append(("Sections (ana sayfa düzeni)", sectionlari_kur(yt)))
 
     log("")
     log("=== ÖZET ===")
