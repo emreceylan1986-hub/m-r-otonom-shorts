@@ -48,24 +48,40 @@ FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 # force_style GEREKMİYOR — ASS kendi [V4+ Styles] bloğunu taşır.
 
 KEYWORD_SISTEM_PROMPTU = """You output ONLY a JSON array of exactly 3 short
-visual stock-footage search queries (1–3 English words each) for a viral
+visual stock-footage search queries (1–4 English words each) for a viral
 YouTube Short in the ANIMAL / NATURE / AMAZING-FACTS niche, IN NARRATIVE ORDER.
 
-CRITICAL — beautiful, emotional, close-up nature footage drives retention.
-The viral reference video succeeded with close-up subjects filling the frame.
-So prefer queries that return:
-- Close-up ANIMAL FACES (cat, dog, owl, octopus, whatever the script implies)
-- Nature beauty (forest, ocean, sunrise, slow-motion water, drone landscapes)
-- Wildlife in motion (running, flying, hunting, playing)
-- Macro shots (leaves, insects, drops, fur)
+═══ HARD RULE — SUBJECT FIDELITY ═══
+The script names a SPECIFIC subject (a species, place, or phenomenon). Identify
+the PRIMARY SUBJECT and put it in ALL THREE queries.
 
-Pick queries that VISUALLY MATCH the script's subject. If the script is about
-octopuses, use "octopus closeup", not generic "ocean". Be specific to the
-animal/phenomenon mentioned.
+- Query 1 MUST be the EXACT subject name (most specific form).
+  • If species: common name + "closeup" or "footage" (e.g. "oarfish closeup",
+    "tardigrade microscope", "mantis shrimp footage")
+  • If place: place name + descriptor (e.g. "Lake Hillier pink", "Salar Uyuni")
+  • If phenomenon: phenomenon name (e.g. "bioluminescence ocean",
+    "northern lights aurora")
+- Query 2 = supporting visual still tied to the subject (habitat, scale,
+  behavior, prey). NOT generic. Example for oarfish: "deep sea silver fish",
+  NOT "deep ocean".
+- Query 3 = atmosphere/context that PAIRS with the subject. Slightly broader
+  is okay but must still relate (e.g. "deep sea darkness" for oarfish, NOT
+  "blue sky"). For broader nature stories use the biome of the species.
 
-Avoid: people in offices, logos, abstract data, empty rooms.
+NEVER use a generic biome (just "ocean", "forest", "sky") as Query 1. The
+viewer KNOWS what you said the subject is — if your footage doesn't show it,
+they call it out and trust dies.
 
-Format example: ["octopus closeup ocean", "deep sea creature", "tentacles macro slow motion"]
+If the subject is so rare that no stock footage will exist (e.g. extinct
+species, deep-sea anomalies), use the common name + "illustration" or
+"animation" so we get artwork instead of unrelated stock.
+
+═══ STYLE ═══
+- Close-ups beat wide shots. Faces beat scenery. Motion beats stills.
+- Avoid: people in offices, logos, abstract data, empty rooms, brand shots.
+
+Format example for an oarfish video:
+["oarfish footage", "deep sea silver fish", "ocean depths darkness"]
 """
 
 
@@ -326,7 +342,7 @@ def _gorsel_qc_gecer_mi(klip_yolu: Path, keyword: str, baslik: str = "") -> bool
         )
         if not tmp_png.exists():
             return True  # frame çıkmazsa kontrolsüz geç
-        sonuc = gorsel_qc.gorsel_konuyla_eslesir_mi(tmp_png, keyword, baslik, esik_skor=5)
+        sonuc = gorsel_qc.gorsel_konuyla_eslesir_mi(tmp_png, keyword, baslik, esik_skor=7)
         tmp_png.unlink(missing_ok=True)
         return sonuc
     except Exception as h:
