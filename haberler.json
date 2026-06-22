@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-06-22T21:34:36.094380+00:00",
+  "uretim_zamani": "2026-06-22T23:26:41.367051+00:00",
   "haberler": [
     {
-      "baslik": "Bighorn Sheep Vs Gravity: Incredible Cliff Climbers!",
-      "url": "https://en.wikipedia.org/wiki/Bighorn_sheep",
+      "baslik": "Narwhals: The Unicorns of the Sea with a Tusk!",
+      "url": "https://en.wikipedia.org/wiki/Narwhal",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
