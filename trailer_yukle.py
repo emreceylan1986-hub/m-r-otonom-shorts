@@ -130,6 +130,13 @@ def main():
     vid = video_yukle(yt, TRAILER_MP4)
     ok = trailer_set(yt, vid)
 
+    # Creator yorumu (shorts pipeline ile aynı)
+    try:
+        import pinned_comment
+        pinned_comment.creator_comment_at(yt, vid, TRAILER_TITLE, TRAILER_DESC[:300])
+    except Exception as e:
+        log(f"  Creator yorum atlandı: {e}")
+
     log("")
     log("=== ÖZET ===")
     log(f"  Video: https://youtube.com/watch?v={vid}")
