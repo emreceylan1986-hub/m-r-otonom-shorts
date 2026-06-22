@@ -240,7 +240,11 @@ KEY VIRAL TRIGGERS:
 - Somut sayı: '200 MPH', 'a mile away', '15 species'
 
 ═══ VIRAL TITLE FORMULA: "X Vs Y" (Outlawgaming 235M view kanıtı) ═══
-Every 4th-5th video, try the "Vs" battle/comparison format:
+MANDATORY ROTATION: Every 4th topic title MUST use "Vs" battle/comparison format.
+Count blocked titles — if (len(blocked)+1) % 4 == 0, the next title is FORCED to be Vs style.
+Otherwise, you may still use Vs for variety but it's optional.
+
+Vs format examples:
   • "Mountain Goat Vs 90° Cliff"
   • "Eagle Vs Mouse (From 2 Miles Away)"
   • "Cavefish Vs Total Darkness"

@@ -57,7 +57,7 @@ git stash pop 2>&1 | tail -1 || true
 # şimdi her zaman → orphan video kaybını kökten önler)
 merge_jsonlar
 
-git add yuklemeler.json haberler.json haber_gecmisi.json 2>/dev/null || true
+git add yuklemeler.json haberler.json haber_gecmisi.json ypp_status.json 2>/dev/null || true
 if git diff --cached --quiet; then
   echo "State değişmedi, commit yok."
   exit 0
@@ -77,7 +77,7 @@ for deneme in 1 2 3 4 5; do
   git fetch origin main 2>&1 | tail -1
   git reset --hard origin/main 2>&1 | tail -1
   merge_jsonlar
-  git add yuklemeler.json haberler.json haber_gecmisi.json 2>/dev/null || true
+  git add yuklemeler.json haberler.json haber_gecmisi.json ypp_status.json 2>/dev/null || true
   if git diff --cached --quiet; then
     echo "Merge sonrası değişiklik yok, push'a gerek yok."
     exit 0
