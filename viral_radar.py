@@ -91,6 +91,14 @@ def search_viral(yt, query: str, esik: int = 100000) -> list[dict]:
 
 
 def main() -> int:
+    # KOTA KORUMA: cikti dosyası son 24 saatte üretildiyse skip
+    # (viral_radar her query 100 unit → 16 query = 1600 unit/run, günde 1 yeter)
+    if CIKTI.exists():
+        yas_saat = (datetime.now(timezone.utc).timestamp() - CIKTI.stat().st_mtime) / 3600
+        if yas_saat < 24:
+            print(f"[viral_radar] cikti {yas_saat:.1f}h yaşında — 24h cache geçerli, skip.")
+            return 0
+
     yt = yt_istemci()
     print(f"[viral_radar] Son 72h niş'te trending Shorts taranıyor...")
     tum_sonuclar = []

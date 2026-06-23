@@ -44,49 +44,65 @@ def yt_istemci():
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
-def kanal_id_bul(yt, handle: str) -> str | None:
+def kanal_id_ve_uploads(yt, handle: str) -> tuple[str, str] | None:
+    """Handle → (channel_id, uploads_playlist_id). 1 unit quota."""
     try:
-        r = yt.channels().list(part="id", forHandle=handle).execute()
-        return r["items"][0]["id"] if r.get("items") else None
+        r = yt.channels().list(part="id,contentDetails", forHandle=handle).execute()
+        if not r.get("items"):
+            return None
+        ch = r["items"][0]
+        return (ch["id"], ch["contentDetails"]["relatedPlaylists"]["uploads"])
     except Exception:
         return None
 
 
-def son_yayinlar(yt, channel_id: str, gun: int = 7) -> list[dict]:
-    """Bir kanalın son N günlük yayınlarını çek (search.list)."""
-    after = (datetime.now(timezone.utc) - timedelta(days=gun)).isoformat()
+def son_yayinlar(yt, uploads_pl: str, gun: int = 7) -> list[dict]:
+    """uploads playlist → 1 unit (search.list 100 unit yerine). Tarih client-side filtre."""
+    after_dt = datetime.now(timezone.utc) - timedelta(days=gun)
     out = []
     try:
-        r = yt.search().list(
-            part="snippet",
-            channelId=channel_id,
-            order="date",
-            publishedAfter=after,
-            type="video",
+        r = yt.playlistItems().list(
+            part="snippet,contentDetails",
+            playlistId=uploads_pl,
             maxResults=20,
         ).execute()
         for it in r.get("items", []):
+            pub = it["contentDetails"].get("videoPublishedAt") or it["snippet"]["publishedAt"]
+            try:
+                pub_dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+            except ValueError:
+                continue
+            if pub_dt < after_dt:
+                continue
             out.append({
-                "id": it["id"]["videoId"],
+                "id": it["contentDetails"]["videoId"],
                 "title": it["snippet"]["title"],
-                "published": it["snippet"]["publishedAt"][:10],
+                "published": pub[:10],
             })
     except Exception as h:
-        print(f"  search hata: {h}")
+        print(f"  playlistItems hata: {h}")
     return out
 
 
 def main():
+    # KOTA KORUMA: 24h cache
+    if CIKTI.exists():
+        yas_saat = (datetime.now(timezone.utc).timestamp() - CIKTI.stat().st_mtime) / 3600
+        if yas_saat < 24:
+            print(f"[competitor] cikti {yas_saat:.1f}h yaşında — 24h cache geçerli, skip.")
+            return
+
     yt = yt_istemci()
     print(f"[competitor] {len(RAKIP_KANALLAR)} kanal taranıyor...")
 
     tum_video_ids = []
     kanal_yayinlari = {}
     for k in RAKIP_KANALLAR:
-        cid = kanal_id_bul(yt, k["handle"])
-        if not cid:
+        info = kanal_id_ve_uploads(yt, k["handle"])
+        if not info:
             print(f"  {k['name']} ID bulunamadı"); continue
-        vids = son_yayinlar(yt, cid, gun=7)
+        cid, uploads = info
+        vids = son_yayinlar(yt, uploads, gun=7)
         kanal_yayinlari[k["name"]] = vids
         tum_video_ids.extend(v["id"] for v in vids)
         print(f"  {k['name']}: {len(vids)} yayın (7g)")
