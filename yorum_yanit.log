@@ -889,3 +889,12 @@ The lone ram IS a bi horn,,,,
 [2026-06-23 15:42:10] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-23 15:42:10] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 20) ===
+[2026-06-23 17:32:02] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-23 17:32:02] Son 30 video taranıyor...
+[2026-06-23 17:32:04]   video ZWskDaLF yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZWskDaLFEyY&maxResults=100&orde
+[2026-06-23 17:32:04]   video 5hHoE-k9 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5hHoE-k9cQo&maxResults=100&orde
+[2026-06-23 17:32:04]   video IlFStp8p yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=IlFStp8pZJw&maxResults=100&orde
+[2026-06-23 17:32:05]   video Xn5UrCxO yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=Xn5UrCxOXF8&maxResults=100&orde
+[2026-06-23 17:32:07] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-23 17:32:07] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 20) ===
