@@ -63,6 +63,10 @@ Schema:
   "tags": ["8-12 lowercase tags, no '#' prefix, no spaces in single tags. Mix:
             - 3 broad niche tags ('animals', 'nature', 'wildlife', 'didyouknow', 'amazingfacts')
             - 5 specific tags about the actual subject ('octopus', 'deep sea', 'predator')
+            - 1-2 HIGH-INTENT long-tail phrases a curious viewer would actually
+              search, as a single spaceless-or-quoted tag value
+              (e.g. 'why do octopuses have three hearts', 'animal facts you didnt know').
+              Few high-intent search phrases beat many generic tags.
             - 2 trending ('shorts', 'fyp', 'animallovers', 'satisfying')"]
 }
 
