@@ -1,25 +1,9 @@
 {
-  "uretim_zamani": "2026-06-23T18:06:22.495052+00:00",
+  "uretim_zamani": "2026-06-23T21:07:25.689433+00:00",
   "haberler": [
     {
-      "baslik": "Jellyfish: Immortal Beings Without a Brain!",
-      "url": "https://en.wikipedia.org/wiki/Jellyfish",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Pink Lake Vs. The Sea: Why Australia's Hutt Lagoon Glows!",
-      "url": "https://en.wikipedia.org/wiki/Hutt_Lagoon",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Glass Frogs: Transparency as a Defense, Organs on Display!",
-      "url": "https://en.wikipedia.org/wiki/Glass_frog",
+      "baslik": "Dinoflagellates: Why the Ocean GLOWS at Night!",
+      "url": "https://en.wikipedia.org/wiki/Dinoflagellate",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
