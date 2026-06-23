@@ -1,9 +1,17 @@
 {
-  "uretim_zamani": "2026-06-23T21:07:25.689433+00:00",
+  "uretim_zamani": "2026-06-23T23:14:23.433410+00:00",
   "haberler": [
     {
-      "baslik": "Dinoflagellates: Why the Ocean GLOWS at Night!",
-      "url": "https://en.wikipedia.org/wiki/Dinoflagellate",
+      "baslik": "Mexico's Marieta Islands: Hidden Beach Without a Sky!",
+      "url": "https://en.wikipedia.org/wiki/Marieta_Islands",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Meet the Glaucus Atlanticus: The Ocean's 'Blue Dragon' Sea Slug!",
+      "url": "https://en.wikipedia.org/wiki/Glaucus_atlanticus",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
