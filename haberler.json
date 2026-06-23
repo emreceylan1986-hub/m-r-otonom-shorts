@@ -1,19 +1,27 @@
 {
-  "uretim_zamani": "2026-06-23T15:17:38.484476+00:00",
+  "uretim_zamani": "2026-06-23T18:06:22.495052+00:00",
   "haberler": [
     {
-      "baslik": "Crocodile Vs Acid Lake: Lake Natron's Petrifying Secret!",
-      "url": "https://en.wikipedia.org/wiki/Lake_Natron",
+      "baslik": "Jellyfish: Immortal Beings Without a Brain!",
+      "url": "https://en.wikipedia.org/wiki/Jellyfish",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Hagfish: Slime vs Predator!",
-      "url": "https://en.wikipedia.org/wiki/Hagfish",
+      "baslik": "Pink Lake Vs. The Sea: Why Australia's Hutt Lagoon Glows!",
+      "url": "https://en.wikipedia.org/wiki/Hutt_Lagoon",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Glass Frogs: Transparency as a Defense, Organs on Display!",
+      "url": "https://en.wikipedia.org/wiki/Glass_frog",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
