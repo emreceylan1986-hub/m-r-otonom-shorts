@@ -72,7 +72,7 @@ jobs:
         run: |
           git config user.name  "M-R Reply Bot"
           git config user.email "actions@github.com"
-          git add comment_replies.json yorum_yanit.log 2>/dev/null || true
+          git add comment_replies.json yorum_yanit.log kota_state.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Yeni cevap yok, commit gerekmez."
             exit 0
