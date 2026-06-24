@@ -934,3 +934,27 @@ The lone ram IS a bi horn,,,,
 [2026-06-23 23:44:03] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-23 23:44:03] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 20) ===
+[2026-06-24 01:48:50] === Bot başladı — Kanal: TrendCatcher ===
+[2026-06-24 01:48:50] Son 30 video taranıyor...
+[2026-06-24 01:48:51]   video KWv0MESq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=KWv0MESqTfo&maxResults=100&orde
+[2026-06-24 01:48:51]   video lFp_oyJD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=lFp_oyJDjzw&maxResults=100&orde
+[2026-06-24 01:48:51]   video O4tUV-ax yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=O4tUV-axJ0A&maxResults=100&orde
+[2026-06-24 01:48:51]   video jFrd5kkz yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=jFrd5kkzJBE&maxResults=100&orde
+[2026-06-24 01:48:51]   video oKkCzZG5 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=oKkCzZG5tTA&maxResults=100&orde
+[2026-06-24 01:48:52]   video ZWskDaLF yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZWskDaLFEyY&maxResults=100&orde
+[2026-06-24 01:48:52]   video 5hHoE-k9 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5hHoE-k9cQo&maxResults=100&orde
+[2026-06-24 01:48:52]   video IlFStp8p yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=IlFStp8pZJw&maxResults=100&orde
+[2026-06-24 01:48:52]   video pUk-SQ4H yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=pUk-SQ4HCjU&maxResults=100&orde
+[2026-06-24 01:48:53]   video Xn5UrCxO yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=Xn5UrCxOXF8&maxResults=100&orde
+[2026-06-24 01:48:53]   video g2BZi3BI yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=g2BZi3BIRKc&maxResults=100&orde
+[2026-06-24 01:48:53]   video JP3LyoI7 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=JP3LyoI7vKE&maxResults=100&orde
+[2026-06-24 01:48:53]   video aAj08gdG yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=aAj08gdGBvI&maxResults=100&orde
+[2026-06-24 01:48:53]   video pwTsCs4n yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=pwTsCs4nf3A&maxResults=100&orde
+[2026-06-24 01:48:53]   video qLBm9-W- yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=qLBm9-W-izA&maxResults=100&orde
+[2026-06-24 01:48:53]   video 5xYxAwyd yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5xYxAwydsog&maxResults=100&orde
+[2026-06-24 01:48:53]   video RXF-lVqL yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=RXF-lVqLRbk&maxResults=100&orde
+[2026-06-24 01:48:53]   video ZS_dY_qY yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZS_dY_qYsz0&maxResults=100&orde
+[2026-06-24 01:48:53]   video tThv31H3 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=tThv31H3oMg&maxResults=100&orde
+[2026-06-24 01:48:53] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-24 01:48:53] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 20) ===
