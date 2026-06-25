@@ -4,8 +4,8 @@ name: Kalite Temizleyici (günlük)
 # Kanal "puanını" korur, algoritma bad performer'lardan etkilenmesin.
 on:
   schedule:
-    # Her gece 03:00 UTC = 06:00 TR (sessiz saat)
-    - cron: "0 3 * * *"
+    # 07:00 UTC = YouTube API kotası sıfırlanması (00:00 Pasifik) hemen sonrası → taze kota
+    - cron: "0 7 * * *"
   workflow_dispatch:
     inputs:
       kuru:

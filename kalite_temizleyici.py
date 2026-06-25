@@ -79,7 +79,13 @@ def main() -> int:
     silinmeyecekler = []
     for i in range(0, len(aday_ids), 50):
         chunk = aday_ids[i:i+50]
-        r = yt.videos().list(part="statistics,snippet,status", id=",".join(chunk)).execute()
+        try:
+            r = yt.videos().list(part="statistics,snippet,status", id=",".join(chunk)).execute()
+        except Exception as h:
+            if "quota" in str(h).lower():
+                log(f"YouTube API kotası dolu — temizlik bugün atlandı, yarın tekrar denenecek: {str(h)[:120]}")
+                return 0
+            raise
         for it in r.get("items", []):
             try:
                 pub = datetime.fromisoformat(it["snippet"]["publishedAt"].replace("Z","+00:00"))
