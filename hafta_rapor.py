@@ -29,8 +29,7 @@ TOKEN = PANEL_KOK / "token.json"
 RAPOR = PANEL_KOK / "hafta_rapor.md"
 GECMIS = PANEL_KOK / "hafta_rapor_gecmis.json"
 
-SCOPES = ["https://www.googleapis.com/auth/youtube",
-          "https://www.googleapis.com/auth/youtube.readonly"]
+SCOPES = ["https://www.googleapis.com/auth/youtube"]
 
 
 def yt_istemci():
