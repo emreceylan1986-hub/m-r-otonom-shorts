@@ -1,0 +1,62 @@
+name: Haftalık Rapor (Pazar 22:00 UTC)
+
+on:
+  schedule:
+    - cron: "0 22 * * 0"   # Pazar 22:00 UTC (Pazartesi 01:00 TR)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  rapor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - env:
+          CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
+          TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+        run: |
+          printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
+          printf '%s' "$TOKEN_JSON" > token.json
+
+      - name: Hafta raporu üret
+        run: python3 hafta_rapor.py
+
+      - name: Repo'ya commit
+        run: |
+          git config user.name "M-R Hafta Rapor"
+          git config user.email "actions@github.com"
+          git add hafta_rapor.md hafta_rapor_gecmis.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok"
+            exit 0
+          fi
+          git commit -m "hafta-rapor: $(date -u +'%Y-%m-%d')"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash 2>&1 && git push 2>&1; then
+              exit 0
+            fi
+            sleep 3
+          done
+
+      - name: GitHub Issue aç
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f hafta_rapor.md ]; then
+            gh issue create \
+              --title "📊 Hafta Raporu — $(date -u +'%Y-%m-%d')" \
+              --body-file hafta_rapor.md || true
+          fi

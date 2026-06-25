@@ -51,8 +51,9 @@ def yt_istemci():
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--kuru", action="store_true", help="Sadece rapor, private yapma")
-    p.add_argument("--min-yas-saat", type=int, default=48)
-    p.add_argument("--min-izlenme", type=int, default=30)
+    # Faz 1 (25 Haz): 7g + 50 izl + 2 like
+    p.add_argument("--min-yas-saat", type=int, default=168)   # 7 gün (algoritma geç keşfi olabilir)
+    p.add_argument("--min-izlenme", type=int, default=50)
     p.add_argument("--min-begeni", type=int, default=2)
     args = p.parse_args()
 
@@ -64,10 +65,9 @@ def main() -> int:
     yt = yt_istemci()
     log(f"=== Kalite temizleyici başladı (kuru={args.kuru}) ===")
 
-    # Pipeline videolarını çek — sadece "animals" kategorili + UYGUN denetim
+    # Pipeline videolarını çek — public + UYGUN denetim (kategori filtresi kaldırıldı)
     aday_ids = [v["video_id"] for v in yj
                 if v.get("gizlilik") == "public"
-                and v.get("kategori") == "animals"
                 and v.get("denetim_karari") == "UYGUN"]
     log(f"Pipeline public video aday sayısı: {len(aday_ids)}")
 

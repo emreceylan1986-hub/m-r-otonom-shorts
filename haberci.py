@@ -231,6 +231,22 @@ These videos got 2-3× the channel average. ADAPT these patterns:
      PATTERN: Yoksunluk/dramatik yetenek (freeze, revive)
   ✅ 945 izl:  "Cavefish Thrive in Total Darkness Without Eyes!"
      PATTERN: Yoksunluk + 'without' yapısı
+  🦈  845 izl: "Deep-Sea Shipwrecks: Whitetip Sharks' Hunting Ground" (25 Haz)
+     PATTERN: DEEP-SEA + APEX PREDATOR + HUNTING → MUST USE
+  ✅  773 izl: "Octopuses: Masters of Squeeze! How They Fit Anywhere"
+     PATTERN: Lethal/master + impossible ability
+
+═══ FAZ 1 ZORUNLU KURAL — "Deep-Sea Predator + Lethal Small" (Emre 25 Haz) ═══
+Her gün ÜRETİLEN konularda EN AZ 1 tane şu 2 kalıptan biri ZORUNLU:
+  A) DEEP-SEA / ABYSSAL + APEX PREDATOR (shark, eel, anglerfish, gulper,
+     fangtooth, dragonfish vb.) + threat/hunting/kill
+     • "Goblin Shark Strikes from the Deep — One Bite Ends It"
+     • "Bobbit Worm Ambushes Prey from 10ft Below the Sand"
+  B) LETHAL SMALL CREATURE (small but deadly — irukandji, blue-ringed octo,
+     cone snail, bullet ant, deathstalker, kissing bug) + body horror
+     • "Cone Snail: A Shell That Kills Faster Than a Cobra"
+     • "Irukandji Jellyfish: The Size of a Thumbnail, Pain of a Lifetime"
+A veya B'siz bir günü geçirme — TC için viral patlama formülü.
 
 KEY VIRAL TRIGGERS:
 - 'Without eyes/mouth/water/sun' tarzı YOKSUNLUK
