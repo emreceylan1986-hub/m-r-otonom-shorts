@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-25T18:20:09.195382+00:00",
+  "uretim_zamani": "2026-06-25T21:01:47.378055+00:00",
   "haberler": [
     {
-      "baslik": "Box Jellyfish Vs Human: One Touch, Instant Paralysis!",
-      "url": "https://en.wikipedia.org/wiki/Box_jellyfish",
+      "baslik": "Blue-Ringed Octopus Vs. Venom: A Tiny Touch Can Kill!",
+      "url": "https://en.wikipedia.org/wiki/Blue-ringed_octopus",
       "kaynak": "gemini-fallback",
       "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Irukandji Jellyfish: The Size of a Thumbnail, Pain of a Lifetime!",
-      "url": "https://en.wikipedia.org/wiki/Irukandji_jellyfish",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
