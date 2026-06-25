@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-24T23:14:25.840954+00:00",
+  "uretim_zamani": "2026-06-25T14:47:47.031099+00:00",
   "haberler": [
     {
-      "baslik": "Velvet Worms Vs Prey: Shooting Sticky Slime!",
-      "url": "https://en.wikipedia.org/wiki/Velvet_worm",
+      "baslik": "Leaf-Tailed Geckos: Masters of Camouflage, Vanishing in Plain Sight!",
+      "url": "https://en.wikipedia.org/wiki/Leaf-tailed_gecko",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Siphonophores: Mile-Long Colonial Organisms, Nature's Floating City!",
+      "url": "https://en.wikipedia.org/wiki/Siphonophorae",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
