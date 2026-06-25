@@ -1,20 +1,25 @@
-name: Kalite Temizleyici (günlük)
+name: Kalite Temizleyici (günlük KURU rapor)
 
-# 48 saat+ eski, <30 izl, <2 beğeni → otomatik private.
-# Kanal "puanını" korur, algoritma bad performer'lardan etkilenmesin.
+# GÜVENLİK (25 Haz, Emre "temelli çöz" talimatı):
+# Otomatik silme YOK. Cron sadece KURU rapor üretir, GitHub Issue açar.
+# Gerçek silme için manuel workflow_dispatch + onayla=true gerek.
 on:
   schedule:
-    # 07:00 UTC = YouTube API kotası sıfırlanması (00:00 Pasifik) hemen sonrası → taze kota
-    - cron: "0 7 * * *"
+    - cron: "0 4 * * *"   # Her gece 04:00 UTC = 07:00 TR
   workflow_dispatch:
     inputs:
-      kuru:
-        description: "Kuru mod (rapor, private yapma)"
+      onayla:
+        description: "GERÇEK silme yap (default false = sadece kuru rapor)"
         type: boolean
         default: false
+      tavan:
+        description: "Tek run'da max silme sayısı (default 5)"
+        type: string
+        default: "5"
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   cleanup:
@@ -24,7 +29,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -32,23 +36,38 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
 
-      - run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
       - name: Write token
         env:
           TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
         run: printf '%s' "$TOKEN_JSON" > token.json
 
-      - name: Run kalite_temizleyici
+      - name: Çalıştır (KURU veya GERÇEK)
         env:
-          KURU: ${{ github.event.inputs.kuru || 'false' }}
+          ONAYLA: ${{ github.event.inputs.onayla || 'false' }}
+          TAVAN: ${{ github.event.inputs.tavan || '5' }}
         run: |
-          if [ "$KURU" = "true" ]; then
-            python kalite_temizleyici.py --kuru
+          if [ "$ONAYLA" = "true" ]; then
+            python kalite_temizleyici.py --gercek --tavan "$TAVAN" 2>&1 | tee cleanup_run.log
           else
-            python kalite_temizleyici.py
+            python kalite_temizleyici.py --tavan "$TAVAN" 2>&1 | tee cleanup_run.log
+          fi
+
+      - name: GitHub Issue (sadece schedule + kuru)
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f cleanup_run.log ]; then
+            ADAY=$(grep -c "→" cleanup_run.log || echo 0)
+            if [ "$ADAY" -gt "0" ]; then
+              gh issue create \
+                --title "🧹 Kalite Temizleyici Raporu — $(date -u +'%Y-%m-%d') ($ADAY aday)" \
+                --body "$(cat cleanup_run.log)
+---
+Gerçek silmek için: Actions → Kalite Temizleyici → Run workflow → **onayla=true**, **tavan=N** (max 5 önerilir)" || true
+            fi
           fi
 
       - name: State commit
@@ -56,7 +75,7 @@ jobs:
         run: |
           git config user.name  "M-R Cleanup Bot"
           git config user.email "actions@github.com"
-          git add kalite_temizleyici.log 2>/dev/null || true
+          git add kalite_temizleyici.log temizleyici_log.json 2>/dev/null || true
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "cleanup: $(date -u +'%Y-%m-%dT%H:%MZ')" || true
           git pull --rebase --autostash 2>&1 | tail -2 || true
