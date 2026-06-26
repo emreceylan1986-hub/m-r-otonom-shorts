@@ -1,19 +1,27 @@
 {
-  "uretim_zamani": "2026-06-26T20:50:02.643368+00:00",
+  "uretim_zamani": "2026-06-26T23:15:44.531472+00:00",
   "haberler": [
     {
-      "baslik": "DEEP-SEA ABYSS: The Gulper Eel's Jaw-Dropping Gape!",
-      "url": "https://en.wikipedia.org/wiki/Gulper_eel",
+      "baslik": "DEEP-SEA: Frilled Shark — Living Fossil Hunts with Gills",
+      "url": "https://en.wikipedia.org/wiki/Frilled_shark",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Icefish Vs Frozen Blood: How They Survive Without Hemoglobin!",
-      "url": "https://en.wikipedia.org/wiki/Icefish",
+      "baslik": "Assassin Bug: Nature's Silent, Venomous Hunter!",
+      "url": "https://en.wikipedia.org/wiki/Assassin_bug",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 996,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Spider Vs. Trap-Jaw Ant: The Fastest Bite in Nature!",
+      "url": "https://en.wikipedia.org/wiki/Trap-jaw_ant",
+      "kaynak": "gemini-fallback",
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
