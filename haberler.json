@@ -1,17 +1,17 @@
 {
-  "uretim_zamani": "2026-06-26T14:40:02.808907+00:00",
+  "uretim_zamani": "2026-06-26T20:50:02.643368+00:00",
   "haberler": [
     {
-      "baslik": "DEEP-SEA DRAGONFISH: Glows in the Dark to HUNT!",
-      "url": "https://en.wikipedia.org/wiki/Dragonfish",
+      "baslik": "DEEP-SEA ABYSS: The Gulper Eel's Jaw-Dropping Gape!",
+      "url": "https://en.wikipedia.org/wiki/Gulper_eel",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Camel Spiders Vs Desert Heat: Nature's Fast Hunters!",
-      "url": "https://en.wikipedia.org/wiki/Solifugae",
+      "baslik": "Icefish Vs Frozen Blood: How They Survive Without Hemoglobin!",
+      "url": "https://en.wikipedia.org/wiki/Icefish",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
