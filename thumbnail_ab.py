@@ -152,6 +152,9 @@ def karsilastir():
     yt = build("youtube", "v3", credentials=creds, cache_discovery=False)
 
     ogrenme = durum.setdefault("ogrenme", {"A_kazanma": 0, "B_kazanma": 0, "ornekler": []})
+    ogrenme.setdefault("A_kazanma", 0)
+    ogrenme.setdefault("B_kazanma", 0)
+    ogrenme.setdefault("ornekler", [])
 
     for vid, t in bekleyenler:
         try:

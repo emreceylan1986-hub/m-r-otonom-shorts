@@ -13,6 +13,9 @@ git config user.email "actions@github.com"
 cp -f yuklemeler.json     /tmp/_runner_yk.json 2>/dev/null || echo "[]" > /tmp/_runner_yk.json
 cp -f haber_gecmisi.json  /tmp/_runner_hg.json 2>/dev/null || echo '{"islenen_url":[]}' > /tmp/_runner_hg.json
 cp -f haberler.json       /tmp/_runner_h.json  2>/dev/null || true
+cp -f ypp_status.json     /tmp/_runner_ypp.json  2>/dev/null || true
+cp -f kota_state.json     /tmp/_runner_kota.json 2>/dev/null || true
+cp -f manuel_konular.json /tmp/_runner_mk.json   2>/dev/null || true
 
 merge_jsonlar() {
   python3 << 'MERGE_PY'
@@ -44,14 +47,17 @@ if os.path.exists("/tmp/_runner_h.json"):
     import shutil
     shutil.copy("/tmp/_runner_h.json", "haberler.json")
     print("  haberler runner versiyonu kullanıldı")
+for _tmp, _hedef in [("/tmp/_runner_ypp.json","ypp_status.json"),
+                     ("/tmp/_runner_kota.json","kota_state.json"),
+                     ("/tmp/_runner_mk.json","manuel_konular.json")]:
+    if os.path.exists(_tmp):
+        import shutil as _sh; _sh.copy(_tmp, _hedef); print(f"  {_hedef} runner versiyonu")
 MERGE_PY
 }
 
-# Fetch + rebase: local commit'ler korunur, runner'a güncel main gelir
+# Güncel main + TEMİZ başla — stash/rebase çakışması yok (JSON'lar /tmp'den union merge)
 git fetch origin main 2>&1 | tail -1
-git stash -u 2>&1 | tail -1 || true
-git rebase origin/main 2>&1 | tail -1 || git rebase --abort 2>/dev/null || true
-git stash pop 2>&1 | tail -1 || true
+git reset --hard origin/main 2>&1 | tail -1
 
 # JSON merge — runner + remote union (v1'de bu sadece push reddinde yapılırdı,
 # şimdi her zaman → orphan video kaybını kökten önler)

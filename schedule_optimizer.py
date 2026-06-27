@@ -94,8 +94,7 @@ def main():
     rapor += "TR saatleri: " + ", ".join(f"{(h+3)%24:02d}:00" for h in onerilen) + "\n\n"
 
     rapor += "## Karşılaştırma\n\n"
-    mevcut_ort = sum(saat_perf.get(h, [0]) for h in mevcut_saatler) and \
-                 sum(sum(saat_perf.get(h, [0]))/max(len(saat_perf.get(h, [1])),1) for h in mevcut_saatler)/3
+    mevcut_ort = sum(sum(saat_perf.get(h, [0]))/max(len(saat_perf.get(h, [1])), 1) for h in mevcut_saatler) / max(len(mevcut_saatler), 1)
     onerilen_ort = sum(t[1] for t in top3) / 3
     if mevcut_ort > 0:
         delta = ((onerilen_ort - mevcut_ort) / mevcut_ort * 100)

@@ -31,8 +31,8 @@ def baslik_iki_uret(konu: str) -> list[str]:
         '{"a": "...başlık 1...", "b": "...başlık 2..."}'
     )
     try:
-        from bridge import _generate_retry, _json_temizle_ve_parse, MODEL_ADI
-        r = _generate_retry(MODEL_ADI, prompt)
+        from bridge import gemini_metin_uret, _json_temizle_ve_parse
+        r = gemini_metin_uret(prompt, sicaklik=0.9, max_token=300)
         data = _json_temizle_ve_parse(r.text if hasattr(r, "text") else r)
         return [data.get("a", ""), data.get("b", "")]
     except Exception as h:

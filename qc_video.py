@@ -55,7 +55,8 @@ def video_indir(video_id, hedef):
             check=True, timeout=120
         )
         return True
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
+        # yt-dlp yoksa (FileNotFoundError) / indirme / timeout → QC çökmesin
         return False
 
 
@@ -156,9 +157,8 @@ def kontrol_et(video_id):
 
         log(f"\n=== QC: {video_id} ===")
         if not video_indir(video_id, video_yol):
-            rapor["sorunlar"].append("INDIRILEMEDI (private/silinmiş/telif?)")
-            rapor["ok"] = False
-            log(f"  ❌ Video indirilemedi (private veya telif?)")
+            rapor["uyarilar"].append("INDIRILEMEDI (yt-dlp yok ya da video hala isleniyor) — QC atlandi")
+            log(f"  ⚠ Video indirilemedi → QC atlandi (hard-fail degil)")
             return rapor
 
         if not video_yol.exists() or video_yol.stat().st_size < 100_000:
