@@ -156,21 +156,29 @@ def _metadata_dogrula(veri: dict) -> dict:
     return veri
 
 
+_METADATA_YEDEK = ['animals', 'wildlife', 'nature', 'facts', 'amazing', 'shorts']
+
+
 def metadata_uret(senaryo: str) -> dict:
-    yanit = bridge.gemini_metin_uret(
-        prompt=f"Script:\n{senaryo}",
-        sistem_promptu=METADATA_SISTEM_PROMPTU,
-        sicaklik=0.6,
-        max_token=2048,
-    )
-    eslesme = re.search(r"\{.*\}", yanit, re.DOTALL)
-    if not eslesme:
-        raise RuntimeError(f"Metadata JSON çıkmadı:\n{yanit}")
-    veri = json.loads(eslesme.group(0))
-    veri.setdefault("title", "")
-    veri.setdefault("description", "")
-    veri.setdefault("tags", [])
-    return _metadata_dogrula(veri)
+    try:
+        yanit = bridge.gemini_metin_uret(
+            prompt=f"Script:\n{senaryo}",
+            sistem_promptu=METADATA_SISTEM_PROMPTU,
+            sicaklik=0.6,
+            max_token=2048,
+        )
+        eslesme = re.search(r"\{.*\}", yanit, re.DOTALL)
+        if not eslesme:
+            raise RuntimeError(f"Metadata JSON çıkmadı:\n{yanit}")
+        veri = json.loads(eslesme.group(0))
+        veri.setdefault("title", "")
+        veri.setdefault("description", "")
+        veri.setdefault("tags", [])
+        return _metadata_dogrula(veri)
+    except Exception as _h:
+        print(f"[yukleyici] metadata Gemini düştü ({str(_h)[:90]}) → senaryodan basit metadata", flush=True)
+        _ilk = (senaryo or "").strip().split("\n")[0].strip()[:90] or "Did You Know?"
+        return _metadata_dogrula({"title": _ilk, "description": (senaryo or "").strip()[:400], "tags": _METADATA_YEDEK})
 
 
 def metadatayi_denetlet(veri: dict, senaryo: str) -> dict:
