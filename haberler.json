@@ -1,9 +1,17 @@
 {
-  "uretim_zamani": "2026-06-27T13:59:21.753596+00:00",
+  "uretim_zamani": "2026-06-28T12:05:49.045894+00:00",
   "haberler": [
     {
-      "baslik": "Peregrine Falcon Vs. Supersonic Dive: The World's Fastest Hunter!",
-      "url": "https://en.wikipedia.org/wiki/Peregrine_falcon",
+      "baslik": "Mimic Octopus Vs Predator: The Ultimate Underwater Disguise!",
+      "url": "https://en.wikipedia.org/wiki/Mimic_octopus",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Deathstalker Scorpion: World's Most Expensive Venom!",
+      "url": "https://en.wikipedia.org/wiki/Deathstalker",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
