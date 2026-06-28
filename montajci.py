@@ -237,22 +237,30 @@ def en_son_seslendirmeyi_al() -> tuple[Path, Path, Path, float]:
     return mp3, txt, ass, sure
 
 
+_KEYWORD_YEDEK = ['wildlife close up', 'deep sea creature', 'forest animals nature', 'bird in flight', 'predator in savanna', 'coral reef fish', 'underwater marine life', 'macro insect nature', 'big cat wildlife', 'mountain landscape wildlife']
+
+
 def keywordleri_uret(senaryo: str) -> list[str]:
-    yanit = bridge.gemini_metin_uret(
-        prompt=f"Script:\n{senaryo}",
-        sistem_promptu=KEYWORD_SISTEM_PROMPTU,
-        sicaklik=0.4,
-        max_token=512,
-    )
-    eslesme = re.search(r"\[.*?\]", yanit, re.DOTALL)
-    if not eslesme:
-        raise RuntimeError(f"Keyword çıkışı JSON dizi değil:\n{yanit}")
-    keywords = json.loads(eslesme.group(0))
-    if not isinstance(keywords, list) or len(keywords) != KLIP_SAYISI:
-        raise RuntimeError(
-            f"Tam {KLIP_SAYISI} keyword bekleniyordu, gelen: {keywords!r}"
+    try:
+        yanit = bridge.gemini_metin_uret(
+            prompt=f"Script:\n{senaryo}",
+            sistem_promptu=KEYWORD_SISTEM_PROMPTU,
+            sicaklik=0.4,
+            max_token=512,
         )
-    return [str(k).strip() for k in keywords]
+        eslesme = re.search(r"\[.*?\]", yanit, re.DOTALL)
+        if not eslesme:
+            raise RuntimeError(f"Keyword çıkışı JSON dizi değil:\n{yanit}")
+        keywords = json.loads(eslesme.group(0))
+        if not isinstance(keywords, list) or len(keywords) != KLIP_SAYISI:
+            raise RuntimeError(
+                f"Tam {KLIP_SAYISI} keyword bekleniyordu, gelen: {keywords!r}"
+            )
+        return [str(k).strip() for k in keywords]
+    except Exception as _h:
+        import random as _r
+        print(f"[montajci] keyword Gemini düştü ({str(_h)[:90]}) → niş yedek keyword", flush=True)
+        return _r.sample(_KEYWORD_YEDEK, KLIP_SAYISI)
 
 
 WIKIMEDIA_API = "https://commons.wikimedia.org/w/api.php"
