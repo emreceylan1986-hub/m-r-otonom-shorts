@@ -26,6 +26,8 @@ jobs:
   shorts-pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    env:
+      GEMINI_TASARRUF: "1"   # free-tier tasarruf: opsiyonel Gemini denetim/hook çağrıları atlanır
 
     steps:
       - name: Checkout

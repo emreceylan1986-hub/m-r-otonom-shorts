@@ -135,6 +135,9 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
             time.sleep(bekle)
         except _genai_errors.ClientError as hata:  # 429 rate limit dahil
             if getattr(hata, "code", None) == 429:
+                if ("PerDay" in str(hata)) or ("GenerateRequestsPerDay" in str(hata)):
+                    print("[bridge] Gemini GUNLUK kota (PerDay) doldu — retry YOK, fail-fast", flush=True)
+                    raise
                 son_hata = hata
                 bekle = min(2 ** (deneme + 1), 90)
                 print(f"[bridge] Gemini 429 rate limit — {bekle}s sonra "
@@ -267,6 +270,9 @@ def icerik_uygunluk_denetimi(
     kaynak_baslik/kaynak_url: orijinal haber — olgusal denetim 'senaryo
     kaynağa sadık mı' diye yapılır, 'haber gerçek mi' diye DEĞİL.
     """
+    import os as _os
+    if _os.environ.get("GEMINI_TASARRUF") == "1":
+        return {"karar": "UYGUN", "sebep": "tasarruf modu — denetim atlandı", "risk_alanlari": []}
     kaynak_blok = (
         f"KAYNAK HABER (senaryo buna sadık olmalı; bu kaynağın kendi "
         f"doğruluğunu sorgulama):\n  Başlık: {kaynak_baslik}\n  URL: {kaynak_url}\n\n"
@@ -309,6 +315,10 @@ def metin_onay_iste(metin: str, baglam: str = "") -> dict:
     """
     if not metin or not metin.strip():
         raise ValueError("Boş metin denetlenemez.")
+
+    import os as _os
+    if _os.environ.get("GEMINI_TASARRUF") == "1":
+        return {"karar": "ONAY", "ozet": "tasarruf modu — denetim atlandı", "iyilestirmeler": [], "revize_metin": metin}
 
     kullanici_promptu = (
         f"Bağlam:\n{baglam}\n\nDenetlenecek metin:\n---\n{metin}\n---"

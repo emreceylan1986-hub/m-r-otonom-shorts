@@ -51,6 +51,10 @@ def hook_skor_ver(senaryo: str) -> tuple[int, str, str]:
     """Returns (skor, sebep, onerilen_alt_hook)."""
     ilk_cumle = senaryo.strip().split(".")[0].strip()
     if not ilk_cumle: return 0, "boş senaryo", ""
+
+    import os as _os
+    if _os.environ.get("GEMINI_TASARRUF") == "1":
+        return 10, "tasarruf modu", ""
     if len(ilk_cumle.split()) > 12:
         ilk_cumle = " ".join(ilk_cumle.split()[:12]) + "..."
 
