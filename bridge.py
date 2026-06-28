@@ -92,19 +92,46 @@ Karar kuralları:
 """
 
 
-def _api_anahtarini_oku() -> str:
-    if GEMINI_API_KEY:
-        return GEMINI_API_KEY
-    if os.environ.get("GEMINI_API_KEY"):
-        return os.environ["GEMINI_API_KEY"]
+def _tum_anahtarlar() -> list[str]:
+    """GEMINI_API_KEY (+ _2, _3) — rotasyon: biri dolunca diğerine geçilir (free-tier 20/gün/proje)."""
     env_yolu = Path(__file__).with_name(".env")
-    if env_yolu.exists():
-        for satir in env_yolu.read_text(encoding="utf-8").splitlines():
-            if satir.startswith("GEMINI_API_KEY="):
-                return satir.split("=", 1)[1].strip().strip('"').strip("'")
-    raise RuntimeError(
-        "GEMINI_API_KEY bulunamadı. bridge.py içine veya .env dosyasına ekle."
-    )
+    env_satir = env_yolu.read_text(encoding="utf-8").splitlines() if env_yolu.exists() else []
+    anahtarlar: list[str] = []
+    if GEMINI_API_KEY:
+        anahtarlar.append(GEMINI_API_KEY)
+    for ad in ("GEMINI_API_KEY", "GEMINI_API_KEY_2", "GEMINI_API_KEY_3"):
+        v = os.environ.get(ad, "")
+        if not v:
+            for satir in env_satir:
+                if satir.startswith(ad + "="):
+                    v = satir.split("=", 1)[1].strip().strip('"').strip("'"); break
+        if v and v not in anahtarlar:
+            anahtarlar.append(v)
+    if not anahtarlar:
+        raise RuntimeError("GEMINI_API_KEY bulunamadı. bridge.py veya .env'e ekle.")
+    return anahtarlar
+
+
+_ANAHTARLAR: list[str] = []
+_AKTIF_IDX = 0
+
+
+def _api_anahtarini_oku() -> str:
+    global _ANAHTARLAR
+    if not _ANAHTARLAR:
+        _ANAHTARLAR = _tum_anahtarlar()
+    return _ANAHTARLAR[_AKTIF_IDX % len(_ANAHTARLAR)]
+
+
+def _sonraki_anahtara_gec() -> bool:
+    global _AKTIF_IDX, _ANAHTARLAR
+    if not _ANAHTARLAR:
+        _ANAHTARLAR = _tum_anahtarlar()
+    if _AKTIF_IDX + 1 < len(_ANAHTARLAR):
+        _AKTIF_IDX += 1
+        print(f"[bridge] Günlük kota doldu → {_AKTIF_IDX + 1}. anahtara geçildi", flush=True)
+        return True
+    return False
 
 
 def _client() -> genai.Client:
@@ -136,7 +163,9 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
         except _genai_errors.ClientError as hata:  # 429 rate limit dahil
             if getattr(hata, "code", None) == 429:
                 if ("PerDay" in str(hata)) or ("GenerateRequestsPerDay" in str(hata)):
-                    print("[bridge] Gemini GUNLUK kota (PerDay) doldu — retry YOK, fail-fast", flush=True)
+                    if _sonraki_anahtara_gec():
+                        continue  # yeni anahtarla hemen tekrar dene (rotasyon)
+                    print("[bridge] TÜM anahtarların GÜNLÜK kotası doldu — fail-fast", flush=True)
                     raise
                 son_hata = hata
                 bekle = min(2 ** (deneme + 1), 90)
