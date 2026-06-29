@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-29T16:01:26.775160+00:00",
+  "uretim_zamani": "2026-06-29T20:53:19.509242+00:00",
   "haberler": [
     {
-      "baslik": "Stonefish Vs. Barefoot: World's Most Venomous Fish Camouflaged on the Seafloor!",
-      "url": "https://en.wikipedia.org/wiki/Stonefish",
+      "baslik": "Viperfish Vs Abyss: Nature's Bioluminescent Hunter",
+      "url": "https://en.wikipedia.org/wiki/Viperfish",
       "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Potoo Bird: The Master of Disguise as a Broken Branch!",
-      "url": "https://en.wikipedia.org/wiki/Potoo",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
