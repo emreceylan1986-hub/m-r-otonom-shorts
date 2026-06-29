@@ -1,28 +1,28 @@
 {
-  "uretim": "2026-06-28T12:09:10+00:00",
+  "uretim": "2026-06-29T12:58:29+00:00",
   "kanal": "TrendCatcher",
   "abone": 47,
-  "toplam_video": 91,
-  "toplam_izlenme_yaşam_boyu": 44261,
-  "son_90g_izlenme": 42727,
-  "son_14g_izlenme": 19239,
-  "gunluk_izlenme_tahmin": 1374.2,
+  "toplam_video": 94,
+  "toplam_izlenme_yaşam_boyu": 45363,
+  "son_90g_izlenme": 43521,
+  "son_14g_izlenme": 19105,
+  "gunluk_izlenme_tahmin": 1364.6,
   "early_tier": {
     "abone_hedef": 500,
     "abone_yuzde": 9.4,
     "abone_kalan": 453,
     "shorts_hedef_90g": 3000000,
-    "shorts_yuzde_90g": 1.42,
-    "shorts_kalan_90g": 2957273,
-    "tahmini_gun_shorts": 2152
+    "shorts_yuzde_90g": 1.45,
+    "shorts_kalan_90g": 2956479,
+    "tahmini_gun_shorts": 2166
   },
   "full_tier": {
     "abone_hedef": 1000,
     "abone_yuzde": 4.7,
     "abone_kalan": 953,
     "shorts_hedef_90g": 10000000,
-    "shorts_yuzde_90g": 0.43,
-    "shorts_kalan_90g": 9957273,
-    "tahmini_gun_shorts": 7246
+    "shorts_yuzde_90g": 0.44,
+    "shorts_kalan_90g": 9956479,
+    "tahmini_gun_shorts": 7296
   }
 }
