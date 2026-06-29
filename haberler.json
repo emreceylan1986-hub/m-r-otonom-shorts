@@ -1,9 +1,17 @@
 {
-  "uretim_zamani": "2026-06-29T12:54:46.360844+00:00",
+  "uretim_zamani": "2026-06-29T16:01:26.775160+00:00",
   "haberler": [
     {
-      "baslik": "Wolverine: The Ferocious Mountain Scavenger!",
-      "url": "https://en.wikipedia.org/wiki/Wolverine",
+      "baslik": "Stonefish Vs. Barefoot: World's Most Venomous Fish Camouflaged on the Seafloor!",
+      "url": "https://en.wikipedia.org/wiki/Stonefish",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Potoo Bird: The Master of Disguise as a Broken Branch!",
+      "url": "https://en.wikipedia.org/wiki/Potoo",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
