@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-29T20:53:19.509242+00:00",
+  "uretim_zamani": "2026-06-29T23:06:02.184101+00:00",
   "haberler": [
     {
-      "baslik": "Viperfish Vs Abyss: Nature's Bioluminescent Hunter",
-      "url": "https://en.wikipedia.org/wiki/Viperfish",
+      "baslik": "Saiga Antelope's Trunks: Built for Ice Age Survival!",
+      "url": "https://en.wikipedia.org/wiki/Saiga_antelope",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Deep-Sea Survivor: The Immortal Hydra Regenerates Forever!",
+      "url": "https://en.wikipedia.org/wiki/Hydra_(genus)",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
