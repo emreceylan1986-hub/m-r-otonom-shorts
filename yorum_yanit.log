@@ -1531,3 +1531,17 @@ The lone ram IS a bi horn,,,,
 [2026-06-29 20:50:40] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-29 20:50:40] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 22) ===
+[2026-06-29 22:11:34] === Bot başladı — Kanal: TrendCatcher (tahmini kota: 247u) ===
+[2026-06-29 22:11:34] Son 30 video taranıyor...
+[2026-06-29 22:11:34]   video nEBqYIhq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nEBqYIhq3dQ&maxResults=100&orde
+[2026-06-29 22:11:37]   video ZSGN3L5a yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=ZSGN3L5aKyY&maxResults=100&orde
+[2026-06-29 22:11:37]   video QK-dgGE6 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=QK-dgGE6Y7M&maxResults=100&orde
+[2026-06-29 22:11:37]   video gIpE1XG0 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=gIpE1XG0s-I&maxResults=100&orde
+[2026-06-29 22:11:38]   video YiCX2AWl yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=YiCX2AWlldE&maxResults=100&orde
+[2026-06-29 22:11:38]   video KWv0MESq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=KWv0MESqTfo&maxResults=100&orde
+[2026-06-29 22:11:38]   video lFp_oyJD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=lFp_oyJDjzw&maxResults=100&orde
+[2026-06-29 22:11:38]   video O-hPWCp7 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=O-hPWCp7k1w&maxResults=100&orde
+[2026-06-29 22:11:38]   video jFrd5kkz yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=jFrd5kkzJBE&maxResults=100&orde
+[2026-06-29 22:11:39] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-29 22:11:39] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 22) ===
