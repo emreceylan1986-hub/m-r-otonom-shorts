@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-06-30T09:54:50.376541+00:00",
+  "uretim_zamani": "2026-06-30T14:15:28.743766+00:00",
   "haberler": [
     {
-      "baslik": "Danakil Depression: Boiling Acid Lakes & Alien Landscapes!",
-      "url": "https://en.wikipedia.org/wiki/Danakil_Depression",
+      "baslik": "DEEP-SEA ABYSS: Fangtooth Fish Hunts with Teeth That Can't Retract!",
+      "url": "https://en.wikipedia.org/wiki/Fangtooth_fish",
       "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Fangtooth Fish: Abyss Predator's Giant Teeth!",
-      "url": "https://en.wikipedia.org/wiki/Fangtooth",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
