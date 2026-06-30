@@ -1590,3 +1590,20 @@ The lone ram IS a bi horn,,,,
 [2026-06-30 21:03:45] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
 [2026-06-30 21:03:45] 
 === Bot bitti — 0 cevap gönderildi (toplam history: 22) ===
+[2026-06-30 22:37:41] === Bot başladı — Kanal: TrendCatcher (tahmini kota: 248u) ===
+[2026-06-30 22:37:42] Son 30 video taranıyor...
+[2026-06-30 22:37:42]   video 5fGn3MFA yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=5fGn3MFAtb8&maxResults=100&orde
+[2026-06-30 22:37:42]   video IwBwOkyg yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=IwBwOkygWQ8&maxResults=100&orde
+[2026-06-30 22:37:42]   video nEBqYIhq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=nEBqYIhq3dQ&maxResults=100&orde
+[2026-06-30 22:37:42]   video mZQ3Czwq yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=mZQ3Czwq2Vc&maxResults=100&orde
+[2026-06-30 22:37:43]   video xzmxBK_9 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=xzmxBK_9KPY&maxResults=100&orde
+[2026-06-30 22:37:44]   video X1tIe1yn yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=X1tIe1yn0z8&maxResults=100&orde
+[2026-06-30 22:37:44]   video xCbYLcC4 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=xCbYLcC4UA4&maxResults=100&orde
+[2026-06-30 22:37:45]   video TS4zOMQx yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=TS4zOMQxdqk&maxResults=100&orde
+[2026-06-30 22:37:45]   video 78izQo0w yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=78izQo0wTGo&maxResults=100&orde
+[2026-06-30 22:37:45]   video gIpE1XG0 yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=gIpE1XG0s-I&maxResults=100&orde
+[2026-06-30 22:37:45]   video YiCX2AWl yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=YiCX2AWlldE&maxResults=100&orde
+[2026-06-30 22:37:46]   video lFp_oyJD yorum çekme fail: <HttpError 403 when requesting https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=lFp_oyJDjzw&maxResults=100&orde
+[2026-06-30 22:37:46] Cevaplanacak aday yorum: 0 (max 10 işlenecek)
+[2026-06-30 22:37:46] 
+=== Bot bitti — 0 cevap gönderildi (toplam history: 22) ===
