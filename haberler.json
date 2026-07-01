@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-06-30T23:10:51.174866+00:00",
+  "uretim_zamani": "2026-07-01T14:31:44.433027+00:00",
   "haberler": [
     {
-      "baslik": "Kakapo Vs Predators: A Flightless Parrot's Survival!",
-      "url": "https://en.wikipedia.org/wiki/Kakapo",
+      "baslik": "DEEP-SEA PARASITE vs. FISH BRAIN: Tongue-Eating Isopod Takes Over!",
+      "url": "https://en.wikipedia.org/wiki/Cymothoa_exigua",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Zombie-Fungus Cordyceps: The REAL Brain-Control Parasite!",
+      "url": "https://en.wikipedia.org/wiki/Cordyceps",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
