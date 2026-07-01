@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-07-01T14:31:44.433027+00:00",
+  "uretim_zamani": "2026-07-01T18:59:30.213173+00:00",
   "haberler": [
     {
-      "baslik": "DEEP-SEA PARASITE vs. FISH BRAIN: Tongue-Eating Isopod Takes Over!",
-      "url": "https://en.wikipedia.org/wiki/Cymothoa_exigua",
+      "baslik": "DEEP-SEA Terror: Snailfish Survive Crushing Pressure Where No Other Fish Can!",
+      "url": "https://en.wikipedia.org/wiki/Snailfish",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Zombie-Fungus Cordyceps: The REAL Brain-Control Parasite!",
-      "url": "https://en.wikipedia.org/wiki/Cordyceps",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
