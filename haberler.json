@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-07-01T18:59:30.213173+00:00",
+  "uretim_zamani": "2026-07-01T23:14:38.892834+00:00",
   "haberler": [
     {
-      "baslik": "DEEP-SEA Terror: Snailfish Survive Crushing Pressure Where No Other Fish Can!",
-      "url": "https://en.wikipedia.org/wiki/Snailfish",
+      "baslik": "Antarctic Blackfin Icefish: Bloodless Survival in Frozen Seas!",
+      "url": "https://en.wikipedia.org/wiki/Antarctic_icefish",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
