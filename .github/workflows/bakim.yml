@@ -1,0 +1,36 @@
+name: Bakım — private→public + başlık onarımı (manuel)
+
+# Mac'te googleapis DNS engelli olduğu için bakım işleri buradan koşar.
+# SADECE manuel tetik. Denetim-RED private videosu olan kanalda kullanma.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bakim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Bağımlılıklar
+        run: pip install -q google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Kimlik dosyaları
+        env:
+          TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+          CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
+        run: |
+          printf '%s' "$TOKEN_JSON" > token.json
+          printf '%s' "$CLIENT_SECRET_JSON" > client_secret.json
+          python -c "import json; json.load(open('token.json')); json.load(open('client_secret.json')); print('secrets OK')"
+
+      - name: Onarım çalıştır
+        run: python onarim_public.py

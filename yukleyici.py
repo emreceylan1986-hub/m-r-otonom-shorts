@@ -135,6 +135,12 @@ def _metadata_dogrula(veri: dict) -> dict:
         if isinstance(veri.get(alan), str):
             veri[alan] = veri[alan].replace("<", "(").replace(">", ")").strip()
     # Boş title — YouTube reddi; basit fallback (denetim sonrası fark edilirse)
+    # 2 Tem: Q/A-şablon sızıntısı — başlık "Q:"/"A:"/"Soru:" önekiyle başlamasın
+    # (metadata fallback senaryonun ilk satırını alınca "A: ..." başlık oluyordu)
+    if isinstance(veri.get("title"), str):
+        veri["title"] = re.sub(
+            r'^\s*(?:[QA]|Soru|Cevap|Question|Answer)\s*[:\-\u2013.]\s*',
+            "", veri["title"], flags=re.I).strip().strip('"').strip()
     if not veri.get("title"):
         veri["title"] = "Tech News Update"
     if len(veri["title"]) > 100:
