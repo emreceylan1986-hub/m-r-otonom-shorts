@@ -1,9 +1,25 @@
 {
-  "uretim_zamani": "2026-07-02T18:25:39.089704+00:00",
+  "uretim_zamani": "2026-07-02T23:04:41.661057+00:00",
   "haberler": [
     {
-      "baslik": "Giant Isopods: Deep Sea Scavengers with an Armored Shell!",
-      "url": "https://en.wikipedia.org/wiki/Giant_isopod",
+      "baslik": "DEEP-SEA ABYSS: The Black Swallower's STOMACH-BUSTING Feat!",
+      "url": "https://en.wikipedia.org/wiki/Chiasmodon_niger",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Bullet Ants Vs. Pure Agony: Nature's Most Painful Sting!",
+      "url": "https://en.wikipedia.org/wiki/Paraponera_clavata",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Resurrection Plant: Surviving Decades Without Water!",
+      "url": "https://en.wikipedia.org/wiki/Selaginella_lepidophylla",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
