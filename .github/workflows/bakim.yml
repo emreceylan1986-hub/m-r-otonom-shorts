@@ -5,6 +5,15 @@ name: Bakım — private→public + başlık onarımı (manuel)
 
 on:
   workflow_dispatch:
+    inputs:
+      mod:
+        description: "onarim = private→public (son 14 gün) + başlık | geri_private = listedekileri private'a geri al"
+        required: false
+        default: "onarim"
+        type: choice
+        options:
+          - onarim
+          - geri_private
 
 permissions:
   contents: read
@@ -33,4 +42,9 @@ jobs:
           python -c "import json; json.load(open('token.json')); json.load(open('client_secret.json')); print('secrets OK')"
 
       - name: Onarım çalıştır
-        run: python onarim_public.py
+        run: |
+          if [ "${{ github.event.inputs.mod }}" = "geri_private" ]; then
+            python onarim_public.py --geri-private
+          else
+            python onarim_public.py
+          fi

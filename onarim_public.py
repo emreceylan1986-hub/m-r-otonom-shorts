@@ -43,10 +43,48 @@ def video_idler():
     return out
 
 
+def geri_private(dosya="geri_private_ids.txt"):
+    """Listedeki videoları PRIVATE'a geri al (yanlış açılan eski niş-dışı içerik)."""
+    ids = [s.strip() for s in Path(dosya).read_text().split() if s.strip()]
+    yt = yt_client()
+    n = 0
+    for i in range(0, len(ids), 50):
+        grup = ids[i:i + 50]
+        resp = yt.videos().list(part="status,snippet", id=",".join(grup)).execute()
+        for item in resp.get("items", []):
+            if item["status"]["privacyStatus"] != "private":
+                yt.videos().update(part="status", body={
+                    "id": item["id"],
+                    "status": {"privacyStatus": "private",
+                               "selfDeclaredMadeForKids": item["status"].get("selfDeclaredMadeForKids", False)},
+                }).execute()
+                print(f"  🔒 private'a geri: {item['id']}  {item['snippet']['title'][:55]}")
+                n += 1
+    print(f"BİTTİ: {n} video private'a geri alındı.")
+
+
 def main():
+    import sys
+    if "--geri-private" in sys.argv:
+        return geri_private()
     yt = yt_client()
     vids = video_idler()
-    print(f"{len(vids)} video kayıtlı — tarama başlıyor")
+    # KORKULUK (2 Tem): sadece SON 14 GÜNÜN videolarını aç — eski niş-dışı
+    # private arşivi yanlışlıkla yayınlamayı önler (TC 62-video kazası dersi).
+    import datetime
+    d = json.loads(Path("yuklemeler.json").read_text())
+    items = d if isinstance(d, list) else d.get("yuklemeler", [])
+    esik = (datetime.datetime.now() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+    yeni_idler = set()
+    for k in items:
+        vid = k.get("video_id") or ""
+        if not vid and k.get("watch_url"):
+            m = re.search(r"(?:youtu\.be/|v=)([\w-]{11})", k["watch_url"])
+            vid = m.group(1) if m else ""
+        if vid and str(k.get("zaman", ""))[:10] >= esik:
+            yeni_idler.add(vid)
+    vids = [v for v in vids if v in yeni_idler]
+    print(f"{len(vids)} video kayıtlı (son 14 gün filtresi) — tarama başlıyor")
     acilan = onarilan = 0
     for i in range(0, len(vids), 50):
         grup = vids[i:i + 50]
