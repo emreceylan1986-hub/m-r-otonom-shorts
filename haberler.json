@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-07-02T13:55:55.427041+00:00",
+  "uretim_zamani": "2026-07-02T18:25:39.089704+00:00",
   "haberler": [
     {
-      "baslik": "Immortal Flatworms: Endless Regeneration, No Aging!",
-      "url": "https://en.wikipedia.org/wiki/Planarian",
+      "baslik": "Giant Isopods: Deep Sea Scavengers with an Armored Shell!",
+      "url": "https://en.wikipedia.org/wiki/Giant_isopod",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
