@@ -95,15 +95,24 @@ Required structure (100-130 words total (≈55-60 seconds — long Shorts for en
 - CONTEXT (1-2 sentences): the actual nature/science behind it, plain language.
   ── 8-12. saniye drop-off riski yüksek — bu cümlede SOMUT bir SAYI veya
      karşılaştırma kullan (kaç kat, kaç yıl, kaç metre). Sayı = retention boost.
-- PAYOFF (1 short sentence): a wonder-inducing closing thought before the CTA.
+- RE-HOOK (1 short sentence, right after CONTEXT — 2 Tem retention): re-open
+  the curiosity gap at the mid-point where drop-off peaks. Rotate feels:
+  "And that's not even the strange part." / "But the real mystery starts here." /
+  "Here's where it gets wild." — MUST still be 100% true to the facts.
+- PAYOFF (1 short sentence): a wonder-inducing closing thought.
   Örnek: "Nature still hides countless wonders like this one."
-- SUBSCRIBE CTA (final sentence, MANDATORY, exactly 1 short line, max 7 words):
-  ── A casual, warm, NOT pushy subscribe ask. Examples:
+- FINAL LINE (MANDATORY, exactly 1 short line, max 8 words) — pick ONE by topic:
+  A) COMMENT QUESTION (prefer when the topic invites opinion/choice — aim ~2 of
+     3 videos): one concrete, effortless-to-answer question. Examples:
+     "Octopus or squid — who wins?" / "Would you dare touch one?" /
+     "Which animal should we cover next?"
+     NEVER the words "comment below" — the bare question IS the invitation.
+  B) SUBSCRIBE ASK (otherwise): casual, warm, NOT pushy. Examples:
      "Hit subscribe for daily nature shorts."
-     "Subscribe — more nature gems daily."
      "Subscribe for one wild fact daily."
-     "Follow for daily nature secrets."
-  ── Variation per video. NEVER say "like", "share", "comment below".
+  ── Variation per video. NEVER say "like" or "share".
+  ── LOOP RULE: the ending must NOT feel like a goodbye — when the Short
+     restarts, the flow should feel seamless (loop = rewatch = algorithm boost).
   ── NO hashtags, NO emojis in the script body.
 
 Constraints:
