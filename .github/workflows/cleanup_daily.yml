@@ -64,9 +64,7 @@ jobs:
             if [ "$ADAY" -gt "0" ]; then
               gh issue create \
                 --title "🧹 Kalite Temizleyici Raporu — $(date -u +'%Y-%m-%d') ($ADAY aday)" \
-                --body "$(cat cleanup_run.log)
----
-Gerçek silmek için: Actions → Kalite Temizleyici → Run workflow → **onayla=true**, **tavan=N** (max 5 önerilir)" || true
+                --body "$(cat cleanup_run.log; printf -- '\n---\nGerçek silmek için: Actions → Kalite Temizleyici → Run workflow → **onayla=true**, **tavan=N** (max 5 önerilir)')" || true
             fi
           fi
 
@@ -80,3 +78,17 @@ Gerçek silmek için: Actions → Kalite Temizleyici → Run workflow → **onay
           git commit -m "cleanup: $(date -u +'%Y-%m-%dT%H:%MZ')" || true
           git pull --rebase --autostash 2>&1 | tail -2 || true
           git push 2>&1 | tail -2 || true
+
+      - name: Eski bildirim issue'larını kapat (⚠️ denetim hariç)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ESIK=$(date -u -d '2 days ago' +%Y-%m-%dT%H:%M:%SZ)
+          gh issue list --repo "${{ github.repository }}" --state open --limit 100 \
+            --json number,title,createdAt \
+            --jq ".[] | select((.title|startswith(\"⚠️\")|not) and .createdAt < \"$ESIK\") | .number" |
+          while read -r N; do
+            gh issue close "$N" --repo "${{ github.repository }}" -c "Otomatik: 2 günden eski bildirim — arşivlendi." || true
+          done
