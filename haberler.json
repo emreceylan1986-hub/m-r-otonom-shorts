@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-07-03T18:12:43.421708+00:00",
+  "uretim_zamani": "2026-07-03T23:01:53.745992+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Krill Vs. Ocean Acidification: The Tiny Giants' Battle!",
-      "url": "https://en.wikipedia.org/wiki/Antarctic_krill",
+      "baslik": "Antarctic Sea Spiders Vs. Frigid Depths: Giants of the Icy Abyss!",
+      "url": "https://en.wikipedia.org/wiki/Sea_spider",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Desert Scorpions Glow Under UV Light: Nature's Eerie Night Vision!",
+      "url": "https://en.wikipedia.org/wiki/Scorpion",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
