@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-07-03T13:59:44.938484+00:00",
+  "uretim_zamani": "2026-07-03T18:12:43.421708+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Fish Vs. Freezing Blood: Surviving Below Zero!",
-      "url": "https://en.wikipedia.org/wiki/Antarctic_cod",
+      "baslik": "Antarctic Krill Vs. Ocean Acidification: The Tiny Giants' Battle!",
+      "url": "https://en.wikipedia.org/wiki/Antarctic_krill",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Yeti Crab: Hairy Hermit of Hydrothermal Vents!",
-      "url": "https://en.wikipedia.org/wiki/Kiwa_hirsuta",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
