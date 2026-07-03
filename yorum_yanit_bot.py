@@ -101,7 +101,12 @@ def yt_istemci():
     SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl",
               "https://www.googleapis.com/auth/youtube"]
     creds = Credentials.from_authorized_user_file(str(TOKEN), SCOPES)
-    if creds.expired and creds.refresh_token: creds.refresh(Request())
+    if creds.expired and creds.refresh_token:
+        try:
+            creds.refresh(Request())
+        except Exception as _h:  # invalid_grant vb. — ana pipeline yorumları zaten işliyor
+            print(f"[yorum-bot] Token yenileme başarısız ({str(_h)[:90]}) — bu tur atlandı (zarif çıkış)")
+            import sys; sys.exit(0)
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 

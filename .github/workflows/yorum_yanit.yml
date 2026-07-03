@@ -6,7 +6,7 @@ on:
   schedule:
     # Her 10 dakikada bir (GitHub Actions cron en sık 5 dk; pratik sapma var,
     # 10 dk daha güvenli ve quota dostu)
-    - cron: "*/10 * * * *"
+    - cron: "15 */2 * * *"  # 2 Tem: 10dk→2saat (token/mail fırtınası fix; ana pipeline zaten her video sonrası yanıtlıyor)
   workflow_dispatch:
     inputs:
       kuru:
