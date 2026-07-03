@@ -199,7 +199,11 @@ def metadatayi_denetlet(veri: dict, senaryo: str) -> dict:
         "yanıltıcı vaatler kabul edilmez.\n\n"
         f"Senaryo:\n{senaryo}"
     )
-    rapor = bridge.metin_onay_iste(metin_paketi, baglam=baglam)
+    try:
+        rapor = bridge.metin_onay_iste(metin_paketi, baglam=baglam)
+    except Exception as _mh:  # 3 Tem: Gemini kota (429) → opsiyonel revizeyi atla, çökme
+        print(f"   ↳ Metin denetimi atlandı (Gemini kota/hata: {str(_mh)[:70]})", flush=True)
+        return veri
     print(f"   ↳ Metin denetimi → {rapor['karar']}: {rapor['ozet']}")
     if rapor["karar"] != "REVIZE":
         return veri
@@ -373,14 +377,18 @@ def main() -> int:
                 kaynak_url = _h["haberler"][0].get("url", "")
         except (OSError, json.JSONDecodeError, KeyError, IndexError):
             pass
-        denetim = bridge.icerik_uygunluk_denetimi(
-            senaryo=senaryo,
-            baslik=veri["title"],
-            aciklama=veri["description"],
-            etiketler=veri["tags"],
-            kaynak_baslik=kaynak_baslik,
-            kaynak_url=kaynak_url,
-        )
+        try:
+            denetim = bridge.icerik_uygunluk_denetimi(
+                senaryo=senaryo,
+                baslik=veri["title"],
+                aciklama=veri["description"],
+                etiketler=veri["tags"],
+                kaynak_baslik=kaynak_baslik,
+                kaynak_url=kaynak_url,
+            )
+        except Exception as _dh:  # 3 Tem: Gemini kota (429) vb. → çökme yerine güvenli PRIVATE
+            print(f"[yukleyici] Uygunluk denetimi yapılamadı ({str(_dh)[:90]}) → güvenli SUPHELI/PRIVATE", flush=True)
+            denetim = {"karar": "SUPHELI", "sebep": "Denetim yapılamadı (Gemini kota/hata) — güvenli tarafta PRIVATE", "risk_alanlari": ["denetim-yapilamadi"]}
         _alt(f"Karar: {denetim['karar']} — {denetim['sebep']}")
         if denetim.get("risk_alanlari"):
             _alt(f"Risk: {', '.join(denetim['risk_alanlari'])}")
