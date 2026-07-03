@@ -523,6 +523,12 @@ def main() -> int:
         print(f"[yukleyici] Eksik dosya: {hata}", file=sys.stderr)
         return 2
     except HttpError as hata:
+        # 4 Tem: YouTube API kota teşhisi — 4 kanal AYNI upload projesini paylaşıyor
+        # (client 454632028099). Günlük birim dolarsa sebep anında görünsün.
+        if "quotaExceeded" in str(hata) or "uploadLimitExceeded" in str(hata):
+            print("[yukleyici] 🔴 YOUTUBE API KOTASI DOLDU (paylaşımlı proje 454632028099) — "
+                  "video yarınki kota resetinde yedek_tetik ile kurtarılır. "
+                  "Kalıcı çözüm: kanala ayrı OAuth projesi.", flush=True)
         print(f"[yukleyici] YouTube API hatası: {hata}", file=sys.stderr)
         return 3
     except RuntimeError as hata:
