@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-07-03T23:01:53.745992+00:00",
+  "uretim_zamani": "2026-07-04T13:21:07.377760+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Sea Spiders Vs. Frigid Depths: Giants of the Icy Abyss!",
-      "url": "https://en.wikipedia.org/wiki/Sea_spider",
+      "baslik": "California Condor Vs. Extinction: The Epic Comeback!",
+      "url": "https://en.wikipedia.org/wiki/California_condor",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Desert Scorpions Glow Under UV Light: Nature's Eerie Night Vision!",
-      "url": "https://en.wikipedia.org/wiki/Scorpion",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
