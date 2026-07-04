@@ -59,7 +59,11 @@ TONE: Warm, awe-struck, fascinated. Imagine a calm narrator showing the
 viewer something beautiful and surprising about the natural world. Conversational,
 not academic. NO clickbait words (shocking, insane, crazy, you won't believe).
 
-Required structure (100-130 words total (≈55-60 seconds — long Shorts for end-screen + better CPM)):
+Required structure (45-60 words total (≈27-33 seconds)):
+  ── 🔴 KISA = KAZANAN (3 Tem 2026 kanal verisi KANITI): 27-37sn videolar
+     %55-60 retention + 800-1155 izlenme aldı; 47-60sn videolar %28-37 retention
+     + 0-5 izlenme (Shorts feed dağıtımı kesti). Her fazla saniye completion%'i
+     düşürür → algoritma push'u keser. KISA TUT, sonuca hızlı git.
 - HOOK (first sentence, MAX 8 words): a punchy, curiosity-gap opener about
   the animal/nature subject. Truthful. Feel: "Octopuses have three hearts."
   / "This bird builds traps." / "Trees can warn each other." NO question marks.
@@ -92,15 +96,10 @@ Required structure (100-130 words total (≈55-60 seconds — long Shorts for en
      (1074 izl), "Australia Lake Hillier Pink" (1125 izl). ORTAK PATTERN:
      [doğal anomali] + [sürpriz tek-cümle] + [somut sayı/öğe].
 - TURN (1 sentence): the surprising-but-true expansion of the hook
-- CONTEXT (1-2 sentences): the actual nature/science behind it, plain language.
-  ── 8-12. saniye drop-off riski yüksek — bu cümlede SOMUT bir SAYI veya
-     karşılaştırma kullan (kaç kat, kaç yıl, kaç metre). Sayı = retention boost.
-- RE-HOOK (1 short sentence, right after CONTEXT — 2 Tem retention): re-open
-  the curiosity gap at the mid-point where drop-off peaks. Rotate feels:
-  "And that's not even the strange part." / "But the real mystery starts here." /
-  "Here's where it gets wild." — MUST still be 100% true to the facts.
-- PAYOFF (1 short sentence): a wonder-inducing closing thought.
-  Örnek: "Nature still hides countless wonders like this one."
+- CONTEXT (1 sentence ONLY): the actual nature/science behind it, plain language.
+  ── SOMUT bir SAYI/karşılaştırma kullan (kaç kat, kaç yıl, kaç metre) = retention.
+  ── KISA VİDEO: ara-kanca (re-hook) YOK, ekstra PAYOFF cümlesi YOK. 27-33 saniyede
+     her kelime completion%'i belirler — HOOK → TURN → CONTEXT → FINAL, o kadar.
 - FINAL LINE (MANDATORY, exactly 1 short line, max 8 words) — pick ONE by topic:
   A) COMMENT QUESTION (prefer when the topic invites opinion/choice — aim ~2 of
      3 videos): one concrete, effortless-to-answer question. Examples:
@@ -116,7 +115,8 @@ Required structure (100-130 words total (≈55-60 seconds — long Shorts for en
   ── NO hashtags, NO emojis in the script body.
 
 Constraints:
-- Total length: STRICT 100–130 words (subscribe CTA dahil). Never above 130.
+- Total length: STRICT 45–60 words (final line dahil). Never above 62.
+  🔴 KISA TUT — 3 Tem kanıtı: uzun video = düşük completion% = Shorts feed keser.
 - Very short, punchy sentences. Spoken rhythm. Contractions OK.
 - Output ONLY the spoken script text — no headings, no labels, no quotation marks
 """
@@ -144,15 +144,17 @@ def senaryo_uret(haber: dict) -> str:
     # FAZ 8: Çarşamba (DIALOG_GUN=2) — dialog formatı dene (ikili ses)
     dialog_varyant = (wd == DIALOG_GUN)
 
+    # 3 Tem KANIT: uzun video = düşük completion% = Shorts feed keser (0 izlenme).
+    # 27-37sn/45-60 kelime = %55-60 retention = viral. Tüm varyantlar KISA aralıkta.
     if uzun_varyant:
-        hedef_kelime = "100-115"
-        min_kelime = 95
+        hedef_kelime = "55-68"   # "biraz uzun" deneme — yine de 30-37sn güvenli bölge
+        min_kelime = 48
     elif dialog_varyant:
-        hedef_kelime = "70-85"
-        min_kelime = 60
+        hedef_kelime = "55-70"   # dialog (2 ses) — biraz nefes ama danger zone'un altında
+        min_kelime = 48
     else:
-        hedef_kelime = "100-130"
-        min_kelime = 90  # 60-saniye Shorts → CPM 2x + watch time +%50
+        hedef_kelime = "45-60"   # VARSAYILAN: viral-uzunluk (27-33sn)
+        min_kelime = 40
 
     temel_prompt = (
         f"Headline: {haber['baslik']}\n"
