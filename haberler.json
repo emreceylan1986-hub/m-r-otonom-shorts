@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-07-04T22:57:27.949224+00:00",
+  "uretim_zamani": "2026-07-05T13:27:19.179521+00:00",
   "haberler": [
     {
-      "baslik": "Eagle Owl Vs Arctic Chill: Hunting in the Endless Night!",
-      "url": "https://en.wikipedia.org/wiki/Eurasian_eagle-owl",
+      "baslik": "Mantis Shrimp Vs. Bulletproof Glass: The World's Fastest Punch!",
+      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Turritopsis Dohrnii: The Immortal Jellyfish That Cheats Death!",
+      "url": "https://en.wikipedia.org/wiki/Turritopsis_dohrnii",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
