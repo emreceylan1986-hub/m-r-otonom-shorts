@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-07-05T18:01:58.564479+00:00",
+  "uretim_zamani": "2026-07-06T15:28:36.273322+00:00",
   "haberler": [
     {
-      "baslik": "Vampire Squid Vs Total Darkness: The Deep Sea's Most Mysterious Survivor!",
-      "url": "https://en.wikipedia.org/wiki/Vampire_squid",
+      "baslik": "Ibex Vs Vertical Cliff: Nature's Gravity Defiers!",
+      "url": "https://en.wikipedia.org/wiki/Ibex",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Hagfish: Slime Defense From the Deep's Scavengers!",
-      "url": "https://en.wikipedia.org/wiki/Hagfish",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
