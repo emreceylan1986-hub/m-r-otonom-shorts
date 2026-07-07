@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-06T23:05:38.816650+00:00",
+  "uretim_zamani": "2026-07-07T14:29:29.437224+00:00",
   "haberler": [
     {
-      "baslik": "Gelada Baboons Scale Vertical Cliffs for Sleep!",
-      "url": "https://en.wikipedia.org/wiki/Gelada",
+      "baslik": "Pistol Shrimp: The Deep Sea's Sonic Cannon!",
+      "url": "https://en.wikipedia.org/wiki/Alpheidae",
       "kaynak": "gemini-fallback",
       "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Hydrothermal Vents Vs. Sunlight: Life Thrives in Boiling Darkness!",
+      "url": "https://en.wikipedia.org/wiki/Hydrothermal_vent",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Glow-Worm Caves: Nature's Starry Sky Underground!",
+      "url": "https://en.wikipedia.org/wiki/Glowworm",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
