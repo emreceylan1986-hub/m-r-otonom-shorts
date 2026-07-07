@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-07T19:01:30.413074+00:00",
+  "uretim_zamani": "2026-07-07T22:59:59.445318+00:00",
   "haberler": [
     {
-      "baslik": "Lake Hillier Vs. Pink Pigments: Australia's Bubblegum Lake",
-      "url": "https://en.wikipedia.org/wiki/Lake_Hillier",
+      "baslik": "Spider Vs. Venom: The Black Widow's Lethal Silk Trap",
+      "url": "https://en.wikipedia.org/wiki/Latrodectus",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Dragon's Blood Tree: Yemen's Alien Flora Bleeds Red Sap",
-      "url": "https://en.wikipedia.org/wiki/Dracaena_cinnabari",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Immortal Flatworm Vs. Infinite Regeneration: The Secret to Endless Life",
-      "url": "https://en.wikipedia.org/wiki/Turbellaria",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
