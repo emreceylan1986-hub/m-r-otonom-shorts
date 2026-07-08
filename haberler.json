@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-07-08T14:00:27.257608+00:00",
+  "uretim_zamani": "2026-07-08T18:16:59.079709+00:00",
   "haberler": [
     {
-      "baslik": "Bobbit Worm vs. Unsuspecting Fish: Deep-Sea Horror Ambushes Prey!",
-      "url": "https://en.wikipedia.org/wiki/Eunice_aphroditois",
+      "baslik": "Antarctic Octopus: Blood Like Antifreeze in Icy Depths!",
+      "url": "https://en.wikipedia.org/wiki/Antarctic_octopus",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
