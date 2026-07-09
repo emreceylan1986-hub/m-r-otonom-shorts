@@ -454,6 +454,50 @@ async def _seslendir_dialog_async(metin: str, mp3_yolu: Path, ass_yolu: Path):
     print(f"   ↳ Dialog MP3 yazıldı, {len(tum_cues)} cue")
 
 
+async def _edge_cue_al(metin: str) -> tuple[list, int]:
+    """edge-tts'ten SADECE kelime cue'larını al (ses atılır). (cues, toplam_tick)."""
+    iletisim = edge_tts.Communicate(text=metin, voice=SES, rate="+0%",
+                                    pitch="+0Hz", volume=SES_SEVIYESI)
+    cues: list[tuple[int, int, str]] = []
+    async for chunk in iletisim.stream():
+        if chunk["type"] in ("WordBoundary", "SentenceBoundary"):
+            cues.append((chunk["offset"], chunk["duration"], chunk["text"]))
+    toplam = (cues[-1][0] + cues[-1][1]) if cues else 0
+    return cues, toplam
+
+
+async def _gemini_tts_dene(metin: str, mp3_yolu: Path, ass_yolu: Path) -> bool:
+    """9 Tem: Ana ses Gemini TTS (Leda, doğal). Altyazı zamanlaması edge cue'larından
+    Leda süresine ÖLÇEKLENİR. Başarılıysa True; değilse False → edge-tts fallback."""
+    try:
+        import gemini_tts
+    except ImportError:
+        return False
+    try:
+        import asyncio as _aio
+        sure_sn = await _aio.to_thread(gemini_tts.seslendir, metin, mp3_yolu)
+        if not sure_sn:
+            return False
+        gemini_tick = int(sure_sn * 10_000_000)
+        cues, edge_tick = await _edge_cue_al(metin)
+        if not cues or edge_tick <= 0:
+            kelimeler = metin.split()
+            if not kelimeler:
+                return False
+            adim = gemini_tick / len(kelimeler)
+            cues = [(int(i * adim), int(adim), k) for i, k in enumerate(kelimeler)]
+        else:
+            o = gemini_tick / edge_tick
+            cues = [(int(of * o), int(du * o), te) for (of, du, te) in cues]
+        ass_yolu.write_text(_karaoke_ass(cues), encoding="utf-8")
+        print(f"[seslendirici] Gemini TTS (Leda) ✓ — {sure_sn:.1f}sn, "
+              f"{len(cues)} cue (edge'den ölçekli)", flush=True)
+        return True
+    except Exception as h:
+        print(f"[seslendirici] Gemini TTS hata: {str(h)[:140]} → edge-tts", flush=True)
+        return False
+
+
 async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
     """
     MP3 ses + viral-Shorts stili ASS altyazı (sarı keyword highlight).
@@ -462,6 +506,10 @@ async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
     # FAZ 8: Dialog detect
     if _dialog_mu(metin):
         return await _seslendir_dialog_async(metin, mp3_yolu, ass_yolu)
+
+    # 9 Tem: Leda (Gemini TTS) ana ses — doğal/insan gibi. Başarısızsa edge-tts.
+    if await _gemini_tts_dene(metin, mp3_yolu, ass_yolu):
+        return
 
     import asyncio as _aio
     son_hata: Exception | None = None
