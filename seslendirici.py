@@ -35,7 +35,7 @@ PERDE = "+3Hz"     # hafif yüksek perde → daha tatlı tonlama
 SES_SEVIYESI = "+0%"
 
 # FAZ 8: Çarşamba (haftada 1) → dialog formatı dene
-DIALOG_GUN = 2  # Wednesday
+DIALOG_GUN = -1  # 9 Tem KAPALI: dialog robotik edge-tts zorluyordu
 
 SENARYO_SISTEM_PROMPTU = """You are a viral YouTube Shorts narrator in the
 ANIMAL / NATURE / AMAZING-FACTS niche. Your job is RETENTION — the first
