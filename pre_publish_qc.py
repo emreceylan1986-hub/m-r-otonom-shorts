@@ -66,7 +66,7 @@ def hook_qc(mp4_yolu: Path, baslik: str = "", konu_keyword: str = "") -> tuple[i
         )
         client = genai.Client(api_key=api_key)
         resp = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash",  # 10 Tem: 2.5 emekli
             contents=[gtypes.Content(role="user", parts=[
                 gtypes.Part.from_bytes(data=image_bytes, mime_type="image/png"),
                 gtypes.Part.from_text(text=soru),

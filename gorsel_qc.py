@@ -91,7 +91,7 @@ def gorsel_konuyla_eslesir_mi(image_path: Path | str, keyword: str,
     try:
         client = genai.Client(api_key=api_key)
         resp = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash",  # 10 Tem: 2.5 emekli
             contents=[gtypes.Content(role="user", parts=[
                 gtypes.Part.from_bytes(data=image_bytes, mime_type=mime),
                 gtypes.Part.from_text(text=soru),

@@ -65,7 +65,10 @@ def _json_temizle_ve_parse(ham: str) -> dict:
 GEMINI_API_KEY = ""  # <-- API anahtarını buraya yapıştır (veya boş bırak, env okunur)
 # ---------------------------------------------------------------------------
 
-MODEL = "gemini-2.5-flash"
+# 10 Tem 2026: gemini-2.5-flash Google tarafından emekliye ayrıldı (404 "no longer
+# available") → resmi halef gemini-3.5-flash (canlı models.list ile doğrulandı).
+MODEL = "gemini-3.5-flash"
+YEDEK_MODEL = "gemini-flash-latest"  # model emekliye ayrılırsa otomatik sigorta
 TIMEOUT_SN = 60
 
 DENETLEME_SISTEM_PROMPTU = """Sen kıdemli bir Python yazılım denetçisisin.
@@ -161,6 +164,12 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
                   f"yeniden ({deneme+1}/{_denemeler})", flush=True)
             time.sleep(bekle)
         except _genai_errors.ClientError as hata:  # 429 rate limit dahil
+            if getattr(hata, "code", None) == 404 and model != YEDEK_MODEL:
+                # Model emekliye ayrılmış (gemini-2.5-flash vakası, 10 Tem 2026):
+                # pipeline durmasın — 'hep güncel' alias'ıyla devam.
+                print(f"[bridge] model {model} 404 (emekli) → {YEDEK_MODEL} ile devam", flush=True)
+                model = YEDEK_MODEL
+                continue
             if getattr(hata, "code", None) == 429:
                 if ("PerDay" in str(hata)) or ("GenerateRequestsPerDay" in str(hata)):
                     if _sonraki_anahtara_gec():
