@@ -37,5 +37,15 @@
     "top_5_ortalama_izlenme": 1240,
     "kanal_ortalama_izlenme": 525,
     "carpan": 2.4
+  },
+  "analiz_dersleri": {
+    "kaynak_video": "q_GwdwSilIA (Ülviye Suna — Magiclight AI)",
+    "kanit": "79.9k izlenme, %4.8 beğeni/izlenme (yüksek), %0.33 yorum/izlenme",
+    "not": "Farklı niş (TR dini animasyon) ama transfer edilen TEKNİK, içerik değil",
+    "dersler": [
+      "Tek somut özne + net ödül vaadi → yüksek beğeni oranı (hook_predictor'a işlendi)",
+      "İstiflenmiş çoklu affiliate + abone CTA + playlist tek açıklamada (affiliate_link + yukleyici CTA)",
+      "Az ama yüksek-niyetli 'nasıl/neden' uzun-kuyruk etiketleri, genel etiket yığınından iyi (yukleyici tag prompt)"
+    ]
   }
 }

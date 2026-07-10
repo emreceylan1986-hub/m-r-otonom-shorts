@@ -13,13 +13,15 @@ from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
 import bridge
+import kanal_config
 
 
 PANEL_KOK = Path(__file__).parent
 SHORTS_KLASORU = PANEL_KOK / "shorts_ciktilari"
 SES_KLASORU = PANEL_KOK / "ses_ciktilari"
 CLIENT_SECRET = PANEL_KOK / "client_secret.json"
-TOKEN_DOSYASI = PANEL_KOK / "token.json"
+# Aktif kanalın token dosyası (KANAL env; ayarlı değilse token.json = TrendCatcher)
+TOKEN_DOSYASI = PANEL_KOK / kanal_config.kanal_config()["token_dosyasi"]
 YUKLEME_LOGU = PANEL_KOK / "yuklemeler.json"
 DENETIM_UYARI_FLAG = PANEL_KOK / ".denetim_uyari"   # workflow şüpheli içerik issue tetikleyici
 BASARI_BILDIRIM_FLAG = PANEL_KOK / ".basarili_yayin" # workflow başarılı yayın issue tetikleyici
@@ -63,6 +65,10 @@ Schema:
   "tags": ["8-12 lowercase tags, no '#' prefix, no spaces in single tags. Mix:
             - 3 broad niche tags ('animals', 'nature', 'wildlife', 'didyouknow', 'amazingfacts')
             - 5 specific tags about the actual subject ('octopus', 'deep sea', 'predator')
+            - 1-2 HIGH-INTENT long-tail phrases a curious viewer would actually
+              search, as a single spaceless-or-quoted tag value
+              (e.g. 'why do octopuses have three hearts', 'animal facts you didnt know').
+              Few high-intent search phrases beat many generic tags.
             - 2 trending ('shorts', 'fyp', 'animallovers', 'satisfying')"]
 }
 
@@ -147,16 +153,8 @@ def _metadata_dogrula(veri: dict) -> dict:
         veri["title"] = veri["title"][:97] + "..."
     if "#Shorts" not in veri["description"]:
         veri["description"] = veri["description"].rstrip() + "\n\n#Shorts"
-    # 20 Haz: CTA + Playlist sonek (abone toplama + iç trafik)
-    cta_sonek = (
-        "\n\n━━━━━━━━━━━━━━━━━━━━\n"
-        "🌍 Subscribe for daily wild facts:\n"
-        "https://youtube.com/@TrendCatcher?sub_confirmation=1\n\n"
-        "🎬 More extreme nature shorts:\n"
-        "• Extreme Animals: https://www.youtube.com/playlist?list=PLnsj6ktxididsCSk4MCXcjLanaNsm5Rh7\n"
-        "• Anomaly Places: https://www.youtube.com/playlist?list=PLnsj6ktxidifsZko8kPFAEjC0ZZwOvDMd\n"
-        "• Tiny Creatures: https://www.youtube.com/playlist?list=PLnsj6ktxidifHQ4dGHE9AcFVNwZOjF4ko"
-    )
+    # 20 Haz: CTA + Playlist sonek (abone toplama + iç trafik) — kanala özel
+    cta_sonek = kanal_config.kanal_config()["cta_sonek"]
     if "sub_confirmation" not in veri["description"]:
         veri["description"] = veri["description"].rstrip() + cta_sonek
     return veri

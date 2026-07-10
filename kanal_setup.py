@@ -23,53 +23,18 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
+import kanal_config
+
 PANEL_KOK = Path(__file__).parent
-TOKEN = PANEL_KOK / "token.json"
 BANNER = PANEL_KOK / "branding" / "banner.png"
 
-# Kanal "About" metni — TrendCatcher (extreme nature niş)
-KANAL_DESCRIPTION = """🐐 Daily extreme nature & wildlife shorts that defy belief.
-
-TrendCatcher brings you the most mind-blowing facts about extreme animals, anomaly places, and tiny creatures with superpowers — all in bite-sized 30-60 second Shorts.
-
-🌍 New wild facts every day at 3 PM, 7 PM, 10 PM and 1 AM (TR).
-🦅 Designed for the curious mind, the nature lover, the explorer.
-
-For more wild discoveries → subscribe.
-
-Business inquiries: emreceylan55555@gmail.com"""
-
-# Kanal arama anahtarları (search'te bulunabilirlik)
-KANAL_KEYWORDS = (
-    '"nature" "wildlife" "animals" "extreme animals" "science" '
-    '"mountain goat" "tardigrade" "blobfish" "mantis shrimp" '
-    '"anomaly" "pink lake" "deep sea" "antarctic" "shorts" "wild facts"'
-)
-
-# 3 ana playlist — TC nişi (extreme nature)
-PLAYLISTS = [
-    {
-        "title": "Extreme Animals & Superpowers",
-        "description": "Animals with unbelievable abilities — climbing cliffs, breaking sound, surviving the impossible. 30-60 sec wild facts.",
-        "keywords": ["eagle", "mantis shrimp", "mountain goat", "cone snail", "jumping spider",
-                     "pangolin", "shrimp", "ibex", "markhor", "weaver bird", "octopus",
-                     "vampire squid", "secretarybird", "raptor"],
-    },
-    {
-        "title": "Anomaly Places & Wonders",
-        "description": "Lakes that boil, valleys with no rain, ice that thrives in heat — Earth's strangest places explained.",
-        "keywords": ["lake", "antarctic", "ocean", "deep sea", "valley", "cave",
-                     "boiling", "pink", "salt", "freshwater", "glacier", "vent",
-                     "baikal", "hillier", "dead sea"],
-    },
-    {
-        "title": "Tiny Creatures, Big Survival",
-        "description": "Microbes, fungi, parasites, tardigrades — the smallest survivors with the wildest tricks.",
-        "keywords": ["tardigrade", "microbe", "fungus", "midge", "ant", "frog",
-                     "naked mole-rat", "cavefish", "ice worm", "massospora",
-                     "zombie", "tube worm", "extremophile"],
-    },
-]
+# Aktif kanal config (KANAL env; ayarlı değilse trendcatcher)
+_CFG = kanal_config.kanal_config()
+TOKEN = kanal_config.token_yolu()
+KANAL_ADI = _CFG["kanal_adi"]
+KANAL_DESCRIPTION = _CFG["description"]
+KANAL_KEYWORDS = _CFG["keywords"]
+PLAYLISTS = _CFG["playlists"]
 
 YOUTUBE_SCOPES = [
     "https://www.googleapis.com/auth/youtube",
@@ -337,7 +302,7 @@ def sectionlari_kur(yt):
 
 
 def main():
-    log("=== TrendCatcher kanal kurulumu başladı ===")
+    log(f"=== {KANAL_ADI} kanal kurulumu başladı ===")
     yt = yt_istemci()
     kanal = kanal_bilgi(yt)
     kanal_id = kanal["id"]
