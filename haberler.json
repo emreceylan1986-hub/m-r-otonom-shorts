@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-10T14:29:08.546951+00:00",
+  "uretim_zamani": "2026-07-10T22:59:05.040208+00:00",
   "haberler": [
     {
-      "baslik": "Antarctic Icefish Vs Total Freeze: The Beast with Clear Blood",
-      "url": "https://en.wikipedia.org/wiki/Channichthyidae",
+      "baslik": "Wood Frog Vs -20°C: The Beast That Freezes Solid",
+      "url": "https://en.wikipedia.org/wiki/Wood_frog",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Irukandji Jellyfish: The Size of a Thumbnail, Pain of a Lifetime",
+      "url": "https://en.wikipedia.org/wiki/Irukandji_jellyfish",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Cone Snail: A Shell That Kills Faster Than a Cobra",
+      "url": "https://en.wikipedia.org/wiki/Cone_snail",
+      "kaynak": "gemini-fallback",
+      "skor": 997,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
