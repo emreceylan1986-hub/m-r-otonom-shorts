@@ -15,3 +15,9 @@ branding/trailer.mp3
 branding/trailer.wav
 branding/trailer_bg.png
 branding/trailer_sahneler/
+
+# 10 Tem güvenlik: secret YEDEKLERİ de yakala (client_secret.json.eski_* vakası)
+client_secret*.json*
+token*.json*
+*.log
+.vision_sayac.json
