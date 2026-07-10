@@ -34,6 +34,10 @@ HIZ = "-10%"       # 19 Haz: 35-40sn videoları 55-60sn'e uzat (algoritma + end-
 PERDE = "+3Hz"     # hafif yüksek perde → daha tatlı tonlama
 SES_SEVIYESI = "+0%"
 
+# 10 Tem: LEDA KAPALI (Emre: EN kanallarda Leda tonu "masalsı" kaldı) —
+# ses 25 Haz hâline döndü: saf edge-tts Aria. Tekrar denemek için: True.
+LEDA_AKTIF = False
+
 # FAZ 8: Çarşamba (haftada 1) → dialog formatı dene
 DIALOG_GUN = -1  # 9 Tem KAPALI: dialog robotik edge-tts zorluyordu
 
@@ -507,8 +511,8 @@ async def _seslendir_async(metin: str, mp3_yolu: Path, ass_yolu: Path) -> None:
     if _dialog_mu(metin):
         return await _seslendir_dialog_async(metin, mp3_yolu, ass_yolu)
 
-    # 9 Tem: Leda (Gemini TTS) ana ses — doğal/insan gibi. Başarısızsa edge-tts.
-    if await _gemini_tts_dene(metin, mp3_yolu, ass_yolu):
+    # 9 Tem: Leda denendi → 10 Tem: LEDA_AKTIF=False (Emre: ton masalsı, Aria'ya dönüldü).
+    if LEDA_AKTIF and await _gemini_tts_dene(metin, mp3_yolu, ass_yolu):
         return
 
     import asyncio as _aio
