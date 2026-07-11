@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-10T22:59:05.040208+00:00",
+  "uretim_zamani": "2026-07-11T13:14:57.473119+00:00",
   "haberler": [
     {
-      "baslik": "Wood Frog Vs -20°C: The Beast That Freezes Solid",
-      "url": "https://en.wikipedia.org/wiki/Wood_frog",
+      "baslik": "Lammergeier Vulture Vs Skeletal Bones",
+      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Irukandji Jellyfish: The Size of a Thumbnail, Pain of a Lifetime",
-      "url": "https://en.wikipedia.org/wiki/Irukandji_jellyfish",
+      "baslik": "Golden Eagle Vs Mountain Goat",
+      "url": "https://en.wikipedia.org/wiki/Golden_eagle",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Cone Snail: A Shell That Kills Faster Than a Cobra",
-      "url": "https://en.wikipedia.org/wiki/Cone_snail",
+      "baslik": "Irukandji Jellyfish: Thumbnail-Sized Venomous Nightmare",
+      "url": "https://en.wikipedia.org/wiki/Irukandji_jellyfish",
       "kaynak": "gemini-fallback",
-      "skor": 997,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
