@@ -548,12 +548,15 @@ def main() -> int:
         "haberler": secilenler,
     }
     CIKTI_DOSYASI.write_text(json.dumps(cikti, ensure_ascii=False, indent=2), encoding="utf-8")
-    _gecmise_ekle([h["url"] for h in secilenler])
+    _gecmise_ekle([h.get("url", "") for h in secilenler if h.get("url")])
 
+    # Özet print SAVUNMACI: haberler.json zaten yazıldı. Gemini-fallback/sequel
+    # dict'lerinde skor/yas_saat/kaynak olmayabilir — kozmetik print YÜZÜNDEN
+    # pipeline ÇÖKMESİN (10 Tem: KeyError 'skor' kanalları durdurdu).
     for sira, h in enumerate(secilenler, 1):
-        print(f"{sira}. [{h['kaynak']} · skor {h['skor']} · {h['yas_saat']} sa]")
-        print(f"   {h['baslik']}")
-        print(f"   {h['url']}\n")
+        print(f"{sira}. [{h.get('kaynak','?')} · skor {h.get('skor','—')} · {h.get('yas_saat','—')} sa]")
+        print(f"   {h.get('baslik','?')}")
+        print(f"   {h.get('url','')}\n")
 
     print(f"[haberci] JSON dosyaya yazıldı: {CIKTI_DOSYASI.name}")
     return 0
