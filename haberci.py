@@ -212,9 +212,23 @@ EXTREME NATURE / ANIMAL / WONDER channel called TrendCatcher. Output ONLY a JSON
 
 Each topic = a well-established, factual, surprising fact about an animal,
 natural phenomenon, or science wonder that:
-- Has clear visual potential (Pexels/Wikimedia footage exists)
 - Is broadly known and TRUE (no urban legends, no debunked claims)
 - Stops the scroll: emotionally surprising or beautiful
+
+═══ 🔴 FOOTAGE GERÇEKLİĞİ — EN ÖNEMLİ KURAL (11 Tem, retention çöküş kökü) ═══
+Bir konu ne kadar ilginç olursa olsun, GERÇEK stok VİDEO görüntüsü YOKSA SEÇME.
+Sebep: TC izlenmesi 30 Haz'da çöktü (retention %24-49) çünkü obskür deniz canlıları
+(pelican eel, gulper eel, Pelagothuria, Bobbit worm, barrel sponge, deep-sea cucumber)
+Pexels/Wikimedia'da YOK → ilk kare YANLIŞ hayvan gösterip izleyiciyi kaçırdı.
+KURAL: Sadece Pexels'te BOL, TANINIR görüntüsü olan canlı/olay seç.
+  ✅ GÖRÜNTÜSÜ BOL (SEÇ): great white/hammerhead/tiger shark, octopus, giant squid,
+     anglerfish, moray eel, orca, manta ray, jellyfish, blobfish, mantis shrimp,
+     mimic octopus, wolf, fox, eagle, owl, lion, bear, chameleon, thorny dragon,
+     axolotl, seahorse, pufferfish, crocodile, tarantula
+  ❌ GÖRÜNTÜSÜ YOK (SEÇME — retention katili): pelican eel, gulper eel, Pelagothuria,
+     Bobbit worm, barrel sponge, deep-sea cucumber, ve adı-duyulmamış abyssal türler.
+Emin değilsen kendine sor: "Bu canlının net videosunu bir doğa belgeselinde gördüm mü?"
+Hayırsa BAŞKA, tanınır bir canlı seç.
 
 ═══ PROVEN VIRAL PATTERNS (TrendCatcher top performers — 17 Haz 2026) ═══
 These videos got 2-3× the channel average. ADAPT these patterns:
@@ -238,14 +252,17 @@ These videos got 2-3× the channel average. ADAPT these patterns:
 
 ═══ FAZ 1 ZORUNLU KURAL — "Deep-Sea Predator + Lethal Small" (Emre 25 Haz) ═══
 Her gün ÜRETİLEN konularda EN AZ 1 tane şu 2 kalıptan biri ZORUNLU:
-  A) DEEP-SEA / ABYSSAL + APEX PREDATOR (shark, eel, anglerfish, gulper,
-     fangtooth, dragonfish vb.) + threat/hunting/kill
-     • "Goblin Shark Strikes from the Deep — One Bite Ends It"
-     • "Bobbit Worm Ambushes Prey from 10ft Below the Sand"
-  B) LETHAL SMALL CREATURE (small but deadly — irukandji, blue-ringed octo,
-     cone snail, bullet ant, deathstalker, kissing bug) + body horror
-     • "Cone Snail: A Shell That Kills Faster Than a Cobra"
-     • "Irukandji Jellyfish: The Size of a Thumbnail, Pain of a Lifetime"
+  A) DEEP-SEA / ABYSSAL + APEX PREDATOR — ama SADECE görüntüsü BOL olan tür
+     (great white, hammerhead, tiger shark, anglerfish, moray eel, orca, giant
+     squid, manta) + threat/hunting/kill. Görüntüsü olmayan gulper/pelican eel/
+     fangtooth/dragonfish KULLANMA (footage gerçekliği kuralı yukarıda).
+     • "Great White Strikes from the Deep — One Bite Ends It"
+     • "Anglerfish Lures Prey with a Glowing Trap in Total Darkness"
+  B) LETHAL SMALL CREATURE (small but deadly) — yine görüntüsü olan tür seç:
+     blue-ringed octopus, pufferfish, tarantula, scorpion, cobra, box jellyfish.
+     (cone snail/irukandji/bullet ant görüntüsü zayıf → tercih etme.)
+     • "Blue-Ringed Octopus: Tiny, Beautiful, and Deadly in Minutes"
+     • "Pufferfish: The Cutest Animal That Can Kill You"
 A veya B'siz bir günü geçirme — TC için viral patlama formülü.
 
 KEY VIRAL TRIGGERS:

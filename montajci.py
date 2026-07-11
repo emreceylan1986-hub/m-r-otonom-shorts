@@ -396,16 +396,41 @@ def gorsel_kaynak_indir(keyword: str, hedef: Path, sure_sn: float, api_key: str,
     except Exception as e:
         print(f"   ↳ Wikimedia '{keyword}' de fail ({str(e)[:80]})")
 
-    # 3. Son çare: Pexels backup'ı zorla kullan (QC red olsa bile)
+    # 3. ATMOSFER FALLBACK (11 Tem, retention fix): spesifik canlının görüntüsü
+    #    yoksa YANLIŞ hayvan zorlamak yerine, konunun BİYOMUNA uygun nötr-atmosfer
+    #    klip kullan. Yanlış-tür ilk kare izleyiciyi kaçırır; dark-ocean nötr durur.
+    metin = f"{keyword} {baslik}".lower()
+    if any(w in metin for w in ("deep", "sea", "ocean", "abyss", "eel", "shark", "squid", "fish", "jelly", "marine", "underwater", "reef", "coral")):
+        atmos = "deep dark ocean underwater"
+    elif any(w in metin for w in ("cave", "dark", "night", "underground")):
+        atmos = "dark cave atmosphere"
+    elif any(w in metin for w in ("snow", "ice", "arctic", "frozen", "polar", "cold")):
+        atmos = "snowy frozen landscape"
+    elif any(w in metin for w in ("desert", "sand", "dune")):
+        atmos = "desert sand dunes"
+    elif any(w in metin for w in ("forest", "jungle", "tree", "wood")):
+        atmos = "misty forest nature"
+    else:
+        atmos = "dramatic wild nature landscape"
+    try:
+        atmos_bilgi = pexels_video_indir(atmos, hedef, api_key)
+        if hedef.exists():
+            print(f"   ↳ Atmosfer fallback: '{atmos}' (spesifik '{keyword}' görüntüsü yok — nötr biyom)")
+            (atmos_bilgi or {}).update({"sure": sure_sn})
+            return atmos_bilgi or {"sure": sure_sn, "fotograf": f"Atmosfer: {atmos}"}
+    except Exception as e:
+        print(f"   ↳ Atmosfer fallback de fail ({str(e)[:60]})")
+
+    # 4. Son çare: Pexels backup'ı zorla kullan (atmosfer de bulunamadıysa)
     backup = hedef.with_suffix(".pexels_backup.mp4")
     if backup.exists():
-        print(f"   ↳ Son çare: Pexels QC-red klibi zorla kullan")
+        print(f"   ↳ Son çare: Pexels QC-red klibi zorla kullan (atmosfer de yok)")
         import shutil as _sh
         _sh.move(str(backup), str(hedef))
         return pexels_bilgi or {"sure": sure_sn, "fotograf": f"Pexels(QC-red): {keyword}"}
 
-    # 4. Hiç bulunamadıysa exception
-    raise RuntimeError(f"'{keyword}' için ne Pexels ne Wikimedia bulundu")
+    # 5. Hiç bulunamadıysa exception
+    raise RuntimeError(f"'{keyword}' için ne Pexels ne Wikimedia ne atmosfer bulundu")
 
 
 def pexels_video_indir(keyword: str, hedef: Path, api_key: str) -> dict:
