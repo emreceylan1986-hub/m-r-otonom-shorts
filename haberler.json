@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-11T16:31:50.011964+00:00",
+  "uretim_zamani": "2026-07-11T17:55:08.259730+00:00",
   "haberler": [
     {
-      "baslik": "The Pelagothuria: A Deep-Sea Sea Cucumber That Swims Like a Jellyfish",
-      "url": "https://en.wikipedia.org/wiki/Pelagothuria_ludwigi",
+      "baslik": "Pelican Eel Vs Abyssal Darkness: The Swallowing Balloon of the Deep",
+      "url": "https://en.wikipedia.org/wiki/Pelican_eel",
       "kaynak": "gemini-fallback",
-      "skor": 996,
+      "skor": 997,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Frigatebird Vs Sleep: The Ocean Bird That Sleeps While Flying",
-      "url": "https://en.wikipedia.org/wiki/Frigatebird",
-      "kaynak": "gemini-fallback",
-      "skor": 995,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Deep-Sea Hatchetfish: The Ghostly Abyssal Predator With Upward-Facing Eyes",
-      "url": "https://en.wikipedia.org/wiki/Marine_hatchetfish",
+      "baslik": "Red Fox Vs 3 Feet of Snow: The Magnetic North Pole Jump Hunt",
+      "url": "https://en.wikipedia.org/wiki/Red_fox",
       "kaynak": "gemini-fallback",
       "skor": 994,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Gharial Crocodiles: The Fish-Eating Giants with 110 Razor Teeth",
+      "url": "https://en.wikipedia.org/wiki/Gharial",
+      "kaynak": "gemini-fallback",
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
