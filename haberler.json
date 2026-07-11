@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-11T13:14:57.473119+00:00",
+  "uretim_zamani": "2026-07-11T16:31:50.011964+00:00",
   "haberler": [
     {
-      "baslik": "Lammergeier Vulture Vs Skeletal Bones",
-      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
+      "baslik": "The Pelagothuria: A Deep-Sea Sea Cucumber That Swims Like a Jellyfish",
+      "url": "https://en.wikipedia.org/wiki/Pelagothuria_ludwigi",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 996,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Golden Eagle Vs Mountain Goat",
-      "url": "https://en.wikipedia.org/wiki/Golden_eagle",
+      "baslik": "Frigatebird Vs Sleep: The Ocean Bird That Sleeps While Flying",
+      "url": "https://en.wikipedia.org/wiki/Frigatebird",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 995,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Irukandji Jellyfish: Thumbnail-Sized Venomous Nightmare",
-      "url": "https://en.wikipedia.org/wiki/Irukandji_jellyfish",
+      "baslik": "Deep-Sea Hatchetfish: The Ghostly Abyssal Predator With Upward-Facing Eyes",
+      "url": "https://en.wikipedia.org/wiki/Marine_hatchetfish",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
