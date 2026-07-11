@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-11T18:24:37.776209+00:00",
+  "uretim_zamani": "2026-07-11T22:45:44.264783+00:00",
   "haberler": [
     {
-      "baslik": "Pufferfish: The Cutest Animal That Can Kill You in Minutes",
-      "url": "https://en.wikipedia.org/wiki/Tetraodontidae",
+      "baslik": "Great White Shark Vs Total Darkness",
+      "url": "https://en.wikipedia.org/wiki/Great_white_shark",
       "kaynak": "gemini-fallback",
       "skor": 998,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Orca Vs Great White Shark",
+      "url": "https://en.wikipedia.org/wiki/Orca",
+      "kaynak": "gemini-fallback",
+      "skor": 995,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "The Lyrebird Can Mimic Chainsaws and Camera Shutters",
+      "url": "https://en.wikipedia.org/wiki/Lyrebird",
+      "kaynak": "gemini-fallback",
+      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
