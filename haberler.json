@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-12T13:15:57.207706+00:00",
+  "uretim_zamani": "2026-07-12T17:58:51.178542+00:00",
   "haberler": [
     {
-      "baslik": "Immortal Jellyfish: The Only Creature That Can Age Backwards",
-      "url": "https://en.wikipedia.org/wiki/Turritopsis_栄養",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Hammerhead Sharks: Hunting with 360-Degree Stereo Vision",
-      "url": "https://en.wikipedia.org/wiki/Hammerhead_shark",
+      "baslik": "Wolf Vs -50°C Arctic Blizzard",
+      "url": "https://en.wikipedia.org/wiki/Wolf",
       "kaynak": "gemini-fallback",
       "skor": 998,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Moray Eel Vs Octopus",
-      "url": "https://en.wikipedia.org/wiki/Moray_eel",
-      "kaynak": "gemini-fallback",
-      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
