@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-12T17:58:51.178542+00:00",
+  "uretim_zamani": "2026-07-12T22:46:28.927126+00:00",
   "haberler": [
     {
-      "baslik": "Wolf Vs -50°C Arctic Blizzard",
-      "url": "https://en.wikipedia.org/wiki/Wolf",
+      "baslik": "Anglerfish Vs Total Darkness: The Glowing Trap of the Abyss",
+      "url": "https://en.wikipedia.org/wiki/Anglerfish",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Manta Rays: The Deep-Sea Giants That Never Sleep",
+      "url": "https://en.wikipedia.org/wiki/Manta_ray",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Chameleons: The Masters of Color That Can See Two Ways at Once",
+      "url": "https://en.wikipedia.org/wiki/Chameleon",
+      "kaynak": "gemini-fallback",
+      "skor": 997,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
