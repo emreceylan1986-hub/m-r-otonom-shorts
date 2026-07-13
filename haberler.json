@@ -1,27 +1,30 @@
 {
-  "uretim_zamani": "2026-07-13T22:35:24.971806+00:00",
+  "uretim_zamani": "2026-07-13T22:56:22.524791+00:00",
   "haberler": [
     {
-      "baslik": "Snow Leopard Vs Ice-Covered Ridges: Hunting in the Death Zone",
-      "url": "https://en.wikipedia.org/wiki/Snow_leopard",
-      "kaynak": "gemini-fallback",
-      "skor": 993,
+      "baslik": "Pufferfish inflate to three times their size to survive",
+      "url": "https://en.wikipedia.org/wiki/Pufferfish",
+      "ozet": "Cute, but deadly poisonous",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Tiger Shark: The Voracious Apex Predator That Devours Anything",
-      "url": "https://en.wikipedia.org/wiki/Tiger_shark",
-      "kaynak": "gemini-fallback",
-      "skor": 991,
+      "baslik": "Elephants can recognize themselves in a mirror",
+      "url": "https://en.wikipedia.org/wiki/Elephant_cognition",
+      "ozet": "And mourn their dead",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Tarantula Vs Desert Wasps: The Ultimate Fight to the Death",
-      "url": "https://en.wikipedia.org/wiki/Tarantula",
-      "kaynak": "gemini-fallback",
-      "skor": 989,
+      "baslik": "Orcas hunt in coordinated packs like wolves of the sea",
+      "url": "https://en.wikipedia.org/wiki/Killer_whale",
+      "ozet": "The ocean's smartest predator",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
