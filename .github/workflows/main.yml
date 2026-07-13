@@ -180,7 +180,7 @@ jobs:
         run: bash state_push.sh
 
       - name: Upload artifacts (debug için)
-        if: always()
+        if: failure()
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
@@ -190,7 +190,7 @@ jobs:
             shorts_ciktilari/
             yuklemeler.json
             haberler.json
-          retention-days: 2
+          retention-days: 1
           if-no-files-found: ignore
 
       - name: Başarılı yayın bildirimi (issue + mail)
