@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-11T17:55:08.259730+00:00",
+  "uretim_zamani": "2026-07-13T14:39:51.382927+00:00",
   "haberler": [
     {
-      "baslik": "Pelican Eel Vs Abyssal Darkness: The Swallowing Balloon of the Deep",
-      "url": "https://en.wikipedia.org/wiki/Pelican_eel",
+      "baslik": "Markhor Vs 90° Cliff: The Gravity-Defying Mountain King",
+      "url": "https://en.wikipedia.org/wiki/Markhor",
       "kaynak": "gemini-fallback",
-      "skor": 997,
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Red Fox Vs 3 Feet of Snow: The Magnetic North Pole Jump Hunt",
-      "url": "https://en.wikipedia.org/wiki/Red_fox",
+      "baslik": "Pufferfish Vs The Ultimate Hunter: The Cutest Defensive Shield",
+      "url": "https://en.wikipedia.org/wiki/Tetraodontidae",
       "kaynak": "gemini-fallback",
-      "skor": 994,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Gharial Crocodiles: The Fish-Eating Giants with 110 Razor Teeth",
-      "url": "https://en.wikipedia.org/wiki/Gharial",
+      "baslik": "Moray Eel: The Deep-Sea Hunter with a Second Set of Alien Jaws",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
-      "skor": 993,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
