@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-13T14:39:51.382927+00:00",
+  "uretim_zamani": "2026-07-13T22:35:24.971806+00:00",
   "haberler": [
     {
-      "baslik": "Markhor Vs 90° Cliff: The Gravity-Defying Mountain King",
-      "url": "https://en.wikipedia.org/wiki/Markhor",
+      "baslik": "Snow Leopard Vs Ice-Covered Ridges: Hunting in the Death Zone",
+      "url": "https://en.wikipedia.org/wiki/Snow_leopard",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Pufferfish Vs The Ultimate Hunter: The Cutest Defensive Shield",
-      "url": "https://en.wikipedia.org/wiki/Tetraodontidae",
+      "baslik": "Tiger Shark: The Voracious Apex Predator That Devours Anything",
+      "url": "https://en.wikipedia.org/wiki/Tiger_shark",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 991,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Moray Eel: The Deep-Sea Hunter with a Second Set of Alien Jaws",
-      "url": "https://en.wikipedia.org/wiki/Moray_eel",
+      "baslik": "Tarantula Vs Desert Wasps: The Ultimate Fight to the Death",
+      "url": "https://en.wikipedia.org/wiki/Tarantula",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 989,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
