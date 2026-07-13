@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-12T22:46:28.927126+00:00",
+  "uretim_zamani": "2026-07-13T14:39:51.382927+00:00",
   "haberler": [
     {
-      "baslik": "Anglerfish Vs Total Darkness: The Glowing Trap of the Abyss",
-      "url": "https://en.wikipedia.org/wiki/Anglerfish",
+      "baslik": "Markhor Vs 90° Cliff: The Gravity-Defying Mountain King",
+      "url": "https://en.wikipedia.org/wiki/Markhor",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Manta Rays: The Deep-Sea Giants That Never Sleep",
-      "url": "https://en.wikipedia.org/wiki/Manta_ray",
+      "baslik": "Pufferfish Vs The Ultimate Hunter: The Cutest Defensive Shield",
+      "url": "https://en.wikipedia.org/wiki/Tetraodontidae",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Chameleons: The Masters of Color That Can See Two Ways at Once",
-      "url": "https://en.wikipedia.org/wiki/Chameleon",
+      "baslik": "Moray Eel: The Deep-Sea Hunter with a Second Set of Alien Jaws",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
-      "skor": 997,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
