@@ -552,12 +552,50 @@ def en_populer_3() -> list[dict]:
     return secilen[:3]
 
 
+# 11 Tem 2026 — EVERGREEN YEDEK: Gemini kotası biter + Reddit 403 olursa haberci
+# ASLA boş dönmesin (pipeline exit-1 çökme kökü). Footage-bol, niş-özel, kanıtlı konular.
+EVERGREEN_KONULAR = [
+    {"baslik": 'Great white sharks can smell a drop of blood from miles away', "url": 'https://en.wikipedia.org/wiki/Great_white_shark', "ozet": 'Apex predator of the open ocean', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Octopuses have three hearts and blue blood', "url": 'https://en.wikipedia.org/wiki/Octopus', "ozet": 'Masters of camouflage and escape', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'A wolf pack can travel 30 miles in a single day', "url": 'https://en.wikipedia.org/wiki/Wolf', "ozet": 'Endurance hunters of the north', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Eagles can spot prey from two miles away', "url": 'https://en.wikipedia.org/wiki/Eagle', "ozet": 'Eight times sharper than human sight', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": "A chameleon's tongue strikes faster than a sports car", "url": 'https://en.wikipedia.org/wiki/Chameleon', "ozet": '0 to 60 in a hundredth of a second', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Hummingbirds can fly backwards and hover in place', "url": 'https://en.wikipedia.org/wiki/Hummingbird', "ozet": 'Wings beat 80 times per second', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Orcas hunt in coordinated packs like wolves of the sea', "url": 'https://en.wikipedia.org/wiki/Killer_whale', "ozet": "The ocean's smartest predator", "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'A mantis shrimp punches with the force of a bullet', "url": 'https://en.wikipedia.org/wiki/Mantis_shrimp', "ozet": 'It boils the water around its claw', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Elephants can recognize themselves in a mirror', "url": 'https://en.wikipedia.org/wiki/Elephant_cognition', "ozet": 'And mourn their dead', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Owls can rotate their heads 270 degrees', "url": 'https://en.wikipedia.org/wiki/Owl', "ozet": 'Silent flight, deadly precision', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Arctic foxes survive temperatures of minus 70 degrees', "url": 'https://en.wikipedia.org/wiki/Arctic_fox', "ozet": 'The warmest fur of any mammal', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'A snow leopard can leap 50 feet in a single bound', "url": 'https://en.wikipedia.org/wiki/Snow_leopard', "ozet": 'Ghost of the mountains', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Dolphins call each other by unique names', "url": 'https://en.wikipedia.org/wiki/Dolphin', "ozet": 'Signature whistles for life', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": "A crocodile's bite is the strongest in the animal kingdom", "url": 'https://en.wikipedia.org/wiki/Crocodile', "ozet": '3700 pounds of force', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+    {"baslik": 'Pufferfish inflate to three times their size to survive', "url": 'https://en.wikipedia.org/wiki/Pufferfish', "ozet": 'Cute, but deadly poisonous', "kaynak": "evergreen", "skor": 900, "yas_saat": 0, "yorum_sayisi": 0},
+]
+
+
+def _evergreen_sec(adet: int = 3) -> list:
+    """Gemini+Reddit boş dönerse evergreen havuzdan geçmişte-olmayan konu seç."""
+    import random
+    try:
+        gecmis = _gecmisi_oku()
+    except Exception:
+        gecmis = set()
+    taze = [k for k in EVERGREEN_KONULAR if _normalize_url(k["url"]) not in gecmis]
+    havuz = taze if len(taze) >= adet else list(EVERGREEN_KONULAR)
+    random.shuffle(havuz)
+    return [dict(k) for k in havuz[:adet]]
+
+
 def main() -> int:
     print("[haberci] Hayvan/doğa nişi — Reddit + Gemini fallback taranıyor...\n")
     secilenler = en_populer_3()
 
     if not secilenler:
-        print("[haberci] Hiç haber bulunamadı.")
+        print("[haberci] Gemini+Reddit boş → EVERGREEN havuzdan seçiliyor (pipeline korunur)", flush=True)
+        secilenler = _evergreen_sec(3)
+
+    if not secilenler:
+        print("[haberci] Hiç haber bulunamadı (evergreen de boş?!).")
         return 1
 
     cikti = {
