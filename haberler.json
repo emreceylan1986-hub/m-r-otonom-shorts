@@ -1,30 +1,19 @@
 {
-  "uretim_zamani": "2026-07-13T22:56:22.524791+00:00",
+  "uretim_zamani": "2026-07-14T13:35:10.150300+00:00",
   "haberler": [
     {
-      "baslik": "Pufferfish inflate to three times their size to survive",
-      "url": "https://en.wikipedia.org/wiki/Pufferfish",
-      "ozet": "Cute, but deadly poisonous",
-      "kaynak": "evergreen",
-      "skor": 900,
+      "baslik": "The Boiling River of the Amazon: The Lethal Water That Cooks Invaders Alive",
+      "url": "https://en.wikipedia.org/wiki/Shanay-timpishka",
+      "kaynak": "gemini-fallback",
+      "skor": 996,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Elephants can recognize themselves in a mirror",
-      "url": "https://en.wikipedia.org/wiki/Elephant_cognition",
-      "ozet": "And mourn their dead",
-      "kaynak": "evergreen",
-      "skor": 900,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Orcas hunt in coordinated packs like wolves of the sea",
-      "url": "https://en.wikipedia.org/wiki/Killer_whale",
-      "ozet": "The ocean's smartest predator",
-      "kaynak": "evergreen",
-      "skor": 900,
+      "baslik": "Vaadhoo Island: The Glowing Blue Beach Powered by Millions of Tiny Microorganisms",
+      "url": "https://en.wikipedia.org/wiki/Vaadhoo_(Raa_Atoll)",
+      "kaynak": "gemini-fallback",
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
