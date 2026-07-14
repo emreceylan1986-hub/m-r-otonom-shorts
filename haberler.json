@@ -1,19 +1,30 @@
 {
-  "uretim_zamani": "2026-07-14T13:35:10.150300+00:00",
+  "uretim_zamani": "2026-07-14T18:02:19.099977+00:00",
   "haberler": [
     {
-      "baslik": "The Boiling River of the Amazon: The Lethal Water That Cooks Invaders Alive",
-      "url": "https://en.wikipedia.org/wiki/Shanay-timpishka",
-      "kaynak": "gemini-fallback",
-      "skor": 996,
+      "baslik": "Eagles can spot prey from two miles away",
+      "url": "https://en.wikipedia.org/wiki/Eagle",
+      "ozet": "Eight times sharper than human sight",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Vaadhoo Island: The Glowing Blue Beach Powered by Millions of Tiny Microorganisms",
-      "url": "https://en.wikipedia.org/wiki/Vaadhoo_(Raa_Atoll)",
-      "kaynak": "gemini-fallback",
-      "skor": 993,
+      "baslik": "Great white sharks can smell a drop of blood from miles away",
+      "url": "https://en.wikipedia.org/wiki/Great_white_shark",
+      "ozet": "Apex predator of the open ocean",
+      "kaynak": "evergreen",
+      "skor": 900,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Elephants can recognize themselves in a mirror",
+      "url": "https://en.wikipedia.org/wiki/Elephant_cognition",
+      "ozet": "And mourn their dead",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
