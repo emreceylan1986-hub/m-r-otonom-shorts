@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-13T14:39:51.382927+00:00",
+  "uretim_zamani": "2026-07-14T22:56:18.241679+00:00",
   "haberler": [
     {
-      "baslik": "Markhor Vs 90° Cliff: The Gravity-Defying Mountain King",
-      "url": "https://en.wikipedia.org/wiki/Markhor",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Pufferfish Vs The Ultimate Hunter: The Cutest Defensive Shield",
-      "url": "https://en.wikipedia.org/wiki/Tetraodontidae",
+      "baslik": "Blue-Ringed Octopus Vs Human Nervous System",
+      "url": "https://en.wikipedia.org/wiki/Greater_blue-ringed_octopus",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Moray Eel: The Deep-Sea Hunter with a Second Set of Alien Jaws",
-      "url": "https://en.wikipedia.org/wiki/Moray_eel",
+      "baslik": "Mosquito Vs Mosquito-Eating Bat (The 1000-Insect-Per-Hour Hunt)",
+      "url": "https://en.wikipedia.org/wiki/Microbat",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 997,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Sperm Whale Vs Giant Squid: Battle of the Abyssal Giants",
+      "url": "https://en.wikipedia.org/wiki/Sperm_whale",
+      "kaynak": "gemini-fallback",
+      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
