@@ -68,7 +68,7 @@ GEMINI_API_KEY = ""  # <-- API anahtarını buraya yapıştır (veya boş bırak
 # 10 Tem 2026: gemini-2.5-flash Google tarafından emekliye ayrıldı (404 "no longer
 # available") → resmi halef gemini-3.5-flash (canlı models.list ile doğrulandı).
 MODEL = "gemini-3.5-flash"
-YEDEK_MODEL = "gemini-flash-latest"  # model emekliye ayrılırsa otomatik sigorta
+YEDEK_MODEL = "gemini-flash-lite-latest"  # AYRI kota bucket: 404/kota-dolu/503'te devreye girer (kanal kapasitesi 40→80/gün)
 TIMEOUT_SN = 60
 
 DENETLEME_SISTEM_PROMPTU = """Sen kıdemli bir Python yazılım denetçisisin.
@@ -149,6 +149,7 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
     """
     import time
     from google.genai import errors as _genai_errors
+    global _AKTIF_IDX
 
     son_hata = None
     for deneme in range(_denemeler):
@@ -157,8 +158,14 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
             return client.models.generate_content(
                 model=model, contents=contents, config=config
             )
-        except _genai_errors.ServerError as hata:  # 5xx
+        except _genai_errors.ServerError as hata:  # 5xx (503 aşırı yük)
             son_hata = hata
+            # 14 Tem: ısrarcı 503 → YEDEK modele geç (ayrı kapasite, pipeline çökmesin)
+            if deneme >= 3 and model != YEDEK_MODEL:
+                print(f"[bridge] {model} 503 ısrarcı → {YEDEK_MODEL} modeline geçiliyor", flush=True)
+                model = YEDEK_MODEL
+                _AKTIF_IDX = 0
+                continue
             bekle = min(2 ** (deneme + 1), 90)
             print(f"[bridge] Gemini {getattr(hata,'code','5xx')} — {bekle}s sonra "
                   f"yeniden ({deneme+1}/{_denemeler})", flush=True)
@@ -174,7 +181,14 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
                 if ("PerDay" in str(hata)) or ("GenerateRequestsPerDay" in str(hata)):
                     if _sonraki_anahtara_gec():
                         continue  # yeni anahtarla hemen tekrar dene (rotasyon)
-                    print("[bridge] TÜM anahtarların GÜNLÜK kotası doldu — fail-fast", flush=True)
+                    # 14 Tem: TÜM anahtar günlük kotası doldu → YEDEK modele geç.
+                    # Kota MODEL-başına: farklı model = taze 20/gün (crash yerine video).
+                    if model != YEDEK_MODEL:
+                        print(f"[bridge] tüm anahtar kotası doldu → {YEDEK_MODEL} (ayrı kota bucket)", flush=True)
+                        model = YEDEK_MODEL
+                        _AKTIF_IDX = 0
+                        continue
+                    print("[bridge] YEDEK model kotası da doldu — fail-fast", flush=True)
                     raise
                 son_hata = hata
                 bekle = min(2 ** (deneme + 1), 90)
