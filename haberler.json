@@ -1,11 +1,19 @@
 {
-  "uretim_zamani": "2026-07-16T13:46:32.410416+00:00",
+  "uretim_zamani": "2026-07-16T19:37:23.308776+00:00",
   "haberler": [
     {
-      "baslik": "The Blood Lizard: Squirting Venomous Tears from Its Eyes!",
-      "url": "https://en.wikipedia.org/wiki/Horned_lizard",
+      "baslik": "Golden Poison Frog Vs 10 Humans",
+      "url": "https://en.wikipedia.org/wiki/Golden_poison_frog",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 991,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Sea Wasp Jellyfish: The Beautiful Ghost That Halts Your Heart",
+      "url": "https://en.wikipedia.org/wiki/Chironex_fleckeri",
+      "kaynak": "gemini-fallback",
+      "skor": 986,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
