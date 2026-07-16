@@ -1,19 +1,27 @@
 {
-  "uretim_zamani": "2026-07-16T19:37:23.308776+00:00",
+  "uretim_zamani": "2026-07-16T22:56:25.489499+00:00",
   "haberler": [
     {
-      "baslik": "Golden Poison Frog Vs 10 Humans",
-      "url": "https://en.wikipedia.org/wiki/Golden_poison_frog",
+      "baslik": "Tardigrade Vs Outer Space",
+      "url": "https://en.wikipedia.org/wiki/Tardigrade",
       "kaynak": "gemini-fallback",
-      "skor": 991,
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Sea Wasp Jellyfish: The Beautiful Ghost That Halts Your Heart",
-      "url": "https://en.wikipedia.org/wiki/Chironex_fleckeri",
+      "baslik": "Jumping Spiders Hunt with 360-Degree Triple-Threat Vision",
+      "url": "https://en.wikipedia.org/wiki/Jumping_spider",
       "kaynak": "gemini-fallback",
-      "skor": 986,
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "The Mimic Octopus Morphs Into Fifteen Species in Seconds",
+      "url": "https://en.wikipedia.org/wiki/Mimic_octopus",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
