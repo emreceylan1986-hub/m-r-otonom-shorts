@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-16T22:56:25.489499+00:00",
+  "uretim_zamani": "2026-07-17T13:25:26.668154+00:00",
   "haberler": [
     {
-      "baslik": "Tardigrade Vs Outer Space",
-      "url": "https://en.wikipedia.org/wiki/Tardigrade",
+      "baslik": "Cavefish Vs Total Darkness",
+      "url": "https://en.wikipedia.org/wiki/Astyanax_mexicanus",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Jumping Spiders Hunt with 360-Degree Triple-Threat Vision",
-      "url": "https://en.wikipedia.org/wiki/Jumping_spider",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "The Mimic Octopus Morphs Into Fifteen Species in Seconds",
-      "url": "https://en.wikipedia.org/wiki/Mimic_octopus",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
