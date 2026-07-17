@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-17T18:06:15.523813+00:00",
+  "uretim_zamani": "2026-07-17T22:48:06.523368+00:00",
   "haberler": [
     {
-      "baslik": "Hammerhead Shark Vs 360-Degree Vision: The Ultimate Ocean Predator",
-      "url": "https://en.wikipedia.org/wiki/Hammerhead_shark",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Manta Ray: The Ocean Giant That Filters The Sea To Grow Massive",
-      "url": "https://en.wikipedia.org/wiki/Manta_ray",
+      "baslik": "Remora: The Sea Doctor Riding Giant Sharks",
+      "url": "https://en.wikipedia.org/wiki/Remora",
       "kaynak": "gemini-fallback",
       "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Orca Vs Great White Shark: The Battle For The Apex Predator Throne",
-      "url": "https://en.wikipedia.org/wiki/Orca",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
