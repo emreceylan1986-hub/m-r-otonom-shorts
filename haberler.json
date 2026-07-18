@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-18T08:39:57.595636+00:00",
+  "uretim_zamani": "2026-07-18T13:09:50.728977+00:00",
   "haberler": [
     {
-      "baslik": "Bearded Vulture Vs Pure Bone",
-      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
+      "baslik": "Woodpecker Vs 1000G Force: Why Their Brains Never Scramble!",
+      "url": "https://en.wikipedia.org/wiki/Woodpecker",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Golden Eagle Vs Mountain Goat",
-      "url": "https://en.wikipedia.org/wiki/Golden_eagle",
+      "baslik": "Osprey: The Master Angler That Dives Headfirst at 50 MPH",
+      "url": "https://en.wikipedia.org/wiki/Osprey",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Peregrine Falcon Strikes at 240 MPH — One Hit Ends It",
-      "url": "https://en.wikipedia.org/wiki/Peregrine_falcon",
+      "baslik": "Tarantula Hawk Vs Tarantula: The Most Brutal Underground Battle!",
+      "url": "https://en.wikipedia.org/wiki/Tarantula_hawk",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 991,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
