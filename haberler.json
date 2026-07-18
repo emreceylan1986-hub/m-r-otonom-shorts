@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-18T13:09:50.728977+00:00",
+  "uretim_zamani": "2026-07-18T17:56:01.746342+00:00",
   "haberler": [
     {
-      "baslik": "Woodpecker Vs 1000G Force: Why Their Brains Never Scramble!",
-      "url": "https://en.wikipedia.org/wiki/Woodpecker",
-      "kaynak": "gemini-fallback",
-      "skor": 994,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Osprey: The Master Angler That Dives Headfirst at 50 MPH",
-      "url": "https://en.wikipedia.org/wiki/Osprey",
-      "kaynak": "gemini-fallback",
-      "skor": 993,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Tarantula Hawk Vs Tarantula: The Most Brutal Underground Battle!",
-      "url": "https://en.wikipedia.org/wiki/Tarantula_hawk",
+      "baslik": "Barn Owl Vs Total Silence: Hunting by Sound Alone",
+      "url": "https://en.wikipedia.org/wiki/Barn_owl",
       "kaynak": "gemini-fallback",
       "skor": 991,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Loggerhead Shrike: The Butcherbird That Impales Its Prey",
+      "url": "https://en.wikipedia.org/wiki/Shrike",
+      "kaynak": "gemini-fallback",
+      "skor": 989,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Pit Viper Vs Complete Darkness: Thermal Heatwave Vision",
+      "url": "https://en.wikipedia.org/wiki/Pit_viper",
+      "kaynak": "gemini-fallback",
+      "skor": 988,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
