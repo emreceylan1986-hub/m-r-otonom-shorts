@@ -419,12 +419,19 @@ def main() -> int:
             hook_skor, hook_sebep = pre_publish_qc.hook_qc(
                 mp4, veri["title"], veri.get("tags", [""])[0] if veri.get("tags") else ""
             )
-            _alt(f"Hook QC skor: {hook_skor}/10 — {hook_sebep[:80]}")
-            if hook_skor < 5:
-                _alt(f"⚠️ Hook zayıf (skor {hook_skor}) → gizlilik PRIVATE'a override")
-                args.gizlilik = "private"
-                hook_uyari = f"Pre-publish QC: hook skor {hook_skor}/10 — {hook_sebep}"
-                DENETIM_UYARI_FLAG.write_text(hook_uyari, encoding="utf-8")
+            if hook_skor is None:
+                # 18 Tem FIX: QC olculemedi (Gemini kota/503/parse hatasi) — eskiden
+                # bu durumda skor=10 donup "mukemmel" sayilip hic filtrelenmiyordu.
+                # Simdi: override YAPMA, mevcut gizlilik ayari (public) korunur.
+                # Zayif hook riski var ama en azindan kalite kapisi YANLIS YONE calismiyor.
+                _alt(f"Hook QC ölçülemedi ({hook_sebep[:80]}) — override yok, mevcut gizlilik korunuyor")
+            else:
+                _alt(f"Hook QC skor: {hook_skor}/10 — {hook_sebep[:80]}")
+                if hook_skor < 5:
+                    _alt(f"⚠️ Hook zayıf (skor {hook_skor}) → gizlilik PRIVATE'a override")
+                    args.gizlilik = "private"
+                    hook_uyari = f"Pre-publish QC: hook skor {hook_skor}/10 — {hook_sebep}"
+                    DENETIM_UYARI_FLAG.write_text(hook_uyari, encoding="utf-8")
         except Exception as h:
             _alt(f"Pre-publish QC atlandı: {str(h)[:100]}")
 

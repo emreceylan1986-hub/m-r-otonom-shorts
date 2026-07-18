@@ -22,7 +22,7 @@ def hook_qc(mp4_yolu: Path, baslik: str = "", konu_keyword: str = "") -> tuple[i
         import imageio_ffmpeg
         ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     except ImportError:
-        return 10, "ffmpeg yok, QC atlandı"
+        return None, "ffmpeg yok, QC atlandı"
 
     tmp_png = Path(tempfile.mktemp(suffix=".png"))
     try:
@@ -32,7 +32,7 @@ def hook_qc(mp4_yolu: Path, baslik: str = "", konu_keyword: str = "") -> tuple[i
             capture_output=True, timeout=20,
         )
         if r.returncode != 0 or not tmp_png.exists():
-            return 10, "frame alınamadı"
+            return None, "frame alınamadı"
 
         api_key = os.environ.get("GEMINI_API_KEY", "")
         if not api_key:
@@ -43,7 +43,7 @@ def hook_qc(mp4_yolu: Path, baslik: str = "", konu_keyword: str = "") -> tuple[i
                         api_key = line.split("=", 1)[1].strip()
                         break
         if not api_key:
-            return 10, "no api key, QC atlandı"
+            return None, "no api key, QC atlandı"
 
         from google import genai
         from google.genai import types as gtypes
@@ -80,12 +80,16 @@ def hook_qc(mp4_yolu: Path, baslik: str = "", konu_keyword: str = "") -> tuple[i
         import re
         m = re.search(r"(\d+)\s*\|?\s*(.*)", cevap)
         if not m:
-            return 10, f"parse fail: {cevap[:80]}"
+            return None, f"parse fail: {cevap[:80]}"
         skor = int(m.group(1))
         sebep = m.group(2).strip() or "—"
         return skor, sebep
     except Exception as h:
-        return 10, f"hata: {str(h)[:120]}"
+        # 18 Tem FIX: eskiden 10 donuyordu -> Gemini kota/503 hatasinda
+        # kalite kapisi "mukemmel" sanip zayif hook'lu videoyu hic filtrelemeden
+        # public'e geciriyordu (TC+Mindgaps retention cokuslerinin bir parcasi).
+        # None = "olculemedi", cagiran taraf override YAPMAZ (mevcut ayar korunur).
+        return None, f"hata: {str(h)[:120]}"
     finally:
         tmp_png.unlink(missing_ok=True)
 
