@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-17T22:48:06.523368+00:00",
+  "uretim_zamani": "2026-07-18T08:39:57.595636+00:00",
   "haberler": [
     {
-      "baslik": "Remora: The Sea Doctor Riding Giant Sharks",
-      "url": "https://en.wikipedia.org/wiki/Remora",
+      "baslik": "Bearded Vulture Vs Pure Bone",
+      "url": "https://en.wikipedia.org/wiki/Bearded_vulture",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Golden Eagle Vs Mountain Goat",
+      "url": "https://en.wikipedia.org/wiki/Golden_eagle",
       "kaynak": "gemini-fallback",
       "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Peregrine Falcon Strikes at 240 MPH — One Hit Ends It",
+      "url": "https://en.wikipedia.org/wiki/Peregrine_falcon",
+      "kaynak": "gemini-fallback",
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
