@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-18T17:56:01.746342+00:00",
+  "uretim_zamani": "2026-07-18T22:47:08.854308+00:00",
   "haberler": [
     {
-      "baslik": "Barn Owl Vs Total Silence: Hunting by Sound Alone",
-      "url": "https://en.wikipedia.org/wiki/Barn_owl",
+      "baslik": "Steller's Sea Eagle: The Giant Raptor That Rules the Frozen Seas",
+      "url": "https://en.wikipedia.org/wiki/Steller%27s_sea_eagle",
       "kaynak": "gemini-fallback",
-      "skor": 991,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Loggerhead Shrike: The Butcherbird That Impales Its Prey",
-      "url": "https://en.wikipedia.org/wiki/Shrike",
-      "kaynak": "gemini-fallback",
-      "skor": 989,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Pit Viper Vs Complete Darkness: Thermal Heatwave Vision",
-      "url": "https://en.wikipedia.org/wiki/Pit_viper",
-      "kaynak": "gemini-fallback",
-      "skor": 988,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
