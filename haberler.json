@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-18T22:47:08.854308+00:00",
+  "uretim_zamani": "2026-07-19T07:03:23.486261+00:00",
   "haberler": [
     {
-      "baslik": "Steller's Sea Eagle: The Giant Raptor That Rules the Frozen Seas",
-      "url": "https://en.wikipedia.org/wiki/Steller%27s_sea_eagle",
+      "baslik": "Chameleons hunt with eyes moving in different directions",
+      "url": "https://en.wikipedia.org/wiki/Chameleon",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Wolf packs hunt prey using strategic decoy maneuvers",
+      "url": "https://en.wikipedia.org/wiki/Wolf",
       "kaynak": "gemini-fallback",
       "skor": 998,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Moray eels attack with a second hidden jaw",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
+      "kaynak": "gemini-fallback",
+      "skor": 997,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
