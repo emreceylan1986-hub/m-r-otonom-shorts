@@ -1,11 +1,11 @@
 {
-  "uretim_zamani": "2026-07-17T22:48:06.523368+00:00",
+  "uretim_zamani": "2026-07-18T22:47:08.854308+00:00",
   "haberler": [
     {
-      "baslik": "Remora: The Sea Doctor Riding Giant Sharks",
-      "url": "https://en.wikipedia.org/wiki/Remora",
+      "baslik": "Steller's Sea Eagle: The Giant Raptor That Rules the Frozen Seas",
+      "url": "https://en.wikipedia.org/wiki/Steller%27s_sea_eagle",
       "kaynak": "gemini-fallback",
-      "skor": 999,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
