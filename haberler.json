@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-19T17:57:40.955063+00:00",
+  "uretim_zamani": "2026-07-19T22:50:40.668892+00:00",
   "haberler": [
     {
-      "baslik": "The Bloating Deep-Sea Marvel: Blobfish Vs Land Pressure",
-      "url": "https://en.wikipedia.org/wiki/Psychrolutes_marcidus",
+      "baslik": "Giant Pacific Octopus: The Master of Liquid Escape",
+      "url": "https://en.wikipedia.org/wiki/East_Pacific_red_octopus",
       "kaynak": "gemini-fallback",
-      "skor": 997,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Giant Pacific Octopus Vs Armor-Clad Crabs",
-      "url": "https://en.wikipedia.org/wiki/Giant_Pacific_octopus",
-      "kaynak": "gemini-fallback",
-      "skor": 993,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Crown-of-Thorns Starfish: The Coral Reef Killer",
-      "url": "https://en.wikipedia.org/wiki/Crown-of-thorns_starfish",
-      "kaynak": "gemini-fallback",
-      "skor": 989,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
