@@ -1,16 +1,16 @@
 {
-  "uretim_zamani": "2026-07-20T18:53:07.815115+00:00",
+  "uretim_zamani": "2026-07-20T22:59:40.019660+00:00",
   "haberler": [
     {
-      "baslik": "Bighorn Sheep Vs 90° Cliff: Defying Gravity for Survival",
-      "url": "https://en.wikipedia.org/wiki/Bighorn_sheep",
+      "baslik": "Mountain Goat Vs 90° Cliff: How They Defy Gravity",
+      "url": "https://en.wikipedia.org/wiki/Mountain_goat",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Orcas: The Ocean’s Apex Predator Hunting in Shark Territory",
+      "baslik": "Orca Vs Great White Shark: The Ocean's Apex Predator Battle",
       "url": "https://en.wikipedia.org/wiki/Killer_whale",
       "kaynak": "gemini-fallback",
       "skor": 999,
@@ -18,8 +18,8 @@
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Crocodile Vs Current: The Ultimate Ambush Predator of the River",
-      "url": "https://en.wikipedia.org/wiki/Crocodile",
+      "baslik": "Chameleons: Nature's Masters of Disguise and Precision Hunting",
+      "url": "https://en.wikipedia.org/wiki/Chameleon",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
