@@ -1,9 +1,25 @@
 {
-  "uretim_zamani": "2026-07-19T22:50:40.668892+00:00",
+  "uretim_zamani": "2026-07-20T14:05:47.028221+00:00",
   "haberler": [
     {
-      "baslik": "Giant Pacific Octopus: The Master of Liquid Escape",
-      "url": "https://en.wikipedia.org/wiki/East_Pacific_red_octopus",
+      "baslik": "Markhor Vs 90° Mountain Cliff",
+      "url": "https://en.wikipedia.org/wiki/Markhor",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Honey Badger Vs Venomous Cobra",
+      "url": "https://en.wikipedia.org/wiki/Honey_badger",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Bighorn Sheep Crash At 40 MPH Without Brain Damage",
+      "url": "https://en.wikipedia.org/wiki/Bighorn_sheep",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
