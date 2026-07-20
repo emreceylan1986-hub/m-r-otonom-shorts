@@ -1,25 +1,25 @@
 {
-  "uretim_zamani": "2026-07-20T14:05:47.028221+00:00",
+  "uretim_zamani": "2026-07-20T18:53:07.815115+00:00",
   "haberler": [
     {
-      "baslik": "Markhor Vs 90° Mountain Cliff",
-      "url": "https://en.wikipedia.org/wiki/Markhor",
+      "baslik": "Bighorn Sheep Vs 90° Cliff: Defying Gravity for Survival",
+      "url": "https://en.wikipedia.org/wiki/Bighorn_sheep",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Honey Badger Vs Venomous Cobra",
-      "url": "https://en.wikipedia.org/wiki/Honey_badger",
+      "baslik": "Orcas: The Ocean’s Apex Predator Hunting in Shark Territory",
+      "url": "https://en.wikipedia.org/wiki/Killer_whale",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Bighorn Sheep Crash At 40 MPH Without Brain Damage",
-      "url": "https://en.wikipedia.org/wiki/Bighorn_sheep",
+      "baslik": "Crocodile Vs Current: The Ultimate Ambush Predator of the River",
+      "url": "https://en.wikipedia.org/wiki/Crocodile",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
