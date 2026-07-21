@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-20T22:59:40.019660+00:00",
+  "uretim_zamani": "2026-07-21T13:46:27.578048+00:00",
   "haberler": [
     {
-      "baslik": "Mountain Goat Vs 90° Cliff: How They Defy Gravity",
-      "url": "https://en.wikipedia.org/wiki/Mountain_goat",
+      "baslik": "Crocodile Vs Total Darkness (The Hidden Cave Giants)",
+      "url": "https://en.wikipedia.org/wiki/Cave_crocodile",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Orca Vs Great White Shark: The Ocean's Apex Predator Battle",
-      "url": "https://en.wikipedia.org/wiki/Killer_whale",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Chameleons: Nature's Masters of Disguise and Precision Hunting",
-      "url": "https://en.wikipedia.org/wiki/Chameleon",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
