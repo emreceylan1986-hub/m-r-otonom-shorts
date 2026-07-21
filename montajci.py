@@ -132,7 +132,14 @@ def jamendo_muzik_indir(arama: str, hedef_mp3: Path, client_id: str) -> bool:
                 "tags": "cinematic+ambient+nature",
                 "duration_between": "25_180",
                 "include": "musicinfo",
-                "order": "popularity_total_desc",
+                # 20 Tem TELİF FIX: distribütörler (Adrev vb.) popüler Jamendo
+                # parçalarını YouTube Content ID'ye ayrıca kaydediyor — CC
+                # lisans olsa bile "dünya genelinde bloklanma" riski taşıyordu
+                # (kanıt: sf3WFM8aflU, "Heart Chakra - Macroform" claim'i).
+                # order=popularity KALDIRILDI (popüler=en çok claim riski),
+                # license_ccby=1 eklendi (sadece gerçek attribution-CC).
+                "order": "relevance",  # 20 Tem: random GECERSIZ deger (Jamendo API reddediyor)
+                "license_ccby": "1",
             },
             timeout=ISTEK_ZAMAN_ASIMI,
         )
@@ -146,7 +153,8 @@ def jamendo_muzik_indir(arama: str, hedef_mp3: Path, client_id: str) -> bool:
                     "client_id": client_id, "format": "json", "limit": 10,
                     "audioformat": "mp31", "search": arama,
                     "duration_between": "25_180",
-                    "order": "popularity_total_desc",
+                    "order": "relevance",  # 20 Tem: random GECERSIZ deger (Jamendo API reddediyor)
+                    "license_ccby": "1",
                 },
                 timeout=ISTEK_ZAMAN_ASIMI,
             )
