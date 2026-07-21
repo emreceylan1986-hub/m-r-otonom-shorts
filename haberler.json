@@ -1,11 +1,27 @@
 {
-  "uretim_zamani": "2026-07-21T13:46:27.578048+00:00",
+  "uretim_zamani": "2026-07-21T18:15:50.643681+00:00",
   "haberler": [
     {
-      "baslik": "Crocodile Vs Total Darkness (The Hidden Cave Giants)",
-      "url": "https://en.wikipedia.org/wiki/Cave_crocodile",
+      "baslik": "Vaadhoo Island: The Glowing Beach of Stars",
+      "url": "https://en.wikipedia.org/wiki/Vaadhoo_Island_(Raa_Atoll)",
       "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Stonefish: The World's Most Venomous Fish Disguised as Rock",
+      "url": "https://en.wikipedia.org/wiki/Synanceia",
+      "kaynak": "gemini-fallback",
+      "skor": 995,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Spotted Hyena Vs Cheetah (The Ultimate African Steal)",
+      "url": "https://en.wikipedia.org/wiki/Spotted_hyena",
+      "kaynak": "gemini-fallback",
+      "skor": 994,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
