@@ -1,30 +1,27 @@
 {
-  "uretim_zamani": "2026-07-22T18:09:21.584244+00:00",
+  "uretim_zamani": "2026-07-22T23:01:11.448940+00:00",
   "haberler": [
     {
-      "baslik": "A mantis shrimp punches with the force of a bullet",
-      "url": "https://en.wikipedia.org/wiki/Mantis_shrimp",
-      "ozet": "It boils the water around its claw",
-      "kaynak": "evergreen",
-      "skor": 900,
+      "baslik": "Ophiocordyceps Vs Bullet Ant: Mind-Control Battle on the Forest Floor",
+      "url": "https://en.wikipedia.org/wiki/Ophiocordyceps",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "A wolf pack can travel 30 miles in a single day",
-      "url": "https://en.wikipedia.org/wiki/Wolf",
-      "ozet": "Endurance hunters of the north",
-      "kaynak": "evergreen",
-      "skor": 900,
+      "baslik": "Grizzly Bear Vs Parasitic Tapeworm: Surviving a 30-Foot Invader",
+      "url": "https://en.wikipedia.org/wiki/Diphyllobothrium",
+      "kaynak": "gemini-fallback",
+      "skor": 996,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "A chameleon's tongue strikes faster than a sports car",
-      "url": "https://en.wikipedia.org/wiki/Chameleon",
-      "ozet": "0 to 60 in a hundredth of a second",
-      "kaynak": "evergreen",
-      "skor": 900,
+      "baslik": "Jewel Wasp Vs Cockroach: The Brutal Brain Surgery That Creates a Living Zombie",
+      "url": "https://en.wikipedia.org/wiki/Emerald_cockroach_wasp",
+      "kaynak": "gemini-fallback",
+      "skor": 992,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
