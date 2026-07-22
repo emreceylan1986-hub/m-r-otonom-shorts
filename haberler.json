@@ -1,27 +1,30 @@
 {
-  "uretim_zamani": "2026-07-21T22:55:15.942539+00:00",
+  "uretim_zamani": "2026-07-22T13:52:36.538867+00:00",
   "haberler": [
     {
-      "baslik": "Blood Falls: The Blood-Red Waterfall in Antarctica",
-      "url": "https://en.wikipedia.org/wiki/Blood_Falls",
-      "kaynak": "gemini-fallback",
-      "skor": 1000,
+      "baslik": "Owls can rotate their heads 270 degrees",
+      "url": "https://en.wikipedia.org/wiki/Owl",
+      "ozet": "Silent flight, deadly precision",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Kawah Ijen: The Volcano with Electric Blue Lava",
-      "url": "https://en.wikipedia.org/wiki/Ijen",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
+      "baslik": "Pufferfish inflate to three times their size to survive",
+      "url": "https://en.wikipedia.org/wiki/Pufferfish",
+      "ozet": "Cute, but deadly poisonous",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Great White Shark Vs Cage: The Hidden Force of a 4000 PSI Bite",
-      "url": "https://en.wikipedia.org/wiki/Great_white_shark",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
+      "baslik": "Dolphins call each other by unique names",
+      "url": "https://en.wikipedia.org/wiki/Dolphin",
+      "ozet": "Signature whistles for life",
+      "kaynak": "evergreen",
+      "skor": 900,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
