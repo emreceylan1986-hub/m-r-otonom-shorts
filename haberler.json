@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-07-22T23:01:11.448940+00:00",
+  "uretim_zamani": "2026-07-23T13:53:58.803309+00:00",
   "haberler": [
     {
-      "baslik": "Ophiocordyceps Vs Bullet Ant: Mind-Control Battle on the Forest Floor",
-      "url": "https://en.wikipedia.org/wiki/Ophiocordyceps",
+      "baslik": "Jumping Spider Vs Gravity: The Leap with a Safety Line",
+      "url": "https://en.wikipedia.org/wiki/Jumping_spider",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Grizzly Bear Vs Parasitic Tapeworm: Surviving a 30-Foot Invader",
-      "url": "https://en.wikipedia.org/wiki/Diphyllobothrium",
+      "baslik": "Cheetah Vs 0 to 60 MPH: The Ultimate Acceleration Machine",
+      "url": "https://en.wikipedia.org/wiki/Cheetah",
       "kaynak": "gemini-fallback",
-      "skor": 996,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Jewel Wasp Vs Cockroach: The Brutal Brain Surgery That Creates a Living Zombie",
-      "url": "https://en.wikipedia.org/wiki/Emerald_cockroach_wasp",
+      "baslik": "Moray Eel Strikes from the Deep with a Second Set of Hidden Jaws",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
-      "skor": 992,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
