@@ -1,9 +1,25 @@
 {
-  "uretim_zamani": "2026-07-23T18:13:12.436383+00:00",
+  "uretim_zamani": "2026-07-23T22:55:06.409191+00:00",
   "haberler": [
     {
-      "baslik": "The Portia Jumping Spider Hunts Other Predators Using Genius Mind Games",
-      "url": "https://en.wikipedia.org/wiki/Portia_(spider)",
+      "baslik": "Komodo Dragon Vs Wild Boar — Venom Ends the Fight",
+      "url": "https://en.wikipedia.org/wiki/Komodo_dragon",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Box Jellyfish: The Brainless Ocean Killer with 24 Eyes",
+      "url": "https://en.wikipedia.org/wiki/Box_jellyfish",
+      "kaynak": "gemini-fallback",
+      "skor": 999,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Moray Eel Vs Octopus: The Ultimate Deep-Sea Crevice War",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
