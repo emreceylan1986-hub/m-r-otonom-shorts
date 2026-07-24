@@ -1,25 +1,25 @@
 {
-  "uretim_zamani": "2026-07-20T22:59:40.019660+00:00",
+  "uretim_zamani": "2026-07-23T22:55:06.409191+00:00",
   "haberler": [
     {
-      "baslik": "Mountain Goat Vs 90° Cliff: How They Defy Gravity",
-      "url": "https://en.wikipedia.org/wiki/Mountain_goat",
+      "baslik": "Komodo Dragon Vs Wild Boar — Venom Ends the Fight",
+      "url": "https://en.wikipedia.org/wiki/Komodo_dragon",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Orca Vs Great White Shark: The Ocean's Apex Predator Battle",
-      "url": "https://en.wikipedia.org/wiki/Killer_whale",
+      "baslik": "Box Jellyfish: The Brainless Ocean Killer with 24 Eyes",
+      "url": "https://en.wikipedia.org/wiki/Box_jellyfish",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Chameleons: Nature's Masters of Disguise and Precision Hunting",
-      "url": "https://en.wikipedia.org/wiki/Chameleon",
+      "baslik": "Moray Eel Vs Octopus: The Ultimate Deep-Sea Crevice War",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
