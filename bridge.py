@@ -171,6 +171,14 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
                   f"yeniden ({deneme+1}/{_denemeler})", flush=True)
             time.sleep(bekle)
         except _genai_errors.ClientError as hata:  # 429 rate limit dahil
+            # 24 Tem: YEDEK model (flash-lite-latest) thinking_config kabul ETMIYOR ->
+            # 400 INVALID_ARGUMENT doner (canli API testiyle kanitlandi; Mindgaps run
+            # 30035752432 bu yuzden coktu). thinking'i dusur, ayni modelle tekrar dene.
+            if (getattr(hata, "code", None) == 400
+                    and getattr(config, "thinking_config", None) is not None):
+                print("[bridge] 400 INVALID_ARGUMENT + thinking_config -> thinking dusuruldu, tekrar", flush=True)
+                config.thinking_config = None
+                continue
             if getattr(hata, "code", None) == 404 and model != YEDEK_MODEL:
                 # Model emekliye ayrılmış (gemini-2.5-flash vakası, 10 Tem 2026):
                 # pipeline durmasın — 'hep güncel' alias'ıyla devam.
