@@ -83,12 +83,25 @@ def thumbnail_yt_set(video_id: str, png_yolu: Path) -> bool:
     creds = Credentials.from_authorized_user_file(str(PANEL_KOK / "token.json"), SCOPES)
     if creds.expired and creds.refresh_token: creds.refresh(Request())
     yt = build("youtube", "v3", credentials=creds, cache_discovery=False)
+    # 25 Tem: kanal DOGRULANMAMISSA (longUploadsStatus=eligible) YouTube ozel kapak
+    # yuklemeye izin vermez -> her run 403 "doesn't have permissions" + bosa kota.
+    # Bir kez gorulunce bayrak dosyasi yazilir, sonraki run'lar denemeden atlar.
+    # Emre kanali dogrulayinca (youtube.com/verify) bayragi silmek yeter.
+    IZIN_YOK = PANEL_KOK / ".thumbnail_izin_yok"
+    if IZIN_YOK.exists():
+        print("  Thumbnail atlandi: kanal dogrulanmamis (youtube.com/verify -> .thumbnail_izin_yok sil)")
+        return False
     try:
         yt.thumbnails().set(videoId=video_id,
                             media_body=MediaFileUpload(str(png_yolu), mimetype="image/png")).execute()
         return True
     except Exception as h:
-        print(f"  Thumbnail set fail: {str(h)[:140]}")
+        mesaj = str(h)
+        if "doesn't have permissions" in mesaj or "youtube.thumbnail" in mesaj:
+            IZIN_YOK.write_text("kanal dogrulanmamis - youtube.com/verify\n", encoding="utf-8")
+            print("  Thumbnail IZIN YOK -> kanal dogrulanmamis. Sonraki run'lar atlayacak.")
+        else:
+            print(f"  Thumbnail set fail: {mesaj[:140]}")
         return False
 
 
