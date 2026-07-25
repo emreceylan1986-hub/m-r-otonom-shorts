@@ -1,27 +1,11 @@
 {
-  "uretim_zamani": "2026-07-25T13:01:53.114429+00:00",
+  "uretim_zamani": "2026-07-25T20:06:51.678266+00:00",
   "haberler": [
     {
-      "baslik": "The Madagascan Aye-Aye: The Nightmare Lemur with a Ghostly Tap Finger",
-      "url": "https://en.wikipedia.org/wiki/Aye-aye",
+      "baslik": "Cinereous Vulture: Eating Corrosive Anthrax Without Getting Sick",
+      "url": "https://en.wikipedia.org/wiki/Cinereous_vulture",
       "kaynak": "gemini-fallback",
-      "skor": 997,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "The Shrike: The Cute Songbird That Implales Its Prey on Sharp Thorns",
-      "url": "https://en.wikipedia.org/wiki/Loggerhead_shrike",
-      "kaynak": "gemini-fallback",
-      "skor": 994,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "The Lyrebird: The Master Mimic That Imitates Chainsaws and Alarms Perfectly",
-      "url": "https://en.wikipedia.org/wiki/Superb_lyrebird",
-      "kaynak": "gemini-fallback",
-      "skor": 992,
+      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
