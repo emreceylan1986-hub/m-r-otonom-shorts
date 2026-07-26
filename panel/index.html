@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f26" />
+  <title>M-R Kanal Paneli</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="M-R Panel" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🛰️</span>
+      <div>
+        <div class="brand-title">M-R Kanal Paneli</div>
+        <div class="brand-sub" id="guncelleme">yükleniyor…</div>
+      </div>
+    </div>
+    <button id="yenile" class="icon-btn" title="Yenile">↻</button>
+  </header>
+
+  <nav class="tabs" id="tabs"><!-- kanal sekmeleri JS ile --></nav>
+
+  <main id="icerik">
+    <div class="loader">Veriler yükleniyor…</div>
+  </main>
+
+  <footer class="footer">
+    Veri kaynağı: pipeline JSON çıktıları · GitHub Pages
+  </footer>
+
+  <div id="kurulum" class="install-hint" hidden>
+    📲 Ana ekrana eklemek için: paylaş menüsü → <b>"Ana Ekrana Ekle"</b>
+    <button id="kurBtn" hidden>Yükle</button>
+    <button id="kapatHint" class="x">✕</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -43,6 +43,28 @@ python montajci.py
 python yukleyici.py --gizlilik private
 ```
 
+## Çok-kanal (Faz 22)
+
+Pipeline artık birden çok kanalı tek kod tabanından besler. Aktif kanal `KANAL`
+env değişkeniyle seçilir; ayarlı değilse **`trendcatcher`** (eski davranış birebir).
+
+```bash
+python yukleyici.py                      # TrendCatcher (token.json)
+KANAL=cosmobytes python yukleyici.py     # CosmoBytes  (token_cosmobytes.json)
+KANAL=cosmobytes python kanal_setup.py   # CosmoBytes branding/playlist kurulumu
+```
+
+Kanal tanımları (token dosyası, branding, playlist, keyword, CTA) `kanal_config.py`
+içindedir. Yeni kanal eklemek: `KANALLAR` sözlüğüne giriş + o kanalın token'ını
+secret olarak yerleştir.
+
+| Secret (kanal başına) | İçerik |
+|---|---|
+| `TOKEN_JSON` | TrendCatcher token (mevcut) |
+| `TOKEN_COSMOBYTES_JSON` | CosmoBytes `token_cosmobytes.json` (OAuth sonrası) |
+
+> ⚠️ Token'lar **asla** repoya commit'lenmez (`.gitignore`: `token_*.json`).
+
 ## Kotalar
 
 - **YouTube Data API v3:** 10 000 unit/gün, 1 upload ≈ 1 600 unit → günde maks 6 yükleme

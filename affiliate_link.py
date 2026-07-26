@@ -13,6 +13,11 @@ Stratejiler:
 Aktif olması için env'de ilgili affiliate tag/code'lar olmalı:
     AMAZON_ASSOCIATES_TAG=trendcatcher-20
     ALIEXPRESS_AFF_KEY=xxx
+    EXTRA_AFFILIATE_LINES="📷 Binoculars: https://amzn.to/xx||📚 Guide: https://..."
+
+Faz 21.7 — "İstiflenmiş affiliate" dersi (q_GwdwSilIA video analizi): yüksek
+dönüşümlü kanallar tek değil, niş-içi BİRDEN FAZLA hazır affiliate linki istifler.
+EXTRA_AFFILIATE_LINES ile creator kendi hazır linklerini '||' ayracıyla istifler.
 
 NOT: Hiç tag yoksa açıklamaya hiçbir şey eklenmez — güvenli no-op.
 
@@ -45,13 +50,8 @@ NIS_PRODUCT_HARITASI = {
 }
 
 
-def _aff_tag(servis: str) -> str | None:
-    """Env veya .env'den affiliate code oku."""
-    key = {
-        "amazon": "AMAZON_ASSOCIATES_TAG",
-        "aliexpress": "ALIEXPRESS_AFF_KEY",
-    }.get(servis)
-    if not key: return None
+def _env(key: str) -> str | None:
+    """Env veya .env'den ham bir değer oku."""
     v = os.environ.get(key)
     if v: return v
     envf = PANEL_KOK / ".env"
@@ -60,6 +60,32 @@ def _aff_tag(servis: str) -> str | None:
             if line.startswith(f"{key}="):
                 return line.split("=", 1)[1].strip()
     return None
+
+
+def _aff_tag(servis: str) -> str | None:
+    """Env veya .env'den affiliate code oku."""
+    key = {
+        "amazon": "AMAZON_ASSOCIATES_TAG",
+        "aliexpress": "ALIEXPRESS_AFF_KEY",
+    }.get(servis)
+    if not key: return None
+    return _env(key)
+
+
+def _ek_affiliate_satirlari() -> list[str]:
+    """Faz 21.7 — 'İstiflenmiş affiliate' dersi (q_GwdwSilIA analizi).
+
+    Yüksek dönüşümlü kanallar açıklamaya TEK link değil, niş-içi BİRDEN FAZLA
+    hazır affiliate linki istifler. Burada URL şeması uydurmuyoruz: creator
+    önceden ürettiği tam linkleri env'e koyar, biz aynen ekleriz.
+
+    EXTRA_AFFILIATE_LINES formatı (her satır bir link, '||' ile ayrılır):
+        "📷 Field binoculars: https://amzn.to/xxx||📚 Nature guide: https://..."
+    Hiç tanımlı değilse boş döner (güvenli no-op)."""
+    ham = _env("EXTRA_AFFILIATE_LINES")
+    if not ham:
+        return []
+    return [s.strip() for s in ham.split("||") if s.strip()]
 
 
 def en_uygun_keyword(baslik: str, tags: list[str]) -> str | None:
@@ -82,20 +108,22 @@ def aciklama_zenginleştir(aciklama: str, baslik: str, tags: list[str] = None) -
     """Açıklamaya konuyla ilgili affiliate link bloğu ekle. Aktif tag yoksa
     no-op (güvenli)."""
     tags = tags or []
-    keyword = en_uygun_keyword(baslik, tags)
-    if not keyword:
-        return aciklama
-
     blok_satirlari = []
 
+    # 1) Konuya göre eşleşen Amazon arama linki (mevcut davranış)
+    keyword = en_uygun_keyword(baslik, tags)
     amazon_tag = _aff_tag("amazon")
-    if amazon_tag:
+    if keyword and amazon_tag:
         blok_satirlari.append(f"📖 Related read: {amazon_link(keyword, amazon_tag)}")
+
+    # 2) İstiflenmiş ek affiliate linkleri (env'de hazır verilmişse)
+    blok_satirlari.extend(_ek_affiliate_satirlari())
 
     if not blok_satirlari:
         return aciklama
 
-    blok = "\n\n--\n" + "\n".join(blok_satirlari) + "\n(As an Amazon Associate, we earn from qualifying purchases.)"
+    dipnot = "\n(As an Amazon Associate, we earn from qualifying purchases.)" if amazon_tag and keyword else "\n(Some links are affiliate links — we may earn a commission.)"
+    blok = "\n\n--\n" + "\n".join(blok_satirlari) + dipnot
     return aciklama.rstrip() + blok
 
 

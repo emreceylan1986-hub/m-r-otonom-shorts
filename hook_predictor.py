@@ -25,6 +25,9 @@ A GOOD hook:
 - Punchy, max 8 words
 - Concrete subject (animal, place, phenomenon)
 - Specific/surprising detail (number, comparison, contradiction)
+- Implies a PAYOFF the viewer wants delivered (a question the body answers).
+  High-retention videos open a concrete curiosity gap and then close it —
+  the hook should make the rest of the clip feel worth finishing.
 - NO clickbait words (shocking, insane, crazy, secret, you won't believe)
 - NO question mark
 - NO generic openers ("did you know...", "let me tell you...", "today we look at...")
