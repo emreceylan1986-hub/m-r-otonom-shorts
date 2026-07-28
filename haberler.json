@@ -1,19 +1,11 @@
 {
-  "uretim_zamani": "2026-07-27T20:15:07.198167+00:00",
+  "uretim_zamani": "2026-07-28T13:32:34.443333+00:00",
   "haberler": [
     {
-      "baslik": "Alpine Ibex Vs 90° Vertical Cliff For Salt",
-      "url": "https://en.wikipedia.org/wiki/Alpine_ibex",
+      "baslik": "Tiger Vs Wild Boar: When an Apex Ambush Goes Wrong",
+      "url": "https://en.wikipedia.org/wiki/Tiger",
       "kaynak": "gemini-fallback",
       "skor": 1000,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Great White Shark Vs Orca In Deep Ocean Battle",
-      "url": "https://en.wikipedia.org/wiki/Killer_whale%E2%80%93shark_interactions",
-      "kaynak": "gemini-fallback",
-      "skor": 998,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
