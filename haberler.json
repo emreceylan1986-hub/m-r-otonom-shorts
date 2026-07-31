@@ -1,25 +1,17 @@
 {
-  "uretim_zamani": "2026-07-30T20:12:51.331592+00:00",
+  "uretim_zamani": "2026-07-31T13:42:18.104647+00:00",
   "haberler": [
     {
-      "baslik": "Box Jellyfish: The Invisible Ocean Predator with a Lethal Sting",
-      "url": "https://en.wikipedia.org/wiki/Box_jellyfish",
+      "baslik": "Emperor Penguin Vs -60°C Antarctic Blizzards",
+      "url": "https://en.wikipedia.org/wiki/Emperor_penguin",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Pistol Shrimp Vs Crab: Shockwave Stun Attack Faster Than a Bullet",
-      "url": "https://en.wikipedia.org/wiki/Alpheidae",
-      "kaynak": "gemini-fallback",
-      "skor": 999,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Stonefish: The Master of Camouflage That Can Kill in Hours",
-      "url": "https://en.wikipedia.org/wiki/Synanceia",
+      "baslik": "Saharan Silver Ant Vs 50°C Desert Sand",
+      "url": "https://en.wikipedia.org/wiki/Silver_ant",
       "kaynak": "gemini-fallback",
       "skor": 998,
       "yas_saat": 0,
