@@ -546,5 +546,28 @@ def main() -> int:
         return 5
 
 
+
+
+def _gunluk_tavan_kontrolu(tavan: int = 5) -> None:
+    """31 Tem 2026 — yığın basım sigortası. 2 Tem'de 83 videonun tek günde
+    yayınlanması TrendCatcher'ın feed dağıtımını kalıcı öldürdü. Bu guard,
+    kaynağı ne olursa olsun (cron kazası, elle tetik, script hatası) bir günde
+    tavandan fazla upload'u KOD SEVİYESİNDE imkânsızlaştırır."""
+    import sys as _sys
+    from datetime import datetime as _dt, timezone as _tz
+    try:
+        kayitlar = json.loads(YUKLEME_LOGU.read_text(encoding="utf-8"))
+    except Exception:
+        return  # log okunamıyorsa upload'u engelleme
+    bugun = _dt.now(_tz.utc).strftime("%Y-%m-%d")
+    sayi = sum(1 for k in kayitlar
+               if str(k.get("zaman", k.get("tarih", "")))[:10] == bugun)
+    if sayi >= tavan:
+        print(f"⛔ GÜNLÜK UPLOAD TAVANI: bugün {sayi} yayın var (tavan {tavan}). "
+              f"Yığın basım koruması — upload atlandı.", flush=True)
+        _sys.exit(0)
+
+
 if __name__ == "__main__":
+    _gunluk_tavan_kontrolu()
     sys.exit(main())
