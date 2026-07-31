@@ -1,19 +1,19 @@
 {
-  "uretim_zamani": "2026-07-31T13:42:18.104647+00:00",
+  "uretim_zamani": "2026-07-31T20:17:17.427724+00:00",
   "haberler": [
     {
-      "baslik": "Emperor Penguin Vs -60°C Antarctic Blizzards",
-      "url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+      "baslik": "Orca Vs Great White Shark: The Ultimate Deep-Sea Apex Predator Battle",
+      "url": "https://en.wikipedia.org/wiki/Killer_whale",
       "kaynak": "gemini-fallback",
       "skor": 1000,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Saharan Silver Ant Vs 50°C Desert Sand",
-      "url": "https://en.wikipedia.org/wiki/Silver_ant",
+      "baslik": "Emperor Penguin Vs -60°C Antarctic Blizzard: Surviving Nature's Deep Freeze",
+      "url": "https://en.wikipedia.org/wiki/Emperor_penguin",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
