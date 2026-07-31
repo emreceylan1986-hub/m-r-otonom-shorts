@@ -138,7 +138,11 @@ def _sonraki_anahtara_gec() -> bool:
 
 
 def _client() -> genai.Client:
-    return genai.Client(api_key=_api_anahtarini_oku())
+    # 31 Tem: HTTP zaman asimi (180sn) — 503 sonrasi ASILI KALAN cagri 35dk workflow
+    # timeout'una carpip run'i iptal ettiriyordu (Akasha 29 Tem 12:00+17:13, 2 slot kaybi).
+    # TIMEOUT_SN sabiti tanimliydi ama hic kullanilmamisti; asil sigorta bu satir.
+    return genai.Client(api_key=_api_anahtarini_oku(),
+                        http_options=types.HttpOptions(timeout=180_000))  # milisaniye
 
 
 def _generate_retry(model: str, contents, config, _denemeler: int = 9):
@@ -205,6 +209,22 @@ def _generate_retry(model: str, contents, config, _denemeler: int = 9):
                 time.sleep(bekle)
             else:
                 raise
+        except Exception as hata:
+            # 31 Tem: httpx.ReadError/ConnectError gibi AG hatalari genai'nin
+            # ServerError/ClientError siniflarina GIRMIYOR — tek baglanti kopmasi
+            # pipeline'i cokertiyordu (Mindgaps 29 Tem run 30481446710).
+            # Sadece tasima-katmani hatalarini yakala; mantik hatalarini YUTMA.
+            ad = type(hata).__name__
+            if ad not in ("ReadError", "ConnectError", "ConnectTimeout", "ReadTimeout",
+                          "WriteError", "RemoteProtocolError", "PoolTimeout",
+                          "NetworkError", "TimeoutException", "ConnectionError",
+                          "ConnectionResetError", "TimeoutError"):
+                raise
+            son_hata = hata
+            bekle = min(2 ** (deneme + 1), 90)
+            print(f"[bridge] ag hatasi {ad} — {bekle}s sonra yeniden "
+                  f"({deneme+1}/{_denemeler})", flush=True)
+            time.sleep(bekle)
     raise RuntimeError(f"Gemini {_denemeler} denemede de yanıt vermedi: {son_hata}")
 
 
