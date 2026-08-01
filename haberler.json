@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-08-01T12:57:05.149782+00:00",
+  "uretim_zamani": "2026-08-01T20:05:57.504306+00:00",
   "haberler": [
     {
-      "baslik": "Peregrine Falcon Vs Gravity: The 240 MPH Death Dive",
-      "url": "https://en.wikipedia.org/wiki/Peregrine_falcon",
+      "baslik": "Secretarybird Stomp Force Equals 5 Times Its Body Weight",
+      "url": "https://en.wikipedia.org/wiki/Secretarybird",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Secretarybird: The Raptor That Kicks Cobras to Death",
-      "url": "https://en.wikipedia.org/wiki/Secretarybird",
+      "baslik": "Harris's Hawks Hunt in Packs Like Wolves",
+      "url": "https://en.wikipedia.org/wiki/Harris%27s_hawk",
       "kaynak": "gemini-fallback",
-      "skor": 998,
+      "skor": 996,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Moray Eel Vs Octopus: The Ultimate Deep-Sea Crevice Battle",
+      "baslik": "Moray Eel Vs Octopus: The Battle of the Double Jaws",
       "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
-      "skor": 996,
+      "skor": 993,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
