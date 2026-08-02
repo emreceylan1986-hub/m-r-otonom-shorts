@@ -1,27 +1,27 @@
 {
-  "uretim_zamani": "2026-08-01T20:05:57.504306+00:00",
+  "uretim_zamani": "2026-08-02T12:59:16.679657+00:00",
   "haberler": [
     {
-      "baslik": "Secretarybird Stomp Force Equals 5 Times Its Body Weight",
-      "url": "https://en.wikipedia.org/wiki/Secretarybird",
+      "baslik": "Vampire Squid Vs The Oxygen Minimum Zone",
+      "url": "https://en.wikipedia.org/wiki/Vampire_squid",
+      "kaynak": "gemini-fallback",
+      "skor": 1000,
+      "yas_saat": 0,
+      "yorum_sayisi": 0
+    },
+    {
+      "baslik": "Moray Eel Vs Octopus: The Ultimate Crevice War",
+      "url": "https://en.wikipedia.org/wiki/Moray_eel",
       "kaynak": "gemini-fallback",
       "skor": 999,
       "yas_saat": 0,
       "yorum_sayisi": 0
     },
     {
-      "baslik": "Harris's Hawks Hunt in Packs Like Wolves",
-      "url": "https://en.wikipedia.org/wiki/Harris%27s_hawk",
+      "baslik": "Mimic Octopus: The Ultimate Deep-Sea Shapeshifter",
+      "url": "https://en.wikipedia.org/wiki/Mimic_octopus",
       "kaynak": "gemini-fallback",
-      "skor": 996,
-      "yas_saat": 0,
-      "yorum_sayisi": 0
-    },
-    {
-      "baslik": "Moray Eel Vs Octopus: The Battle of the Double Jaws",
-      "url": "https://en.wikipedia.org/wiki/Moray_eel",
-      "kaynak": "gemini-fallback",
-      "skor": 993,
+      "skor": 997,
       "yas_saat": 0,
       "yorum_sayisi": 0
     }
