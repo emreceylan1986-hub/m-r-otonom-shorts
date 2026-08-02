@@ -5,11 +5,12 @@ name: Yedek Tetik (kaçan saatleri kurtar)
 # Ana saatler: 12, 19 UTC (TC — 24 Tem kurtarma protokolü, 2/gün)
 # Eğer son 1 saat içinde başarılı bir run yoksa → ana pipeline'ı tetikler.
 
+# 1 Ağu 2026: ana yayın durduruldu → yedek tetik de kapalı (yoksa main'i
+# "kaçan saat" sanıp tetikler). Geri açarken main.yml ile BİRLİKTE aç:
+#     schedule:
+#       - cron: "*/30 12-23 * * *"
+
 on:
-  schedule:
-    # 1 Ağu 2026: ana yayın durduruldu → yedek tetik de kapalı (yoksa main'i
-    # "kaçan saat" sanıp tetikler). Birlikte açılır, birlikte kapanır.
-    # - cron: "*/30 12-23 * * *"
   workflow_dispatch:
 
 permissions:
