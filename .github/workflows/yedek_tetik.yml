@@ -7,7 +7,9 @@ name: Yedek Tetik (kaçan saatleri kurtar)
 
 on:
   schedule:
-    - cron: "*/30 12-23 * * *"  # 12-23 UTC arası her 30 dk
+    # 1 Ağu 2026: ana yayın durduruldu → yedek tetik de kapalı (yoksa main'i
+    # "kaçan saat" sanıp tetikler). Birlikte açılır, birlikte kapanır.
+    # - cron: "*/30 12-23 * * *"
   workflow_dispatch:
 
 permissions:

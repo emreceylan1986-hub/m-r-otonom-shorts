@@ -5,7 +5,11 @@ on:
     # TR 15:00, 19:00, 22:00, 01:00 → UTC 12:00, 16:00, 19:00, 22:00 (TR = UTC+3)
     # Faz 4: günlük 2 → 3 video. Faz 10 (16 Haz): 3 → 4 video.
     # 22 UTC = ABD East 18:00 prime time + Asya sabah 06:00.
-    - cron: "0 12,19 * * *"  # 24 Tem: kurtarma protokolü — 3→2 video/gün (2 Tem 83-video yığını sonrası feed cezası; 7 Ağu ölçüm)
+    # 1 Ağu 2026 — YAYIN DURDURULDU (Emre kararı). Kanıt: son 7 günde 16 video →
+    # toplam 28 izlenme (video başı ~1,8); 2 Tem yığın basımından beri feed kesik,
+    # 4 haftalık kurtarma protokolü sonuç vermedi. Kanal/videolar SİLİNMEDİ.
+    # Yeniden başlatmak için: aşağıdaki satırın başındaki # kaldır.
+    # - cron: "0 12,19 * * *"
   workflow_dispatch:
     inputs:
       gizlilik:
