@@ -548,8 +548,13 @@ def main() -> int:
 
 
 
-def _gunluk_tavan_kontrolu(tavan: int = 5) -> None:
-    """31 Tem 2026 — yığın basım sigortası. 2 Tem'de 83 videonun tek günde
+def _gunluk_tavan_kontrolu(tavan: int = 2) -> None:
+    """31 Tem: yığın basım sigortası · 7 Ağu: GÜNLÜK HEDEF kapısına dönüştü.
+    Tavan = kanalın günlük video hedefi (2). main.yml'de hedeften FAZLA cron
+    saati var; kaçan slotlar sonraki saatte telafi edilir, hedef dolunca fazla
+    çalışmalar burada zarifçe durur. (Eski "yedek tetik" workflow'u GITHUB_TOKEN
+    ile yeni run başlatamadığı için HİÇ çalışmamıştı — bu tasarım onun yerine geçer.)
+    Orijinal gerekçe: 2 Tem'de 83 videonun tek günde
     yayınlanması TrendCatcher'ın feed dağıtımını kalıcı öldürdü. Bu guard,
     kaynağı ne olursa olsun (cron kazası, elle tetik, script hatası) bir günde
     tavandan fazla upload'u KOD SEVİYESİNDE imkânsızlaştırır."""
