@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CosmoBytes kanal ilk kurulum scripti — workflow_dispatch ile tetiklenir.
+TrendCatcher kanal ilk kurulum scripti — workflow_dispatch ile tetiklenir.
 
 Yaptıkları:
   1. Kanal "About" / description doldur (brandingSettings.channel.description)
