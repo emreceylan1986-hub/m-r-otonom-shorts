@@ -151,7 +151,7 @@ def _metadata_dogrula(veri: dict) -> dict:
     cta_sonek = (
         "\n\n━━━━━━━━━━━━━━━━━━━━\n"
         "🌍 Subscribe for daily wild facts:\n"
-        "https://youtube.com/@TrendCatcher?sub_confirmation=1\n\n"
+        "https://youtube.com/@trendcatchervideos?sub_confirmation=1\n\n"
         "🎬 More extreme nature shorts:\n"
         "• Extreme Animals: https://www.youtube.com/playlist?list=PLnsj6ktxididsCSk4MCXcjLanaNsm5Rh7\n"
         "• Anomaly Places: https://www.youtube.com/playlist?list=PLnsj6ktxidifsZko8kPFAEjC0ZZwOvDMd\n"

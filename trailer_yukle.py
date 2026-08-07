@@ -33,7 +33,7 @@ Four new shorts every day at 3 PM, 7 PM, 10 PM and 1 AM (TR).
 
 For the curious. For the explorer. For anyone who still wonders.
 
-Subscribe → https://youtube.com/@TrendCatcher?sub_confirmation=1
+Subscribe → https://youtube.com/@trendcatchervideos?sub_confirmation=1
 
 #Shorts #nature #wildlife #animals #science #anomaly"""
 
