@@ -75,7 +75,11 @@ def multilang_caption(veri: dict) -> bool:
         r = subprocess.run(
             ["python3", str(PANEL_KOK / "multilang_caption.py"),
              veri["video_id"], str(senaryo_yolu),
-             "--diller", "tr,es,pt"],
+             # 7 Ağu KOTA FIX: 3 dil = 1200 birim/video. upload(1600)×4 + captions(1200)×4
+             # = 11.200 > 10.000 günlük limit → günün son videosunda kota bitiyor ve
+             # kapak/altyazı/yorum sessizce düşüyordu (3 gecede kanıtlandı). Tek dile
+             # indirildi: 400 birim/video, günlük toplam ~8.000 (güvenli bölge).
+             "--diller", "es"],
             timeout=120, capture_output=True, text=True,
         )
         print(r.stdout[-500:])
