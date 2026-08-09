@@ -112,65 +112,88 @@ def _jamendo_anahtarini_oku() -> str:
 JAMENDO_URL = "https://api.jamendo.com/v3.0/tracks/"
 MUZIK_SES_DB = "-22dB"  # arka plan TTS'in altında kalsın
 
+# 9 Ağu: doğa/atmosfer havuzu (kanal yayını durdurulmuş; kod güvenliği için).
+DOGA_ARAMALAR = [
+    "atmospheric drone", "deep ambient", "cinematic ambient",
+    "nature ambient", "calm drone",
+]
+MUZIK_KARA_LISTE = ("heart chakra", "macroform")
+
 
 def jamendo_muzik_indir(arama: str, hedef_mp3: Path, client_id: str) -> bool:
     """
-    Jamendo Music API'den arka plan müziği indir (Creative Commons).
-    arama: senaryo anahtar kelimesinden türetilmiş ton (örn 'nature ambient').
+    Jamendo'dan arka plan müziği indir — MİSTİK, YAVAŞ, TİCARİ KULLANIMA AÇIK.
+
+    7 Ağu 2026 — üç ayrı kök sorun düzeltildi (hepsi canlı API testiyle kanıtlı):
+    1) Emre talimatı: "hareketli müzik koyma, mistik/ney olsun" → `speed=verylow`
+       + sabit MISTIK_ARAMALAR havuzu (eskiden görsel anahtar kelimesinden
+       türetiliyordu, "prayer ambient" gibi tempolu parça getirebiliyordu).
+    2) 🔴 `license_ccby` ve `duration_between` parametreleri Jamendo tarafından
+       TANINMIYOR — API "not recognized" uyarısı döndürüyor. Yani 20 Tem'de telif
+       koruması diye eklenen filtre AYLARDIR HİÇ ÇALIŞMAMIŞ. Doğru yazım
+       `durationbetween`; lisans filtresi ise API'de yok → sonuç KOD İÇİNDE süzülüyor.
+    3) Lisans gerçeği: parçaların çoğu `ccnc=true` (ticari kullanım YASAK). Kanal
+       monetize hedeflediği için bunlar kullanılamaz. Artık yalnız ccnc=false
+       (ticari serbest) parçalar kabul ediliyor; ccnd=false tercih ediliyor.
     """
     if not client_id:
         return False
+
+    def _sorgu(tags: str | None):
+        p = {
+            "client_id": client_id, "format": "json", "limit": 30,
+            "audioformat": "mp31", "search": arama,
+            "durationbetween": "25_180",          # DİKKAT: alt çizgisiz (API böyle istiyor)
+            "include": "musicinfo+licenses",      # lisans süzmek için şart
+            "order": "relevance",                 # "random" GEÇERSİZ (20 Tem dersi)
+            "speed": "verylow",                   # 7 Ağu: hareketli müzik YASAK
+        }
+        if tags:
+            p["tags"] = tags
+        r = requests.get(JAMENDO_URL, params=p, timeout=ISTEK_ZAMAN_ASIMI)
+        r.raise_for_status()
+        return (r.json() or {}).get("results") or []
+
+    def _uygun(tracks):
+        """Ticari kullanıma açık + kara listede olmayan parçalar."""
+        temiz = []
+        for tr in tracks:
+            ad = f"{tr.get('name','')} {tr.get('artist_name','')}".lower()
+            if any(k in ad for k in MUZIK_KARA_LISTE):
+                continue
+            lic = tr.get("licenses") or {}
+            # ccnc=true → NonCommercial → monetize edilen kanalda KULLANILAMAZ
+            if str(lic.get("ccnc", "")).lower() == "true":
+                continue
+            if not (tr.get("audio") or tr.get("audiodownload")):
+                continue
+            temiz.append(tr)
+        return temiz
+
     try:
-        yanit = requests.get(
-            JAMENDO_URL,
-            params={
-                "client_id": client_id,
-                "format": "json",
-                "limit": 20,
-                "audioformat": "mp31",
-                "search": arama,
-                "tags": "cinematic+ambient+nature",
-                "duration_between": "25_180",
-                "include": "musicinfo",
-                # 20 Tem TELİF FIX: distribütörler (Adrev vb.) popüler Jamendo
-                # parçalarını YouTube Content ID'ye ayrıca kaydediyor — CC
-                # lisans olsa bile "dünya genelinde bloklanma" riski taşıyordu
-                # (kanıt: sf3WFM8aflU, "Heart Chakra - Macroform" claim'i).
-                # order=popularity KALDIRILDI (popüler=en çok claim riski),
-                # license_ccby=1 eklendi (sadece gerçek attribution-CC).
-                "order": "relevance",  # 20 Tem: random GECERSIZ deger (Jamendo API reddediyor)
-                "license_ccby": "1",
-            },
-            timeout=ISTEK_ZAMAN_ASIMI,
-        )
-        yanit.raise_for_status()
-        tracks = (yanit.json() or {}).get("results") or []
-        if not tracks:
-            # Geniş bant — tag'siz tekrar dene
-            yanit = requests.get(
-                JAMENDO_URL,
-                params={
-                    "client_id": client_id, "format": "json", "limit": 10,
-                    "audioformat": "mp31", "search": arama,
-                    "duration_between": "25_180",
-                    "order": "relevance",  # 20 Tem: random GECERSIZ deger (Jamendo API reddediyor)
-                    "license_ccby": "1",
-                },
-                timeout=ISTEK_ZAMAN_ASIMI,
-            )
-            yanit.raise_for_status()
-            tracks = (yanit.json() or {}).get("results") or []
-        if not tracks:
+        # 1) dar (mistik tag'li) → 2) gevşek (tag'siz) — ikisi de lisans süzgecinden geçer
+        adaylar = _uygun(_sorgu("meditation+ambient"))
+        if not adaylar:
+            adaylar = _uygun(_sorgu(None))
+        if not adaylar:
+            print(f"   ↳ Jamendo: '{arama}' için ticari-uygun mistik parça bulunamadı")
             return False
-        sec = tracks[0]
+
+        # ccnd=false (türev serbest) olanlar öncelikli; tekdüzelik olmasın diye ilk 5'ten rastgele
+        import random as _random
+        tercih = [a for a in adaylar if str((a.get("licenses") or {}).get("ccnd", "")).lower() != "true"]
+        havuz = (tercih or adaylar)[:5]
+        sec = _random.choice(havuz)
+
         mp3_url = sec.get("audio") or sec.get("audiodownload")
-        if not mp3_url:
-            return False
         indir = requests.get(mp3_url, stream=True, timeout=INDIRME_ZAMAN_ASIMI)
         indir.raise_for_status()
-        with open(hedef_mp3, "wb") as f:
+        with open(hedef_mp3, "wb") as f_out:
             for parca in indir.iter_content(chunk_size=1 << 15):
-                f.write(parca)
+                f_out.write(parca)
+        lic = sec.get("licenses") or {}
+        print(f"   ↳ Müzik: '{sec.get('name','?')[:40]}' — {sec.get('artist_name','?')[:20]} "
+              f"(ticari:✓ ccnd={lic.get('ccnd')})")
         return True
     except (requests.RequestException, KeyError, ValueError, OSError) as e:
         print(f"   ↳ Jamendo müzik indirilemedi: {e}")
@@ -668,9 +691,17 @@ def main() -> int:
             if not muzik_key:
                 _alt("Müzik atlandı: Jamendo key yok + Suno kütüphane boş.")
             else:
-                muzik_arama = (keywords[0] if keywords else "nature") + " ambient"
-                _alt(f"DEBUG: Jamendo arama sorgusu='{muzik_arama}'")
-                muzik_var = jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key)
+                # 9 Ağu: görsel anahtar kelimesinden türetme KALDIRILDI (tempolu parça
+                # getirebiliyordu). Sabit ton havuzu + speed=verylow; ticari-uygun havuz
+                # dar olduğu için bir terim boş dönerse SIRADAKİNİ dener.
+                import random as _rnd
+                _havuz = _rnd.sample(DOGA_ARAMALAR, len(DOGA_ARAMALAR))
+                muzik_var = False
+                for muzik_arama in _havuz[:4]:
+                    _alt(f"DEBUG: Jamendo arama sorgusu='{muzik_arama}'")
+                    if jamendo_muzik_indir(muzik_arama, muzik_yolu, muzik_key):
+                        muzik_var = True
+                        break
                 if muzik_var:
                     _alt(f"Müzik (Jamendo): '{muzik_arama}' → {muzik_yolu.name} ({muzik_yolu.stat().st_size/1024:.0f} KB)")
                 else:
