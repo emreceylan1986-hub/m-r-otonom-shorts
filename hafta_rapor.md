@@ -1,9 +1,9 @@
 # 📊 TrendCatcher — Haftalık Rapor
-_2026-11-02T01:07+00:00_
+_2026-11-09T01:18+00:00_
 
 ## Özet
 - **Abone:** 47 (+0 bu hafta)
-- **Toplam view:** 47,688 (+33 bu hafta)
+- **Toplam view:** 47,724 (+36 bu hafta)
 - **Toplam video:** 170
 - **Son 7 gün:** 0 video, 0 izl, ort 0/video
 - **<50 izl video sayısı:** 0/0 (kalite_temizleyici aday)
